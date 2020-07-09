@@ -1,7 +1,14 @@
 package dev.socialcode.socialcode.models;
 
 import com.fasterxml.jackson.annotation.JsonTypeId;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.hibernate.validator.constraints.NotBlank;
+
+
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="posts")
@@ -11,12 +18,12 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Title can't be empty.")
-    @Size(min = 3, message = "A title must be at least 3 characters.")
+    @NotBlank(message = "required")
+    @Size(min = 3, message = "must be at least 3 characters")
     @Column(nullable = false)
     private String title;
 
-    @NotBlank(message = "Body can't be empty")
+    @NotBlank(message = "required")
     @Column(nullable = false, length = 3000)
     private String body;
 
@@ -25,18 +32,17 @@ public class Post {
     @Column(name = "create_date")
     private Date createDate;
 
-    @Column (nullable = false, length = 255)
+    @Column (name = "event_date", nullable = false, length = 255)
     //use String or Date?
-    private Date date;
+    private Date eventDate;
 
-    @Column (nullable = false, length = 255)
-    private String time;
+    @Column (name = "event_time", nullable = false, length = 255)
+    private Date eventTime;
 
     //is this what allows us to pull in the user name, email, & picture?
-    @ManyToOne
-    @JsonManagedReference
+    @OneToOne
+//    @JsonManagedReference
     private User user;
-
 
     @ManyToMany
     @JoinTable(
@@ -51,6 +57,114 @@ public class Post {
 
 
 
-    //include getters and setters
+
+    //GETTERS and SETTERs
+
+    //add user, user picture
+    public Post(Long id, String title, String body, List<Comment> comments, List<Category> categories, Date createDate, Date eventDate, Date eventTime) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
+        this.comments = comments;
+        this.categories = categories;
+        this.createDate = createDate;
+        this.eventDate = eventDate;
+        this.eventTime = eventTime;
+    }
+
+    //add user info
+    public Post(String title, String body, List<Comment> comments, List<Category> categories, Date createDate, Date eventDate, Date eventTime) {
+        this.title = title;
+        this.body = body;
+        this.comments = comments;
+        this.categories = categories;
+        this.createDate = createDate;
+        this.eventDate = eventDate;
+        this.eventTime = eventTime;
+    }
+
+    public Post() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public Date getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(Date eventDate) {
+        this.eventDate = eventDate;
+    }
+
+    public Date getEventTime() {
+        return eventTime;
+    }
+
+    public void setEventTime(Date eventTime) {
+        this.eventTime = eventTime;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+
+    @Override
+    public String toString(){
+        return "Title: "+ this.getTitle() + " Body: "+ this.getBody();
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+
+
 
 }

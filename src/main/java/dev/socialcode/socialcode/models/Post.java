@@ -58,7 +58,6 @@ public class Post {
 
 
 
-    //GETTERS and SETTERs
 
     //add user, user picture
     public Post(Long id, String title, String body, List<Comment> comments, List<Category> categories, Date createDate, Date eventDate, Date eventTime) {

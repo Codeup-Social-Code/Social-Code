@@ -50,6 +50,10 @@ public class User {
         private List<Post> posts;
 
 
+        public User() {
+
+        }
+
         public long getId() {
                 return id;
         }

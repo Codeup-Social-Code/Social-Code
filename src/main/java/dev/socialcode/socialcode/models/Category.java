@@ -17,6 +17,9 @@ public class Category {
         private List<Category> categories;
 
 
+        public Category() {
+
+        }
 
         public Long getId() {
                 return id;

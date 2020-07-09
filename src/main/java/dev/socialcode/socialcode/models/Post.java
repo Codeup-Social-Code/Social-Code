@@ -1,14 +1,14 @@
 package dev.socialcode.socialcode.models;
 
-import com.fasterxml.jackson.annotation.JsonTypeId;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.hibernate.validator.constraints.NotBlank;
-
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Date;
 import java.util.List;
+
 
 @Entity
 @Table(name="posts")

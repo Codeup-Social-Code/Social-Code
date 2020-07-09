@@ -5,12 +5,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class PostController {
+public class HomeController {
 
-    @GetMapping("/posts")
+
+    @GetMapping("/")
     @ResponseBody
-    public String viewHomePage(){
-        return "Social Code! Hello all you Cool Coders!";
+    public String home(){
+        return "Welcome to Social Code!";
     }
+
 
 }

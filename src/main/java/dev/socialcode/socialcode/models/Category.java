@@ -1,4 +1,6 @@
 package dev.socialcode.socialcode.models;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="categories")
@@ -12,8 +14,31 @@ public class Category {
         private String name;
 
         @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
-        @JsonIgnore
         private List<Category> categories;
 
-        //add setters and getters
-    }
+
+
+        public Long getId() {
+                return id;
+        }
+
+        public void setId(Long id) {
+                this.id = id;
+        }
+
+        public String getName() {
+                return name;
+        }
+
+        public void setName(String name) {
+                this.name = name;
+        }
+
+        public List<Category> getCategories() {
+                return categories;
+        }
+
+        public void setCategories(List<Category> categories) {
+                this.categories = categories;
+        }
+}

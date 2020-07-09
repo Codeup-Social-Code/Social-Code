@@ -4,28 +4,29 @@
 
 <h3>Calendar</h3>
   <li>Purpose:
-  <em>-Ability to RSVP to posts/event</em>
-  Documentation: 
-  https://fullcalendar.io/ 
+  <em>-Ability to RSVP to posts/event</em><br>
+  Documentation: <br>
+  https://fullcalendar.io/ <br>
   https://developers.google.com/maps/documentation/ </li>
 
 <h3>Email</h3>
  <em> &thinsp; mailtrap.io -testing email</em>
   
  <h6>Twilio</h6> 
-  Purpose:<em>-Ability to send out email blasts to volunteers that have signed up for an event</em> 
-  Documentation:</h5> 
-  https://www.twilio.com/docs/
+ <li> Purpose:
+  <em>-Ability to send out email blasts to volunteers that have signed up for an event</em> 
+  Documentation: <br>
+  https://www.twilio.com/docs/</li>
 
   &thinsp;<h6>MailGun</h6>
   * Purpose: - Ability to send confirmation/verification emails, for registration * Documentation: - https://documentation.mailgun.com/en/latest/
 
 <h3>Images</h3>
     <h6>Filestack</h6>
-    Purpose:
+    <li>  Purpose:
     Image hosting for profile/event pictures for users
-    Documentation:
-    https://www.filestack.com/docs/
+    Documentation:<br>
+    https://www.filestack.com/docs/</li>
 
 
 

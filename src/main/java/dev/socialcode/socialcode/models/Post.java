@@ -1,5 +1,4 @@
 package dev.socialcode.socialcode.models;
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -162,7 +161,6 @@ public class Post {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
-
 
 
 

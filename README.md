@@ -14,17 +14,18 @@
   
  <h6>Twilio</h6> 
  <li> Purpose:
-  <em>-Ability to send out email blasts to volunteers that have signed up for an event</em> 
+  <em>-Ability to send out email blasts to volunteers that have signed up for an event</em><br> 
   Documentation: <br>
   https://www.twilio.com/docs/</li>
 
   &thinsp;<h6>MailGun</h6>
-  * Purpose: - Ability to send confirmation/verification emails, for registration * Documentation: - https://documentation.mailgun.com/en/latest/
+  <li>  Purpose: - Ability to send confirmation/verification emails, for registration <br>
+  Documentation: - https://documentation.mailgun.com/en/latest/</li>
 
 <h3>Images</h3>
     <h6>Filestack</h6>
     <li>  Purpose:
-    Image hosting for profile/event pictures for users
+    Image hosting for profile/event pictures for users <br>
     Documentation:<br>
     https://www.filestack.com/docs/</li>
 

@@ -1,6 +1,17 @@
+* {
+    box-sizing: border-box;
+}
 
 .top-fold {
     margin-top: 10vh;
+    text-align: center;
+
+}
+
+.welcome-message{
+
+    margin: 0vh 1vh;
+
 }
 
 #all_slides{

@@ -13,7 +13,7 @@ public class Category {
         @Column(nullable = false)
         private String name;
 
-        @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
+        @OneToMany(mappedBy = "categories", fetch = FetchType.LAZY)
         private List<Category> categories;
 
 

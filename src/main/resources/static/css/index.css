@@ -149,7 +149,20 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
+    .top-fold {
+        height: 636px;
 
+    }
+
+    #all_slides{
+        width: 100%;
+        height: 100%;
+    }
+
+    .welcome-header{
+        margin-left: 91px;
+        margin-right: 0px;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */

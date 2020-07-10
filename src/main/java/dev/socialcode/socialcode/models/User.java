@@ -84,7 +84,11 @@ public class User {
                 this.lastName = lastName;
         }
 
-        public String getEmail() {
+        public String getUsername() {
+                return email;
+        }
+
+        public String getEmail(){
                 return email;
         }
 

@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class PostController {
 
+
     @GetMapping("/posts")
     @ResponseBody
     public String viewHomePage(){
-        return "Social Code! Hello all you Cool Coders!";
+        return "posts/index";
     }
 
 }

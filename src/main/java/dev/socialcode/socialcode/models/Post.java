@@ -40,7 +40,7 @@ public class Post {
     private String eventTime;
 
     //is this what allows us to pull in the user name, email, & picture?
-    @OneToOne
+    @ManyToOne
 //    @JsonManagedReference
     private User user;
 
@@ -147,13 +147,13 @@ public class Post {
         this.createDate = createDate;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public List<Comment> getComments() {
         return comments;

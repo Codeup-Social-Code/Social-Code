@@ -18,10 +18,10 @@ public class UserDetailsLoader implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String emailAddress) throws UsernameNotFoundException {
-        User user = users.findByEmailAddress(emailAddress);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = users.findByEmail(email);
         if (user == null) {
-            throw new UsernameNotFoundException("No user found for " + emailAddress);
+            throw new UsernameNotFoundException("No user found for " + email);
         }
                     // Emily will make this for me
         return new UserWithRoles(user);

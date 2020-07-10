@@ -2,26 +2,32 @@ package dev.socialcode.socialcode.controllers;
 
 
 import dev.socialcode.socialcode.daos.CategoriesRepository;
-import dev.socialcode.socialcode.daos.PostsRepository;
+import dev.socialcode.socialcode.daos.PostRepository;
+import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.Category;
 import dev.socialcode.socialcode.models.Post;
+import dev.socialcode.socialcode.models.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+//import java.sql.Date; -- we need to change to this
 import java.util.Date;
 import java.util.List;
 
 @Controller
 public class PostController {
 
-    private PostsRepository postsDao;
+    private PostRepository postsDao;
     private CategoriesRepository categoriesDao;
+    private UserRepository usersDao;
 
-    public PostController(PostsRepository postsRepository, CategoriesRepository categoriesRepository) {
-        this.postsDao = postsRepository;
+    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository) {
+        this.postsDao = postRepository;
         this.categoriesDao = categoriesRepository;
+        this.usersDao = userRepository;
     }
 
     @GetMapping("/posts/create")
@@ -35,6 +41,10 @@ public class PostController {
 
         System.out.println(postToBeSaved.getEventTime());
         System.out.println(postToBeSaved.getEventDate());
+
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(currentUser);
+        postToBeSaved.setUser(currentUser);
 
         Category category = categoriesDao.findCategoryById(Long.parseLong(catId));
         List<Category> listOfCategories = new ArrayList<>();

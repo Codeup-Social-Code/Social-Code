@@ -45,6 +45,9 @@
 
 <h2>General</h2> (Level 1)
 
+<h3>Security</h3>
+<h5>Spring Security Config</h5>
+
 <h3>Home Page</h3>(index)
   <ul>
         <li>Register Button</li>  

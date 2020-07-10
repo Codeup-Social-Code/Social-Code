@@ -8,10 +8,5 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class PostController {
 
 
-    @GetMapping("/posts")
-    @ResponseBody
-    public String viewHomePage(){
-        return "posts/index";
-    }
 
 }

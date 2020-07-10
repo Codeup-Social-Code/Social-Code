@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Home')">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+</head>
+<body class="index">
+
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+    <main>
+<!--            TOP SECTION-->
+        <section class="container top-fold" style="background-color: white; height: 800px">
+            <div class="row">
+                <div class="welcome-message col-sm-8 col-md-5 text-center">
+                        <h1>Welcome Message from Social Code</h1>
+                        <p>This is a catchy opening paragraph for our page. Lorem ipsum dolor sit
+                            amet, consectetur adipisicing elit. Accusamus ad adipisci consequatur
+                            cum dolorem ducimus, explicabo illo itaque obcaecati odit officia officiis
+                            quam quos sapiente sequi temporibus ut vero voluptas. Lorem ipsum dolor sit
+                            amet, consectetur adipisicing elit.
+                        </p>
+                </div>
+                <div class="welcome-carousel col-sm-12 col-md-7 text-center">
+                    <ul id="all_slides">
+                        <li class="slide active"></li>
+                        <li class="slide"></li>
+                        <li class="slide"></li>
+                        <div class="buttons">
+                            <button class="controls" id="previous"><i class="far fa-arrow-alt-circle-left"></i></button>
+                            <button class="controls" id="pause"><i class="far fa-pause-circle"></i></button>
+                            <button class="controls" id="next"><i class="far fa-arrow-alt-circle-right"></i></button>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+        <section class="top-center" style="background-color: #576541; height: 800px"></section>
+        <section class="bottom-center" style="background-color: white; height: 800px"></section>
+        <section class="bottom-fold" style="background-color: #576541; height: 800px"></section>
+
+    </main>
+
+</body>
+
+</html>

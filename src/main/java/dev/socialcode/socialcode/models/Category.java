@@ -13,7 +13,9 @@ public class Category {
         @Column(nullable = false)
         private String name;
 
-        @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
+
+        @ManyToMany(mappedBy = "categories")
+
         private List<Post> posts;
 
 

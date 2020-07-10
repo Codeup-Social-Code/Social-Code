@@ -44,7 +44,17 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        <!-- allows @NotNull and @NotBlank -->
+
+       
+
+<!--        thymeleaf-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+<!--    allows @NotNull and @NotBlank    -->
+
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
@@ -55,6 +65,7 @@
                 <artifactId>javax.el</artifactId>
                 <version>3.0.0</version>
             </dependency>
+
         <!-- allows to use Security (PasswordEncoder) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -65,6 +76,9 @@
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
             <version>3.0.4.RELEASE</version>
         </dependency>
+
+
+
 
     </dependencies>
 

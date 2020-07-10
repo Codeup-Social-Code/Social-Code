@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Navbar</title>
 </head>
 <body>
+
+<nav class="navbar navbar-expand navbar-light bg-light"  th:fragment="navbar">
+    <a class="navbar-brand" href="/posts">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <form th:action="@{/login}" th:method="post">
+                    <button class="btn-link btn" style="color: dimgrey">Login</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form th:action="@{/logout}" th:method="post">
+                    <button class="btn-link btn" style="color: dimgrey">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
 
 </body>
 </html>

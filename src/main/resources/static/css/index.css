@@ -5,12 +5,15 @@
 .top-fold {
     margin-top: 10vh;
     text-align: center;
+    height: 1170px;
 
 }
 
 .welcome-message{
-
-    margin-top: 7vh;
+    font-size: 15px;
+    font-family: "Open Sans";
+    font-weight: lighter;
+    margin-top: 5vh;
     vertical-align: middle;
 
 }
@@ -18,13 +21,14 @@
 #all_slides{
 
     position: relative;
-    width: 50vh;
-    height: 50vh;
+    width: 70vh;
+    height: 70vh;
     padding: 0px;
-    /*margin: 10vh 4vh;*/
+    margin-top: 5vh;
     list-style-type: none;
     text-align: center;
     vertical-align: middle;
+
 }
 
 .slide{
@@ -35,6 +39,7 @@
     height: 100%;
     opacity: 0;
     z-index: 1;
+    border-radius: 15px;
     -webkit-transition: opacity 1s;
     -moz-transition: opacity 1s;
     -o-transition: opacity 1s;
@@ -115,7 +120,18 @@
 /*    font-size: 0px;*/
 /*}*/
 
+.welcome-carousel {
+    vertical-align: center;
+}
 
+.card-deck {
+    margin: 20px 30px 0px ;
+
+}
+
+.card {
+    box-shadow: rgba(51, 51, 51, 0.28) 10px 10px 10px -2px;
+}
 
 /*MEDIA QUERIES*/
 

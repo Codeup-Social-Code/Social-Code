@@ -11,11 +11,11 @@
     <nav th:replace="fragments/navbar :: navbar"></nav>
     <main>
 <!--            TOP SECTION-->
-        <section class="container top-fold" style="background-color: white; height: 800px">
+        <section class="container top-fold" style="background-color: white;">
             <div class="row">
-                <div class="col-sm-12 col-md-5 text-center">
-                     <h1>Welcome Message from Social Code</h1>
-                    <div class="welcome-message">
+                <div class=" col-md-5 text-center">
+                     <h2>Welcome Message from Social Code</h2>
+                    <div class="welcome-message d-flex justify-content-center align-content-center">
                             <p>This is a catchy opening paragraph for our page. Lorem ipsum dolor sit
                                 amet, consectetur adipisicing elit. Accusamus ad adipisci consequatur
                                 cum dolorem ducimus, explicabo illo itaque obcaecati odit officia officiis
@@ -24,7 +24,7 @@
                             </p>
                     </div>
                 </div>
-                <div class="welcome-carousel col-xs-12 col-sm-6 col-md-7 text-center">
+                <div class="welcome-carousel col-md-7 text-center d-flex justify-content-center align-items-center">
                     <ul id="all_slides">
                         <li class="slide active"></li>
                         <li class="slide"></li>
@@ -37,30 +37,36 @@
                     </ul>
                 </div>
             </div>
-<!--            <div class="row">-->
-<!--                <div>-->
-<!--                    <div class="card" style="width: 8rem">-->
-<!--                        <div class="card-body">-->
-<!--                            <h5 class="card-title">Special title treatment</h5>-->
-<!--                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
-<!--                            <a href="#" class="btn btn-primary">Go somewhere</a>-->
-<!--                        </div>-->
-<!--                        <div class="card" style="width: 8rem">-->
-<!--                            <div class="card-body">-->
-<!--                                <h5 class="card-title">Special title treatment</h5>-->
-<!--                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
-<!--                                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="card">-->
-<!--                            <div class="card-body" style="width: 8rem">-->
-<!--                                <h5 class="card-title">Special title treatment</h5>-->
-<!--                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
-<!--                                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+
+            <div class="card-deck d-flex justify-content-center align-content-center">
+                <div class="card" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <div class="col-7">
+                        <p class="card-text" style="font-family: 'Open Sans'; font-weight: lighter; font-size: 3vh">This is a wider card with supporting text below as a natural lead-in to additional content. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <div class="col-7">
+                            <p class="card-text" style="font-family: 'Open Sans'; font-weight: lighter; font-size: 3vh">This is a wider card with supporting text below as a natural lead-in to additional content. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <div class="col-7">
+                            <p class="card-text" style="font-family: 'Open Sans'; font-weight: lighter; font-size: 3vh">This is a wider card with supporting text below as a natural lead-in to additional content. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
             </div>
         </section>
 

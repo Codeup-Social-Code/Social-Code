@@ -2,15 +2,20 @@
     box-sizing: border-box;
 }
 
+
+
 .top-fold {
-    margin-top: 10vh;
+    margin-top: 10px;
     text-align: center;
+    height: 1100px;
 
 }
 
 .welcome-message{
-
-    margin-top: 7vh;
+    font-size: 15px;
+    font-family: "Open Sans";
+    font-weight: lighter;
+    margin-top: 5vh;
     vertical-align: middle;
 
 }
@@ -18,13 +23,14 @@
 #all_slides{
 
     position: relative;
-    width: 50vh;
-    height: 50vh;
+    width: 100%;
+    height: 100%;
     padding: 0px;
-    /*margin: 10vh 4vh;*/
+    margin-top: 5vh;
     list-style-type: none;
     text-align: center;
     vertical-align: middle;
+
 }
 
 .slide{
@@ -35,6 +41,7 @@
     height: 100%;
     opacity: 0;
     z-index: 1;
+    border-radius: 15px;
     -webkit-transition: opacity 1s;
     -moz-transition: opacity 1s;
     -o-transition: opacity 1s;
@@ -115,9 +122,27 @@
 /*    font-size: 0px;*/
 /*}*/
 
+.welcome-carousel {
+    vertical-align: center;
+}
 
+.card-deck {
+    margin: 20px 30px 0px ;
+
+}
+
+.card {
+    box-shadow: rgba(51, 51, 51, 0.28) 10px 10px 10px -2px;
+}
 
 /*MEDIA QUERIES*/
+@media screen and (min-width:425px) {
+
+    .card-deck {
+        margin-left: 15vh;
+    }
+
+}
 
 /* Small devices (phones and pocket devices, 576 and up) */
 @media screen and (min-width:576px) {
@@ -126,7 +151,20 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
+    .top-fold {
+        height: 636px;
 
+    }
+
+    #all_slides{
+        width: 100%;
+        height: 100%;
+    }
+
+    .welcome-header{
+        margin-left: 91px;
+        margin-right: 0px;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */

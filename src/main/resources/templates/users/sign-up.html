@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sign Up</title>
 </head>
 <body>
-
+    <h1>Create an account</h1>
+    <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+        <label for="email">Email</label>
+        <input id="email" th:field="*{email}" />
+        <br>
+        <label for="password">Password</label>
+        <input id="password" type="password" th:field="*{password}" />
+<!--        <br>-->
+<!--        <label for="passwordToConfirm">retype Password</label>-->
+<!--        <input id="passwordToConfirm" type="password" th:field="*{password}" />-->
+        <br>
+        <label for="firstName">First Name</label>
+        <input id="firstName" th:field="*{firstName}" />
+        <br>
+        <label for="lastName">Last Name</label>
+        <input id="lastName" th:field="*{lastName}" />
+        <br>
+        <label for="city">City</label>
+        <input id="city" th:field="*{city}" />
+        <br>
+        <input value="Complete Register" type="submit" />
+    </form>
 </body>
 </html>

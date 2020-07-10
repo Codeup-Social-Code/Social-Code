@@ -10,7 +10,8 @@
 
 .welcome-message{
 
-    margin: 0vh 1vh;
+    margin-top: 7vh;
+    vertical-align: middle;
 
 }
 
@@ -20,9 +21,10 @@
     width: 50vh;
     height: 50vh;
     padding: 0px;
-    margin-top: 10vh;
+    /*margin: 10vh 4vh;*/
     list-style-type: none;
     text-align: center;
+    vertical-align: middle;
 }
 
 .slide{
@@ -54,7 +56,7 @@
 }
 
 .slide:nth-of-type(1){
-    background-image: url('../img/7.png');
+    background-image: url('../img/9.png');
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -74,41 +76,66 @@
     background-repeat: no-repeat
 }
 
-.controls{
-    display: none;
+/*.controls{*/
+/*    display: none;*/
+/*}*/
+
+/*.controls{*/
+/*    display: inline-block;*/
+/*    position: relative;*/
+/*    top: 1rem;*/
+/*    right: .5rem;*/
+/*    border: none;*/
+/*    outline: none;*/
+/*    font-size: 20px;*/
+/*    cursor: pointer;*/
+/*    border: 2px solid #fff;*/
+/*    border-radius: 1.5rem;*/
+/*    background: gold;*/
+/*    width: 3rem;*/
+/*    height: 3rem;*/
+/*    margin-left: .5rem;*/
+/*}*/
+
+/*.controls:hover,*/
+/*.controls:focus{*/
+/*    background: #eee;*/
+/*    color: #333;*/
+/*}*/
+
+/*.container{*/
+/*    position: relative;*/
+/*}*/
+
+/*.buttons{*/
+/*    position: absolute;*/
+/*    right: .5rem;*/
+/*    top: 0px;*/
+/*    z-index: 10;*/
+/*    font-size: 0px;*/
+/*}*/
+
+
+
+/*MEDIA QUERIES*/
+
+/* Small devices (phones and pocket devices, 576 and up) */
+@media screen and (min-width:576px) {
+
 }
 
-.controls{
-    display: inline-block;
-    position: relative;
-    top: 1rem;
-    right: .5rem;
-    border: none;
-    outline: none;
-    font-size: 20px;
-    cursor: pointer;
-    border: 2px solid #fff;
-    border-radius: 1.5rem;
-    background: gold;
-    width: 3rem;
-    height: 3rem;
-    margin-left: .5rem;
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
+
 }
 
-.controls:hover,
-.controls:focus{
-    background: #eee;
-    color: #333;
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width:992px) {
+
 }
 
-.container{
-    position: relative;
-}
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) {
 
-.buttons{
-    position: absolute;
-    right: .5rem;
-    top: 0px;
-    z-index: 10;
-    font-size: 0px;
+
 }

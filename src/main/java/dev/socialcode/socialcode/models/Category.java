@@ -13,8 +13,8 @@ public class Category {
         @Column(nullable = false)
         private String name;
 
-        @OneToMany(mappedBy = "categories", fetch = FetchType.LAZY)
-        private List<Category> categories;
+        @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
+        private List<Post> posts;
 
 
         public Category() {
@@ -37,11 +37,11 @@ public class Category {
                 this.name = name;
         }
 
-        public List<Category> getCategories() {
-                return categories;
-        }
-
-        public void setCategories(List<Category> categories) {
-                this.categories = categories;
-        }
+//        public List<Category> getCategories() {
+//                return categories;
+//        }
+//
+//        public void setCategories(List<Category> categories) {
+//                this.categories = categories;
+//        }
 }

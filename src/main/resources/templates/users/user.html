@@ -1,35 +1,35 @@
-<!DOCTYPE html>
-<html lang="en" xxmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<!--include Navbar-->
-<div class="container">
-    <div th:if="${user == null}">Post not found.</div>
-    <div th:if="${user}">
-        <div th:image="${user.picture}"/>
-        <h3 th:text="${user.firstName}">Name</h3>
-        <h3 th:text="${user.lastName}"></h3>
-        <br>
-        <h6 th:text="${user.email}">Email</h6>
-        <br>
-        <h6 th:text="${user.gitHub}"></h6>
-        <h6 th:text="${user.linkedIn}"></h6>
-        <h5 th:text="${user.bio}"></h5>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xxmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;include Navbar&ndash;&gt;-->
+<!--<div class="container">-->
+<!--    <div th:if="${user == null}">Post not found.</div>-->
+<!--    <div th:if="${user}">-->
+<!--        <div th:image="${user.picture}"/>-->
+<!--        <h3 th:text="${user.firstName}">Name</h3>-->
+<!--        <h3 th:text="${user.lastName}"></h3>-->
+<!--        <br>-->
+<!--        <h6 th:text="${user.email}">Email</h6>-->
+<!--        <br>-->
+<!--        <h6 th:text="${user.gitHub}"></h6>-->
+<!--        <h6 th:text="${user.linkedIn}"></h6>-->
+<!--        <h5 th:text="${user.bio}"></h5>-->
+<!--&lt;!&ndash;single city view &ndash;&gt;-->
 
-
-    </div>
-<!--photo, first name, last name, email -->
-<!--bio (including languages/proficienes) linkedin, github, -->
-
-
-
+<!--    </div>-->
+<!--&lt;!&ndash;photo, first name, last name, email &ndash;&gt;-->
+<!--&lt;!&ndash;bio (including languages/proficienes) linkedin, github, &ndash;&gt;-->
 
 
 
-<!--button return to all users -->
-</div>
-</body>
-</html>
+
+
+
+<!--&lt;!&ndash;button return to all users &ndash;&gt;-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

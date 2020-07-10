@@ -134,6 +134,13 @@
 }
 
 /*MEDIA QUERIES*/
+@media screen and (min-width:425px) {
+
+    .card-deck {
+        margin-left: 15vh;
+    }
+
+}
 
 /* Small devices (phones and pocket devices, 576 and up) */
 @media screen and (min-width:576px) {

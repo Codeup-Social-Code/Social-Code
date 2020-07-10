@@ -23,8 +23,9 @@ public class PostController {
     }
 
     @PostMapping("/posts/create")
-    public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "eventDate") String eventDate, @RequestParam(name = "category") String category) {
-        System.out.println(eventDate);
+    public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String category) {
+        System.out.println(postToBeSaved.getEventTime());
+        System.out.println(postToBeSaved.getEventDate());
         return "/posts/index";
     }
 

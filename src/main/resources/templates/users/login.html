@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--include navbar fragment-->
+<div class="container"></div>
+<h1>login</h1>
+<div th:if="${param.error}">
+    Invalid email and password.
+    <br>
+    <div>Try entering it again, or you can register here:</div>
+    <form th:action="@{/sign-up}" th:method="get">
+        <button class="btn-link btn" style="margin-top: 8px">Register</button>
+    </form>
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+    <br>
+    <div>Would you like to log in again?</div>
+</div>
+
+
+<form th:action="@{/login}" method="post">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="text" />
+    <br>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" />
+    <br>
+    <input type="submit" value="Log In"/>
+</form>
+</div>
+
+
+</body>
+</html>

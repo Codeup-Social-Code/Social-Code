@@ -33,10 +33,10 @@ public class Post {
 
     @Column (name = "event_date", nullable = false, length = 255)
     //use String or Date?
-    private Date eventDate;
+    private String eventDate;
 
     @Column (name = "event_time", nullable = false, length = 255)
-    private Date eventTime;
+    private String eventTime;
 
     //is this what allows us to pull in the user name, email, & picture?
     @OneToOne
@@ -59,7 +59,7 @@ public class Post {
 
 
     //add user, user picture
-    public Post(Long id, String title, String body, List<Comment> comments, List<Category> categories, Date createDate, Date eventDate, Date eventTime) {
+    public Post(Long id, String title, String body, List<Comment> comments, List<Category> categories, Date createDate, String eventDate, String eventTime) {
         this.id = id;
         this.title = title;
         this.body = body;
@@ -71,7 +71,7 @@ public class Post {
     }
 
     //add user info
-    public Post(String title, String body, List<Comment> comments, List<Category> categories, Date createDate, Date eventDate, Date eventTime) {
+    public Post(String title, String body, List<Comment> comments, List<Category> categories, Date createDate, String eventDate, String eventTime) {
         this.title = title;
         this.body = body;
         this.comments = comments;
@@ -108,19 +108,19 @@ public class Post {
         this.body = body;
     }
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 
-    public Date getEventTime() {
+    public String getEventTime() {
         return eventTime;
     }
 
-    public void setEventTime(Date eventTime) {
+    public void setEventTime(String eventTime) {
         this.eventTime = eventTime;
     }
 

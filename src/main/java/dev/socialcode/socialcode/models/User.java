@@ -49,6 +49,12 @@ public class User {
         @OneToMany(mappedBy = "user")
         private List<Post> posts;
 
+        //Copy Constructor
+        public User(User copy) {
+                id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+                email = copy.email;
+                password = copy.password;
+        }
 
         public User() {
 
@@ -141,6 +147,7 @@ public class User {
         public void setPosts(List<Post> posts) {
                 this.posts = posts;
         }
+
 
   
 }

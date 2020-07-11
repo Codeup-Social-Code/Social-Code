@@ -80,6 +80,10 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
+    .welcome{
+        margin-top: 100px;
+    }
+
 
 
 }

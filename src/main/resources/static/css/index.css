@@ -22,7 +22,7 @@
 .bottom-fold {
 
     text-align: center;
-    height: 900px;
+    height: 1100px;
 
 }
 
@@ -159,7 +159,7 @@ h2.block-msg {
         margin-top: -131px;
     }
     .gif-container {
-        margin-top: 87px;
+        margin-top: 145px;
     }
 
 }
@@ -214,7 +214,7 @@ h2.block-msg {
     }
 
     #community-gif{
-        width: 65%;
+        width: 55%;
     }
     /*#about-message {*/
     /*    margin-right: 5px;*/

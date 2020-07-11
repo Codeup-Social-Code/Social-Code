@@ -14,7 +14,7 @@
   
  <h6>Twilio</h6> 
  <li> Purpose:
-  <em>-Ability to send out email blasts to volunteers that have signed up for an event</em><br> 
+  <em>-Ability to send out email blasts to users that have signed up for an event</em><br> 
   Documentation: <br>
   https://www.twilio.com/docs/</li>
 

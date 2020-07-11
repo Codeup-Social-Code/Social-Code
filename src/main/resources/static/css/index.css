@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-.container{
-    padding: 0 15px;
-}
-
 
 .top-fold {
     margin-top: 10px;
@@ -14,7 +10,9 @@
 
 }
 
-
+.center-green {
+    height: 700px;
+}
 
 .welcome-message{
     font-size: 15px;
@@ -39,11 +37,32 @@
     box-shadow: rgba(51, 51, 51, 0.28) 10px 10px 10px -2px;
 }
 
+.grid-container {
+    display: inline-grid;
+    padding: 10px;
+    grid-template-columns: auto auto;
+    width: 350px;
+    height: 570px;
+}
+
+.grid-item {
+
+    font-size: 30px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
 /*MEDIA QUERIES*/
 @media screen and (min-width:425px) {
 
     .card-deck {
-        margin-left: 15vh;
+        margin-left: 35px;
     }
 
 }
@@ -59,6 +78,9 @@
         height: 636px;
 
     }
+        .center-green{
+            height: 1500px;
+}
 
     .welcome-header{
         margin-top: 50px;
@@ -71,19 +93,27 @@
     #header-image{
         margin-top: 50px;
     }
+
+    .grid-container {
+
+        width: 658px;
+        height: 1020px;
+    }
+
+
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
-
+.grid-container {
+    width: 790px;
+    height: 1190px;
+}
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
-    .welcome{
+    .welcome {
         margin-top: 100px;
     }
-
-
-
 }

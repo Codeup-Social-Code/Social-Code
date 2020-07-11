@@ -18,6 +18,22 @@
     height: 700px;
 }
 
+
+.bottom-fold {
+
+    text-align: center;
+    height: 900px;
+
+}
+
+#about-us {
+    margin-top: 160px;
+}
+
+#about-message {
+    margin-top: 10px;
+    color: white;
+}
 .welcome-message{
     font-size: 15px;
     font-family: "Open Sans";
@@ -26,6 +42,14 @@
     vertical-align: middle;
 
 }
+.about-us {
+    color: white;
+    font-size: 15px;
+    font-family: "Open Sans";
+    font-weight: lighter;
+
+}
+
 
 .hero-top {
     margin-top: 30px;
@@ -68,6 +92,11 @@
     .card-deck {
         margin-left: 35px;
     }
+    .bottom-fold {
+
+        height: 700px;
+
+    }
 
 }
 
@@ -103,6 +132,12 @@
         width: 658px;
         height: 1020px;
     }
+    #about-us{
+        margin-top: -131px;
+    }
+    .gif-container {
+        margin-top: 87px;
+    }
 
 }
 
@@ -115,6 +150,10 @@
         width: 790px;
         height: 1190px;
     }
+
+    #about-message {
+        margin-top: 100px;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -122,16 +161,35 @@
     .welcome {
         margin-top: 100px;
     }
+
+    #community-gif {
+        width: 80%;
+    }
 }
 
 @media screen and (min-width:2200px) {
+    .top-fold {
+        height: 580px;
+
+    }
 
     .welcome {
-        margin-top: 150px;
+        margin-top: 90px;
     }
     .top-fold {
 
         height: 900px;
 
     }
+
+    .card-deck {
+        margin-top: 150px;
+    }
+
+    #community-gif{
+        width: 65%;
+    }
+    /*#about-message {*/
+    /*    margin-right: 5px;*/
+    /*}*/
 }

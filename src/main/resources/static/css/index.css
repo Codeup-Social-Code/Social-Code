@@ -15,7 +15,7 @@
 }
 
 .center-green {
-    height: 700px;
+    height: 900px;
 }
 
 
@@ -69,8 +69,8 @@
     display: inline-grid;
     padding: 10px;
     grid-template-columns: auto auto;
-    width: 350px;
-    height: 570px;
+    width: 550px;
+    height: 470px;
 }
 
 .grid-item {
@@ -79,10 +79,18 @@
     text-align: center;
 }
 
+h2.block-msg {
+    font-size: 25px;
+}
 
+.cta-message {
+    font-size: 8px;
+}
 
-
-
+.block-btn {
+    font-size: 10px;
+    margin-bottom: 5px;
+}
 
 
 
@@ -112,7 +120,13 @@
 
     }
     .center-green{
-            height: 1500px;
+            height: 1200px;
+    }
+
+    .bottom-fold {
+
+        height: 500px;
+
     }
 
     .welcome-header{
@@ -132,6 +146,15 @@
         width: 658px;
         height: 1020px;
     }
+
+    .cta-grid{
+        margin-top: 20px;
+    }
+    .cta-message {
+
+        font-size: 16px;
+    }
+
     #about-us{
         margin-top: -131px;
     }
@@ -149,6 +172,10 @@
     .grid-container {
         width: 790px;
         height: 1190px;
+    }
+
+    .cta-grid{
+        margin-top: 30px;
     }
 
     #about-message {

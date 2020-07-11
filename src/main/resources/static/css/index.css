@@ -82,9 +82,9 @@
         height: 636px;
 
     }
-        .center-green{
+    .center-green{
             height: 1500px;
-}
+    }
 
     .welcome-header{
         margin-top: 50px;
@@ -104,20 +104,34 @@
         height: 1020px;
     }
 
-
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
-.grid-container {
-    width: 790px;
-    height: 1190px;
-}
+    .welcome {
+        margin-top: 75px;
+    }
+    .grid-container {
+        width: 790px;
+        height: 1190px;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
     .welcome {
         margin-top: 100px;
+    }
+}
+
+@media screen and (min-width:2200px) {
+
+    .welcome {
+        margin-top: 150px;
+    }
+    .top-fold {
+
+        height: 900px;
+
     }
 }

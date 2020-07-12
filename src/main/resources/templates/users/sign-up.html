@@ -11,27 +11,28 @@
     <form th:action="@{/sign-up}" method="POST" th:object="${user}">
 
         <label for="email">Email</label>
-        <input id="email" th:field="*{email}" />
+        <input id="email" name="email" th:field="*{email}" />
         <br>
         <label for="password">Password</label>
-        <input id="password" type="password" th:field="*{password}" />
-<!--        <br>-->
-<!--        <label for="passwordToConfirm">retype Password</label>-->
-<!--        <input id="passwordToConfirm" type="password" th:field="*{password}" />-->
+        <input id="password" name="password" type="password" th:field="*{password}" />
+        <br>
+        <label for="passwordToConfirm">retype Password</label>
+        <input id="passwordToConfirm" name="passwordToConfirm" type="password" th:field="*{password}" />
         <br>
         <label for="firstName">First Name</label>
-        <input id="firstName" th:field="*{firstName}" />
+        <input id="firstName" name="firstName" th:field="*{firstName}" />
         <br>
         <label for="lastName">Last Name</label>
-        <input id="lastName" th:field="*{lastName}" />
+        <input id="lastName" name="lastName" th:field="*{lastName}" />
         <br>
         <label for="city">City (Zip Code)</label>
-        <input id="city" th:field="*{city}" />
+        <input id="city" name="city" th:field="*{city}" />
         <br>
         <input value="Complete Register" type="submit" />
     </form>
-    <form th:action="@{/welcome}" th:method="post">
-        <button>Go back to Welcome Page</button>
+    <form th:action="@{/login}" th:method="post">
+        <span>If you already have existing account?</span>
+        <button>Go back to Login Page</button>
     </form>
 </body>
 </html>

@@ -16,6 +16,12 @@ body.welcome{
 
 }
 
+.container-social{
+    margin-left: 43px;
+    margin-top: 81px;
+
+}
+
 
 
 
@@ -43,14 +49,46 @@ body.welcome{
 @media screen and (min-width:576px) { /* ... */ }
 
 /* Medium devices (tablets, 768px and up) */
-@media screen and (min-width:768px) { /* ... */ }
+@media screen and (min-width:768px) {
+    .container-social{
+        margin-left: 200px;
+    }
+    .social-img {
+        width: 65%;
+    }
+}
 
 /* Large devices (desktops, 992px and up) */
-@media screen and (min-width:992px) { /* ... */ }
+@media screen and (min-width:992px) {
+    .container-social {
+        margin-top: 40px;
+        margin-left: 272px ;
+    }
+}
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
     body.welcome {
         background-size: cover;
     }
+
+    .container-social {
+        margin-top: 20px;
+        margin-left: 400px ;
+    }
+
+
+
+}
+
+@media screen and (min-width:2200px) {
+
+
+    .container-social {
+        margin-top: 150px;
+        margin-left: 400px ;
+    }
+
+
+
 }

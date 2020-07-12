@@ -16,30 +16,11 @@ body.welcome{
 
 }
 
-.container-social{
-    margin-left: 43px;
-    margin-top: 81px;
+.container-social {
+   margin-right: 15px;
+    margin-top: 31px;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -51,18 +32,22 @@ body.welcome{
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
     .container-social{
-        margin-left: 200px;
+        margin-left: 150px;
+        margin-top: 14px;
     }
     .social-img {
-        width: 65%;
+
+        width: 85%;
     }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
     .container-social {
-        margin-top: 40px;
-        margin-left: 272px ;
+        margin-left: 280px ;
+    }
+    .social-img {
+        width: 65%;
     }
 }
 
@@ -74,9 +59,11 @@ body.welcome{
 
     .container-social {
         margin-top: 20px;
-        margin-left: 400px ;
+        margin-left: 450px ;
     }
-
+    .social-img {
+        width: 50%;
+    }
 
 
 }
@@ -85,10 +72,12 @@ body.welcome{
 
 
     .container-social {
-        margin-top: 150px;
-        margin-left: 400px ;
+        margin-top: 50px;
+        margin-left: 500px ;
     }
 
-
+    .social-img {
+        width: 70%;
+    }
 
 }

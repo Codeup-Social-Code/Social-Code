@@ -36,6 +36,7 @@ public class PostController {
         return "posts/create";
     }
 
+
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId) {
 
@@ -57,6 +58,13 @@ public class PostController {
         return "/posts/index";
     }
 
+//    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
+
+    @GetMapping("/posts/welcome")
+
+    public String welcome() {
+        return "posts/welcome";
+    }
 
 
 }

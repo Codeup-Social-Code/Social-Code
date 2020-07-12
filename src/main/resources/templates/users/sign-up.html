@@ -5,8 +5,11 @@
     <title>Sign Up</title>
 </head>
 <body>
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+
     <h1>Create an account</h1>
     <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+
         <label for="email">Email</label>
         <input id="email" th:field="*{email}" />
         <br>
@@ -22,10 +25,13 @@
         <label for="lastName">Last Name</label>
         <input id="lastName" th:field="*{lastName}" />
         <br>
-        <label for="city">City</label>
+        <label for="city">City (Zip Code)</label>
         <input id="city" th:field="*{city}" />
         <br>
         <input value="Complete Register" type="submit" />
+    </form>
+    <form th:action="@{/welcome}" th:method="post">
+        <button>Go back to Welcome Page</button>
     </form>
 </body>
 </html>

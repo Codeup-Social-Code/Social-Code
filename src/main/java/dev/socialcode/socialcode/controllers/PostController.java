@@ -55,15 +55,15 @@ public class PostController {
         Date curDate = new Date();
         postToBeSaved.setCreateDate(curDate);
         postsDao.save(postToBeSaved);
-        return "/posts/index";
+        return "posts/index";
     }
 
 //    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
 
-    @GetMapping("/posts/welcome")
+    @GetMapping("/posts")
 
-    public String welcome() {
-        return "posts/welcome";
+    public String viewPosts() {
+        return "posts/index";
     }
 
 

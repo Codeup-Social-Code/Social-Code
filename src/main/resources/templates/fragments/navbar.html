@@ -6,27 +6,39 @@
 </head>
 <body>
 
+<!--NEW NAVBAR-->
 <nav class="navbar navbar-expand navbar-light bg-light"  th:fragment="navbar">
     <a class="navbar-brand" href="/posts"><img class="logo" src="/img/codeup-logo.png"/></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbar">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+        <ul class="navbar-nav mr-auto">
+            <li id="search" class="nav-item d-sm-none d-md-block">
+                <input id="search-box" type="text" placeholder="Search" style="color: dimgrey">
+                <i class="fas fa-search"></i>
+            </li>
+            <li id="login-btn" class="nav-item">
                 <form th:action="@{/login}" th:method="post">
-                    <button class="btn-link btn" style="color: dimgrey">Login</button>
+                    <button id="login" class="btn-link btn" style="color: dimgrey;">Login</button>
                 </form>
             </li>
-            <li class="nav-item">
+            <li id="logout-btn" class="nav-item">
                 <form th:action="@{/logout}" th:method="post">
-                    <button class="btn-link btn" style="color: dimgrey">Logout</button>
+                    <button id="logout" class="btn-link btn" style="color: dimgrey">Logout</button>
                 </form>
+            </li>
+            <li class="nav-item dropdown d-none d-lg-block">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
             </li>
         </ul>
     </div>
 </nav>
-
 
 
 

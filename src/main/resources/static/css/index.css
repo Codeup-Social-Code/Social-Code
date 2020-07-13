@@ -15,6 +15,9 @@ body.community {
     background-repeat: no-repeat;
 }
 
+
+
+
 .container-social {
    margin-right: 15px;
     margin-top: 31px;
@@ -22,14 +25,33 @@ body.community {
 }
 
 
+@media screen and (min-width:375px) {
 
+
+
+}
 
 
 /* Small devices (phones and pocket devices, 576 and up) */
-@media screen and (min-width:576px) { /* ... */ }
+@media screen and (min-width:576px) {
+    /*body.community {*/
+    /*    background-image: url("/img/background.png");*/
+    /*    background-repeat: no-repeat;*/
+    /*    background-size: cover;*/
+    /*    !*background-position: center center;*!*/
+    /*    !*background-attachment: fixed;*!*/
+    /*}*/
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
+    body.community {
+        background-image: url("/img/corkboard.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        /*background-position: center center;*/
+        /*background-attachment: fixed;*/
+    }
     .container-social{
         margin-left: 150px;
         margin-top: 14px;
@@ -42,6 +64,7 @@ body.community {
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
+
     .container-social {
         margin-left: 280px ;
     }
@@ -52,9 +75,13 @@ body.community {
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
-    body.community {
-        background-size: cover;
-    }
+    /*body.community {*/
+    /*    background-image: url("/img/laptop-background.png");*/
+    /*    background-repeat: no-repeat;*/
+    /*    background-size: cover;*/
+    /*    background-position: center center;*/
+    /*    background-attachment: fixed;*/
+    /*}*/
 
     .container-social {
         margin-top: 20px;

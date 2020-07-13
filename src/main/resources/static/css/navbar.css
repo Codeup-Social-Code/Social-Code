@@ -146,7 +146,7 @@
     }
 
     ul {
-        margin-left: 1300px;
+        margin-left: 1000px;
     }
 
 
@@ -183,9 +183,9 @@
         font-size: 40px;
     }
 
-.dropdown-toggle {
-    font-size: 40px;
-}
+    .dropdown-toggle {
+        font-size: 40px;
+    }
 
 
 }

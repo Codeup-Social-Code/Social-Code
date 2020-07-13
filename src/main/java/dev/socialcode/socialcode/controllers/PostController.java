@@ -36,6 +36,7 @@ public class PostController {
         return "posts/create";
     }
 
+
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId) {
 
@@ -54,9 +55,16 @@ public class PostController {
         Date curDate = new Date();
         postToBeSaved.setCreateDate(curDate);
         postsDao.save(postToBeSaved);
-        return "/posts/index";
+        return "posts/index";
     }
 
+//    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
+
+    @GetMapping("/posts")
+
+    public String viewPosts() {
+        return "posts/index";
+    }
 
 
 }

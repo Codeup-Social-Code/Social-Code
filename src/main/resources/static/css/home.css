@@ -1,0 +1,222 @@
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    margin-left:0;!important;
+    margin-right:0;!important;
+}
+
+.top-fold {
+    margin-top: 10px;
+    text-align: center;
+    height: 1100px;
+
+}
+
+.center-green {
+    height: 850px;
+}
+
+
+.bottom-fold {
+
+    text-align: center;
+    height: 1100px;
+
+}
+
+#about-us {
+    margin-top: 160px;
+}
+
+#about-message {
+    margin-top: 10px;
+    color: white;
+}
+.welcome-message{
+    font-size: 15px;
+    font-family: "Open Sans";
+    font-weight: lighter;
+    margin-top: 5vh;
+    vertical-align: middle;
+
+}
+.about-us {
+    color: white;
+    font-size: 15px;
+    font-family: "Open Sans";
+    font-weight: lighter;
+
+}
+
+
+.hero-top {
+    margin-top: 30px;
+}
+
+
+.card-deck {
+    margin: 50px 30px 0px ;
+
+}
+
+.card {
+    box-shadow: rgba(51, 51, 51, 0.28) 10px 10px 10px -2px;
+}
+
+.grid-container {
+    display: inline-grid;
+    padding: 10px;
+    grid-template-columns: auto auto;
+    width: 550px;
+    height: 470px;
+}
+
+.grid-item {
+
+    font-size: 30px;
+    text-align: center;
+}
+
+h2.block-msg {
+    font-size: 25px;
+}
+
+.cta-message {
+    font-size: 8px;
+}
+
+.block-btn {
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+
+
+/*MEDIA QUERIES*/
+@media screen and (min-width:425px) {
+
+    .card-deck {
+        margin-left: 35px;
+    }
+    .bottom-fold {
+
+        height: 700px;
+
+    }
+
+}
+
+/* Small devices (phones and pocket devices, 576 and up) */
+@media screen and (min-width:576px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
+    .top-fold {
+        height: 636px;
+
+    }
+    .center-green{
+            height: 1200px;
+    }
+
+    .bottom-fold {
+
+        height: 500px;
+
+    }
+
+    .welcome-header{
+        margin-top: 50px;
+        margin-left: 91px;
+        margin-right: 0px;
+    }
+    .hero-top {
+        padding: 0px;
+    }
+    #header-image{
+        margin-top: 50px;
+    }
+
+    .grid-container {
+
+        width: 658px;
+        height: 1020px;
+    }
+
+    .cta-grid{
+        margin-top: 20px;
+    }
+    .cta-message {
+
+        font-size: 16px;
+    }
+
+    #about-us{
+        margin-top: -131px;
+    }
+    .gif-container {
+        margin-top: 145px;
+    }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width:992px) {
+    .welcome {
+        margin-top: 75px;
+    }
+    .grid-container {
+        width: 790px;
+        height: 1190px;
+    }
+
+    .cta-grid{
+        margin-top: 30px;
+    }
+
+    #about-message {
+        margin-top: 100px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) {
+    .welcome {
+        margin-top: 100px;
+    }
+
+    #community-gif {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width:2200px) {
+    .top-fold {
+        height: 580px;
+
+    }
+
+    .welcome {
+        margin-top: 90px;
+    }
+    .top-fold {
+
+        height: 900px;
+
+    }
+
+    .card-deck {
+        margin-top: 150px;
+    }
+
+    #community-gif{
+        width: 55%;
+    }
+    /*#about-message {*/
+    /*    margin-right: 5px;*/
+    /*}*/
+}

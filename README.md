@@ -14,7 +14,7 @@
   
  <h6>Twilio</h6> 
  <li> Purpose:
-  <em>-Ability to send out email blasts to volunteers that have signed up for an event</em><br> 
+  <em>-Ability to send out email blasts to users that have signed up for an event</em><br> 
   Documentation: <br>
   https://www.twilio.com/docs/</li>
 
@@ -35,12 +35,12 @@
 
 <h3>First priorities</h3>
   <ul>
-  <li>dependencies in the pom file (spring boot)</li>
-  <li>create the structure (views, controllers, models, templates, static)</li>
-  <li>create home page (index)</li>
-    <li>create the fragments</li> 
-    <li>create databases</li>
-    <li>views for forms (register, login/logout, → create a post)</li
+  <del> <li>dependencies in the pom file (spring boot)</li></del>
+  <del><li>create the structure (views, controllers, models, templates, static)</li> </del> 
+  <del><li>create home page (index)</li></del>
+  <del><li>create the fragments</li></del> 
+  <del><li>create databases</li></del>
+  <li>views for forms (register, login/logout, → create a post)</li>
   </ul>
 
 <h2>General</h2> (Level 1)
@@ -50,9 +50,9 @@
 
 <h3>Home Page</h3>(index)
   <ul>
-        <li>Register Button</li>  
+  <del><li>Register Button</li></del>
          <li>Login Button</li> 
-         <li>About Us section</li>
+  <del><li>About Us section</li></del>
           <li>Teaser trailer</li> 
   </ul> 
   

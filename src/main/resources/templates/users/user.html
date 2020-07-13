@@ -7,7 +7,7 @@
 <body>
 <nav th:replace="fragments/navbar :: navbar" />
 <div class="container">
-    <div th:if="${user == null}">Post not found.</div>
+    <div th:if="${user == null}">User not found.</div>
     <div th:if="${user}">
         <div th:image="${user.picture}"/>
         <h3 th:text="${user.firstName}">Name</h3>

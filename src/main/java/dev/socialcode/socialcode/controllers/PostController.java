@@ -66,6 +66,26 @@ public class PostController {
         return "posts/index";
     }
 
+    //update functionality will be added once user authentication is setup
+    /*
+    @GetMapping("/posts/{id}/edit")
+    public String showEditForm(Model model, @PathVariable long id) {
+        //find an ad
+        Post postToEdit = postsDao.getOne(id);
+        model.addAttribute("post", postToEdit);
+        return "posts/edit";
+    }
+
+    //Update Post
+    @PostMapping("/posts/edit")
+    public String update(@ModelAttribute Post postEdited) {
+        Post postToBeUpdated = postsDao.getOne(postEdited.getId());
+        postToBeUpdated.setTitle(postEdited.getTitle());
+        postToBeUpdated.setBody(postEdited.getBody());
+        postsDao.save(postToBeUpdated);
+        return "redirect:/posts/" + postEdited.getId();
+    }
+*/
 //    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
 
     @GetMapping("/posts")

@@ -89,15 +89,9 @@ body.community {
 }
 
 @media screen and (min-width:2200px) {
-    /*body.community{*/
-    /*    background-image: url("/img/lg-laptop-cork-bg.png");*/
-    /*    background-repeat: no-repeat;*/
-    /*    background-size: cover;*/
-    /*    width: 100%;*/
-    /*}*/
 
     .social {
-        margin-left: 750px ;
+        margin-left: 720px ;
         margin-top: 230px;
     }
     .social-img {

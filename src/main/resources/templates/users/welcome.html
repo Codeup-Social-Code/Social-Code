@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Social')">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <title>Home</title>
 
+</head>
+<body class="welcome">
+
+<nav th:replace="fragments/navbar :: navbar"></nav>
+
+
+<h1 id="welcome-header" class="text-center">Welcome to Social Code, {Name}!</h1>
+<h3 class="text-center">Get started in as little as 1 - 2 - 3...</h3>
+
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+            <div class="card-deck">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img" src="/img/12.png" width="100%"/>
+                        <h3 class="card-title text-center mt-5">1</h3>
+                        <div class="card-body">
+                            <h4 class="card-text text-center">Create your profile.</h4>
+                        </div>
+                    </div>
+
+                    <div class="card mt-5" style="width: 18rem; height: 21rem">
+                        <img class="card-img"  src="/img/9.png" />
+                        <h3 class="card-title text-center mt-5">2</h3>
+                        <div class="card-body">
+                            <h4 class="card-text text-center">Create your first post.</h4>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: ">
+                        <img class="card-img"  src="/img/11.png" width="100%"/>
+                        <h3 class="card-title text-center mt-5">3</h3>
+                        <div class="card-body text-center">
+                            <h4 class="card-text">Connect</h4>
+                        </div>
+                    </div>
+            </div>
+    </div>
+</div>
 </body>
 </html>

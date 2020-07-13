@@ -34,7 +34,7 @@
     margin-top: 10px;
     color: white;
 }
-.welcome-message{
+.home-welcome-message{
     font-size: 15px;
     font-family: "Open Sans";
     font-weight: lighter;
@@ -129,7 +129,7 @@ h2.block-msg {
 
     }
 
-    .welcome-header{
+    .main-header{
         margin-top: 50px;
         margin-left: 91px;
         margin-right: 0px;
@@ -166,7 +166,7 @@ h2.block-msg {
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
-    .welcome {
+    .home-welcome-header {
         margin-top: 75px;
     }
     .grid-container {
@@ -185,7 +185,7 @@ h2.block-msg {
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
-    .welcome {
+    .home-welcome-header {
         margin-top: 100px;
     }
 
@@ -200,7 +200,7 @@ h2.block-msg {
 
     }
 
-    .welcome {
+    .home-welcome-header {
         margin-top: 90px;
     }
     .top-fold {

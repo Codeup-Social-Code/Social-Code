@@ -1,0 +1,13 @@
+body.welcome {
+    background-color: rgba(136, 160, 99, 0.4);
+
+}
+
+#welcome-header {
+    margin-top: 75px;
+}
+
+
+.card-img {
+    box-shadow: 10px 10px 10px 10px rgba(68, 66, 66, 0.44);
+}

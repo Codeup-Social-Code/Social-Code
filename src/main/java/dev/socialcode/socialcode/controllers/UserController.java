@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.validation.Valid;
+
 
 @Controller
 public class UserController {
@@ -41,6 +42,7 @@ public class UserController {
         usersDao.save(user);
         return "redirect:/sign-up";
     }
+
 
 //    @PostMapping("/sign-up")
 //    public String saveUser(@ModelAttribute User user) {
@@ -104,4 +106,5 @@ public class UserController {
 //        users.save(user);
 //        return "redirect:/login";
 //    }
+
 }

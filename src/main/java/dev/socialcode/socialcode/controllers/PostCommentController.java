@@ -42,17 +42,17 @@ public class PostCommentController {
     }
 
 
-    @GetMapping("/comments/create")
-    public String showCommentForm(Model viewModel) {
-        viewModel.addAttribute("comment", new Comment());
-        return "posts/comments";
-    }
-
-    @GetMapping("/comments")
-    public String showAll(Model model) {
-        List<Comment> comments = commentsDao.findAll();
-        model.addAttribute("comments", comments);
-        return "posts/viewComments";
-    }
+//    @GetMapping("/comments/create")
+//    public String showCommentForm(Model viewModel) {
+//        viewModel.addAttribute("comment", new Comment());
+//        return "posts/comments";
+//    }
+//
+//    @GetMapping("/comments")
+//    public String showAll(Model model) {
+//        List<Comment> comments = commentsDao.findAll();
+//        model.addAttribute("comments", comments);
+//        return "posts/viewComments";
+//    }
 
 }

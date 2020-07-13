@@ -44,7 +44,7 @@ public class PostController {
     @GetMapping("/posts/{id}")
     public String showOne(@PathVariable long id, Model model) {
         Post post = postsDao.getOne(id);
-        List<Comment> comments = commentsDao.findAll();
+        List<Comment> comments = commentsDao.findCommentsByPostId(id);
         model.addAttribute("comment", new Comment());
         model.addAttribute("post", post);
         model.addAttribute("No Comments", comments.size() == 0);

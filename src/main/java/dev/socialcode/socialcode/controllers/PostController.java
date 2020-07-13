@@ -61,8 +61,9 @@ public class PostController {
 //    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
 
     @GetMapping("/posts")
-
     public String viewPosts() {
+        User user = usersDao.findByUsername("test2@gmail.com");
+        System.out.println(user.getFirstName());
         return "posts/index";
     }
 

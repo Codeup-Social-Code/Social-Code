@@ -21,11 +21,10 @@ public class User {
         @NotBlank(message = "required*")
         private String lastName;
 
-        @Column(nullable = false, unique = true)
+        @Column(name = "username", nullable = false, unique = true)
 //        if email doesn't work, try adding the other version of the import
-        @Email(message = "Invalid email")
-        @NotBlank(message = "required*")
-        private String email;
+//        @NotBlank(message = "required*")
+        private String username;
 
         @Column(nullable = false)
         @NotBlank(message = "required*")
@@ -52,13 +51,38 @@ public class User {
         //Copy Constructor
         public User(User copy) {
                 id = copy.id; // This line is SUPER important! Many things won't work if it's absent
-                email = copy.email;
+                username = copy.username;
                 password = copy.password;
         }
 
-        public User() {
-
+        public User(long id, String firstName, String lastName, String username, String password, String city, String linkedIn, String gitHub, String bio, String picture, List<Post> posts) {
+                this.id = id;
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.username = username;
+                this.password = password;
+                this.city = city;
+                this.linkedIn = linkedIn;
+                this.gitHub = gitHub;
+                this.bio = bio;
+                this.picture = picture;
+                this.posts = posts;
         }
+
+        public User(@NotBlank(message = "required*") String firstName, @NotBlank(message = "required*") String lastName, String username, @NotBlank(message = "required*") String password, String city, String linkedIn, String gitHub, String bio, String picture, List<Post> posts) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.username = username;
+                this.password = password;
+                this.city = city;
+                this.linkedIn = linkedIn;
+                this.gitHub = gitHub;
+                this.bio = bio;
+                this.picture = picture;
+                this.posts = posts;
+        }
+
+        public User() { }
 
         public long getId() {
                 return id;
@@ -85,15 +109,19 @@ public class User {
         }
 
         public String getUsername() {
-                return email;
+                return username;
+        }
+
+        public void setUsername(String username) {
+                this.username = username;
         }
 
         public String getEmail(){
-                return email;
+                return username;
         }
 
         public void setEmail(String email) {
-                this.email = email;
+                this.username = email;
         }
 
         public String getPassword() {

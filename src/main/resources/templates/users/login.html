@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="fragments/head :: head('SocialCode | Login')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<!--include navbar fragment-->
+<nav th:replace="fragments/navbar :: navbar" />
 <div class="container"></div>
 <h1>login</h1>
 <div th:if="${param.error}">

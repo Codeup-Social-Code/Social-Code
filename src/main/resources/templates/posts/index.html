@@ -1,85 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head('Home')">
+<head th:replace="fragments/head :: head('Social Code')">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Welcome</title>
 
 </head>
-<body class="index">
-
-    <nav th:replace="fragments/navbar :: navbar"></nav>
-    <main>
-<!--            TOP SECTION-->
-        <div class="container top-fold" style="background-color: white;">
-                <div class="row welcome-header d-flex justify-content-center align-content-center">
-                    <div class="col-md-5 text-center">
-                         <h2>Welcome Message from Social Code</h2>
-                                <div class="welcome-message d-flex justify-content-center align-content-center">
-                                        <p>This is a catchy opening paragraph for our page. Lorem ipsum dolor sit
-                                            amet, consectetur adipisicing elit. Accusamus ad adipisci consequatur
-                                            cum dolorem ducimus, explicabo illo itaque obcaecati odit officia officiis
-                                            quam quos sapiente sequi temporibus ut vero voluptas. Lorem ipsum dolor sit
-                                            amet, consectetur adipisicing elit.
-                                        </p>
-                                </div>
-
-<!--                            <div class="welcome-carousel col-12 col-md-7 text-center ">-->
-<!--                                <ul id="all_slides">-->
-<!--                                    <li class="slide active"></li>-->
-<!--                                    <li class="slide"></li>-->
-<!--                                    <li class="slide"></li>-->
-<!--                                    <div class="buttons">-->
-<!--                                        <button class="controls" id="previous"><i class="far fa-arrow-alt-circle-left"></i></button>-->
-<!--                                        <button class="controls" id="pause"><i class="far fa-pause-circle"></i></button>-->
-<!--                                        <button class="controls" id="next"><i class="far fa-arrow-alt-circle-right"></i></button>-->
-<!--                                    </div>-->
-<!--                                </ul>-->
-<!--                            </div>-->
-                    </div>
-                </div>
+<body class="community">
+<header><nav th:replace="fragments/navbar :: navbar"></nav></header>
 
 
-                <div class="card-deck d-flex justify-content-center align-content-center">
-                    <div class="card" style="max-width: 20rem; height: 10rem">
-                        <div class="card-body col-7" style="max-width: 18rem;  height: 10rem">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="col-7">
-                            <p class="card-text" style="font-family: 'Open Sans'; font-weight: lighter; font-size: 8px">This is a wider card with supporting text below as a natural lead-in to additional content. </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="max-width: 20rem; height: 10rem">
-                        <div class="card-body col-7" style="max-width: 18rem;  height: 10rem">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="col-7">
-                                <p class="card-text" style="font-family: 'Open Sans'; font-weight: lighter; font-size: 8px">This is a wider card with supporting text below as a natural lead-in to additional content. </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="max-width: 20rem;  height: 10rem">
-                        <div class="card-body col-7" style="max-width: 18rem;  height: 10rem">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="col-7">
-                                <p class="card-text" style="font-family: 'Open Sans'; font-weight: lighter; font-size: 8px">This is a wider card with supporting text below as a natural lead-in to additional content. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
 
-        </section>
+<div class="container-social d-flex justify-content-center align-items-center">
+    <div class="social">
+            <img class="social-img" src="/img/header-img.png" width="100%"/>
+    </div>
+
+</div>
 
 
 
 
-
-
-        <section class="top-center" style="background-color: #576541; height: 800px"></section>
-        <section class="bottom-center" style="background-color: white; height: 800px"></section>
-        <section class="bottom-fold" style="background-color: #576541; height: 800px"></section>
-    </main>
 
 </body>
-
 </html>

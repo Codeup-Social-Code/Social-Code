@@ -36,6 +36,14 @@ public class PostController {
         return "posts/create";
     }
 
+//    Single Post View
+    @GetMapping("/posts/{id}")
+    public String showOne(@PathVariable long id, Model model) {
+        Post post = postsDao.getOne(id);
+        model.addAttribute("post", post);
+        return "posts/show";
+    }
+
 
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId) {

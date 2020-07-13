@@ -46,7 +46,7 @@ public class UserController {
         user.setPassword(hash);
         users.save(user);
 //        return "/posts/index";
-        return "redirect:users/welcome";
+        return "redirect:/users/welcome";
     }
     // From the Spring Validation Curriculum
 //    @PostMapping("/sign-up")

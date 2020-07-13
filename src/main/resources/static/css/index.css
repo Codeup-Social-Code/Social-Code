@@ -53,18 +53,17 @@ body.community {
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
     body.community{
-        background-image: url("/img/laptop-cork-bg.png");
+        background-image: url("/img/lap-bg.png.png");
         background-repeat: no-repeat;
-
         background-size: cover;
     }
 
     .social {
-       margin-left: 200px ;
-        margin-top: 70px;
+       margin-left: 280px;
+        margin-top: 45px;
     }
     .social-img {
-        width: 80%;
+        width: 70%;
     }
 }
 

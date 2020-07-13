@@ -15,6 +15,7 @@
         <button class="btn-link btn" style="margin-top: 8px">Register</button>
     </form>
 </div>
+
 <div th:if="${param.logout}">
     You have been logged out.
     <br>
@@ -23,8 +24,8 @@
 
 
 <form th:action="@{/login}" method="post">
-    <label for="email">Email</label>
-    <input id="email" name="email" type="text" />
+    <label for="username">Email</label>
+    <input id="username" name="username" type="email" />
     <br>
     <label for="password">Password</label>
     <input id="password" name="password" type="password" />

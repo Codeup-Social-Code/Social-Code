@@ -16,7 +16,7 @@
                 <i class="fas fa-search d-none d-md-block"></i>
             </li>
             <li id="login-btn" class="nav-item">
-                <form th:action="@{/login}" th:method="post">
+                <form th:action="@{/login}" th:method="get">
                     <button id="login" class="btn-link btn" style="color: dimgrey;">Login</button>
                 </form>
             </li>
@@ -26,7 +26,7 @@
 <!--                </form>-->
 <!--            </li>-->
             <li id="register-btn" class="nav-item">
-                <form th:action="@{/register}" th:method="post">
+                <form th:action="@{/sign-up}" th:method="get">
                     <button id="register" class="btn-link btn" style="color: dimgrey">Register</button>
                 </form>
             </li>

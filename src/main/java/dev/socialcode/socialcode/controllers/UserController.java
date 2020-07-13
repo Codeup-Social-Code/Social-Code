@@ -24,35 +24,41 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
+
     @GetMapping("/sign-up")
     public String showSignupForm(Model model) {
         model.addAttribute("user", new User());
         return "users/sign-up";
     }
-//    @PostMapping("/sign-up")
-//    public String saveUser(@ModelAttribute User user){
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
-//        users.save(user);
-//        return "redirect:/login";
-//    }
-
     @PostMapping("/sign-up")
-    public String saveUser(@ModelAttribute User user) {
+    public String saveUser(@ModelAttribute User user, Errors validation){
+        User existingUsername = usersDao.findByUsername(user.getUsername());
+        if(existingUsername != null) {
+            validation.rejectValue("username", "user.username", "Duplicated email " + user.getUsername());
+        }
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         usersDao.save(user);
-        return "redirect:/login";
-        //redirects go to urls, not to files
+        return "redirect:/sign-up";
     }
 
+//    @PostMapping("/sign-up")
+//    public String saveUser(@ModelAttribute User user) {
+//        String hash = passwordEncoder.encode(user.getPassword());
+//        user.setPassword(hash);
+//        usersDao.save(user);
+//        return "redirect:/welcome";
+//        return "redirect:/login";
+        //redirects go to urls, not to files
+//    }
+
     //get single user view
-    @GetMapping("/users/{id}")
-    public String getUser(@PathVariable long id, Model model) {
-        User user = usersDao.getOne(id);
-        model.addAttribute("id", id);
-        model.addAttribute("user", user);
-        return "users/user";
+//    @GetMapping("/users/{id}")
+//    public String getUser(@PathVariable long id, Model model) {
+//        User user = usersDao.getOne(id);
+//        model.addAttribute("id", id);
+//        model.addAttribute("user", user);
+//        return "users/user";
 
 
         //also I changed the UserRepository instance from users
@@ -60,21 +66,21 @@ public class UserController {
 
         //what other controllers do we need?
 
-    }
+//    }
 
-}
 
-    public String saveUser(@ModelAttribute User user, Errors validation){
-        User existingEmail = users.findByEmail(user.getEmail());
-        if(existingEmail != null) {
-            validation.rejectValue("email", "user.email", "Duplicated email " + user.getEmail());
-        }
-        String hash = passwordEncoder.encode(user.getPassword());
-        user.setPassword(hash);
-        users.save(user);
-//        return "/posts/index";
-        return "redirect:/users/welcome";
-    }
+
+//    public String saveUser(@ModelAttribute User user, Errors validation){
+//        User existingEmail = users.findByEmail(user.getEmail());
+//        if(existingEmail != null) {
+//            validation.rejectValue("email", "user.email", "Duplicated email " + user.getEmail());
+//        }
+//        String hash = passwordEncoder.encode(user.getPassword());
+//        user.setPassword(hash);
+//        users.save(user);
+////        return "/posts/index";
+//        return "redirect:/users/welcome";
+//    }
     // From the Spring Validation Curriculum
 //    @PostMapping("/sign-up")
 //    public String saveUser(

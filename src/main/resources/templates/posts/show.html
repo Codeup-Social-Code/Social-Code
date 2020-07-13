@@ -9,6 +9,9 @@
 <div th:if="${post}">
     <h1>Title: <span th:text="${post.title}"></span></h1>
     <h3>Body: <span th:text="${post.body}"></span></h3>
+    <div th:each="category: ${post.categories}">
+        <h2 th:text="${category.name}"></h2>
+    </div>
 </div>
 <form th:action="${'/posts/' + post.id + '/edit'}">
     <button class="btn btn-warning">EDIT</button>

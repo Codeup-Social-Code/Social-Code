@@ -5,10 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<nav th:replace="fragments/navbar :: navbar"></nav>
-<div th:if="${post == null}">
-    Post not found!
-</div>
+
 <div th:if="${post}">
     <h1>Title: <span th:text="${post.title}"></span></h1>
     <h3>Body: <span th:text="${post.body}"></span></h3>
@@ -16,6 +13,19 @@
 <form th:action="${'/posts/' + post.id + '/edit'}">
     <button class="btn btn-warning">EDIT</button>
 </form>
+
+<div class="container">
+    <form th:action="@{/comments/create}" th:method="post" th:object="${comment}">
+        comment body:
+        <input th:field="*{body}" />
+        <br />
+        <input type="submit" />
+    </form>
+</div>
+
+<div th:each="comment: ${comments}">
+    <h2 th:text="${comment.body}"></h2>
+</div>
 
 </body>
 </html>

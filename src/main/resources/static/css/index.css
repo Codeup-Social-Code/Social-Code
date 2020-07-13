@@ -8,102 +8,98 @@ html {
 }
 
 body.community {
-    background-image: url("/img/corkboard.png");
+    background-image: url("/img/mobile-cork-bg.png");
     margin: 0px;!important;
     padding: 0px;!important;
     /*box-sizing: content-box;*/
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
 
+.social {
 
-.container-social {
-   margin-right: 15px;
-    margin-top: 31px;
-
+    margin-left: 100px ;
+    margin-top: 15px;
 }
 
-
-@media screen and (min-width:375px) {
-
-
-
+.social-img {
+    width: 70%;
 }
 
 
 /* Small devices (phones and pocket devices, 576 and up) */
 @media screen and (min-width:576px) {
-    /*body.community {*/
-    /*    background-image: url("/img/background.png");*/
-    /*    background-repeat: no-repeat;*/
-    /*    background-size: cover;*/
-    /*    !*background-position: center center;*!*/
-    /*    !*background-attachment: fixed;*!*/
-    /*}*/
+
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
-    body.community {
-        background-image: url("/img/corkboard.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        /*background-position: center center;*/
-        /*background-attachment: fixed;*/
+    body.community{
+        background-image: url("/img/tablet-cork-bg.png");
     }
-    .container-social{
-        margin-left: 150px;
-        margin-top: 14px;
+
+    .social{
+        margin-left: 180px;
+        margin-top: 25px;
     }
     .social-img {
 
-        width: 85%;
+        width: 75%;
     }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
+    body.community{
+        background-image: url("/img/laptop-cork-bg.png");
+        background-repeat: no-repeat;
+        width: 100%;
+        background-size: cover;
+    }
 
-    .container-social {
-        margin-left: 280px ;
+    .social {
+       margin-left: 200px ;
+        margin-top: 70px;
     }
     .social-img {
-        width: 65%;
+        width: 80%;
     }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
-    /*body.community {*/
-    /*    background-image: url("/img/laptop-background.png");*/
-    /*    background-repeat: no-repeat;*/
-    /*    background-size: cover;*/
-    /*    background-position: center center;*/
-    /*    background-attachment: fixed;*/
-    /*}*/
+    body.community{
+        background-image: url("/img/lg-laptop-cork-bg.png");
+    }
 
-    .container-social {
-        margin-top: 20px;
-        margin-left: 450px ;
+
+    .social {
+        margin-left: 380px ;
+        margin-top: 140px;
     }
     .social-img {
-        width: 50%;
+        width: 65%;
     }
 
 
 }
 
 @media screen and (min-width:2200px) {
-
-
-    .container-social {
-        margin-top: 10px;
-        margin-left: 500px ;
+    body.community{
+        background-image: url("/img/xl-cork-bg.png");
     }
 
+
+
+    .social {
+        margin-left: 780px ;
+        margin-top: 100px;
+    }
     .social-img {
-        width: 70%;
+        width: 55%;
     }
+
 
 }

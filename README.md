@@ -74,8 +74,8 @@ that takes you to the welcome page...
 
 <h3>Welcome Page</h3>
 <ul>
-<li>Customized“Welcome” Message</li>
- <li>Next steps- update(edit) profile view.</li>
+  <del><li>Customized“Welcome” Message</li></del>
+  <del> <li>Next steps- update(edit) profile view.</li></del>
 </ul>
 
 

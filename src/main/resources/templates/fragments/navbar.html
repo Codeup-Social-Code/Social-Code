@@ -6,22 +6,40 @@
 </head>
 <body>
 
+<!--NEW NAVBAR-->
 <nav class="navbar navbar-expand navbar-light bg-light"  th:fragment="navbar">
-    <a class="navbar-brand" href="/posts">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand" href="/posts"><img class="logo" src="/img/codeup-logo.png"/></a>
     <div class="collapse navbar-collapse" id="navbar">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+        <ul class="navbar-nav mr-auto">
+            <li id="search" class="nav-item ">
+                <input class="d-none d-md-block" id="search-box" type="text" placeholder="Search" style="color: dimgrey">
+                <i class="fas fa-search d-none d-md-block"></i>
+            </li>
+            <li id="login-btn" class="nav-item">
                 <form th:action="@{/login}" th:method="post">
-                    <button class="btn-link btn" style="color: dimgrey">Login</button>
+                    <button id="login" class="btn-link btn" style="color: dimgrey;">Login</button>
                 </form>
             </li>
-            <li class="nav-item">
-                <form th:action="@{/logout}" th:method="post">
-                    <button class="btn-link btn" style="color: dimgrey">Logout</button>
+<!--            <li id="logout-btn" class="nav-item">-->
+<!--                <form th:action="@{/logout}" th:method="post">-->
+<!--                    <button id="logout" class="btn-link btn" style="color: dimgrey">Logout</button>-->
+<!--                </form>-->
+<!--            </li>-->
+            <li id="register-btn" class="nav-item">
+                <form th:action="@{/register}" th:method="post">
+                    <button id="register" class="btn-link btn" style="color: dimgrey">Register</button>
                 </form>
+            </li>
+            <li class="nav-item dropdown d-none d-lg-block">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
             </li>
         </ul>
     </div>

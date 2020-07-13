@@ -2,9 +2,11 @@ package dev.socialcode.socialcode.controllers;
 
 
 import dev.socialcode.socialcode.daos.CategoriesRepository;
+import dev.socialcode.socialcode.daos.CommentsRepository;
 import dev.socialcode.socialcode.daos.PostRepository;
 import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.Category;
+import dev.socialcode.socialcode.models.Comment;
 import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.User;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,11 +25,13 @@ public class PostController {
     private PostRepository postsDao;
     private CategoriesRepository categoriesDao;
     private UserRepository usersDao;
+    private CommentsRepository commentsDao;
 
-    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository) {
+    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository, CommentsRepository commentsRepository) {
         this.postsDao = postRepository;
         this.categoriesDao = categoriesRepository;
         this.usersDao = userRepository;
+        this.commentsDao = commentsRepository;
     }
 
     @GetMapping("/posts/create")
@@ -40,7 +44,11 @@ public class PostController {
     @GetMapping("/posts/{id}")
     public String showOne(@PathVariable long id, Model model) {
         Post post = postsDao.getOne(id);
+        List<Comment> comments = commentsDao.findAll();
+        model.addAttribute("comment", new Comment());
         model.addAttribute("post", post);
+        model.addAttribute("No Comments", comments.size() == 0);
+        model.addAttribute("comments", comments);
         return "posts/show";
     }
 
@@ -89,7 +97,6 @@ public class PostController {
 //    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
 
     @GetMapping("/posts")
-
     public String viewPosts() {
         return "posts/index";
     }

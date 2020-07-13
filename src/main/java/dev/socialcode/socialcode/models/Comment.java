@@ -43,6 +43,14 @@ public class Comment {
 
         }
 
+        public Comment(long id, String body, User user, Post post, Date createdAt) {
+                this.id = id;
+                this.body = body;
+                this.user = user;
+                this.post = post;
+                this.createDate = createdAt;
+        }
+
         public long getId() {
                 return id;
         }
@@ -67,6 +75,19 @@ public class Comment {
                 this.createDate = createDate;
         }
 
+        public User getUser() {
+                return user;
+        }
 
+        public void setUser(User user) {
+                this.user = user;
+        }
 
-    }
+        public Post getPost() {
+                return post;
+        }
+
+        public void setPost(Post post) {
+                this.post = post;
+        }
+}

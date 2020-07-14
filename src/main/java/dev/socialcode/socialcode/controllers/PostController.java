@@ -71,7 +71,7 @@ public class PostController {
         Date curDate = new Date();
         postToBeSaved.setCreateDate(curDate);
         postsDao.save(postToBeSaved);
-        return "posts/index";
+        return "redirect:/posts";
     }
 
     //update functionality will be added once user authentication is setup
@@ -97,9 +97,11 @@ public class PostController {
 //    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
 
     @GetMapping("/posts")
-    public String viewPosts() {
-        User user = usersDao.findByUsername("test2@gmail.com");
-        System.out.println(user.getFirstName());
+    public String viewPosts(Model model) {
+//        User user = usersDao.findByUsername("test2@gmail.com");
+//        System.out.println(user.getFirstName());
+        List<Post> posts = postsDao.findAll();
+        model.addAttribute("posts", posts);
         return "posts/index";
     }
 

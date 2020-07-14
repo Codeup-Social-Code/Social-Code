@@ -10,15 +10,17 @@
     <h1>Create an account</h1>
     <form th:action="@{/sign-up}" method="POST" th:object="${user}">
 
-        <label for="username">username</label>
+<!--        <label for="username">username</label>-->
+<!--        <input id="username" name="username" th:field="*{username}" />-->
+<!--        <br>-->
+        <label for="username">email</label>
         <input id="username" name="username" th:field="*{username}" />
-<!--        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>-->
         <br>
         <label for="password">Password</label>
         <input id="password" name="password" type="password" th:field="*{password}" />
         <br>
         <label for="passwordToConfirm">retype Password</label>
-        <input id="passwordToConfirm" name="passwordToConfirm" type="password" th:field="*{password}" />
+        <input id="passwordToConfirm" name="passwordToConfirm" type="password" />
         <br>
         <label for="firstName">First Name</label>
         <input id="firstName" name="firstName" th:field="*{firstName}" />

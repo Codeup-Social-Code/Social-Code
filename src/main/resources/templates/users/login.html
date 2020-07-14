@@ -7,25 +7,24 @@
 <nav th:replace="fragments/navbar :: navbar" />
 <div class="container"></div>
 <h1>login</h1>
-<div th:if="${param.error}">
-    Invalid email and password.
-    <br>
-    <div>Try entering it again, or you can register here:</div>
-    <form th:action="@{/sign-up}" th:method="get">
-        <button class="btn-link btn" style="margin-top: 8px">Register</button>
-    </form>
-</div>
+<!--<div th:if="${param.error}">-->
+<!--    Invalid email and password.-->
+<!--    <br>-->
+<!--    <div>Try entering it again, or you can register here:</div>-->
+<!--    <form th:action="@{/sign-up}" th:method="get">-->
+<!--        <button class="btn-link btn" style="margin-top: 8px">Register</button>-->
+<!--    </form>-->
+<!--</div>-->
 
-<div th:if="${param.logout}">
-    You have been logged out.
-    <br>
-    <div>Would you like to log in again?</div>
-</div>
-
+<!--<div th:if="${param.logout}">-->
+<!--    You have been logged out.-->
+<!--    <br>-->
+<!--    <div>Would you like to log in again?</div>-->
+<!--</div>-->
 
 <form th:action="@{/login}" method="post">
-    <label for="username">Email</label>
-    <input id="username" name="username" type="email" />
+    <label for="username">username</label>
+    <input id="username" name="username" type="text" />
     <br>
     <label for="password">Password</label>
     <input id="password" name="password" type="password" />

@@ -16,7 +16,17 @@
                 <img class="social-img" src="/img/social.png"/>
         </div>
 
-
+<div>
+    <div th:each="post : ${posts}">
+        <a th:href="${'/posts/' + post.id}">View <span th:text="${post.title}"></span></a>
+        <h1 th:text="${post.title}">Title</h1>
+        <p th:text="${post.body}">Body</p>
+        <p>Created By: <span th:text="${post.user.username}"></span></p>
+        <form th:action="${'/posts/' + post.id + '/edit'}">
+            <button class="btn btn-warning">EDIT</button>
+        </form>
+    </div>
+</div>
 
 
 

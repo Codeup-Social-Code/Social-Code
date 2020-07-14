@@ -6,83 +6,69 @@ import org.hibernate.validator.constraints.NotBlank;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name="users")
 public class User {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private long id;
+        long id;
 
-        @Column(name = "first_name", nullable = false, length = 20)
-        @NotBlank(message = "required*")
-        private String firstName;
+        @Column(nullable = false, length = 50, unique = true)
+        String username;
 
-        @Column(name = "last_name", nullable = false, length = 20)
-        @NotBlank(message = "required*")
-        private String lastName;
+        @Column(nullable = false, length = 50, unique = true)
+        String email;
 
-        @Column(name = "username", nullable = false, unique = true)
-//        if email doesn't work, try adding the other version of the import
-//        @NotBlank(message = "required*")
-        private String username;
+        @Column(nullable = false, length = 50)
+        String firstName;
 
-        @Column(nullable = false)
-        @NotBlank(message = "required*")
-        private String password;
+        @Column(nullable = false, length = 50)
+        String lastName;
 
         @Column(nullable = false)
-        private String city;
+        String password;
 
-        @Column
-        private String linkedIn;
+        @Column(nullable = false)
+        String city;
 
-        @Column
-        private String gitHub;
+        @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+        private List<Comment> comments;
 
-        @Column
-        private String bio;
+        //empty constructor for Spring framework
+        public User() {
+        }
 
-        @Column
-        private String picture;;
-
-        @OneToMany(mappedBy = "user")
-        private List<Post> posts;
-
-        //Copy Constructor
+        //copy constructor
         public User(User copy) {
                 id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+                email = copy.email;
                 username = copy.username;
                 password = copy.password;
         }
 
-        public User(long id, String firstName, String lastName, String username, String password, String city, String linkedIn, String gitHub, String bio, String picture, List<Post> posts) {
+        //read
+        public User(long id, String username, String email, String firstName, String lastName, String password, String city, List<Comment> comments) {
                 this.id = id;
+                this.username = username;
+                this.email = email;
                 this.firstName = firstName;
                 this.lastName = lastName;
-                this.username = username;
                 this.password = password;
                 this.city = city;
-                this.linkedIn = linkedIn;
-                this.gitHub = gitHub;
-                this.bio = bio;
-                this.picture = picture;
-                this.posts = posts;
+                this.comments = comments;
         }
 
-        public User(@NotBlank(message = "required*") String firstName, @NotBlank(message = "required*") String lastName, String username, @NotBlank(message = "required*") String password, String city, String linkedIn, String gitHub, String bio, String picture, List<Post> posts) {
+
+        //insert
+        public User(String username, String email, String firstName, String lastName, String password, String city, List<Comment> comments) {
+                this.username = username;
+                this.email = email;
                 this.firstName = firstName;
                 this.lastName = lastName;
-                this.username = username;
                 this.password = password;
                 this.city = city;
-                this.linkedIn = linkedIn;
-                this.gitHub = gitHub;
-                this.bio = bio;
-                this.picture = picture;
-                this.posts = posts;
+                this.comments = comments;
         }
-
-        public User() { }
 
         public long getId() {
                 return id;
@@ -90,6 +76,30 @@ public class User {
 
         public void setId(long id) {
                 this.id = id;
+        }
+
+        public String getUsername() {
+                return username;
+        }
+
+        public void setUsername(String username) {
+                this.username = username;
+        }
+
+        public String getEmail() {
+                return email;
+        }
+
+        public void setEmail(String email) {
+                this.email = email;
+        }
+
+        public String getPassword() {
+                return password;
+        }
+
+        public void setPassword(String password) {
+                this.password = password;
         }
 
         public String getFirstName() {
@@ -108,28 +118,12 @@ public class User {
                 this.lastName = lastName;
         }
 
-        public String getUsername() {
-                return username;
+        public List<Comment> getComments() {
+                return comments;
         }
 
-        public void setUsername(String username) {
-                this.username = username;
-        }
-
-        public String getEmail(){
-                return username;
-        }
-
-        public void setEmail(String email) {
-                this.username = email;
-        }
-
-        public String getPassword() {
-                return password;
-        }
-
-        public void setPassword(String password) {
-                this.password = password;
+        public void setComments(List<Comment> comments) {
+                this.comments = comments;
         }
 
         public String getCity() {
@@ -139,47 +133,4 @@ public class User {
         public void setCity(String city) {
                 this.city = city;
         }
-
-        public String getLinkedIn() {
-                return linkedIn;
-        }
-
-        public void setLinkedIn(String linkedIn) {
-                this.linkedIn = linkedIn;
-        }
-
-        public String getGitHub() {
-                return gitHub;
-        }
-
-        public void setGitHub(String gitHub) {
-                this.gitHub = gitHub;
-        }
-
-        public String getBio() {
-                return bio;
-        }
-
-        public void setBio(String bio) {
-                this.bio = bio;
-        }
-
-        public String getPicture() {
-                return picture;
-        }
-
-        public void setPicture(String picture) {
-                this.picture = picture;
-        }
-
-        public List<Post> getPosts() {
-                return posts;
-        }
-
-        public void setPosts(List<Post> posts) {
-                this.posts = posts;
-        }
-
-
-  
 }

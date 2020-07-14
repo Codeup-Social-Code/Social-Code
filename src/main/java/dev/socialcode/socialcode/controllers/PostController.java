@@ -98,8 +98,8 @@ public class PostController {
 
     @GetMapping("/posts")
     public String viewPosts() {
-        User user = usersDao.findByUsername("test2@gmail.com");
-        System.out.println(user.getFirstName());
+//        User user = usersDao.findByUsername("test2@gmail.com");
+//        System.out.println(user.getFirstName());
         return "posts/index";
     }
 

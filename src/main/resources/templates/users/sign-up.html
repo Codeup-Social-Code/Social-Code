@@ -7,7 +7,6 @@
 
 <body class="sign-up">
     <nav th:replace="fragments/navbar :: navbar" />
-
     <div class="container sign-up-container">
         <div class="card text-center">
             <form th:action="@{/sign-up}" method="POST" th:object="${user}">
@@ -33,7 +32,7 @@
                     <label for="city">City (Zip Code)</label>
                     <input id="city" name="city" th:field="*{city}" />
                     <br>
-                    <a href="#" class="btn btn-success mt-2">Register</a>
+                    <input class="btn btn-success" type="submit" value="Register"/>
                     <br>
                     <form th:action="@{/login}" th:method="post">
                         <span>Existing account?</span>

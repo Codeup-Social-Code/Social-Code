@@ -9,7 +9,7 @@ body.login{
 }
 
 .login-container{
-    margin-top: 100px;
+    margin-top: 340px;
     width: 18rem;
 }
 
@@ -22,7 +22,7 @@ body.login{
 @media screen and (min-width:576px) {
 
     .login-container{
-        margin-top: 200px;
+        margin-top: 340px;
         width: 25rem;
     }
 

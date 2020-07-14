@@ -2,6 +2,7 @@ package dev.socialcode.socialcode.controllers;
 
 import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.User;
+import dev.socialcode.socialcode.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +20,12 @@ import javax.validation.Valid;
 public class UserController {
     private UserRepository usersDao;
     private PasswordEncoder passwordEncoder;
+    private UserService usersService;
 
-    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
+        this.usersService = usersService;
     }
 
 
@@ -51,6 +54,20 @@ public class UserController {
         viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
         return "users/user";
     }
+
+    @GetMapping("/users/profile")
+    public String showProfile(Model viewModel){
+        User logUser = usersService.loggedInUser();
+
+        if(logUser == null){
+            viewModel.addAttribute("msg", "You need to be logged in to be able to see this page");
+            return "users/login";
+        }
+        return "redirect:/users/" + usersService.loggedInUser().getId();
+    }
+
+
+
 
 
 

@@ -16,9 +16,6 @@ public class User {
         @Column(nullable = false, length = 50, unique = true)
         String username;
 
-//        @Column(nullable = false, length = 50, unique = true)
-//        String email;
-
         @Column(nullable = false, length = 50)
         String firstName;
 
@@ -30,9 +27,22 @@ public class User {
 
         @Column(nullable = false)
         String passwordToConfirm;
-
-        @Column(nullable = false)
+        
+        @Column
         String city;
+
+        @Column
+        String linkedIn;
+
+        @Column
+        String gitHub;
+
+        @Column
+        String bio;
+
+        @Column
+        String picture;;
+
 
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
         private List<Comment> comments;
@@ -49,24 +59,32 @@ public class User {
         }
 
         //read
-        public User(long id, String username, String email, String firstName, String lastName, String password, String city, List<Comment> comments) {
+        public User(long id, String username, String email, String firstName, String lastName, String password, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments) {
                 this.id = id;
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.password = password;
                 this.city = city;
+                this.linkedIn = linkedIn;
+                this.gitHub = gitHub;
+                this.bio = bio;
+                this.picture = picture;
                 this.comments = comments;
         }
 
 
         //insert
-        public User(String username, String email, String firstName, String lastName, String password, String city, List<Comment> comments) {
+        public User(String username, String email, String firstName, String lastName, String password, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments) {
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.password = password;
                 this.city = city;
+                this.linkedIn = linkedIn;
+                this.gitHub = gitHub;
+                this.bio = bio;
+                this.picture = picture;
                 this.comments = comments;
         }
 
@@ -132,5 +150,37 @@ public class User {
 
         public void setCity(String city) {
                 this.city = city;
+        }
+
+        public String getLinkedIn() {
+                return linkedIn;
+        }
+
+        public void setLinkedIn(String linkedIn) {
+                this.linkedIn = linkedIn;
+        }
+
+        public String getGitHub() {
+                return gitHub;
+        }
+
+        public void setGitHub(String gitHub) {
+                this.gitHub = gitHub;
+        }
+
+        public String getBio() {
+                return bio;
+        }
+
+        public void setBio(String bio) {
+                this.bio = bio;
+        }
+
+        public String getPicture() {
+                return picture;
+        }
+
+        public void setPicture(String picture) {
+                this.picture = picture;
         }
 }

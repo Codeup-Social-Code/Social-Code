@@ -75,7 +75,7 @@ public class PostController {
     }
 
     //update functionality will be added once user authentication is setup
-    /*
+
     @GetMapping("/posts/{id}/edit")
     public String showEditForm(Model model, @PathVariable long id) {
         //find an ad
@@ -93,7 +93,7 @@ public class PostController {
         postsDao.save(postToBeUpdated);
         return "redirect:/posts/" + postEdited.getId();
     }
-*/
+
 //    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
 
     @GetMapping("/posts")

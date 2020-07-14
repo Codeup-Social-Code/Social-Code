@@ -6,11 +6,13 @@ import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.Comment;
 import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
 import java.util.Date;
@@ -30,11 +32,11 @@ public class PostCommentController {
     }
 
     @PostMapping("/comments/create")
-    public String createComment(@ModelAttribute Comment commentToBeSaved, Principal principal) {
-        Post post = postsDao.getOne(1L);
-        User user = usersDao.getOne(1L);
+    public String createComment(@ModelAttribute Comment commentToBeSaved, @RequestParam(name = "postId") String postId, Principal principal) {
+        Post post = postsDao.getOne(Long.parseLong(postId));
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         commentToBeSaved.setPost(post);
-        commentToBeSaved.setUser(user);
+        commentToBeSaved.setUser(currentUser);
         Date currentDate = new Date();
         commentToBeSaved.setCreateDate(currentDate);
         Comment savedComment = commentsDao.save(commentToBeSaved);

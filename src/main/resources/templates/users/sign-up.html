@@ -10,6 +10,7 @@
     <h1>Create an account</h1>
     <form th:action="@{/sign-up}" method="POST" th:object="${user}">
 
+
         <label for="username">email</label>
         <input id="username" name="username" th:class="validate" th:field="*{username}" />
         <p th:if="${#fields.hasErrors('username')}" th:eerrors="*{username}"></p>
@@ -27,7 +28,7 @@
         <label for="lastName">Last Name</label>
         <input id="lastName" name="lastName" th:field="*{lastName}" />
         <br>
-        <label for="city">City (Zip Code)</label>
+        <label for="city">City</label>
         <input id="city" name="city" th:field="*{city}" />
         <br>
         <input value="Complete Register" type="submit" />

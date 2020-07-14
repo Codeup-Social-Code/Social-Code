@@ -2,11 +2,32 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head('SocialCode | Login')">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
 </head>
+
+<body class="login">
 <nav th:replace="fragments/navbar :: navbar" />
-<div class="container"></div>
-<h1>login</h1>
+
+        <div class="container login-container">
+            <div class="card">
+                <form th:action="@{/login}" method="post">
+                    <div class="card-header text-center">
+                        <h1>Please Log In</h1>
+                    </div>
+                    <div class="card-body login-card-body text-center">
+                        <label for="username">Email</label>
+                        <input id="username" name="username" type="email" />
+                        <br>
+                        <label for="password">Password</label>
+                        <input class="login-password" id="password" name="password" type="password" />
+                        <br>
+                        <a href="#" class="btn btn-success mt-2">Log In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
 <!--<div th:if="${param.error}">-->
 <!--    Invalid email and password.-->
 <!--    <br>-->
@@ -22,16 +43,6 @@
 <!--    <div>Would you like to log in again?</div>-->
 <!--</div>-->
 
-<form th:action="@{/login}" method="post">
-    <label for="username">username</label>
-    <input id="username" name="username" type="text" />
-    <br>
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password" />
-    <br>
-    <input type="submit" value="Log In"/>
-</form>
-</div>
 
 
 </body>

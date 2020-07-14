@@ -8,6 +8,7 @@
 
 <div th:if="${post}">
     <h1>Title: <span th:text="${post.title}"></span></h1>
+    <h1>Created By: <span th:text="${post.user.firstName}"></span></h1>
     <h3>Body: <span th:text="${post.body}"></span></h3>
     <div th:each="category: ${post.categories}">
         <h2 th:text="${category.name}"></h2>
@@ -17,9 +18,12 @@
     <button class="btn btn-warning">EDIT</button>
 </form>
 
-<div class="container">
+<div class="container" th:if="${post}">
     <form th:action="@{/comments/create}" th:method="post" th:object="${comment}">
         comment body:
+        <div>
+            <input type="hidden" name="postId" th:value="${post.id}">
+        </div>
         <input th:field="*{body}" />
         <br />
         <input type="submit" />
@@ -27,7 +31,7 @@
 </div>
 
 <div th:each="comment: ${comments}">
-    <h2 th:text="${comment.body}"></h2>
+    <h2>Comment: <span th:text="${comment.body}"></span> Created by: <span th:text="${comment.user.firstName}"></span></h2>
 </div>
 
 </body>

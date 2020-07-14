@@ -31,7 +31,10 @@
 </div>
 
 <div>
-    <a href="">RSVP</a>
+    <form th:if="${post}" th:action="${'/posts/rsvp'}" th:method="POST">
+        <input type="hidden" name="postId" th:value="${post.id}">
+        <button class="btn btn-warning">RSVP</button>
+    </form>
 </div>
 
 

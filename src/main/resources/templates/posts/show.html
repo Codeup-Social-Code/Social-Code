@@ -34,5 +34,9 @@
     <h2>Comment: <span th:text="${comment.body}"></span> Created by: <span th:text="${comment.user.firstName}"></span></h2>
 </div>
 
+<div th:each="comment: ${comments}">
+    <h2>Comment: <span th:text="${comment.body}"></span> Created by: <span th:text="${comment.user.firstName}"></span></h2>
+</div>
+
 </body>
 </html>

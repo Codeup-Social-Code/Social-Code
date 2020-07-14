@@ -53,7 +53,9 @@ public class UserController {
         }
 
         String hash = passwordEncoder.encode(user.getPassword());
+        String hashForConfirm = passwordEncoder.encode(user.getPasswordToConfirm());
         user.setPassword(hash);
+        user.setPasswordToConfirm(hashForConfirm);
 
         usersDao.save(user);
         return "redirect:/login";

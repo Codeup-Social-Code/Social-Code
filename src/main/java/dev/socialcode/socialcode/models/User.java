@@ -56,15 +56,17 @@ public class User {
                 id = copy.id; // This line is SUPER important! Many things won't work if it's absent
                 username = copy.username;
                 password = copy.password;
+                passwordToConfirm = copy.passwordToConfirm;
         }
 
         //read
-        public User(long id, String username, String email, String firstName, String lastName, String password, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments) {
+        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments) {
                 this.id = id;
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.password = password;
+                this.passwordToConfirm = passwordToConfirm;
                 this.city = city;
                 this.linkedIn = linkedIn;
                 this.gitHub = gitHub;
@@ -73,13 +75,13 @@ public class User {
                 this.comments = comments;
         }
 
-
         //insert
-        public User(String username, String email, String firstName, String lastName, String password, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments) {
+        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments) {
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.password = password;
+                this.passwordToConfirm = passwordToConfirm;
                 this.city = city;
                 this.linkedIn = linkedIn;
                 this.gitHub = gitHub;
@@ -87,6 +89,8 @@ public class User {
                 this.picture = picture;
                 this.comments = comments;
         }
+
+
 
         public long getId() {
                 return id;

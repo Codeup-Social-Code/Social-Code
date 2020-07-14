@@ -40,7 +40,7 @@ public class UserController {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         usersDao.save(user);
-        return "redirect:/sign-up";
+        return "redirect:/login";
     }
 
 

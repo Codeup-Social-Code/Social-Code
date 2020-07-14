@@ -16,8 +16,8 @@ public class User {
         @Column(nullable = false, length = 50, unique = true)
         String username;
 
-        @Column(nullable = false, length = 50, unique = true)
-        String email;
+//        @Column(nullable = false, length = 50, unique = true)
+//        String email;
 
         @Column(nullable = false, length = 50)
         String firstName;
@@ -41,7 +41,6 @@ public class User {
         //copy constructor
         public User(User copy) {
                 id = copy.id; // This line is SUPER important! Many things won't work if it's absent
-                email = copy.email;
                 username = copy.username;
                 password = copy.password;
         }
@@ -50,7 +49,6 @@ public class User {
         public User(long id, String username, String email, String firstName, String lastName, String password, String city, List<Comment> comments) {
                 this.id = id;
                 this.username = username;
-                this.email = email;
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.password = password;
@@ -62,7 +60,6 @@ public class User {
         //insert
         public User(String username, String email, String firstName, String lastName, String password, String city, List<Comment> comments) {
                 this.username = username;
-                this.email = email;
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.password = password;
@@ -84,14 +81,6 @@ public class User {
 
         public void setUsername(String username) {
                 this.username = username;
-        }
-
-        public String getEmail() {
-                return email;
-        }
-
-        public void setEmail(String email) {
-                this.email = email;
         }
 
         public String getPassword() {

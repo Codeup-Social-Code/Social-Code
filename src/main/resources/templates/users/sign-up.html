@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="fragments/head :: head('SocialCode | Sign-up')">
     <meta charset="UTF-8">
-    <title>Sign Up</title>
+    <title>Login</title>
 </head>
-<body>
-    <nav th:replace="fragments/navbar :: navbar"></nav>
 
-    <h1>Create an account</h1>
-    <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+<body class="sign-up">
+    <nav th:replace="fragments/navbar :: navbar" />
+    <div class="container sign-up-container">
+        <div class="card text-center">
+            <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+                <div class="card-header text-center">
+                    <h1>Create An Account</h1>
+                </div>
+                <div class="card-body login-card-body text-center">
+                    <label for="username">Email</label>
+                    <input id="username" name="username" th:class="validate" th:field="*{username}" />
+                          <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                    <br>
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" th:class="validate" th:field="*{password}" />
+                          <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p> 
+                     <br>
+                    <label for="passwordToConfirm">Re-Enter Password</label>
+                    <input id="passwordToConfirm" name="passwordToConfirm" type="password" />
+                    <br>
+                    <label for="firstName">First Name</label>
+                    <input id="firstName" name="firstName" th:field="*{firstName}" />
+                    <br>
+                    <label for="lastName">Last Name</label>
+                    <input id="lastName" name="lastName" th:field="*{lastName}" />
+                    <br>
+                    <label for="city">City (Zip Code)</label>
+                    <input id="city" name="city" th:field="*{city}" />
+                    <br>
+                    <input class="btn btn-success" type="submit" value="Register"/>
+                    <br>
+                    <form th:action="@{/login}" th:method="post">
+                        <span>Existing account?</span>
+                        <a href="/login">Log In</a>
+                    </form>
+                </div>
+            </form>
+        </div>
+    </div>
 
-
-        <label for="username">email</label>
-        <input id="username" name="username" th:class="validate" th:field="*{username}" />
-        <p th:if="${#fields.hasErrors('username')}" th:eerrors="*{username}"></p>
-        <br>
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" th:class="validate" th:field="*{password}" />
-        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
-        <br>
-        <label for="passwordToConfirm">retype Password</label>
-        <input id="passwordToConfirm" name="passwordToConfirm" type="password" />
-        <br>
-        <label for="firstName">First Name</label>
-        <input id="firstName" name="firstName" th:field="*{firstName}" />
-        <br>
-        <label for="lastName">Last Name</label>
-        <input id="lastName" name="lastName" th:field="*{lastName}" />
-        <br>
-        <label for="city">City</label>
-        <input id="city" name="city" th:field="*{city}" />
-        <br>
-        <input value="Complete Register" type="submit" />
-    </form>
-    <form th:action="@{/login}" th:method="post">
-        <span>If you already have existing account?</span>
-        <button>Go back to Login Page</button>
-    </form>
 </body>
 </html>

@@ -1,0 +1,55 @@
+
+body.login{
+    background-image: url("/img/login-register.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: rgba(136, 160, 99, 0.4);
+
+}
+
+.login-container{
+    margin-top: 340px;
+    width: 18rem;
+}
+
+
+#password{
+    margin-right: 28px;
+}
+
+/* Small devices (phones and pocket devices, 576 and up) */
+@media screen and (min-width:576px) {
+
+    .login-container{
+        margin-top: 340px;
+        width: 25rem;
+    }
+
+    #password{
+        margin-right: 28px;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width:992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) {
+
+
+}
+
+@media screen and (min-width:2200px) {
+
+
+
+}

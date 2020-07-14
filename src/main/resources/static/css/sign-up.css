@@ -1,0 +1,25 @@
+
+body.sign-up{
+    background-image: url("/img/login-register.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: rgba(136, 160, 99, 0.4);
+
+}
+
+.sign-up-container {
+    margin-top: 340px;
+}
+
+#passwordToConfirm {
+    margin-right: 96px;
+}
+
+#firstName, #lastName {
+    margin-right: 37px;
+}
+
+#city{
+    margin-right: 71px;
+}

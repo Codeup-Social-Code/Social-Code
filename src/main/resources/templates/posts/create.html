@@ -6,32 +6,47 @@
 </head>
 <body>
 <nav th:replace="fragments/navbar :: navbar" />
-<div class="container">
-    <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
-        <div>
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title" th:field="*{title}">
+
+
+
+<div class="container text-center">
+        <div class="card">
+            <div class="card-header">
+                Fill out the form to create your post.
+            </div>
+            <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="card-body">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" id="title" th:field="*{title}">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="body">Body</label>
+                        <input type="text" name="body" id="body" th:field="*{body}">
+                    </div>
+                </div>
+
+                        <div class="form-group">
+                                    <input type="date" name="eventDate" th:field="*{eventDate}">
+                        </div>
+                        <div class="form-group">
+                            <input type="time" name="eventTime" th:field="*{eventTime}">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="category" for="category">Category</label>
+                            <select name="category" id="category">
+                                <option value="1">Javascript</option>
+                                <option value="2">Java</option>
+                                <option value="3">Bootstrap</option>
+                            </select>
+                        </div>
+                    <input class="btn btn-success"  type="submit"/>
+            </form>
         </div>
-        <div>
-            <label for="body">Body</label>
-            <input type="text" name="body" id="body" th:field="*{body}">
-        </div>
-        <div>
-            <label class="category" for="category">Category</label>
-            <select name="category" id="category">
-                <option value="1">Javascript</option>
-                <option value="2">Java</option>
-                <option value="3">Bootstrap</option>
-            </select>
-        </div>
-        <div>
-            <input type="date" name="eventDate" th:field="*{eventDate}">
-        </div>
-        <div>
-            <input type="time" name="eventTime" th:field="*{eventTime}">
-        </div>
-        <input type="submit" />
-    </form>
 </div>
+
+
 </body>
 </html>

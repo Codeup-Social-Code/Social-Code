@@ -29,6 +29,9 @@ public class User {
         String password;
 
         @Column(nullable = false)
+        String passwordToConfirm;
+
+        @Column(nullable = false)
         String city;
 
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -89,6 +92,14 @@ public class User {
 
         public void setPassword(String password) {
                 this.password = password;
+        }
+
+        public String getPasswordToConfirm() {
+                return passwordToConfirm;
+        }
+
+        public void setPasswordToConfirm(String passwordToConfirm) {
+                this.passwordToConfirm = passwordToConfirm;
         }
 
         public String getFirstName() {

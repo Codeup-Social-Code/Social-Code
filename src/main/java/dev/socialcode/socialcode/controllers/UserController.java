@@ -32,13 +32,26 @@ public class UserController {
         return "users/sign-up";
     }
     @PostMapping("/sign-up")
-    public String saveUser(@ModelAttribute User user, Errors validation){
+    public String saveUser(@ModelAttribute User user, Errors validation, Model model){
         User existingUsername = usersDao.findByUsername(user.getUsername());
+
         if(existingUsername != null) {
-            validation.rejectValue("username", "user.username", "Duplicated email " + user.getUsername());
+            validation.rejectValue("username", "user.username", "You entered duplicated username, do you remember your email?");
         }
+
+        if(!user.getPassword().equals(user.getPasswordToConfirm())) {
+            validation.rejectValue("password",user.getPassword(), "Passwords are not match!");
+        }
+
+        if (validation.hasErrors()) {
+            model.addAttribute("errors", validation);
+            model.addAttribute("user", user);
+            return "users/sign-up";
+        }
+
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
+
         usersDao.save(user);
         return "redirect:/login";
     }

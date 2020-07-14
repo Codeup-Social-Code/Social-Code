@@ -16,9 +16,6 @@ public class User {
         @Column(nullable = false, length = 50, unique = true)
         String username;
 
-//        @Column(nullable = false, length = 50, unique = true)
-//        String email;
-
         @Column(nullable = false, length = 50)
         String firstName;
 
@@ -29,7 +26,23 @@ public class User {
         String password;
 
         @Column(nullable = false)
+        String passwordToConfirm;
+        
+        @Column
         String city;
+
+        @Column
+        String linkedIn;
+
+        @Column
+        String gitHub;
+
+        @Column
+        String bio;
+
+        @Column
+        String picture;;
+
 
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
         private List<Comment> comments;
@@ -46,51 +59,42 @@ public class User {
                 id = copy.id; // This line is SUPER important! Many things won't work if it's absent
                 username = copy.username;
                 password = copy.password;
+                passwordToConfirm = copy.passwordToConfirm;
         }
 
         //read
-        public User(long id, String username, String firstName, String lastName, String password, String city, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP) {
+        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP) {
                 this.id = id;
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.password = password;
+                this.passwordToConfirm = passwordToConfirm;
                 this.city = city;
+                this.linkedIn = linkedIn;
+                this.gitHub = gitHub;
+                this.bio = bio;
+                this.picture = picture;
                 this.comments = comments;
                 this.RSVP = RSVP;
         }
 
-//        public User(long id, String username, String email, String firstName, String lastName, String password, String city, List<Comment> comments) {
-//                this.id = id;
-//                this.username = username;
-//                this.firstName = firstName;
-//                this.lastName = lastName;
-//                this.password = password;
-//                this.city = city;
-//                this.comments = comments;
-//        }
-
 
         //insert
-
-        public User(String username, String firstName, String lastName, String password, String city, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP) {
+        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP) {
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.password = password;
+                this.passwordToConfirm = passwordToConfirm;
                 this.city = city;
+                this.linkedIn = linkedIn;
+                this.gitHub = gitHub;
+                this.bio = bio;
+                this.picture = picture;
                 this.comments = comments;
                 this.RSVP = RSVP;
         }
-
-//        public User(String username, String email, String firstName, String lastName, String password, String city, List<Comment> comments) {
-//                this.username = username;
-//                this.firstName = firstName;
-//                this.lastName = lastName;
-//                this.password = password;
-//                this.city = city;
-//                this.comments = comments;
-//        }
 
         public long getId() {
                 return id;
@@ -114,6 +118,14 @@ public class User {
 
         public void setPassword(String password) {
                 this.password = password;
+        }
+
+        public String getPasswordToConfirm() {
+                return passwordToConfirm;
+        }
+
+        public void setPasswordToConfirm(String passwordToConfirm) {
+                this.passwordToConfirm = passwordToConfirm;
         }
 
         public String getFirstName() {
@@ -148,11 +160,44 @@ public class User {
                 this.city = city;
         }
 
+
         public List<dev.socialcode.socialcode.models.RSVP> getRSVP() {
                 return RSVP;
         }
 
         public void setRSVP(List<dev.socialcode.socialcode.models.RSVP> RSVP) {
                 this.RSVP = RSVP;
+        }
+  
+        public String getLinkedIn() {
+                return linkedIn;
+        }
+
+        public void setLinkedIn(String linkedIn) {
+                this.linkedIn = linkedIn;
+        }
+
+        public String getGitHub() {
+                return gitHub;
+        }
+
+        public void setGitHub(String gitHub) {
+                this.gitHub = gitHub;
+        }
+
+        public String getBio() {
+                return bio;
+        }
+
+        public void setBio(String bio) {
+                this.bio = bio;
+        }
+
+        public String getPicture() {
+                return picture;
+        }
+
+        public void setPicture(String picture) {
+                this.picture = picture;
         }
 }

@@ -15,11 +15,13 @@
                 </div>
                 <div class="card-body login-card-body text-center">
                     <label for="username">Email</label>
-                    <input id="username" name="username" th:field="*{username}" />
+                    <input id="username" name="username" th:class="validate" th:field="*{username}" />
+                          <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
                     <br>
                     <label for="password">Password</label>
-                    <input id="password" name="password" type="password" th:field="*{password}" />
-                    <br>
+                    <input id="password" name="password" type="password" th:class="validate" th:field="*{password}" />
+                          <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p> 
+                     <br>
                     <label for="passwordToConfirm">Re-Enter Password</label>
                     <input id="passwordToConfirm" name="passwordToConfirm" type="password" />
                     <br>
@@ -42,9 +44,6 @@
             </form>
         </div>
     </div>
-
-
-
 
 </body>
 </html>

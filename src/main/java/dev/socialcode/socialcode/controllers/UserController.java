@@ -2,6 +2,7 @@ package dev.socialcode.socialcode.controllers;
 
 import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.User;
+import dev.socialcode.socialcode.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +20,12 @@ import javax.validation.Valid;
 public class UserController {
     private UserRepository usersDao;
     private PasswordEncoder passwordEncoder;
+    private UserService usersService;
 
-    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
+        this.usersService = usersService;
     }
 
 
@@ -32,16 +35,53 @@ public class UserController {
         return "users/sign-up";
     }
     @PostMapping("/sign-up")
-    public String saveUser(@ModelAttribute User user, Errors validation){
+    public String saveUser(@ModelAttribute User user, Errors validation, Model model){
         User existingUsername = usersDao.findByUsername(user.getUsername());
+
         if(existingUsername != null) {
-            validation.rejectValue("username", "user.username", "Duplicated email " + user.getUsername());
+            validation.rejectValue("username", "user.username", "You entered duplicated username, do you remember your email?");
         }
+
+        if(!user.getPassword().equals(user.getPasswordToConfirm())) {
+            validation.rejectValue("password",user.getPassword(), "Passwords are not match!");
+        }
+
+        if (validation.hasErrors()) {
+            model.addAttribute("errors", validation);
+            model.addAttribute("user", user);
+            return "users/sign-up";
+        }
+
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
+
         usersDao.save(user);
         return "redirect:/login";
     }
+
+    @GetMapping("/users/{id}")
+    public String showUser(@PathVariable Long id, Model viewModel){
+        User user = usersDao.getOne(id);
+        viewModel.addAttribute("user", user);
+        viewModel.addAttribute("sessionUser", usersService.loggedInUser());
+        viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
+        return "users/user";
+    }
+
+    @GetMapping("/users/profile")
+    public String showProfile(Model viewModel){
+        User logUser = usersService.loggedInUser();
+    //not reading that user is logged in
+        if(logUser == null){
+            viewModel.addAttribute("msg", "You need to be logged in to be able to see this page");
+            return "users/login";
+        }
+        return "redirect:/users/" + usersService.loggedInUser().getId();
+    }
+
+
+
+//
 
 
 //    @PostMapping("/sign-up")

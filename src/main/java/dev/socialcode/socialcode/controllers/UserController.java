@@ -58,7 +58,7 @@ public class UserController {
     @GetMapping("/users/profile")
     public String showProfile(Model viewModel){
         User logUser = usersService.loggedInUser();
-
+    //not reading that user is logged in
         if(logUser == null){
             viewModel.addAttribute("msg", "You need to be logged in to be able to see this page");
             return "users/login";

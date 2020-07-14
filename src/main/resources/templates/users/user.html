@@ -10,15 +10,16 @@
     <h5>User Profile</h5>
     <div th:if="${user == null}">User not found.</div>
     <div th:if="${user}">
-        <div th:image="${user.picture}"/>
+<!--        <div th:image="${user.picture}"/>-->
         <h3 th:text="${user.firstName}">Name</h3>
         <h3 th:text="${user.lastName}"></h3>
         <h6 th:text="${user.username}">Email</h6>
         <br>
         <h6 th:text="${user.city}">City</h6>
-        <h6 th:text="${user.gitHub}">GitHub</h6>
-        <h6 th:text="${user.linkedIn}">LinkedIn</h6>
-        <h5 th:text="${user.bio}">Bio</h5>
+<!--        need to let it display page even if below values are null-->
+<!--        <h6 th:text="${user.gitHub}">GitHub</h6>-->
+<!--        <h6 th:text="${user.linkedIn}">LinkedIn</h6>-->
+<!--        <h5 th:text="${user.bio}">Bio</h5>-->
 
 <!--        add anchor here to take user to "edit profile page" if they are that user -->
 <!--        <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }">edit</a>-->

@@ -9,9 +9,9 @@
 <div class="container">
     <h5>Edit your profile:</h5>
     <form th:action="@{/users/{id}/edit(id=${id})}" th:method="POST" th:object="${user}">
-<!--        need to add filestack to upload picture-->
-        <label for="picture"></label>
-        <input id="picture" th:field="*{picture}" />
+<!--&lt;!&ndash;        need to add filestack to upload picture&ndash;&gt;-->
+<!--        <label for="picture"></label>-->
+<!--        <input id="picture" th:field="*{picture}" />-->
 
         <label for="firstName">Name</label>
         <input id="firstName" th:field="*{firstName}" />

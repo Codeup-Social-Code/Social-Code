@@ -25,6 +25,9 @@ public class User {
         @Column(nullable = false)
         String password;
 
+        @Column(nullable = false)
+        String passwordToConfirm;
+        
         @Column
         String city;
 
@@ -107,6 +110,14 @@ public class User {
 
         public void setPassword(String password) {
                 this.password = password;
+        }
+
+        public String getPasswordToConfirm() {
+                return passwordToConfirm;
+        }
+
+        public void setPasswordToConfirm(String passwordToConfirm) {
+                this.passwordToConfirm = passwordToConfirm;
         }
 
         public String getFirstName() {

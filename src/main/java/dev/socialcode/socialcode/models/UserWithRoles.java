@@ -1,13 +1,14 @@
 package dev.socialcode.socialcode.models;
 
 import java.util.Collection;
+import java.util.List;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
 public class UserWithRoles extends User implements UserDetails {
-
 
     public UserWithRoles(User user){
         super(user);     // Call the copy constructor defined in User

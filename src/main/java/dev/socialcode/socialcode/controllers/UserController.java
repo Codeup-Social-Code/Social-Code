@@ -43,6 +43,16 @@ public class UserController {
         return "redirect:/login";
     }
 
+    @GetMapping("/users/{id}")
+    public String showUser(@PathVariable Long id, Model viewModel){
+        User user = usersDao.getOne(id);
+        viewModel.addAttribute("user", user);
+        viewModel.addAttribute("sessionUser", usersService.loggedInUser());
+        viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
+        return "users/user";
+    }
+
+
 
 //    @PostMapping("/sign-up")
 //    public String saveUser(@ModelAttribute User user) {

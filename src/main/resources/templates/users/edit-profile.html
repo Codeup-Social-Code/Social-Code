@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('SocialCode | Edit Profile')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="fragments/navbar :: navbar" />
+<div class="container">
+    <h5>Edit your profile:</h5>
+    <form th:action="@{/users/{id}/edit(id=${id})}" th:method="POST" th:object="${user}">
+        <label for=""></label>
+        <input th:field="*{}" />
+
+        <label for=""></label>
+        <input th:field="*{}" />
+
+        <label for=""></label>
+        <input th:field="*{}" />
+
+        <label for=""></label>
+        <input th:field="*{}" />
+
+        <label for=""></label>
+        <input th:field="*{}" />
+
+        <label for=""></label>
+        <input th:field="*{}" />
+
+        <label for=""></label>
+        <input th:field="*{}" />
+
+        <label for=""></label>
+        <input th:field="*{}" />
+
+        <label for=""></label>
+        <input th:field="*{}" />
+
+<!--&lt;!&ndash;        add showEditControls to controller &ndash;&gt;-->
+<!--        <input th:if="${showEditControls}" class="btn" type="submit"/>-->
+
+
+    </form>
+
+</div>
+
+</body>
+</html>

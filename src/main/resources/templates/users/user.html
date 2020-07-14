@@ -7,6 +7,7 @@
 <body>
 <nav th:replace="fragments/navbar :: navbar" />
 <div class="container">
+    <h5>User Profile</h5>
     <div th:if="${user == null}">User not found.</div>
     <div th:if="${user}">
         <div th:image="${user.picture}"/>
@@ -16,13 +17,15 @@
         <h6 th:text="${user.email}">Email</h6>
         <h6 th:text="${user.city}">City</h6>
         <br>
-        <h6 th:text="${user.gitHub}"></h6>
-        <h6 th:text="${user.linkedIn}"></h6>
-        <h5 th:text="${user.bio}"></h5>
+        <h6 th:text="${user.gitHub}">Github</h6>
+        <h6 th:text="${user.linkedIn}">LinkedIn</h6>
+        <h5 th:text="${user.bio}">Bio</h5>
 
+<!--        add anchor here to take user to "edit profile page" if they are that user -->
+<!--        <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }">edit</a>-->
 
     </div>
-<!--bio (including languages/proficienes) linkedin, github, -->
+
 
 
 

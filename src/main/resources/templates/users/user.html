@@ -13,11 +13,10 @@
         <div th:image="${user.picture}"/>
         <h3 th:text="${user.firstName}">Name</h3>
         <h3 th:text="${user.lastName}"></h3>
+        <h6 th:text="${user.username}">Email</h6>
         <br>
-        <h6 th:text="${user.email}">Email</h6>
         <h6 th:text="${user.city}">City</h6>
-        <br>
-        <h6 th:text="${user.gitHub}">Github</h6>
+        <h6 th:text="${user.gitHub}">GitHub</h6>
         <h6 th:text="${user.linkedIn}">LinkedIn</h6>
         <h5 th:text="${user.bio}">Bio</h5>
 

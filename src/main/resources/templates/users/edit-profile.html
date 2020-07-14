@@ -9,32 +9,34 @@
 <div class="container">
     <h5>Edit your profile:</h5>
     <form th:action="@{/users/{id}/edit(id=${id})}" th:method="POST" th:object="${user}">
-        <label for=""></label>
-        <input th:field="*{}" />
+<!--        need to add filestack to upload picture-->
+        <label for="picture"></label>
+        <input id="picture" th:field="*{picture}" />
 
-        <label for=""></label>
-        <input th:field="*{}" />
+        <label for="firstName">Name</label>
+        <input id="firstName" th:field="*{firstName}" />
 
-        <label for=""></label>
-        <input th:field="*{}" />
+        <label for="lastName"></label>
+        <input id="lastName" th:field="*{lastName}" />
 
-        <label for=""></label>
-        <input th:field="*{}" />
+        <label for="username">Email</label>
+        <input id="username" "*{username}" />
 
-        <label for=""></label>
-        <input th:field="*{}" />
+        <label for="city">City</label>
+        <input id="city" th:field="*{city}" />
 
-        <label for=""></label>
-        <input th:field="*{}" />
+<!--         anchor-->
+        <label for="gitHub">GitHub</label>
+        <input id="gitHub" th:field="*{gitHub}" />
 
-        <label for=""></label>
-        <input th:field="*{}" />
+<!--        anchor-->
+        <label for="linkedIn">LinkedIn</label>
+        <input id="linkedIn" th:field="*{linkedIn}" />
 
-        <label for=""></label>
-        <input th:field="*{}" />
+        <label for="bio">Bio</label>
+        <input id="bio" th:field="*{bio}" />
 
-        <label for=""></label>
-        <input th:field="*{}" />
+
 
 <!--&lt;!&ndash;        add showEditControls to controller &ndash;&gt;-->
 <!--        <input th:if="${showEditControls}" class="btn" type="submit"/>-->

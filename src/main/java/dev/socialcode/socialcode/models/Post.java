@@ -55,12 +55,12 @@ public class Post {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
     private List<Comment> comments;
 
-
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    private List<RSVP> usersAttending;
 
 
     //add user, user picture
-    public Post(Long id, String title, String body, List<Comment> comments, List<Category> categories, Date createDate, String eventDate, String eventTime) {
+    public Post(Long id, String title, String body, List<Comment> comments, List<Category> categories, Date createDate, String eventDate, String eventTime, List<RSVP> usersAttending) {
         this.id = id;
         this.title = title;
         this.body = body;
@@ -69,10 +69,11 @@ public class Post {
         this.createDate = createDate;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
+        this.usersAttending = usersAttending;
     }
 
     //add user info
-    public Post(String title, String body, List<Comment> comments, List<Category> categories, Date createDate, String eventDate, String eventTime) {
+    public Post(String title, String body, List<Comment> comments, List<Category> categories, Date createDate, String eventDate, String eventTime, List<RSVP> usersAttending) {
         this.title = title;
         this.body = body;
         this.comments = comments;
@@ -80,6 +81,7 @@ public class Post {
         this.createDate = createDate;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
+        this.usersAttending = usersAttending;
     }
 
     public Post() {
@@ -168,6 +170,11 @@ public class Post {
         return formatter.format(createDate);
     }
 
+    public List<RSVP> getUsersAttending() {
+        return usersAttending;
+    }
 
-
+    public void setUsersAttending(List<RSVP> usersAttending) {
+        this.usersAttending = usersAttending;
+    }
 }

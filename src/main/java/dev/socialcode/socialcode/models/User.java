@@ -34,6 +34,9 @@ public class User {
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
         private List<Comment> comments;
 
+        @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+        private List<RSVP> RSVP;
+
         //empty constructor for Spring framework
         public User() {
         }
@@ -46,7 +49,7 @@ public class User {
         }
 
         //read
-        public User(long id, String username, String email, String firstName, String lastName, String password, String city, List<Comment> comments) {
+        public User(long id, String username, String firstName, String lastName, String password, String city, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP) {
                 this.id = id;
                 this.username = username;
                 this.firstName = firstName;
@@ -54,18 +57,40 @@ public class User {
                 this.password = password;
                 this.city = city;
                 this.comments = comments;
+                this.RSVP = RSVP;
         }
+
+//        public User(long id, String username, String email, String firstName, String lastName, String password, String city, List<Comment> comments) {
+//                this.id = id;
+//                this.username = username;
+//                this.firstName = firstName;
+//                this.lastName = lastName;
+//                this.password = password;
+//                this.city = city;
+//                this.comments = comments;
+//        }
 
 
         //insert
-        public User(String username, String email, String firstName, String lastName, String password, String city, List<Comment> comments) {
+
+        public User(String username, String firstName, String lastName, String password, String city, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP) {
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.password = password;
                 this.city = city;
                 this.comments = comments;
+                this.RSVP = RSVP;
         }
+
+//        public User(String username, String email, String firstName, String lastName, String password, String city, List<Comment> comments) {
+//                this.username = username;
+//                this.firstName = firstName;
+//                this.lastName = lastName;
+//                this.password = password;
+//                this.city = city;
+//                this.comments = comments;
+//        }
 
         public long getId() {
                 return id;
@@ -121,5 +146,13 @@ public class User {
 
         public void setCity(String city) {
                 this.city = city;
+        }
+
+        public List<dev.socialcode.socialcode.models.RSVP> getRSVP() {
+                return RSVP;
+        }
+
+        public void setRSVP(List<dev.socialcode.socialcode.models.RSVP> RSVP) {
+                this.RSVP = RSVP;
         }
 }

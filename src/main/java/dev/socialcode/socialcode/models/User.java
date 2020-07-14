@@ -47,6 +47,9 @@ public class User {
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
         private List<Comment> comments;
 
+        @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+        private List<RSVP> RSVP;
+
         //empty constructor for Spring framework
         public User() {
         }
@@ -60,7 +63,7 @@ public class User {
         }
 
         //read
-        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments) {
+        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP) {
                 this.id = id;
                 this.username = username;
                 this.firstName = firstName;
@@ -73,10 +76,12 @@ public class User {
                 this.bio = bio;
                 this.picture = picture;
                 this.comments = comments;
+                this.RSVP = RSVP;
         }
 
+
         //insert
-        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments) {
+        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP) {
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
@@ -88,9 +93,8 @@ public class User {
                 this.bio = bio;
                 this.picture = picture;
                 this.comments = comments;
+                this.RSVP = RSVP;
         }
-
-
 
         public long getId() {
                 return id;
@@ -156,6 +160,15 @@ public class User {
                 this.city = city;
         }
 
+
+        public List<dev.socialcode.socialcode.models.RSVP> getRSVP() {
+                return RSVP;
+        }
+
+        public void setRSVP(List<dev.socialcode.socialcode.models.RSVP> RSVP) {
+                this.RSVP = RSVP;
+        }
+  
         public String getLinkedIn() {
                 return linkedIn;
         }

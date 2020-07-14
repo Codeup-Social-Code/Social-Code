@@ -32,7 +32,7 @@ public class PostCommentController {
     }
 
     @PostMapping("/comments/create")
-    public String createComment(@ModelAttribute Comment commentToBeSaved, @RequestParam(name = "postId") String postId, Principal principal) {
+    public String createComment(@ModelAttribute Comment commentToBeSaved, @RequestParam(name = "postId") String postId) {
         Post post = postsDao.getOne(Long.parseLong(postId));
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         commentToBeSaved.setPost(post);

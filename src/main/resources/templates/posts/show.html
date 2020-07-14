@@ -30,6 +30,24 @@
     </form>
 </div>
 
+<div>
+    <form th:if="${post}" th:action="${'/posts/rsvp'}" th:method="POST">
+        <input type="hidden" name="postId" th:value="${post.id}">
+        <button class="btn btn-warning">RSVP</button>
+    </form>
+</div>
+
+
+        <h1>List of RSVP: </h1>
+        <ul >
+            <div th:each="rsvp: ${rsvps}">
+            <li th:text="${rsvp.user.firstName}"></li>
+            </div>
+        </ul>
+
+
+
+
 <div th:each="comment: ${comments}">
     <h2>Comment: <span th:text="${comment.body}"></span> Created by: <span th:text="${comment.user.firstName}"></span></h2>
 </div>

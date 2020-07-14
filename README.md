@@ -40,13 +40,13 @@
   <del><li>create home page (index)</li></del>
   <del><li>create the fragments</li></del> 
   <del><li>create databases</li></del>
-  <li>views for forms (register, login/logout, → create a post)</li>
+ <del> <li>views for forms (register, login/logout, → create a post)</li></del> 
   </ul>
 
 <h2>General</h2> (Level 1)
 
 <h3>Security</h3>
-<h5>Spring Security Config</h5>
+ <del> <h5>Spring Security Config</h5></del>
 
 <h3>Home Page</h3>(index)
   <ul>
@@ -59,12 +59,12 @@
   
 <h3>Register Page</h3>
    <ul>
-<li> Fields for Email</li> 
-<li> Password</li> <br>
-<li> Confirm Password</li> 
-<li> First/Last Name</li>
-<li> City</li> <br>
-<li> Register Button</li> 
+<del><li> Fields for Email</li></del> 
+<del><li> Password</li> <br></del> 
+<del><li> Confirm Password</li> </del> 
+<del><li> First/Last Name</li></del> 
+<del><li> City</li> <br></del> 
+<del><li> Register Button</li> </del> 
 
 
 that takes you to the welcome page...
@@ -94,15 +94,15 @@ that takes you to the welcome page...
 <ul>
 <li>When they click log out, direct to this page</li>
 <li>Click Submit -> direct to community page</li>
-<li>Forms - Email, Password</li>
+<del><li>Forms - Email, Password</li></del>
 </ul>
 
 
 <h3>Create Post Page</h3>
 <ul>
-<li>Forms input Title, Date, Time, Location, Description</li>
-<li>Drop-down menu to select Category</li>
-<li>Click Post->(Redirect) Take them to Community Page</li>
+<del><li>Forms input Title, Date, Time, Location, Description</li></del>
+<del><del><li>Drop-down menu to select Category</li></del>
+<li>Click Post->(Redirect) Take them to Community Page</li></del>
 </ul>
 
 

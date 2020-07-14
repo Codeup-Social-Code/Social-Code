@@ -26,7 +26,7 @@ public class RSVPController {
         this.rsvpsDao = rsvpsDao;
     }
 
-    @PostMapping("/comments/create")
+    @PostMapping("/posts/rsvp")
     public String saveRSVP(@ModelAttribute RSVP RSVPtoBeSaved, @RequestParam(name = "postId") String postId) {
         Post post = postsDao.getOne(Long.parseLong(postId));
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

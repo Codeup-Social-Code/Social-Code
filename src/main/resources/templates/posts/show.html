@@ -30,9 +30,20 @@
     </form>
 </div>
 
-<div th:each="comment: ${comments}">
-    <h2>Comment: <span th:text="${comment.body}"></span> Created by: <span th:text="${comment.user.firstName}"></span></h2>
+<div>
+    <a href="">RSVP</a>
 </div>
+
+
+        <h1>List of RSVP: </h1>
+        <ul >
+            <div th:each="rsvp: ${rsvps}">
+            <li th:text="${rsvp.user.firstName}"></li>
+            </div>
+        </ul>
+
+
+
 
 <div th:each="comment: ${comments}">
     <h2>Comment: <span th:text="${comment.body}"></span> Created by: <span th:text="${comment.user.firstName}"></span></h2>

@@ -42,6 +42,11 @@
 <!--        <input th:if="${showEditControls}" class="btn" type="submit"/>-->
 
 
+<!-- Not sure if it will work -->
+    </form>
+    <form th:class="alert" th:action="${'/users/' + user.id + '/delete'}" th:method="POST">
+<!--        <button class="btn btn-danger">Delete</button>-->
+    <button th:onclick="this.parentElement.style.display=='none';">Delete</button>
     </form>
 
 </div>

@@ -89,7 +89,13 @@ public class UserController {
         List<User> viewAll = usersDao.findAll();
         m.addAttribute("viewAll", viewAll);
         return "users/view-all";
+    }
 
+    // To delete profile
+    @PostMapping("/users/{id}/delete")
+    public String destroy(@PathVariable long id) {
+        usersDao.deleteById(id);
+        return "redirect:/users/welcome";
     }
 
 //

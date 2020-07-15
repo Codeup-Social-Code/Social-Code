@@ -64,21 +64,21 @@
 
             mapboxgl.accessToken = mapboxToken;
 
-            var locations = [
+            let locations = [
 
             ];
 
 
-            var zoomLevel = document.getElementById('submit');
-            var select = document.getElementById('zoom-level');
-            var address = document.getElementById('address');
+            let zoomLevel = document.getElementById('submit');
+            let select = document.getElementById('zoom-level');
+            let address = document.getElementById('address');
             console.log(address);
 
 
             // select.addEventListener('change', getZoom);
 
 
-            var option = {
+            let option = {
                 maxWidth: '300px',
                 color: 'red',
                 draggable: false,
@@ -86,7 +86,7 @@
 
             };
 
-            var map = new mapboxgl.Map({
+            let map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/mapbox/streets-v9',
                 zoom: 8,
@@ -130,7 +130,7 @@
             function geolocation(result, location) {
 
 
-                var popup = new mapboxgl.Popup()
+                let popup = new mapboxgl.Popup()
                     .setHTML(`<h3>${location.city}</h3>`);
 
                 new mapboxgl.Marker(option)

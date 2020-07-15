@@ -136,8 +136,14 @@
             });
         }
 
-
+        // let prevLoc = '';
         function geolocation(result, location) {
+            // let counter = 0;
+            // let currCity = location.city;
+            // if(location.city === prevLoc) {
+            //     prevLoc = location.city;
+            //     counter++;
+            // }
 
             var popup = new mapboxgl.Popup()
                 .setHTML(`<h3>${location.city}</h3>`);

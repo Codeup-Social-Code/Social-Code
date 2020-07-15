@@ -104,15 +104,15 @@ public class PostController {
         return "posts/index";
     }
 
-    @GetMapping("/mapbox")
-    public String viewMapbox(Model model) {
-        return "posts/mapbox";
-    }
-
-    @GetMapping("/users.json")
-    public @ResponseBody List<User> viewAllUserInJSONFormat() {
-        return usersDao.findAll();
-    }
+//    @GetMapping("/mapbox")
+//    public String viewMapbox(Model model) {
+//        return "posts/mapbox";
+//    }
+//
+//    @GetMapping("/users.json")
+//    public @ResponseBody List<User> viewAllUserInJSONFormat() {
+//        return usersDao.findAll();
+//    }
 
 //    @GetMapping("/posts/ajax")
 //    public String viewAllAdsWithAjax() {

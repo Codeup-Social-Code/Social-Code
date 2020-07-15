@@ -9,7 +9,7 @@ body.login{
 }
 
 .login-container{
-    margin-top: 340px;
+    margin-top: 140px;
     width: 18rem;
 }
 
@@ -22,34 +22,12 @@ body.login{
 @media screen and (min-width:576px) {
 
     .login-container{
-        margin-top: 340px;
+
         width: 25rem;
     }
 
     #password{
         margin-right: 28px;
     }
-
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media screen and (min-width:768px) {
-
-}
-
-/* Large devices (desktops, 992px and up) */
-@media screen and (min-width:992px) {
-
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media screen and (min-width:1200px) {
-
-
-}
-
-@media screen and (min-width:2200px) {
-
-
 
 }

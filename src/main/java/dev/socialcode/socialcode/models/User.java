@@ -2,6 +2,9 @@ package dev.socialcode.socialcode.models;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.validator.constraints.NotBlank;
 import java.util.List;
 
@@ -11,44 +14,60 @@ public class User {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @JsonIgnore
         long id;
 
         @Column(nullable = false, length = 50, unique = true)
+        @JsonIgnore
         String username;
 
         @Column(nullable = false, length = 50)
+        @JsonIgnore
         String firstName;
 
         @Column(nullable = false, length = 50)
+        @JsonIgnore
         String lastName;
 
         @Column(nullable = false)
+        @JsonIgnore
         String password;
 
         @Column(nullable = false)
+        @JsonIgnore
         String passwordToConfirm;
         
         @Column
         String city;
 
         @Column
+        @JsonIgnore
         String linkedIn;
 
         @Column
+        @JsonIgnore
         String gitHub;
 
         @Column
+        @JsonIgnore
         String bio;
 
         @Column
+        @JsonIgnore
         String picture;;
 
 
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+        @JsonIgnore
         private List<Comment> comments;
 
+        @JsonIgnore
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
         private List<RSVP> RSVP;
+
+        @JsonIgnore
+        @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+        private List<Post> posts;
 
         //empty constructor for Spring framework
         public User() {
@@ -63,7 +82,7 @@ public class User {
         }
 
         //read
-        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP) {
+        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts) {
                 this.id = id;
                 this.username = username;
                 this.firstName = firstName;
@@ -77,11 +96,12 @@ public class User {
                 this.picture = picture;
                 this.comments = comments;
                 this.RSVP = RSVP;
+                this.posts = posts;
         }
 
 
         //insert
-        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP) {
+        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts) {
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
@@ -94,6 +114,7 @@ public class User {
                 this.picture = picture;
                 this.comments = comments;
                 this.RSVP = RSVP;
+                this.posts = posts;
         }
 
         public long getId() {
@@ -199,5 +220,13 @@ public class User {
 
         public void setPicture(String picture) {
                 this.picture = picture;
+        }
+
+        public List<Post> getPosts() {
+                return posts;
+        }
+
+        public void setPosts(List<Post> posts) {
+                this.posts = posts;
         }
 }

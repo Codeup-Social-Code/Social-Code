@@ -10,47 +10,46 @@
 
 <nav th:replace="fragments/navbar :: navbar"></nav>
 
+        <h1 id="welcome-header" class="text-center" style="color: #576541;">Welcome to Social Code, {Name}!</h1>
+        <h3 class="text-center" style="color: #576541;">Get going in as little as <span style="color: #ffde59; font-size: 50px">1 </span> - <span style="color: #ffde59; font-size: 50px">2</span> - <span style="color: #ffde59; font-size: 50px">3</span>!</h3>
 
-<h1 id="welcome-header" class="text-center" style="color: #576541;">Welcome to Social Code, {Name}!</h1>
-<h3 class="text-center" style="color: #576541;">Get going in as little as <span style="color: #ffde59; font-size: 50px">1 </span> - <span style="color: #ffde59; font-size: 50px">2</span> - <span style="color: #ffde59; font-size: 50px">3</span>!</h3>
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+                    <div class="card-deck">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img" src="/img/12.png" width="100%"/>
+                                <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">1</h3>
+                                <div class="card-body">
+                                    <h4 class="card-text text-center">Create your profile.</h4>
+        <!--&lt;!&ndash;                            edit functionality still needs to be connected to profile page&ndash;&gt;-->
+        <!--                            <form th:action="@{/users/profile}" th:method="get">-->
+        <!--&lt;!&ndash;                                change this button to an anchor or different message&ndash;&gt;-->
+        <!--                                <input type="submit">-->
+        <!--                            </form>-->
+                                </div>
+                            </div>
 
-<div class="container">
-    <div class="row d-flex justify-content-center align-items-center">
-            <div class="card-deck">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img" src="/img/12.png" width="100%"/>
-                        <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">1</h3>
-                        <div class="card-body">
-                            <h4 class="card-text text-center">Create your profile.</h4>
-<!--&lt;!&ndash;                            edit functionality still needs to be connected to profile page&ndash;&gt;-->
-<!--                            <form th:action="@{/users/profile}" th:method="get">-->
-<!--&lt;!&ndash;                                change this button to an anchor or different message&ndash;&gt;-->
-<!--                                <input type="submit">-->
-<!--                            </form>-->
-                        </div>
-                    </div>
+                            <div class="card mt-5" style="width: 18rem; height: 21rem">
+                                <img class="card-img"  src="/img/9.png" />
+                                <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">2</h3>
+                                <div class="card-body">
+                                    <h4 class="card-text text-center">Create your first post.</h4>
+                                </div>
+                            </div>
 
-                    <div class="card mt-5" style="width: 18rem; height: 21rem">
-                        <img class="card-img"  src="/img/9.png" />
-                        <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">2</h3>
-                        <div class="card-body">
-                            <h4 class="card-text text-center">Create your first post.</h4>
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img"  src="/img/11.png" width="100%"/>
-                        <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">3</h3>
-                        <div class="card-body text-center">
-                            <h4 class="card-text">Connect</h4>
-                        </div>
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img"  src="/img/11.png" width="100%"/>
+                                <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">3</h3>
+                                <div class="card-body text-center">
+                                    <h4 class="card-text">Connect</h4>
+                                </div>
+                            </div>
                     </div>
             </div>
-    </div>
-</div>
-    <form class="text-center" action="">
-        <span><a class="text-center" href="/user" style="color: #576541; font-size: 30px">Let's Get Started!</a></span>
-    </form>
+        </div>
+            <form class="text-center" action="">
+                <span><a class="text-center" href="/user" style="color: #576541; font-size: 30px">Let's Get Started!</a></span>
+            </form>
 
 </body>
 </html>

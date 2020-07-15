@@ -1,9 +1,11 @@
 
 body.sign-up{
     background-image: url("/img/login-register.png");
+    width: 100%;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: 100% 100%;
     background-color: rgba(136, 160, 99, 0.4);
 
 }
@@ -12,7 +14,7 @@ body.sign-up{
     font-size: 11px;
 }
 
-.sign-up-container {
+.sign-up-card {
     margin-top: 75px;
     margin-bottom: 100px;
 }
@@ -52,7 +54,7 @@ margin-left: 27px;
         font-size: 15px;
     }
 
-    .sign-up-container {
+    .sign-up-card {
         margin-top: 100px;
         margin-bottom: 140px;
     }
@@ -84,6 +86,16 @@ margin-left: 27px;
 
     .existing-login {
         margin-left: 0px;
+    }
+
+
+}
+
+@media screen and (min-width:2200px) {
+
+    .sign-up-card {
+        margin-top: 200px;
+        margin-bottom: 140px;
     }
 
 

@@ -2,6 +2,9 @@ package dev.socialcode.socialcode.models;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.validator.constraints.NotBlank;
 import java.util.List;
 
@@ -11,42 +14,54 @@ public class User {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @JsonIgnore
         long id;
 
         @Column(nullable = false, length = 50, unique = true)
+        @JsonIgnore
         String username;
 
         @Column(nullable = false, length = 50)
+        @JsonIgnore
         String firstName;
 
         @Column(nullable = false, length = 50)
+        @JsonIgnore
         String lastName;
 
         @Column(nullable = false)
+        @JsonIgnore
         String password;
 
         @Column(nullable = false)
+        @JsonIgnore
         String passwordToConfirm;
         
         @Column
         String city;
 
         @Column
+        @JsonIgnore
         String linkedIn;
 
         @Column
+        @JsonIgnore
         String gitHub;
 
         @Column
+        @JsonIgnore
         String bio;
 
         @Column
+        @JsonIgnore
         String picture;;
 
 
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+        @JsonIgnore
         private List<Comment> comments;
 
+        @JsonIgnore
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
         private List<RSVP> RSVP;
 

@@ -1,4 +1,6 @@
 package dev.socialcode.socialcode.models;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class Category {
 
 
         @ManyToMany(mappedBy = "categories")
-
+        @JsonBackReference
         private List<Post> posts;
 
 

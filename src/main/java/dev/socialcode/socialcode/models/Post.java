@@ -1,4 +1,5 @@
 package dev.socialcode.socialcode.models;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -41,10 +42,12 @@ public class Post {
 
     //is this what allows us to pull in the user name, email, & picture?
     @ManyToOne
+    @JsonBackReference
 //    @JsonManagedReference
     private User user;
 
     @ManyToMany
+    @JsonBackReference
     @JoinTable(
             name="post_categories",
             joinColumns={@JoinColumn(name="post_id")},
@@ -53,9 +56,11 @@ public class Post {
     private List<Category> categories;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    @JsonBackReference
     private List<Comment> comments;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    @JsonBackReference
     private List<RSVP> usersAttending;
 
 

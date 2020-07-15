@@ -1,4 +1,6 @@
 package dev.socialcode.socialcode.models;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -21,6 +23,7 @@ public class Comment {
         private String body;
 
         @ManyToOne
+        @JsonBackReference
         private User user;
 
 //        //the parent references what?.....
@@ -28,6 +31,7 @@ public class Comment {
 //        private Comment parent;
 
         @ManyToOne
+        @JsonBackReference
         private Post post;
 
         @CreationTimestamp

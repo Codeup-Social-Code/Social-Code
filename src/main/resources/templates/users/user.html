@@ -33,7 +33,7 @@
         <h5 id="bio" th:text="${user.bio}">Bio</h5>
     </div>
 
-    <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }"><i class="material-icons ">edit</i></a>
+    <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }"><h6>edit</h6></a>
 
 <!--button return to all users -->
 </div>

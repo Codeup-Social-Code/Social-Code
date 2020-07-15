@@ -20,7 +20,7 @@ public class MapboxController {
 
     @GetMapping("/mapbox")
     public String viewMapbox(Model model) {
-        return "posts/mapbox";
+        return "posts/mapbox-index";
     }
 
     @GetMapping("/users.json")

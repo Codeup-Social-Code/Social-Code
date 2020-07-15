@@ -44,17 +44,11 @@
 </head>
 <body>
 
+<div class="social">
+    <img class="social-img" src="/img/social.png"/>
+</div>
+
 <h2>Social Code Community</h2>
-<!--<div id="select-container">-->
-<!--    <label for="zoom-level">Choose your zoom:</label>-->
-<!--    <select id="zoom-level">-->
-<!--        <option class="opt">Zoom Level</option>-->
-<!--        <option class="opt">5</option>-->
-<!--        <option class="opt">9</option>-->
-<!--        <option class="opt">15</option>-->
-<!--        <option class="opt">20</option>-->
-<!--    </select>-->
-<!--</div>-->
 
 <div id='map' style='width: 800px; height: 600px;'></div>
 
@@ -63,7 +57,96 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
-<script src="js/mapbox_map.js"></script>
+<script>
+    "use strict";
+    (function(){
+        $(document).ready(function() {
+
+            mapboxgl.accessToken = mapboxToken;
+
+            var locations = [
+
+            ];
+
+
+            var zoomLevel = document.getElementById('submit');
+            var select = document.getElementById('zoom-level');
+            var address = document.getElementById('address');
+            console.log(address);
+
+
+            // select.addEventListener('change', getZoom);
+
+
+            var option = {
+                maxWidth: '300px',
+                color: 'red',
+                draggable: false,
+                anchor: 'bottom-left'
+
+            };
+
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v9',
+                zoom: 8,
+                center: [-97.14, 32.77]
+            });
+
+            function getZoom() {
+                map.setZoom(select.value);
+                map.setCenter([-97.14, 32.77]);
+            }
+
+            function locationExecution () {
+                $.ajax({
+                    "url": "http://localhost:8080/users.json",
+                    "type": "GET"
+                }).done(function (data) {
+                    console.log(data);
+                    data.forEach( (data) => {
+                        locations.push({city: data.city});
+                    });
+                    addCity();
+                }).fail(function (error) {
+                    console.error(error);
+                });
+            }
+            locationExecution();
+
+
+            function addCity () {
+                locations.forEach( (location, index) => {
+                    geocode(location.city, mapboxToken).then( result => {
+                        console.log(result);
+
+                        //    add additional code for geocode
+                        geolocation(result, location);
+                    });
+                });
+            }
+
+            // let prevLoc = '';
+            function geolocation(result, location) {
+
+
+                var popup = new mapboxgl.Popup()
+                    .setHTML(`<h3>${location.city}</h3>`);
+
+                new mapboxgl.Marker(option)
+                    .setLngLat(result)
+                    .setPopup(popup)
+                    .addTo(map)
+
+            }
+
+            // addCity();
+            console.log(locations);
+
+        });
+    })();
+</script>
+
 
 </body>
 </html>

@@ -8,18 +8,83 @@ body.sign-up{
 
 }
 
-.sign-up-container {
-    margin-top: 340px;
+.login-card-body {
+    font-size: 11px;
 }
 
+.sign-up-container {
+    margin-top: 75px;
+    margin-bottom: 100px;
+}
+
+.username {
+margin-left: 27px;
+}
+
+.password {
+margin-left: 27px;
+}
+
+
 #passwordToConfirm {
-    margin-right: 96px;
+    margin-right: 50px;
 }
 
 #firstName, #lastName {
-    margin-right: 37px;
+    margin-right: 8px;
 }
 
 #city{
-    margin-right: 71px;
+    margin-right: 35px;
+}
+
+.register-btn {
+    margin-left: 32px;
+}
+
+.existing-login {
+    margin-left: 27px;
+}
+
+@media screen and (min-width:768px) {
+
+    .login-card-body {
+        font-size: 15px;
+    }
+
+    .sign-up-container {
+        margin-top: 100px;
+        margin-bottom: 140px;
+    }
+
+
+    .username {
+        margin-left: 0px;
+    }
+
+    .password {
+        margin-left: 0px;
+    }
+
+    #passwordToConfirm {
+        margin-right: 96px;
+    }
+
+    #firstName, #lastName {
+        margin-right: 37px;
+    }
+
+    #city{
+        margin-right: 71px;
+    }
+
+    .register-btn {
+        margin-left: 0px;
+    }
+
+    .existing-login {
+        margin-left: 0px;
+    }
+
+
 }

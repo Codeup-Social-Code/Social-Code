@@ -31,17 +31,9 @@
         <h6 id="linkedIn" th:text="${user.linkedIn}">LinkedIn</h6>
         <label for="bio">Bio</label>
         <h5 id="bio" th:text="${user.bio}">Bio</h5>
-
-<!--        add anchor here to take user to "edit profile page" if they are that user -->
-<!--        <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }">edit</a>-->
-
     </div>
 
-
-
-
-
-
+    <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }"><i class="material-icons ">edit</i></a>
 
 <!--button return to all users -->
 </div>

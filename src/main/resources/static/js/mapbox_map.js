@@ -85,13 +85,13 @@
         console.log(address);
 
 
-        select.addEventListener('change', getZoom);
+        // select.addEventListener('change', getZoom);
 
 
         var option = {
             maxWidth: '300px',
             color: 'red',
-            draggable: true,
+            draggable: false,
             anchor: 'bottom-left'
 
         };

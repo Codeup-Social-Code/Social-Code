@@ -49,6 +49,12 @@
         <input class="btn" type="submit"/>
     </form>
 
+    </form>
+    <form th:class="alert" th:action="${'/users/' + user.id + '/delete'}" th:method="POST">
+        <!--        <button class="btn btn-danger">Delete</button>-->
+        <button th:class="alert" th:onclick="this.parentElement.style.display=='none';">Delete</button>
+    </form>
+
 </div>
 
 </body>

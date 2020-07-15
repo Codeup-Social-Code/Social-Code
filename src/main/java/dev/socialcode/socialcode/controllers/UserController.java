@@ -115,7 +115,12 @@ public class UserController {
         return usersService.isLoggedIn() && (user.getId() == usersService.loggedInUser().getId());
     }
 
-
+    // To delete profile
+    @PostMapping("/users/{id}/delete")
+    public String destroy(@PathVariable long id) {
+        usersDao.deleteById(id);
+        return "redirect:/welcome";
+    }
 
 //
 

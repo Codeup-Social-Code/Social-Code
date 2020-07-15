@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+        <div th:each="user : ${viewAll}">
+            <h1>Name: <span th:text="${user.getUsername()}"></span></h1>
+            <h1>Picture: <span th:text="${user.getPicture()}"></span></h1>
+    <!--        <h3>Languages: <span th:text="${user.}"></span></h3>-->
+    <!--        <h3>Skill Level: <span th:text="${user.}"></span></h3>-->
+            <h4>Location: <span th:text="${user.getCity()}"></span></h4>
+            <form th:action="${'/users/' + user.id }" th:method="GET">
+                <button>View Profile</button>
+            </form>
+
+        </div>
+    </body>
+</html>

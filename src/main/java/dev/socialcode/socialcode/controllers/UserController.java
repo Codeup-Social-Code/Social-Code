@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -81,7 +83,14 @@ public class UserController {
         return "redirect:/users/" + usersService.loggedInUser().getId();
     }
 
+    // To view all users
+    @GetMapping("/users/view-all")
+    public String viewAllUsers(Model m) {
+        List<User> viewAll = usersDao.findAll();
+        m.addAttribute("viewAll", viewAll);
+        return "users/view-all";
 
+    }
 
 //
 

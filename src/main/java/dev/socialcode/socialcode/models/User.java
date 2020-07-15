@@ -82,7 +82,7 @@ public class User {
         }
 
         //read
-        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP) {
+        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts) {
                 this.id = id;
                 this.username = username;
                 this.firstName = firstName;
@@ -96,11 +96,12 @@ public class User {
                 this.picture = picture;
                 this.comments = comments;
                 this.RSVP = RSVP;
+                this.posts = posts;
         }
 
 
         //insert
-        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP) {
+        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts) {
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
@@ -113,6 +114,7 @@ public class User {
                 this.picture = picture;
                 this.comments = comments;
                 this.RSVP = RSVP;
+                this.posts = posts;
         }
 
         public long getId() {
@@ -218,5 +220,13 @@ public class User {
 
         public void setPicture(String picture) {
                 this.picture = picture;
+        }
+
+        public List<Post> getPosts() {
+                return posts;
+        }
+
+        public void setPosts(List<Post> posts) {
+                this.posts = posts;
         }
 }

@@ -11,28 +11,32 @@
     <div th:if="${user == null}">User not found.</div>
     <div th:if="${user}">
 <!--        <div th:image="${user.picture}"/>-->
-        <h3 th:text="${user.firstName}">Name</h3>
-        <h3 th:text="${user.lastName}"></h3>
-        <h6 th:text="${user.username}">Email</h6>
-        <br>
-        <h6 th:text="${user.city}">City</h6>
+<!--        <div>-->
+<!--            <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>-->
+<!--            <script>const client = filestack.init(filestack_api_key);-->
+<!--                    client.picker().open();-->
+<!--            </script>-->
+<!--        </div>-->
+        <label for="name">Name</label>
+        <h3 id="name" th:text="${user.firstName}"/>
+        <h3 th:text="${user.lastName}"/>
+        <label for="username">Email</label>
+        <h6 id="username" th:text="${user.username}"/>
 <!--        need to let it display page even if below values are null-->
-<!--        <h6 th:text="${user.gitHub}">GitHub</h6>-->
-<!--        <h6 th:text="${user.linkedIn}">LinkedIn</h6>-->
-<!--        <h5 th:text="${user.bio}">Bio</h5>-->
-
-<!--        add anchor here to take user to "edit profile page" if they are that user -->
-<!--        <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }">edit</a>-->
-
+        <label for="city">City</label>
+        <h6 id="city" th:text="${user.city}">City</h6>
+        <label for="gitHub">GitHub</label>
+        <h6 id="github" th:text="${user.gitHub}">GitHub</h6>
+        <label for="linkedIn">LinkedIn</label>
+        <h6 id="linkedIn" th:text="${user.linkedIn}">LinkedIn</h6>
+        <label for="bio">Bio</label>
+        <h5 id="bio" th:text="${user.bio}">Bio</h5>
     </div>
 
+    <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }"><h6>edit</h6></a>
 
-
-
-
-
-
-<!--&lt;!&ndash;button return to all users &ndash;&gt;-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
+<!--button return to all users -->
+</div>
+<script src="application.properties"></script>
+</body>
+</html>

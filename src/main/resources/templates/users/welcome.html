@@ -22,11 +22,11 @@
                         <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">1</h3>
                         <div class="card-body">
                             <h4 class="card-text text-center">Create your profile.</h4>
-<!--&lt;!&ndash;                            edit functionality still needs to be connected to profile page&ndash;&gt;-->
-<!--                            <form th:action="@{/users/profile}" th:method="get">-->
-<!--&lt;!&ndash;                                change this button to an anchor or different message&ndash;&gt;-->
-<!--                                <input type="submit">-->
-<!--                            </form>-->
+
+                            <form th:action="@{/users/profile}" th:method="get">
+                                <input class="btn btn-success" type="submit" value="Go to profile">
+                            </form>
+
                         </div>
                     </div>
 
@@ -35,6 +35,11 @@
                         <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">2</h3>
                         <div class="card-body">
                             <h4 class="card-text text-center">Create your first post.</h4>
+
+                            <form th:action="@{/posts/create}" th:method="get">
+                                <input class="btn btn-success" type="submit" value="Create a post">
+                            </form>
+
                         </div>
                     </div>
 
@@ -44,6 +49,11 @@
                         <div class="card-body text-center">
                             <h4 class="card-text">Connect</h4>
                         </div>
+
+                        <form th:action="@{/posts}" th:method="get">
+                            <input class="btn btn-success" type="submit" value="View current events">
+                        </form>
+
                     </div>
             </div>
     </div>

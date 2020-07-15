@@ -83,12 +83,54 @@ public class UserController {
         return "redirect:/users/" + usersService.loggedInUser().getId();
     }
 
+
     // To view all users
     @GetMapping("/users/view-all")
     public String viewAllUsers(Model m) {
         List<User> viewAll = usersDao.findAll();
         m.addAttribute("viewAll", viewAll);
         return "users/view-all";
+    }
+
+    //EDIT
+    @GetMapping("/users/{id}/edit")
+    public String showEditForm(@PathVariable Long id, Model viewModel){
+        User user = usersDao.getOne(id);
+        viewModel.addAttribute("user", user);
+        viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
+        return "users/edit-profile";
+    }
+
+    @PostMapping("/users/{id}/edit")
+    public String editUser(@PathVariable Long id, @Valid User editedUser, Errors validation, Model model){
+
+        editedUser.setId(id);
+
+        if (validation.hasErrors()) {
+            model.addAttribute("errors", validation);
+            model.addAttribute("user", editedUser);
+            model.addAttribute("showEditControls", checkEditAuth(editedUser));
+            return "users/edit-profile";
+        }
+        //i believe this was hashing their new password... but if they submitted their new hashed
+        //passwod with the below...their original password wouldn't work
+        //
+//        editedUser.setPassword(passwordEncoder.encode(editedUser.getPassword()));
+        usersDao.save(editedUser);
+//        return "redirect:/users/"+id;
+        return "redirect:/users/" + usersService.loggedInUser().getId();
+    }
+
+    //user has rights to edit
+    public Boolean checkEditAuth(User user){
+        return usersService.isLoggedIn() && (user.getId() == usersService.loggedInUser().getId());
+    }
+
+    // To delete profile
+    @PostMapping("/users/{id}/delete")
+    public String destroy(@PathVariable long id) {
+        usersDao.deleteById(id);
+        return "redirect:/welcome";
 
     }
 

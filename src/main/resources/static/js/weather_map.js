@@ -74,24 +74,9 @@
 
         mapboxgl.accessToken = mapboxToken;
 
-        var restaurants = [
-            {
-                name: 'Hopdoddy Burger Bar',
-                address: '3227 McKinney Ave Suite 102, Dallas, TX',
-                description: 'Best Burger in '
-            },
-            {
-                name: 'Jin Korean BBQ',
-                address: '3810 S Cooper St #130, Arlington, TX 76015',
-                description: 'Best Korean bbq in '
-            },
-            {
-                name: 'Texas Roadhouse',
-                address: '2490 I-20 Frontage Rd, Grand Prairie, TX 75052',
-                description: 'Best Steak in '
-            }
-        ];
+        var locations = [
 
+        ];
 
 
         var zoomLevel = document.getElementById('submit');
@@ -100,7 +85,6 @@
         console.log(address);
 
 
-// zoomLevel.addEventListener('click', getZoom);
         select.addEventListener('change', getZoom);
 
 
@@ -115,41 +99,48 @@
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v9',
-            zoom: 0,
+            zoom: 8,
             center: [-97.14, 32.77]
         });
 
-// The zoom functionality worked but there is no state where the center is so hardcoded setCenter
         function getZoom() {
             map.setZoom(select.value);
             map.setCenter([-97.14, 32.77]);
         }
 
-// Add restaurant
-        /*
-        restaurants.push({
-            name: 'new restaurant',
-            address: address.value,
-            description: 'Best restaurant in the city of'
-        });
-        */
+        function locationExecution () {
+            $.ajax({
+                "url": "http://localhost:8080/users.json",
+                "type": "GET"
+            }).done(function (data) {
+                console.log(data);
+              data.forEach( (data) => {
+                  locations.push({city: data.city});
+              });
+                addCity();
+            }).fail(function (error) {
+                console.error(error);
+            });
+        }
+        locationExecution();
 
-        function addRestaurant () {
-            restaurants.forEach( (restaurant, index) => {
-                geocode(restaurant.address, mapboxToken).then( result => {
+
+        function addCity () {
+            locations.forEach( (location, index) => {
+                geocode(location.city, mapboxToken).then( result => {
                     console.log(result);
 
                     //    add additional code for geocode
-                    geoRestaurant(result, restaurant);
+                    geolocation(result, location);
                 });
             });
         }
 
 
-        function geoRestaurant(result, restaurant) {
+        function geolocation(result, location) {
 
             var popup = new mapboxgl.Popup()
-                .setHTML(`<h3>${restaurant.name}<br>${restaurant.address}<br><hr> ${restaurant.description} <em>${restaurant.address.split(',')[1]}</em></h3>`);
+                .setHTML(`<h3>${location.city}</h3>`);
 
             new mapboxgl.Marker(option)
                 .setLngLat(result)
@@ -158,7 +149,8 @@
 
         }
 
-        addRestaurant();
+        // addCity();
+        console.log(locations);
 
     });
 })();

@@ -63,6 +63,7 @@ public class UserController {
         return "redirect:/login";
     }
 
+
     @GetMapping("/users/{id}")
     public String showUser(@PathVariable Long id, Model viewModel){
         User user = usersDao.getOne(id);

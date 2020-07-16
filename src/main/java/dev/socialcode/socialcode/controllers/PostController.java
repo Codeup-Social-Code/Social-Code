@@ -75,6 +75,7 @@ public class PostController {
 
     //update functionality will be added once user authentication is setup
 
+
     @GetMapping("/posts/{id}/edit")
     public String showEditForm(Model model, @PathVariable long id) {
         //find an ad
@@ -99,8 +100,10 @@ public class PostController {
     public String viewPosts(Model model) {
 //        User user = usersDao.findByUsername("test2@gmail.com");
 //        System.out.println(user.getFirstName());
+        List<Post> currentPosts = postsDao.findTop9ByOrderByIdDesc();
         List<Post> posts = postsDao.findAll();
         model.addAttribute("posts", posts);
+        model.addAttribute("posts", currentPosts);
         return "posts/index";
     }
 

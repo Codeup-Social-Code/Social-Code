@@ -1,25 +1,102 @@
 
 body.sign-up{
     background-image: url("/img/login-register.png");
+    width: 100%;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: 100% 100%;
     background-color: rgba(136, 160, 99, 0.4);
 
 }
 
-.sign-up-container {
-    margin-top: 340px;
+.login-card-body {
+    font-size: 11px;
 }
 
+.sign-up-card {
+    margin-top: 75px;
+    margin-bottom: 100px;
+}
+
+.username {
+margin-left: 27px;
+}
+
+.password {
+margin-left: 27px;
+}
+
+
 #passwordToConfirm {
-    margin-right: 96px;
+    margin-right: 50px;
 }
 
 #firstName, #lastName {
-    margin-right: 37px;
+    margin-right: 8px;
 }
 
 #city{
-    margin-right: 71px;
+    margin-right: 35px;
+}
+
+.register-btn {
+    margin-left: 32px;
+}
+
+.existing-login {
+    margin-left: 27px;
+}
+
+@media screen and (min-width:768px) {
+
+    .login-card-body {
+        font-size: 15px;
+    }
+
+    .sign-up-card {
+        margin-top: 100px;
+        margin-bottom: 140px;
+    }
+
+
+    .username {
+        margin-left: 0px;
+    }
+
+    .password {
+        margin-left: 0px;
+    }
+
+    #passwordToConfirm {
+        margin-right: 96px;
+    }
+
+    #firstName, #lastName {
+        margin-right: 37px;
+    }
+
+    #city{
+        margin-right: 71px;
+    }
+
+    .register-btn {
+        margin-left: 0px;
+    }
+
+    .existing-login {
+        margin-left: 0px;
+    }
+
+
+}
+
+@media screen and (min-width:2200px) {
+
+    .sign-up-card {
+        margin-top: 200px;
+        margin-bottom: 140px;
+    }
+
+
 }

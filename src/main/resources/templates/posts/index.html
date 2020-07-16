@@ -10,11 +10,14 @@
 <header><nav th:replace="fragments/navbar :: navbar"></nav></header>
 
 
-
-
+<section class="header-border d-flex justify-content-center align-items-center" style="background-color: #576541; ">
+    <div class="header-fill d-flex justify-content-center align-items-center" style="background-color: #876A3B;">
         <div class="social">
-                <img class="social-img" src="/img/social.png"/>
+            <img class="social-img" src="/img/Social-lg.png"/>
         </div>
+    </div>
+</section>
+
 
 <div>
     <div th:each="post : ${posts}">

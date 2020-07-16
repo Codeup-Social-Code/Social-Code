@@ -1,4 +1,13 @@
 
+/*html {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    margin: 0px;!important;*/
+/*    padding: 0px;!important;*/
+/*    overflow-x: hidden;*/
+/*}*/
+
+
 html {
     width: 100%;
     height: 100%;
@@ -7,82 +16,102 @@ html {
     overflow-x: hidden;
 }
 
-body.community {
-    background-image: url("/img/mobile-cork-bg.png");
-    margin: 0px;!important;
-    padding: 0px;!important;
-    /*box-sizing: content-box;*/
-    background-repeat: no-repeat;
-    background-size: cover;
-    box-sizing: inherit;
+/*body.community {*/
+/*    background-image: url("/img/lg-laptop-cork-bg.png");*/
+/*    margin: 0px;!important;*/
+/*    padding: 0px;!important;*/
+/*    !*box-sizing: content-box;*!*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: contain;*/
+/*    !*box-sizing: inherit;*!*/
+/*}*/
+
+
+
+/*.social {*/
+
+/*    margin-left: 100px ;*/
+/*    margin-top: 15px;*/
+/*}*/
+.header-border {
+    height: 250px
 }
-
-
-
-.social {
-
-    margin-left: 100px ;
-    margin-top: 15px;
+.header-fill{
+    width: 300px;
+    height: 180px
 }
 
 .social-img {
-    width: 70%;
+    width: 100%;
 }
 
 
 /* Small devices (phones and pocket devices, 576 and up) */
-@media screen and (min-width:576px) {
+@media screen and (min-width:425px) {
+
+    .header-border {
+        height: 350px;
+    }
+
+   .header-fill{
+        width: 350px;
+        height: 265px;
+    }
+
+
 
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
-    body.community{
-        background-image: url("/img/tablet-cork-bg.png");
-    }
-
-    .social{
-        margin-left: 180px;
-        margin-top: 25px;
+    .header-fill{
+        width: 663px;
+        height: 235px;
+        text-align: center;
     }
     .social-img {
-
-        width: 75%;
+        width: 85%;
     }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
-    body.community{
-        background-image: url("/img/lap-bg.png.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+    /*body.community{*/
+    /*    background-image: url("/img/lap-bg.png.png");*/
+    /*    background-repeat: no-repeat;*/
+    /*    background-size: cover;*/
+    /*}*/
 
-    .social {
-       margin-left: 280px;
-        margin-top: 45px;
-    }
+.header-fill{
+    width: 922px;
+    height: 250px;
+  }
+
     .social-img {
-        width: 70%;
+        width: 80%;
     }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
-    body.community{
-        background-image: url("/img/lg-laptop-cork-bg.png");
-        background-repeat: no-repeat;
-        background-size: cover;
+    /*body.community{*/
+    /*    background-image: url("/img/lg-laptop-cork-bg.png");*/
+    /*    background-repeat: no-repeat;*/
+    /*    background-size: cover;*/
+    /*}*/
+
+    .header-border {
+        height: 490px
+    }
+
+    .header-fill{
+        width: 1632px;
+        height: 350px;
     }
 
 
-    .social {
-        margin-left: 380px ;
-        margin-top: 140px;
-    }
     .social-img {
-        width: 65%;
+        width: 60%;
     }
 
 
@@ -90,12 +119,35 @@ body.community {
 
 @media screen and (min-width:2200px) {
 
-    .social {
-        margin-left: 720px ;
-        margin-top: 230px;
+    .header-border {
+        height: 480px
     }
+
+    .header-fill{
+        width: 2299px;
+        height: 540px;
+    }
+
     .social-img {
-        width: 65%;
+        width: 75%;
+    }
+
+
+}
+
+@media screen and (min-width:2560px) {
+
+    .header-border {
+        height: 780px
+    }
+
+    .header-fill{
+        width: 2299px;
+        height: 540px;
+    }
+
+    .social-img {
+        width: 85%;
     }
 
 

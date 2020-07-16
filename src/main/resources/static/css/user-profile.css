@@ -4,6 +4,10 @@
     text-align: center;
 }
 
+.project-wrapper {
+    padding-left: 100px;
+}
+
 .bio-row{
     margin: 0; !important;
     padding: 0; !important;
@@ -34,13 +38,11 @@
 
 
 .project-cover {
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
-    margin: 40px 108px 20px 20px;
-    /*box-shadow: rgba(9, 0, 0, 0.87) 10px 10px 26px;*/
-
-    object-fit: cover;
+    margin: 40px 20px 15px 0px;
+     object-fit: cover;
     object-position: center right;
 }
 
@@ -52,24 +54,27 @@
 
 .button-container a{
     position: absolute;
-    bottom: 1em;
-    right: 3em;
+    bottom: 18px;
+    right: 11px;
     background-color:dodgerblue;
     border: white solid 4px;
     border-radius:50%;
     color:white;
-    font-size: 30px;
+    font-size: 19px;
     text-transform:uppercase;
-    padding: 0px 15px;
+    padding: 0px 8px;
 }
 
 .posts {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 
 /* Small devices (phones and pocket devices, 576 and up) */
-@media screen and (min-width:576px) {
+@media screen and (min-width:425px) {
+    .project-wrapper{
+        padding-left: 135px;
+    }
 
 }
 
@@ -97,11 +102,18 @@
     .connect {
         margin-top: 40px;
     }
+    .project-wrapper{
+        padding-left: 135px;
+    }
+
 
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
+    .project-wrapper {
+        padding-left: 308px;
+    }
 
 }
 
@@ -114,7 +126,9 @@
         margin-left: 175px;
 
     }
-
+    .project-wrapper {
+        padding-left: 388px;
+    }
 
 }
 
@@ -138,6 +152,17 @@
 
     .analytics {
         margin-top: 60px;
+    }
+
+    .project-cover {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center right;
+    }
+    .project-wrapper {
+        padding-left: 308px;
     }
 
 }

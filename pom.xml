@@ -36,6 +36,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <!-- allows MySQL in Spring boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -46,26 +47,23 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-       
-
-<!--        thymeleaf-->
+        <!-- thymeleaf -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
-<!--    allows @NotNull and @NotBlank    -->
-
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>6.0.13.Final</version>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish</groupId>
-                <artifactId>javax.el</artifactId>
-                <version>3.0.0</version>
-            </dependency>
+        <!--    allows @NotNull and @NotBlank    -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.13.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>3.0.0</version>
+        </dependency>
 
         <!-- allows to use Security (PasswordEncoder) -->
         <dependency>
@@ -78,6 +76,12 @@
             <version>3.0.4.RELEASE</version>
         </dependency>
 
+        <!-- allows to send email -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+            <version>2.1.2.RELEASE</version>
+        </dependency>
 
 
 

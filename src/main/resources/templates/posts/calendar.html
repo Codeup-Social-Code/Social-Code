@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.1.0/main.min.css,npm/fullcalendar@5.1.0/main.min.css">
+    <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.1.0/main.min.js,npm/react-full-calendar@0.12.3,npm/fullcalendar@5.1.0,npm/fullcalendar@5.1.0/locales-all.min.js,npm/fullcalendar@5.1.0/locales-all.min.js"></script>
+</head>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'resourceTimelineWeek'
+            });
+            calendar.render();
+        });
+
+    </script>
+</head>
+<body>
+<div id='calendar'></div>
+</body>
+</html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Calendar</title>-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.1.0/main.min.css,npm/fullcalendar@5.1.0/main.min.css">-->
+<!--    <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.1.0/main.min.js,npm/react-full-calendar@0.12.3,npm/fullcalendar@5.1.0,npm/fullcalendar@5.1.0/locales-all.min.js,npm/fullcalendar@5.1.0/locales-all.min.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->

@@ -122,6 +122,11 @@ public class PostController {
 //        return "ads/ajax";
 //    }
 
+    @GetMapping("/calendar")
+    public String viewCalendar() {
+        return "posts/calendar";
+    }
+
     @GetMapping("/posts.json")
     public @ResponseBody List<Post> viewAllPostsWithAjax() {
         return postsDao.findAll();

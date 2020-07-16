@@ -45,6 +45,70 @@ html {
     width: 100%;
 }
 
+.read{
+    color: white;
+}
+
+.edit{
+    color: white;
+}
+
+.card-img-top {
+    box-shadow: black -1px 10px 29px -3px;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+                    "one one two two three three"
+                    "one one two two three three"
+                    "five five two two four four"
+                    "five five  . .     four four"
+                    "five five six six four four"
+                    "five  five six six seven seven";
+    grid-gap: 3em;
+
+}
+
+
+#masonry1 {
+    grid-area: one;
+
+}
+
+
+
+#masonry2 {
+    grid-area: two;
+
+}
+
+
+#masonry3 {
+    grid-area: three;
+
+}
+
+#masonry4 {
+    grid-area: four;
+
+}
+
+
+#masonry5 {
+    grid-area: five;
+
+}
+
+#masonry6 {
+    grid-area: six;
+}
+
+#masonry7 {
+    grid-area: seven;
+}
+
 
 /* Small devices (phones and pocket devices, 576 and up) */
 @media screen and (min-width:425px) {
@@ -117,38 +181,25 @@ html {
 
 }
 
+
+
+
 @media screen and (min-width:2200px) {
 
     .header-border {
-        height: 480px
+        height: 500px
     }
 
     .header-fill{
         width: 2299px;
-        height: 540px;
+        height: 360px;
     }
 
     .social-img {
-        width: 75%;
+        width: 65%;
     }
 
 
 }
 
-@media screen and (min-width:2560px) {
 
-    .header-border {
-        height: 780px
-    }
-
-    .header-fill{
-        width: 2299px;
-        height: 540px;
-    }
-
-    .social-img {
-        width: 85%;
-    }
-
-
-}

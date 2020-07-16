@@ -101,8 +101,10 @@ public class PostController {
     public String viewPosts(Model model) {
 //        User user = usersDao.findByUsername("test2@gmail.com");
 //        System.out.println(user.getFirstName());
+        List<Post> currentPosts = postsDao.findTop9ByOrderByIdDesc();
         List<Post> posts = postsDao.findAll();
         model.addAttribute("posts", posts);
+        model.addAttribute("posts", currentPosts);
         return "posts/index";
     }
 

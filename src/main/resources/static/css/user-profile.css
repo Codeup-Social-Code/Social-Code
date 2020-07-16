@@ -28,6 +28,46 @@
     box-shadow: rgba(2, 0, 0, 0.2) 2px 2px 6px 2px;
 }
 
+.analytics {
+    margin-top: 60px;
+}
+
+
+.project-cover {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 40px 108px 20px 20px;
+    /*box-shadow: rgba(9, 0, 0, 0.87) 10px 10px 26px;*/
+
+    object-fit: cover;
+    object-position: center right;
+}
+
+.button-container{
+    display:inline-block;
+    position:relative;
+    text-align: center;
+}
+
+.button-container a{
+    position: absolute;
+    bottom: 1em;
+    right: 3em;
+    background-color:dodgerblue;
+    border: white solid 4px;
+    border-radius:50%;
+    color:white;
+    font-size: 30px;
+    text-transform:uppercase;
+    padding: 0px 15px;
+}
+
+.posts {
+    margin-top: 100px;
+}
+
+
 /* Small devices (phones and pocket devices, 576 and up) */
 @media screen and (min-width:576px) {
 
@@ -86,7 +126,6 @@
         margin-top: 50px;
         margin-left: 300px;
 
-
     }
 
     #first, #last {
@@ -97,6 +136,8 @@
         font-size: 25px;
     }
 
-
+    .analytics {
+        margin-top: 60px;
+    }
 
 }

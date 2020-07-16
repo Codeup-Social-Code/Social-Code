@@ -8,13 +8,13 @@
 /*}*/
 
 
-html {
-    width: 100%;
-    height: 100%;
-    margin: 0px;!important;
-    padding: 0px;!important;
-    overflow-x: hidden;
-}
+/*html {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    margin: 0px;!important;*/
+/*    padding: 0px;!important;*/
+/*    overflow-x: hidden;*/
+/*}*/
 
 /*body.community {*/
 /*    background-image: url("/img/lg-laptop-cork-bg.png");*/
@@ -58,19 +58,33 @@ html {
 }
 
 
-.grid-container {
+/*.grid-container {*/
+/*    display: grid;*/
+/*    grid-template-areas:*/
+/*                    "one one two two three three"*/
+/*                    "one one two two three three"*/
+/*                    "five five two two four four"*/
+/*                    "five five  . .     four four"*/
+/*                    "five five six six four four"*/
+/*                    "five  five six six seven seven";*/
+/*    grid-gap: 3em;*/
+
+/*}*/
+
+.small-container {
     display: grid;
     grid-template-areas:
                     "one one two two three three"
                     "one one two two three three"
-                    "five five two two four four"
-                    "five five  . .     four four"
-                    "five five six six four four"
+                    "three .. two two .."
+                    "three four for four four"
+                    "five five four four four"
+                    "five five  . .     seven seven"
+                    "five five six six seven seven"
                     "five  five six six seven seven";
     grid-gap: 3em;
 
 }
-
 
 #masonry1 {
     grid-area: one;
@@ -109,6 +123,11 @@ html {
     grid-area: seven;
 }
 
+.footer-img {
+    float: left;
+    width: 850px;
+    width: 850px;
+}
 
 /* Small devices (phones and pocket devices, 576 and up) */
 @media screen and (min-width:425px) {
@@ -198,6 +217,20 @@ html {
     .social-img {
         width: 65%;
     }
+
+
+    /*.grid-container {*/
+    /*    display: grid;*/
+    /*    grid-template-areas:*/
+    /*                "one one two two three three"*/
+    /*                "one one two two three three"*/
+    /*                "five five two two four four"*/
+    /*                "five five  . .     four four"*/
+    /*                "five five six six four four"*/
+    /*                "five  five six six seven seven";*/
+    /*    grid-gap: 3em;*/
+
+    /*}*/
 
 
 }

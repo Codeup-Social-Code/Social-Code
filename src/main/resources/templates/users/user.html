@@ -1,38 +1,186 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head('SocialCode | View User')">
+<head th:replace="fragments/head :: head('SocialCode | Profile')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<nav th:replace="fragments/navbar :: navbar" />
-<div class="container">
-    <h5>User Profile</h5>
-    <div th:if="${user == null}">User not found.</div>
-    <div th:if="${user}">
-<!--        <div th:image="${user.picture}"/>-->
-        <h3 th:text="${user.firstName}">Name</h3>
-        <h3 th:text="${user.lastName}"></h3>
-        <h6 th:text="${user.username}">Email</h6>
-        <br>
-        <h6 th:text="${user.city}">City</h6>
-<!--        need to let it display page even if below values are null-->
-<!--        <h6 th:text="${user.gitHub}">GitHub</h6>-->
-<!--        <h6 th:text="${user.linkedIn}">LinkedIn</h6>-->
-<!--        <h5 th:text="${user.bio}">Bio</h5>-->
+<nav th:replace="fragments/navbar :: navbar"></nav>
 
-<!--        add anchor here to take user to "edit profile page" if they are that user -->
-<!--        <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }">edit</a>-->
+<section class="bio-container">
+    <div class="card mb-3">
+        <div class="card-header bg-success" style="height: 70px"> </div>
+        <div class="row bio-row no-gutters" style="height: 400px">
+            <div class="wrapper col-md-4 ">
+                <img class="image--cover" src="/img/Profile-Placeholder.png" width="100%"/>
+            </div>
+            <div class="col-md-8">
+                <div class="bio-card-body">
+                    <h3 id="first">First Last</h3>
+                    <!--                        <h3 id="first"th:text="${user.firstName}">Name</h3>-->
+                    <!--                        <h3 id="last" th:text="${user.lastName}"></h3>-->
+                    <h6>City</h6>
+                    <!--                        <h6 th:text="${user.city}">City</h6>-->
+                    <div class="connect">
+                        <h6 id="email">Email</h6>
+                        <!--                        <h6 id="email" th:text="${user.username}">Email</h6>-->
+                        <h6 id="github">GitHub</h6>
+                        <!--                    <h6 id="github" class="card-text"><h6 th:text="${user.gitHub}">GitHub</h6></h6>-->
+                        <h6 id="linkedin">LinkedIn</h6>
+                        <!--                    <h6 id="linkedin" class="card-text"> <h6 th:text="${user.linkedIn}">LinkedIn</h6></h6>-->
+                        <h6 id="profile-bio">Bio</h6>
+                        <!--                    <h6 id="profile-bio" class="card-text"> <h5 th:text="${user.bio}">Bio</h5></h6>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<div class="text-center">
+    <button class="btn-success follow" type="submit">Follow</button>
+</div>
+<section class="container analytics text-center">
+    <div class="row">
+        <div class="col-4">
+            <h2>150</h2>
+            <p>posts</p>
+        </div>
+        <div class="col-4">
+            <h2>150</h2>
+            <p>followers</p>
+        </div>
+        <div class="col-4">
+            <h2>150</h2>
+            <p>following</p>
+        </div>
+    </div>
+</section>
+
+<hr style="width: 50%">
+
+
+<section class="container project-section">
+    <div class="row project-wrapper text-center">
+        <div class="text-center">
+            <div class="button-container text-center">
+                <img src="/img/9.png" class="project-cover"/>
+                <a class="text-center" href="#">+</a>
+            </div>
+            <img src="/img/8.png" class="project-cover"/>
+        </div>
+        <div class="text-center">
+            <img src="/img/13.png" class="project-cover" />
+            <img src="/img/7.png" class="project-cover"/>
+        </div>
+    </div>
+</section>
+
+<hr style="width: 50%">
+
+<section class="container posts">
+    <div class="card-columns">
+        <div class="card p-3">
+            <blockquote class="blockquote mb-0 card-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <footer class="blockquote-footer">
+                    <small class="text-muted">
+                        Someone famous in <cite title="Source Title">Source Title</cite>
+                    </small>
+                </footer>
+            </blockquote>
+        </div>
+        <div class="card">
+            <img src="/img/12.png" width="100%"/>
+            <div class="card-body">
+                <h5 class="card-title">Card title that wraps to a new line</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="/img/11.png" width="100%"/>
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+        <div class="card bg-primary text-white text-center p-3">
+            <blockquote class="blockquote mb-0">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
+                <footer class="blockquote-footer text-white">
+                    <small>
+                        Someone famous in <cite title="Source Title">Source Title</cite>
+                    </small>
+                </footer>
+            </blockquote>
+        </div>
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card p-3 text-right">
+                <blockquote class="blockquote mb-0">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <footer class="blockquote-footer">
+                        <small class="text-muted">
+                            Someone famous in <cite title="Source Title">Source Title</cite>
+                        </small>
+                    </footer>
+                </blockquote>
+            </div>
+            <div class="card">
+                <img src="/img/10.png" width="100%"/></div>
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
     </div>
 
+</section>
+
+</body>
+</html>
 
 
 
 
 
 
-<!--&lt;!&ndash;button return to all users &ndash;&gt;-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
+<!--<body>-->
+<!--<nav th:replace="fragments/navbar :: navbar" />-->
+<!--<div class="container">-->
+<!--    <h5>User Profile</h5>-->
+<!--    <div th:if="${user == null}">User not found.</div>-->
+<!--    <div th:if="${user}">-->
+<!--&lt;!&ndash;        <div th:image="${user.picture}"/>&ndash;&gt;-->
+<!--        <h3 th:text="${user.firstName}">Name</h3>-->
+<!--        <h3 th:text="${user.lastName}"></h3>-->
+<!--        <h6 th:text="${user.username}">Email</h6>-->
+<!--        <br>-->
+<!--        <h6 th:text="${user.city}">City</h6>-->
+<!--&lt;!&ndash;        need to let it display page even if below values are null&ndash;&gt;-->
+<!--&lt;!&ndash;        <h6 th:text="${user.gitHub}">GitHub</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;        <h6 th:text="${user.linkedIn}">LinkedIn</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;        <h5 th:text="${user.bio}">Bio</h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        add anchor here to take user to "edit profile page" if they are that user &ndash;&gt;-->
+<!--&lt;!&ndash;        <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }">edit</a>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+
+
+
+
+
+
+<!--&lt;!&ndash;&lt;!&ndash;button return to all users &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->

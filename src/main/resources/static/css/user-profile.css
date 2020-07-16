@@ -29,7 +29,10 @@
 }
 
 .follow {
-    box-shadow: rgba(2, 0, 0, 0.2) 2px 2px 6px 2px;
+    box-shadow: rgba(2, 0, 0, 0.31) 2px 2px 6px 2px;
+    border: grey 1px solid;
+    border-radius: 8%;
+    width: 100px;
 }
 
 .analytics {
@@ -148,6 +151,11 @@
 
     #email, #github, #linkedin, #profile-bio {
         font-size: 25px;
+    }
+
+    .follow{
+       font-size: 30px;
+        width: 200px;
     }
 
     .analytics {

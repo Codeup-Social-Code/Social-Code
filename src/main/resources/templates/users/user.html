@@ -23,9 +23,13 @@
                     <h6 th:text="${user.city}">City</h6>
                     <div class="connect">
                         <h6 id="email" th:text="${user.username}">Email</h6>
-                        <h6 id="github" class="card-text"th:text="${user.gitHub}">GitHub</h6>
-                        <h6 id="linkedin" class="card-text" th:text="${user.linkedIn}">LinkedIn</h6>
-                        <h6 id="profile-bio" class="card-text">th:text="${user.bio}">Bio</h6>
+<!--                        <h6 id="github" class="card-text"th:text="${user.gitHub}">GitHub</h6>-->
+
+                        <a id="github" class="card-text" th:text="${user.gitHub}" th:href="@{${user.gitHub}}">GitHub</a>
+                        <a id="linkedin" class="card-text" th:text="${user.linkedIn}" th:href="@{${user.linkedIn}}">LinkedIn</a>
+<!--                        <h6 id="linkedin" class="card-text" th:text="${user.linkedIn}">LinkedIn</h6>-->
+                        <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
+                        <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }"><h1>EDIT</h1></a>
                     </div>
                 </div>
             </div>
@@ -152,10 +156,10 @@
     <h5>User Profile</h5>
     <div th:if="${user == null}">User not found.</div>
     <div th:if="${user}">
-<!--        <div th:image="${user.picture}"/>-->
-<!--        <div>-->
-<!--            <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>-->
-<!--            <script>const client = filestack.init(filestack_api_key);-->
+        <div th:image="${user.picture}"/>
+        <div>
+            <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+            <script>const client = filestack.init(filestack_api_key);-->
 <!--                    client.picker().open();-->
 <!--            </script>-->
 <!--        </div>-->

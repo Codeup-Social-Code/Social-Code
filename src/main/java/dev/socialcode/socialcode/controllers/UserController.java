@@ -103,9 +103,18 @@ public class UserController {
     }
 
     @PostMapping("/users/{id}/edit")
-    public String editUser(@PathVariable Long id, @Valid User editedUser, Errors validation, Model model){
+    public String editUser(@PathVariable Long id,
+//                           @RequestParam(name = "password") String password,
+//                           @RequestParam(name = "password_to_confirm") String passwordToConfirm,
+////                           @PathVariable String password, @PathVariable String passwordToConfirm,
+                           @Valid User editedUser, Errors validation, Model model){
+        User user = usersDao.getOne(id);
+        String password = user.getPassword();
+        String passwordToConfirm = user.getPasswordToConfirm();
 
         editedUser.setId(id);
+        editedUser.setPassword(password);
+        editedUser.setPasswordToConfirm(passwordToConfirm);
 
         if (validation.hasErrors()) {
             model.addAttribute("errors", validation);
@@ -114,7 +123,7 @@ public class UserController {
             return "users/edit-profile";
         }
         //i believe this was hashing their new password... but if they submitted their new hashed
-        //passwod with the below...their original password wouldn't work
+        //password with the below...their original password wouldn't work
         //
 //        editedUser.setPassword(passwordEncoder.encode(editedUser.getPassword()));
         usersDao.save(editedUser);

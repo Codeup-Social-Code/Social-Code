@@ -16,20 +16,15 @@
             </div>
             <div class="col-md-8">
                 <div class="bio-card-body">
-                    <h3 id="first">First Last</h3>
-                    <!--                        <h3 id="first"th:text="${user.firstName}">Name</h3>-->
-                    <!--                        <h3 id="last" th:text="${user.lastName}"></h3>-->
-                    <h6>City</h6>
-                    <!--                        <h6 th:text="${user.city}">City</h6>-->
+                                            <h3 id="first" th:text="${user.firstName}"></h3>
+<!--                                            <h3 id="last" th:text="${user.lastName}"></h3>-->
+
+                    <h6 th:text="${user.city}">City</h6>
                     <div class="connect">
-                        <h6 id="email">Email</h6>
-                        <!--                        <h6 id="email" th:text="${user.username}">Email</h6>-->
-                        <h6 id="github">GitHub</h6>
-                        <!--                    <h6 id="github" class="card-text"><h6 th:text="${user.gitHub}">GitHub</h6></h6>-->
-                        <h6 id="linkedin">LinkedIn</h6>
-                        <!--                    <h6 id="linkedin" class="card-text"> <h6 th:text="${user.linkedIn}">LinkedIn</h6></h6>-->
-                        <h6 id="profile-bio">Bio</h6>
-                        <!--                    <h6 id="profile-bio" class="card-text"> <h5 th:text="${user.bio}">Bio</h5></h6>-->
+                        <h6 id="email" th:text="${user.username}">Email</h6>
+                        <h6 id="github" class="card-text"th:text="${user.gitHub}">GitHub</h6>
+                        <h6 id="linkedin" class="card-text" th:text="${user.linkedIn}">LinkedIn</h6>
+                        <h6 id="profile-bio" class="card-text">th:text="${user.bio}">Bio</h6>
                     </div>
                 </div>
             </div>

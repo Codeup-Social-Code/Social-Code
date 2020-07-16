@@ -22,6 +22,12 @@
         <label for="username">Email</label>
         <input id="username" th:field="*{username}" />
 
+<!--        <label for="password">Password</label>-->
+<!--        <input id="password" th:field="*{password}" />-->
+
+<!--        <label for="passwordToConfirm">Confirm Password</label>-->
+<!--        <input id="passwordToConfirm" th:field="*{passwordToConfirm}" />-->
+
         <label for="city">City</label>
         <input id="city" th:field="*{city}" />
 
@@ -38,13 +44,29 @@
 
 
 
-<!--&lt;!&ndash;        add showEditControls to controller &ndash;&gt;-->
+<!--        add showEditControls to controller -->
 <!--        <input th:if="${showEditControls}" class="btn" type="submit"/>-->
+        <input class="btn" type="submit"/>
+    </form>
 
-
+    </form>
+    <form th:class="alert" th:action="${'/users/' + user.id + '/delete'}" th:method="POST">
+        <!--        <button class="btn btn-danger">Delete</button>-->
+        <button id="delete-alert" th:class="alert" th:onclick="this.parentElement.style.display=='none';">Delete</button>
     </form>
 
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script>
+    "use strict";
+    $(document).ready(function () {
+        $("#delete-alert").click(function() {
+            confirm("Are you sure you want to leave us?");
+        })
+    })();
+</script>
 </body>
+
 </html>

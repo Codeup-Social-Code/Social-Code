@@ -1,14 +1,8 @@
 package dev.socialcode.socialcode.controllers;
 
 
-import dev.socialcode.socialcode.daos.CategoriesRepository;
-import dev.socialcode.socialcode.daos.CommentsRepository;
-import dev.socialcode.socialcode.daos.PostRepository;
-import dev.socialcode.socialcode.daos.UserRepository;
-import dev.socialcode.socialcode.models.Category;
-import dev.socialcode.socialcode.models.Comment;
-import dev.socialcode.socialcode.models.Post;
-import dev.socialcode.socialcode.models.User;
+import dev.socialcode.socialcode.daos.*;
+import dev.socialcode.socialcode.models.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,12 +20,14 @@ public class PostController {
     private CategoriesRepository categoriesDao;
     private UserRepository usersDao;
     private CommentsRepository commentsDao;
+    private RSVPsRepository rsvpsDao;
 
-    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository, CommentsRepository commentsRepository) {
+    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository, CommentsRepository commentsRepository, RSVPsRepository rsvpsRepository) {
         this.postsDao = postRepository;
         this.categoriesDao = categoriesRepository;
         this.usersDao = userRepository;
         this.commentsDao = commentsRepository;
+        this.rsvpsDao = rsvpsRepository;
     }
 
     @GetMapping("/posts/create")
@@ -45,6 +41,9 @@ public class PostController {
     public String showOne(@PathVariable long id, Model model) {
         Post post = postsDao.getOne(id);
         List<Comment> comments = commentsDao.findCommentsByPostId(id);
+        List<RSVP> rsvps = rsvpsDao.findRSVPSByPostId(id);
+        System.out.println("RSVP ID: " + rsvps);
+        model.addAttribute("rsvps", rsvps);
         model.addAttribute("comment", new Comment());
         model.addAttribute("post", post);
         model.addAttribute("No Comments", comments.size() == 0);
@@ -107,6 +106,21 @@ public class PostController {
         model.addAttribute("posts", currentPosts);
         return "posts/index";
     }
+
+//    @GetMapping("/mapbox")
+//    public String viewMapbox(Model model) {
+//        return "posts/mapbox";
+//    }
+//
+//    @GetMapping("/users.json")
+//    public @ResponseBody List<User> viewAllUserInJSONFormat() {
+//        return usersDao.findAll();
+//    }
+
+//    @GetMapping("/posts/ajax")
+//    public String viewAllAdsWithAjax() {
+//        return "ads/ajax";
+//    }
 
 
 }

@@ -2,6 +2,9 @@ package dev.socialcode.socialcode.models;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.validator.constraints.NotBlank;
 import java.util.List;
 
@@ -11,41 +14,60 @@ public class User {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @JsonIgnore
         long id;
 
         @Column(nullable = false, length = 50, unique = true)
+        @JsonIgnore
         String username;
 
         @Column(nullable = false, length = 50)
+        @JsonIgnore
         String firstName;
 
         @Column(nullable = false, length = 50)
+        @JsonIgnore
         String lastName;
 
         @Column(nullable = false)
+        @JsonIgnore
         String password;
 
         @Column(nullable = false)
+        @JsonIgnore
         String passwordToConfirm;
         
         @Column
         String city;
 
         @Column
+        @JsonIgnore
         String linkedIn;
 
         @Column
+        @JsonIgnore
         String gitHub;
 
         @Column
+        @JsonIgnore
         String bio;
 
         @Column
+        @JsonIgnore
         String picture;;
 
 
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+        @JsonIgnore
         private List<Comment> comments;
+
+        @JsonIgnore
+        @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+        private List<RSVP> RSVP;
+
+        @JsonIgnore
+        @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+        private List<Post> posts;
 
         //empty constructor for Spring framework
         public User() {
@@ -56,36 +78,43 @@ public class User {
                 id = copy.id; // This line is SUPER important! Many things won't work if it's absent
                 username = copy.username;
                 password = copy.password;
+                passwordToConfirm = copy.passwordToConfirm;
         }
 
         //read
-        public User(long id, String username, String email, String firstName, String lastName, String password, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments) {
+        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts) {
                 this.id = id;
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.password = password;
+                this.passwordToConfirm = passwordToConfirm;
                 this.city = city;
                 this.linkedIn = linkedIn;
                 this.gitHub = gitHub;
                 this.bio = bio;
                 this.picture = picture;
                 this.comments = comments;
+                this.RSVP = RSVP;
+                this.posts = posts;
         }
 
 
         //insert
-        public User(String username, String email, String firstName, String lastName, String password, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments) {
+        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts) {
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.password = password;
+                this.passwordToConfirm = passwordToConfirm;
                 this.city = city;
                 this.linkedIn = linkedIn;
                 this.gitHub = gitHub;
                 this.bio = bio;
                 this.picture = picture;
                 this.comments = comments;
+                this.RSVP = RSVP;
+                this.posts = posts;
         }
 
         public long getId() {
@@ -152,6 +181,15 @@ public class User {
                 this.city = city;
         }
 
+
+        public List<dev.socialcode.socialcode.models.RSVP> getRSVP() {
+                return RSVP;
+        }
+
+        public void setRSVP(List<dev.socialcode.socialcode.models.RSVP> RSVP) {
+                this.RSVP = RSVP;
+        }
+  
         public String getLinkedIn() {
                 return linkedIn;
         }
@@ -182,5 +220,13 @@ public class User {
 
         public void setPicture(String picture) {
                 this.picture = picture;
+        }
+
+        public List<Post> getPosts() {
+                return posts;
+        }
+
+        public void setPosts(List<Post> posts) {
+                this.posts = posts;
         }
 }

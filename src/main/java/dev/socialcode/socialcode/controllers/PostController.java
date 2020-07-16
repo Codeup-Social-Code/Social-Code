@@ -75,14 +75,18 @@ public class PostController {
     }
 
     //update functionality will be added once user authentication is setup
-
-    @GetMapping("/posts/{id}/edit")
-    public String showEditForm(Model model, @PathVariable long id) {
-        //find an ad
-        Post postToEdit = postsDao.getOne(id);
-        model.addAttribute("post", postToEdit);
+@GetMapping("/posts/edit")
+public String stylingEditFormt(){
         return "posts/edit";
-    }
+}
+
+//    @GetMapping("/posts/{id}/edit")
+//    public String showEditForm(Model model, @PathVariable long id) {
+//        //find an ad
+//        Post postToEdit = postsDao.getOne(id);
+//        model.addAttribute("post", postToEdit);
+//        return "posts/edit";
+//    }
 
     //Update Post
     @PostMapping("/posts/edit")

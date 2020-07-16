@@ -196,18 +196,15 @@ h2.block-msg {
 
 @media screen and (min-width:2200px) {
     .top-fold {
-        height: 580px;
+
+        height: 900px;
 
     }
 
     .home-welcome-header {
         margin-top: 90px;
     }
-    .top-fold {
 
-        height: 900px;
-
-    }
 
     .card-deck {
         margin-top: 150px;

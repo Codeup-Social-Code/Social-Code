@@ -58,15 +58,18 @@ public class User {
 
 
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+        @JsonManagedReference
         @JsonIgnore
         private List<Comment> comments;
 
         @JsonIgnore
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+        @JsonManagedReference
         private List<RSVP> RSVP;
 
         @JsonIgnore
         @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+        @JsonManagedReference
         private List<Post> posts;
 
         //empty constructor for Spring framework

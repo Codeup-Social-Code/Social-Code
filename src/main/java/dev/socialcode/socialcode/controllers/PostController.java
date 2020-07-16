@@ -122,5 +122,10 @@ public class PostController {
 //        return "ads/ajax";
 //    }
 
+    @GetMapping("/posts.json")
+    public @ResponseBody List<Post> viewAllPostsWithAjax() {
+        return postsDao.findAll();
+    }
+
 
 }

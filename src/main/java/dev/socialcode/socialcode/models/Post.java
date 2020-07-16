@@ -1,5 +1,6 @@
 package dev.socialcode.socialcode.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -56,11 +57,11 @@ public class Post {
     private List<Category> categories;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
-    @JsonBackReference
+    @JsonManagedReference
     private List<Comment> comments;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
-    @JsonBackReference
+    @JsonManagedReference
     private List<RSVP> usersAttending;
 
 

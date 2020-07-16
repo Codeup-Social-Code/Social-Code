@@ -1,0 +1,176 @@
+
+.wrapper {
+    padding-left: 30px;
+    text-align: center;
+}
+
+.project-wrapper {
+    padding-left: 100px;
+}
+
+.bio-row{
+    margin: 0; !important;
+    padding: 0; !important;
+}
+
+.bio-card-body {
+    text-align: center;
+}
+
+.image--cover {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 5px 20px 20px 20px;
+    box-shadow: rgba(9, 0, 0, 0.87) 10px 10px 26px;
+
+    object-fit: cover;
+    object-position: center right;
+}
+
+.follow {
+    box-shadow: rgba(2, 0, 0, 0.31) 2px 2px 6px 2px;
+    border: grey 1px solid;
+    border-radius: 8%;
+    width: 100px;
+}
+
+.analytics {
+    margin-top: 60px;
+}
+
+
+.project-cover {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin: 40px 20px 15px 0px;
+     object-fit: cover;
+    object-position: center right;
+}
+
+.button-container{
+    display:inline-block;
+    position:relative;
+    text-align: center;
+}
+
+.button-container a{
+    position: absolute;
+    bottom: 18px;
+    right: 11px;
+    background-color:dodgerblue;
+    border: white solid 4px;
+    border-radius:50%;
+    color:white;
+    font-size: 19px;
+    text-transform:uppercase;
+    padding: 0px 8px;
+}
+
+.posts {
+    margin-top: 50px;
+}
+
+
+/* Small devices (phones and pocket devices, 576 and up) */
+@media screen and (min-width:425px) {
+    .project-wrapper{
+        padding-left: 135px;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
+    .image--cover {
+        width: 365px;
+        height: 365px;
+        margin-top: 55px;
+
+        float: left;
+
+    }
+
+    .bio-card-body {
+        text-align: unset;
+        margin-left: 175px;
+        margin-top: 100px;
+    }
+
+    .follow{
+        margin: 20px 0px 0px 40px;
+    }
+
+    .connect {
+        margin-top: 40px;
+    }
+    .project-wrapper{
+        padding-left: 135px;
+    }
+
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width:992px) {
+    .project-wrapper {
+        padding-left: 308px;
+    }
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) {
+    .image--cover {
+        width: 400px;
+        height: 400px;
+        margin-top: 50px;
+        margin-left: 175px;
+
+    }
+    .project-wrapper {
+        padding-left: 388px;
+    }
+
+}
+
+@media screen and (min-width:2200px) {
+
+    .image--cover {
+        width: 450px;
+        height: 450px;
+        margin-top: 50px;
+        margin-left: 300px;
+
+    }
+
+    #first, #last {
+        font-size: 40px;
+    }
+
+    #email, #github, #linkedin, #profile-bio {
+        font-size: 25px;
+    }
+
+    .follow{
+       font-size: 30px;
+        width: 200px;
+    }
+
+    .analytics {
+        margin-top: 60px;
+    }
+
+    .project-cover {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center right;
+    }
+    .project-wrapper {
+        padding-left: 308px;
+    }
+
+}

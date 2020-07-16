@@ -1,101 +1,238 @@
 
-html {
-    width: 100%;
-    height: 100%;
-    margin: 0px;!important;
-    padding: 0px;!important;
-    overflow-x: hidden;
+/*html {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    margin: 0px;!important;*/
+/*    padding: 0px;!important;*/
+/*    overflow-x: hidden;*/
+/*}*/
+
+
+/*html {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    margin: 0px;!important;*/
+/*    padding: 0px;!important;*/
+/*    overflow-x: hidden;*/
+/*}*/
+
+/*body.community {*/
+/*    background-image: url("/img/lg-laptop-cork-bg.png");*/
+/*    margin: 0px;!important;*/
+/*    padding: 0px;!important;*/
+/*    !*box-sizing: content-box;*!*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: contain;*/
+/*    !*box-sizing: inherit;*!*/
+/*}*/
+
+
+
+/*.social {*/
+
+/*    margin-left: 100px ;*/
+/*    margin-top: 15px;*/
+/*}*/
+.header-border {
+    height: 250px
 }
-
-body.community {
-    background-image: url("/img/mobile-cork-bg.png");
-    margin: 0px;!important;
-    padding: 0px;!important;
-    /*box-sizing: content-box;*/
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-
-.social {
-
-    margin-left: 100px ;
-    margin-top: 15px;
+.header-fill{
+    width: 300px;
+    height: 180px
 }
 
 .social-img {
-    width: 70%;
+    width: 100%;
+}
+
+.read{
+    color: white;
+}
+
+.edit{
+    color: white;
+}
+
+.card-img-top {
+    box-shadow: black -1px 10px 29px -3px;
 }
 
 
+/*.grid-container {*/
+/*    display: grid;*/
+/*    grid-template-areas:*/
+/*                    "one one two two three three"*/
+/*                    "one one two two three three"*/
+/*                    "five five two two four four"*/
+/*                    "five five  . .     four four"*/
+/*                    "five five six six four four"*/
+/*                    "five  five six six seven seven";*/
+/*    grid-gap: 3em;*/
+
+/*}*/
+
+.small-container {
+    display: grid;
+    grid-template-areas:
+                    "one one two two three three"
+                    "one one two two three three"
+                    "three .. two two .."
+                    "three four for four four"
+                    "five five four four four"
+                    "five five  . .     seven seven"
+                    "five five six six seven seven"
+                    "five  five six six seven seven";
+    grid-gap: 3em;
+
+}
+
+#masonry1 {
+    grid-area: one;
+
+}
+
+
+
+#masonry2 {
+    grid-area: two;
+
+}
+
+
+#masonry3 {
+    grid-area: three;
+
+}
+
+#masonry4 {
+    grid-area: four;
+
+}
+
+
+#masonry5 {
+    grid-area: five;
+
+}
+
+#masonry6 {
+    grid-area: six;
+}
+
+#masonry7 {
+    grid-area: seven;
+}
+
+.footer-img {
+    float: left;
+    width: 850px;
+    width: 850px;
+}
+
 /* Small devices (phones and pocket devices, 576 and up) */
-@media screen and (min-width:576px) {
+@media screen and (min-width:425px) {
+
+    .header-border {
+        height: 350px;
+    }
+
+   .header-fill{
+        width: 350px;
+        height: 265px;
+    }
+
+
 
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
-    body.community{
-        background-image: url("/img/tablet-cork-bg.png");
-    }
-
-    .social{
-        margin-left: 180px;
-        margin-top: 25px;
+    .header-fill{
+        width: 663px;
+        height: 235px;
+        text-align: center;
     }
     .social-img {
-
-        width: 75%;
+        width: 85%;
     }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
-    body.community{
-        background-image: url("/img/lap-bg.png.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+    /*body.community{*/
+    /*    background-image: url("/img/lap-bg.png.png");*/
+    /*    background-repeat: no-repeat;*/
+    /*    background-size: cover;*/
+    /*}*/
 
-    .social {
-       margin-left: 280px;
-        margin-top: 45px;
-    }
+.header-fill{
+    width: 922px;
+    height: 250px;
+  }
+
     .social-img {
-        width: 70%;
+        width: 80%;
     }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
-    body.community{
-        background-image: url("/img/lg-laptop-cork-bg.png");
-        background-repeat: no-repeat;
-        background-size: cover;
+    /*body.community{*/
+    /*    background-image: url("/img/lg-laptop-cork-bg.png");*/
+    /*    background-repeat: no-repeat;*/
+    /*    background-size: cover;*/
+    /*}*/
+
+    .header-border {
+        height: 490px
+    }
+
+    .header-fill{
+        width: 1632px;
+        height: 350px;
     }
 
 
-    .social {
-        margin-left: 380px ;
-        margin-top: 140px;
-    }
     .social-img {
-        width: 65%;
+        width: 60%;
     }
 
 
 }
+
+
+
 
 @media screen and (min-width:2200px) {
 
-    .social {
-        margin-left: 720px ;
-        margin-top: 230px;
+    .header-border {
+        height: 500px
     }
+
+    .header-fill{
+        width: 2299px;
+        height: 360px;
+    }
+
     .social-img {
         width: 65%;
     }
 
 
+    /*.grid-container {*/
+    /*    display: grid;*/
+    /*    grid-template-areas:*/
+    /*                "one one two two three three"*/
+    /*                "one one two two three three"*/
+    /*                "five five two two four four"*/
+    /*                "five five  . .     four four"*/
+    /*                "five five six six four four"*/
+    /*                "five  five six six seven seven";*/
+    /*    grid-gap: 3em;*/
+
+    /*}*/
+
+
 }
+
+

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -61,6 +63,7 @@ public class UserController {
         return "redirect:/login";
     }
 
+
     @GetMapping("/users/{id}")
     public String showUser(@PathVariable Long id, Model viewModel){
         User user = usersDao.getOne(id);
@@ -79,6 +82,15 @@ public class UserController {
             return "users/login";
         }
         return "redirect:/users/" + usersService.loggedInUser().getId();
+    }
+
+
+    // To view all users
+    @GetMapping("/users/view-all")
+    public String viewAllUsers(Model m) {
+        List<User> viewAll = usersDao.findAll();
+        m.addAttribute("viewAll", viewAll);
+        return "users/view-all";
     }
 
     //EDIT
@@ -115,7 +127,13 @@ public class UserController {
         return usersService.isLoggedIn() && (user.getId() == usersService.loggedInUser().getId());
     }
 
+    // To delete profile
+    @PostMapping("/users/{id}/delete")
+    public String destroy(@PathVariable long id) {
+        usersDao.deleteById(id);
+        return "redirect:/welcome";
 
+    }
 
 //
 

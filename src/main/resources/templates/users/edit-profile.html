@@ -4,58 +4,67 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<nav th:replace="fragments/navbar :: navbar" />
-<div class="container">
-    <h5>Edit your profile:</h5>
-    <form th:action="@{/users/{id}/edit(id=${id})}" th:method="POST" th:object="${user}">
-<!--&lt;!&ndash;        need to add filestack to upload picture&ndash;&gt;-->
-<!--        <label for="picture"></label>-->
-<!--        <input id="picture" th:field="*{picture}" />-->
+<body class="edit-profile">
+<nav th:replace="fragments/navbar :: navbar"/>
+<div class="container edit-profile-container text-center">
+    <div class="card create-card">
+        <div class="card-header">
+            <h5>Edit your profile:</h5>
+        </div>
+        <form th:action="@{/users/{id}/edit(id=${id})}" th:method="POST" th:object="${user}">
+            <div class="card-body">
 
-        <label for="firstName">Name</label>
-        <input id="firstName" th:field="*{firstName}" />
+                <!--&lt;!&ndash;        need to add filestack to upload picture&ndash;&gt;-->
+                <!--        <label for="picture"></label>-->
+                <!--        <input id="picture" th:field="*{picture}" />-->
+                <div>
+                    <label for="firstName">Name</label>
+                    <input id="firstName" th:field="*{firstName}"/>
 
-        <label for="lastName"></label>
-        <input id="lastName" th:field="*{lastName}" />
+                    <label for="lastName"></label>
+                    <input id="lastName" th:field="*{lastName}"/>
 
-        <label for="username">Email</label>
-        <input id="username" th:field="*{username}" />
+                    <label for="username">Email</label>
+                    <input id="username" th:field="*{username}"/>
 
-<!--        <label for="password">Password</label>-->
-<!--        <input id="password" th:field="*{password}" type="hidden"/>-->
+                    <!--        <label for="password">Password</label>-->
+                    <!--        <input id="password" th:field="*{password}" type="hidden"/>-->
 
-<!--        <label for="passwordToConfirm">Confirm Password</label>-->
-<!--        <input id="passwordToConfirm" th:field="*{passwordToConfirm}" type="hidden" />-->
+                    <!--        <label for="passwordToConfirm">Confirm Password</label>-->
+                    <!--        <input id="passwordToConfirm" th:field="*{passwordToConfirm}" type="hidden" />-->
 
-        <label for="city">City</label>
-        <input id="city" th:field="*{city}" />
+                    <label for="city">City</label>
+                    <input id="city" th:field="*{city}"/>
+                </div>
+                <div>
+                    <!--         anchor-->
+                    <label for="gitHub">GitHub</label>
+                    <input id="gitHub" th:field="*{gitHub}"/>
 
-<!--         anchor-->
-        <label for="gitHub">GitHub</label>
-        <input id="gitHub" th:field="*{gitHub}" />
+                    <!--        anchor-->
+                    <label for="linkedIn">LinkedIn</label>
+                    <input id="linkedIn" th:field="*{linkedIn}"/>
 
-<!--        anchor-->
-        <label for="linkedIn">LinkedIn</label>
-        <input id="linkedIn" th:field="*{linkedIn}" />
-
-        <label for="bio">Bio</label>
-        <input id="bio" th:field="*{bio}" />
+                    <label for="bio">Bio</label>
+                    <input id="bio" th:field="*{bio}"/>
+                </div>
 
 
+                <!--        add showEditControls to controller -->
+                <!--        <input th:if="${showEditControls}" class="btn" type="submit"/>-->
 
-<!--        add showEditControls to controller -->
-<!--        <input th:if="${showEditControls}" class="btn" type="submit"/>-->
-        <input class="btn" type="submit"/>
-    </form>
-
-    </form>
-    <form th:class="alert" th:action="${'/users/' + user.id + '/delete'}" th:method="POST">
-        <!--        <button class="btn btn-danger">Delete</button>-->
-        <button id="delete-alert" th:class="alert" th:onclick="this.parentElement.style.display=='none';">Delete</button>
-    </form>
+                <form th:class="alert" th:action="${'/users/' + user.id + '/delete'}" th:method="POST">
+                    <!--        <button class="btn btn-danger">Delete</button>-->
+                    <button class="btn btn-success" id="edit-profile-btn" type="submit">Submit</button>
+                    <button class="btn btn-success" id="delete-alert" th:class="alert" th:onclick="this.parentElement.style.display=='none'">Delete</button>
+                </form>
+            </div>
+        </form>
+    </div>
 
 </div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

@@ -56,7 +56,8 @@ public class PostController {
     public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId) {
 
         System.out.println(postToBeSaved.getEventTime());
-        System.out.println(postToBeSaved.getEventDate());
+        System.out.println(postToBeSaved.getEvent_start());
+        System.out.println(postToBeSaved.getEvent_end());
 
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         System.out.println(currentUser);
@@ -121,6 +122,16 @@ public class PostController {
 //    public String viewAllAdsWithAjax() {
 //        return "ads/ajax";
 //    }
+
+    @GetMapping("/calendar")
+    public String viewCalendar() {
+        return "posts/calendar";
+    }
+
+    @GetMapping("/posts.json")
+    public @ResponseBody List<Post> viewAllPostsWithAjax() {
+        return postsDao.findAll();
+    }
 
 
 }

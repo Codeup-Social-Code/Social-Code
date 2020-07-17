@@ -1,5 +1,6 @@
 package dev.socialcode.socialcode.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -33,9 +34,13 @@ public class Post {
     @Column(name = "create_date")
     private Date createDate;
 
-    @Column (name = "event_date", nullable = false, length = 255)
+    @Column (name = "event_start", nullable = false, length = 255)
     //use String or Date?
-    private String eventDate;
+    private String event_start;
+
+    @Column (name = "event_end", nullable = false, length = 255)
+    //use String or Date?
+    private String event_end;
 
     @Column (name = "event_time", nullable = false, length = 255)
     private String eventTime;
@@ -56,36 +61,44 @@ public class Post {
     private List<Category> categories;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
-    @JsonBackReference
+    @JsonManagedReference
     private List<Comment> comments;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
-    @JsonBackReference
+    @JsonManagedReference
     private List<RSVP> usersAttending;
 
 
     //add user, user picture
-    public Post(Long id, String title, String body, List<Comment> comments, List<Category> categories, Date createDate, String eventDate, String eventTime, List<RSVP> usersAttending) {
+
+    public Post(Long id, @NotBlank(message = "required") @Size(min = 3, message = "must be at least 3 characters") String title, @NotBlank(message = "required") String body, Date createDate, String event_start, String event_end, String eventTime, User user, List<Category> categories, List<Comment> comments, List<RSVP> usersAttending) {
         this.id = id;
         this.title = title;
         this.body = body;
-        this.comments = comments;
-        this.categories = categories;
         this.createDate = createDate;
-        this.eventDate = eventDate;
+        this.event_start = event_start;
+        this.event_end = event_end;
         this.eventTime = eventTime;
+        this.user = user;
+        this.categories = categories;
+        this.comments = comments;
         this.usersAttending = usersAttending;
     }
 
+
     //add user info
-    public Post(String title, String body, List<Comment> comments, List<Category> categories, Date createDate, String eventDate, String eventTime, List<RSVP> usersAttending) {
+
+
+    public Post(@NotBlank(message = "required") @Size(min = 3, message = "must be at least 3 characters") String title, @NotBlank(message = "required") String body, Date createDate, String event_start, String event_end, String eventTime, User user, List<Category> categories, List<Comment> comments, List<RSVP> usersAttending) {
         this.title = title;
         this.body = body;
-        this.comments = comments;
-        this.categories = categories;
         this.createDate = createDate;
-        this.eventDate = eventDate;
+        this.event_start = event_start;
+        this.event_end = event_end;
         this.eventTime = eventTime;
+        this.user = user;
+        this.categories = categories;
+        this.comments = comments;
         this.usersAttending = usersAttending;
     }
 
@@ -114,14 +127,6 @@ public class Post {
 
     public void setBody(String body) {
         this.body = body;
-    }
-
-    public String getEventDate() {
-        return eventDate;
-    }
-
-    public void setEventDate(String eventDate) {
-        this.eventDate = eventDate;
     }
 
     public String getEventTime() {
@@ -173,6 +178,22 @@ public class Post {
     public String dateFormatter (Date createDate) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         return formatter.format(createDate);
+    }
+
+    public String getEvent_start() {
+        return event_start;
+    }
+
+    public void setEvent_start(String event_start) {
+        this.event_start = event_start;
+    }
+
+    public String getEvent_end() {
+        return event_end;
+    }
+
+    public void setEvent_end(String event_end) {
+        this.event_end = event_end;
     }
 
     public List<RSVP> getUsersAttending() {

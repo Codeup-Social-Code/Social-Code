@@ -21,10 +21,8 @@
 
 <div class="container">
 
-
-    <div class="javascript-categories">
         <div th:each="post, iterStat : ${posts}" class="box" th:id=" 'masonry' + ${iterStat.count}">
-            <div class="card mt-5 text-center">
+            <div class="card p-5 mt-5 text-center" style="width: 18rem">
                 <img th:src="@{/img/9.png}" class="card-img-top"  th:id="'image' + ${iterStat.count} "/>
                 <div class="card-body p-5">
                     <h3 th:text="${post.title}">Title</h3>
@@ -38,9 +36,8 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
+</div>
 
 
 <div class="grid-container">
@@ -63,11 +60,8 @@
 </div>
 
 
-    <section class="footer-border d-none d-xl-block">
-<!--            <div class="footer">-->
-<!--                <img class="footer-img" src="/img/Cody.png"/>-->
-<!--            </div>-->
-    </section>
+
 
 </body>
 </html>
+

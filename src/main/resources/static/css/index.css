@@ -1,38 +1,76 @@
+body.community {
 
-/*html {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    margin: 0px;!important;*/
-/*    padding: 0px;!important;*/
-/*    overflow-x: hidden;*/
-/*}*/
+}
 
-
-/*html {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    margin: 0px;!important;*/
-/*    padding: 0px;!important;*/
-/*    overflow-x: hidden;*/
-/*}*/
-
-/*body.community {*/
-/*    background-image: url("/img/lg-laptop-cork-bg.png");*/
-/*    margin: 0px;!important;*/
-/*    padding: 0px;!important;*/
-/*    !*box-sizing: content-box;*!*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: contain;*/
-/*    !*box-sizing: inherit;*!*/
-/*}*/
+#masonry{
+    display: grid;
+    column-count: 3;
+    column-gap: 60px;
+    padding: 80px;
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 
 
-/*.social {*/
+#masonry1 {
+    display: inline-block;
+    /*vertical-align: top;*/
+    margin-bottom: 10px;
+}
 
-/*    margin-left: 100px ;*/
-/*    margin-top: 15px;*/
-/*}*/
+
+#masonry2 {
+    display: inline-block;
+    /*vertical-align: top;*/
+    margin-bottom: 10px;
+}
+
+#masonry3 {
+    display: inline-block;
+    /*vertical-align: top;*/
+    margin-bottom: 10px;
+}
+
+#masonry4 {
+    display: inline-block;
+    /*vertical-align: top;*/
+    margin-bottom: 10px;
+}
+
+#masonry5 {
+    display: inline-block;
+    /*vertical-align: top;*/
+    margin-bottom: 10px;
+}
+
+#masonry6 {
+    display: inline-block;
+    /*vertical-align: top;*/
+    margin-bottom: 10px;
+}
+
+#masonry7 {
+    display: inline-block;
+    /*vertical-align: top;*/
+    margin-bottom: 10px;
+}
+
+#masonry8 {
+    display: inline-block;
+    /*vertical-align: top;*/
+    margin-bottom: 10px;
+}
+
+#masonry9 {
+    display: inline-block;
+    /*vertical-align: top;*/
+    margin-bottom: 10px;
+}
+
+
+
 .header-border {
     height: 250px
 }
@@ -58,95 +96,16 @@
 }
 
 
-/*.grid-container {*/
-/*    display: grid;*/
-/*    grid-template-areas:*/
-/*                    "one one two two three three"*/
-/*                    "one one two two three three"*/
-/*                    "five five two two four four"*/
-/*                    "five five  . .     four four"*/
-/*                    "five five six six four four"*/
-/*                    "five  five six six seven seven";*/
-/*    grid-gap: 3em;*/
-
-/*}*/
-
-/*.small-container {*/
-/*    display: grid;*/
-/*    grid-template-areas:*/
-/*                    "one one two two three three"*/
-/*                    "one one two two three three"*/
-/*                    "three .. two two .."*/
-/*                    "three four for four four"*/
-/*                    "five five four four four"*/
-/*                    "five five  . .     seven seven"*/
-/*                    "five five six six seven seven"*/
-/*                    "five  five six six seven seven";*/
-/*    grid-gap: 3em;*/
-
-/*}*/
-
-/*#masonry1 {*/
-/*    grid-area: one;*/
-
-/*}*/
-
-
-
-/*#masonry2 {*/
-/*    grid-area: two;*/
-
-/*}*/
-
-
-/*#masonry3 {*/
-/*    grid-area: three;*/
-
-/*}*/
-
-/*#masonry4 {*/
-/*    grid-area: four;*/
-
-/*}*/
-
-
-/*#masonry5 {*/
-/*    grid-area: five;*/
-
-/*}*/
-
-/*#masonry6 {*/
-/*    grid-area: six;*/
-/*}*/
-
-/*#masonry7 {*/
-/*    grid-area: seven;*/
-/*}*/
-
-#masonry { /* Masonry container */
-    column-count: 4;
-    column-gap: 1em;
-}
-
 /*maybe for images? have 2 or more sets of post templates label item1 item2 */
 /*that connect to category with selected styling per group*/
-.item { /* Masonry bricks or child elements */
-    background-color: #eee;
-    display: inline-block;
-    margin: 0 0 1em;
-    width: 100%;
-}
-
-
-
-
-
-
-/*.footer-img {*/
-/*    float: left;*/
-/*    width: 850px;*/
-/*    width: 850px;*/
+/*.item { !* Masonry bricks or child elements *!*/
+/*    background-color: #eee;*/
+/*    display: inline-block;*/
+/*    margin: 0 0 1em;*/
+/*    width: 100%;*/
 /*}*/
+
+
 
 /* Small devices (phones and pocket devices, 576 and up) */
 @media screen and (min-width:425px) {
@@ -174,15 +133,14 @@
     .social-img {
         width: 85%;
     }
+    .masonry {
+        columns: 2;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
-    /*body.community{*/
-    /*    background-image: url("/img/lap-bg.png.png");*/
-    /*    background-repeat: no-repeat;*/
-    /*    background-size: cover;*/
-    /*}*/
+
 
 .header-fill{
     width: 922px;
@@ -196,11 +154,6 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
-    /*body.community{*/
-    /*    background-image: url("/img/lg-laptop-cork-bg.png");*/
-    /*    background-repeat: no-repeat;*/
-    /*    background-size: cover;*/
-    /*}*/
 
     .header-border {
         height: 490px
@@ -237,21 +190,9 @@
         width: 65%;
     }
 
-
-    /*.grid-container {*/
-    /*    display: grid;*/
-    /*    grid-template-areas:*/
-    /*                "one one two two three three"*/
-    /*                "one one two two three three"*/
-    /*                "five five two two four four"*/
-    /*                "five five  . .     four four"*/
-    /*                "five five six six four four"*/
-    /*                "five  five six six seven seven";*/
-    /*    grid-gap: 3em;*/
-
-    /*}*/
-
+    .masonry {
+        columns: 3;
+    }
 
 }
-
 

@@ -30,6 +30,7 @@
 <!--                        <h6 id="linkedin" class="card-text" th:text="${user.linkedIn}">LinkedIn</h6>-->
                         <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
                         <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }"><h1>EDIT</h1></a>
+                        <a th:href="@{/users/view-all}"><button class="btn btn-success">View all users</button></a>
                     </div>
                 </div>
             </div>

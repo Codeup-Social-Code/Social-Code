@@ -30,7 +30,7 @@
                     <h3 th:text="${post.title}">Title</h3>
                     <div th:text="${post.body}">Description</div>
                     <div th:text="${post.user.username}">Email</div>
-                    <div class="read mt-3" style="font-size: 18px"><a th:href="@{'/posts/' + ${post.id}}" style="color: white"><em>Read more..</em></a></div>
+                    <div class="read mt-3" style="font-size: 18px"><a th:href="@{'/posts/' + ${post.id}}" class="btn btn-success"><em>Read more..</em></a></div>
                     <div class="edit mt-2 text-center">
                         <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white; border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Edit</a>
                         <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white;  border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Delete</a>
@@ -51,7 +51,7 @@
                     <h3 th:text="${post.title}">Title</h3>
                     <div th:text="${post.body}">Description</div>
                     <div th:text="${post.user.username}">Email</div>
-                    <div class="read mt-3" style="font-size: 18px"><a th:href="@{'/posts/' + ${post.id}}" style="color: white"><em>Read more..</em></a></div>
+                    <div class="read mt-3" style="font-size: 18px"><a th:href="@{'/posts/' + ${post.id}}" class="btn btn-success"><em>Read more..</em></a></div>
                     <div class="edit mt-2 text-center">
                         <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white; border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Edit</a>
                         <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white;  border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Delete</a>

@@ -14,7 +14,7 @@
         <h2 th:text="${category.name}"></h2>
     </div>
 </div>
-<form th:action="${'/posts/' + post.id + '/edit'}">
+<form th:if="${showEditControls}" th:action="${'/posts/' + post.id + '/edit'}">
     <button class="btn btn-warning">EDIT</button>
 </form>
 

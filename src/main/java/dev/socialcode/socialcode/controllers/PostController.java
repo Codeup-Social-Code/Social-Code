@@ -3,6 +3,7 @@ package dev.socialcode.socialcode.controllers;
 
 import dev.socialcode.socialcode.daos.*;
 import dev.socialcode.socialcode.models.*;
+import dev.socialcode.socialcode.services.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,13 +22,15 @@ public class PostController {
     private UserRepository usersDao;
     private CommentsRepository commentsDao;
     private RSVPsRepository rsvpsDao;
+    private UserService usersService;
 
-    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository, CommentsRepository commentsRepository, RSVPsRepository rsvpsRepository) {
+    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository, CommentsRepository commentsRepository, RSVPsRepository rsvpsRepository, UserService usersService) {
         this.postsDao = postRepository;
         this.categoriesDao = categoriesRepository;
         this.usersDao = userRepository;
         this.commentsDao = commentsRepository;
         this.rsvpsDao = rsvpsRepository;
+        this.usersService = usersService;
     }
 
     @GetMapping("/posts/create")
@@ -40,9 +43,12 @@ public class PostController {
     @GetMapping("/posts/{id}")
     public String showOne(@PathVariable long id, Model model) {
         Post post = postsDao.getOne(id);
+        User user = usersDao.findUsersByPosts_Id(id);
         List<Comment> comments = commentsDao.findCommentsByPostId(id);
         List<RSVP> rsvps = rsvpsDao.findRSVPSByPostId(id);
-        System.out.println("RSVP ID: " + rsvps);
+
+        model.addAttribute("sessionUser", usersService.loggedInUser());
+        model.addAttribute("showEditControls", usersService.canEditProfile(user));
         model.addAttribute("rsvps", rsvps);
         model.addAttribute("comment", new Comment());
         model.addAttribute("post", post);

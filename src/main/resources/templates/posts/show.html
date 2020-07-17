@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head >
+<head th:replace="fragments/head :: head('SocialCode | Post')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<nav th:replace="fragments/navbar :: navbar"></nav>
 <div th:if="${post}">
     <h1>Title: <span th:text="${post.title}"></span></h1>
     <h1>Created By: <span th:text="${post.user.firstName}"></span></h1>

@@ -70,14 +70,14 @@ public class UserController {
 
     @GetMapping("/users/{id}")
     public String showUser(@PathVariable Long id, Model viewModel){
+        User user = usersDao.getOne(id);
 
         List<Post> userPosts = postsDao.findPostsByUser_Id(id);
-        System.out.println(userPosts);
-        User user = usersDao.getOne(id);
-        viewModel.addAttribute("posts", userPosts);
+        viewModel.addAttribute("userPosts", userPosts);
         viewModel.addAttribute("user", user);
         viewModel.addAttribute("sessionUser", usersService.loggedInUser());
         viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
+
         return "users/user";
     }
 

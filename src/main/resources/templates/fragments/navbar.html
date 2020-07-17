@@ -38,22 +38,28 @@
                     <button id="register" class="btn-link btn" style="color: dimgrey">Register</button>
                 </form>
             </li>
-            <li class="nav-item dropdown d-none d-lg-block">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
+            <th:block sec:authorize="isAuthenticated()">
+            <li class="nav-item dropdown d-lg-block">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Community
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+                <ul class="nav-item" aria-labelledby="navbarDropdown">
+<!--                   ^ class="dropdown-menu dropdown-content" -->
+                    <li><a class="dropdown-item" th:href="@{/posts}">View events</a></li>
+                    <li><a class="dropdown-item" th:href="@{/users/view-all}">View all users</a> </li>
+<!--                    <div class="dropdown-divider"></div>-->
+                    <li><a class="dropdown-item" th:href="@{/users/profile}">Your profile</a></li>
+                    <li><a class="dropdown-item" th:href="@{/posts/create}">Create an event</a></li>
+                </ul>
             </li>
+            </th:block>
         </ul>
     </div>
 </nav>
 
-
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
 
 </body>
 </html>

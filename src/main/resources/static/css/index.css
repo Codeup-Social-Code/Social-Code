@@ -71,63 +71,82 @@
 
 /*}*/
 
-.small-container {
-    display: grid;
-    grid-template-areas:
-                    "one one two two three three"
-                    "one one two two three three"
-                    "three .. two two .."
-                    "three four for four four"
-                    "five five four four four"
-                    "five five  . .     seven seven"
-                    "five five six six seven seven"
-                    "five  five six six seven seven";
-    grid-gap: 3em;
+/*.small-container {*/
+/*    display: grid;*/
+/*    grid-template-areas:*/
+/*                    "one one two two three three"*/
+/*                    "one one two two three three"*/
+/*                    "three .. two two .."*/
+/*                    "three four for four four"*/
+/*                    "five five four four four"*/
+/*                    "five five  . .     seven seven"*/
+/*                    "five five six six seven seven"*/
+/*                    "five  five six six seven seven";*/
+/*    grid-gap: 3em;*/
 
+/*}*/
+
+/*#masonry1 {*/
+/*    grid-area: one;*/
+
+/*}*/
+
+
+
+/*#masonry2 {*/
+/*    grid-area: two;*/
+
+/*}*/
+
+
+/*#masonry3 {*/
+/*    grid-area: three;*/
+
+/*}*/
+
+/*#masonry4 {*/
+/*    grid-area: four;*/
+
+/*}*/
+
+
+/*#masonry5 {*/
+/*    grid-area: five;*/
+
+/*}*/
+
+/*#masonry6 {*/
+/*    grid-area: six;*/
+/*}*/
+
+/*#masonry7 {*/
+/*    grid-area: seven;*/
+/*}*/
+
+#masonry { /* Masonry container */
+    column-count: 4;
+    column-gap: 1em;
 }
 
-#masonry1 {
-    grid-area: one;
-
+/*maybe for images? have 2 or more sets of post templates label item1 item2 */
+/*that connect to category with selected styling per group*/
+.item { /* Masonry bricks or child elements */
+    background-color: #eee;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
 }
 
 
 
-#masonry2 {
-    grid-area: two;
-
-}
 
 
-#masonry3 {
-    grid-area: three;
 
-}
-
-#masonry4 {
-    grid-area: four;
-
-}
-
-
-#masonry5 {
-    grid-area: five;
-
-}
-
-#masonry6 {
-    grid-area: six;
-}
-
-#masonry7 {
-    grid-area: seven;
-}
-
-.footer-img {
-    float: left;
-    width: 850px;
-    width: 850px;
-}
+/*.footer-img {*/
+/*    float: left;*/
+/*    width: 850px;*/
+/*    width: 850px;*/
+/*}*/
 
 /* Small devices (phones and pocket devices, 576 and up) */
 @media screen and (min-width:425px) {

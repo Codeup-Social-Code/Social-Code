@@ -146,6 +146,19 @@
 
 </section>
 
+<!--Example of users posts-->
+<section class="container posts" >
+    <div class="card" th:each="post: ${posts}">
+        <img src="/img/11.png" width="100%"/>
+        <div class="card-body">
+            <h5 class="card-title" th:text="${post.title}">Card title</h5>
+            <p class="card-text" th:text="${post.body}">This card has supporting text below as a natural lead-in to additional content.</p>
+<!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+            <p></p>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
 

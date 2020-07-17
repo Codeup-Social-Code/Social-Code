@@ -9,5 +9,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
 //    List<Post> findTop9ByOrderByIdDesc();
 
+    List<Post> findPostsByUser_Id(long id);
+
 
 }

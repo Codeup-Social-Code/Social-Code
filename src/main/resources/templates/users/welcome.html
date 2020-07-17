@@ -22,7 +22,7 @@
                                 <img class="card-img" src="/img/12.png" width="100%"/>
                                 <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">1</h3>
                                 <div class="card-body">
-                                    <h4 class="card-text text-center">Create your profile.</h4>
+                                    <h4 class="card-text text-center">Edit your profile.</h4>
         
                                     <form th:action="@{/users/profile}" th:method="get">
                                 <input class="btn btn-success" type="submit" value="Go to profile">
@@ -35,7 +35,7 @@
                                 <img class="card-img"  src="/img/9.png" />
                                 <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">2</h3>
                                 <div class="card-body">
-                                    <h4 class="card-text text-center">Create your first post.</h4>
+                                    <h4 class="card-text text-center">Create a community post.</h4>
                                 </div>
                                <form th:action="@{/posts/create}" th:method="get">
                                 <input class="btn btn-success" type="submit" value="Create a post">
@@ -52,7 +52,7 @@
                                 <form th:action="@{/posts}" th:method="get">
                             <input class="btn btn-success" type="submit" value="View current events">
                         </form>
-                                
+                                <a th:href="@{/users/view-all}"><button class="btn btn-success">View all users</button></a>
                             </div>
 
                     </div>

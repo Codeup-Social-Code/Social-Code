@@ -4,22 +4,19 @@ body.community {
 
 #masonry{
     column-count: 3;
-    column-gap: 10px;
+    column-gap: 60px;
     padding: 80px;
     /*max-width: 960px;*/
     /*margin-right: auto;*/
     /*margin-left: auto;*/
 }
 
-/*#masonry { !* Masonry container *!*/
-/*    !*column-count: 4;*!*/
-/*    !*column-gap: 1em;*!*/
-/*}*/
+
 
 #masonry1 {
     display: inline-block;
     /*vertical-align: top;*/
-    margin: 10px 10px 0px 10px;
+    margin-bottom: 10px;
 }
 
 

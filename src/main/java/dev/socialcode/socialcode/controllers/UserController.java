@@ -1,6 +1,8 @@
 package dev.socialcode.socialcode.controllers;
 
+import dev.socialcode.socialcode.daos.PostRepository;
 import dev.socialcode.socialcode.daos.UserRepository;
+import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.User;
 import dev.socialcode.socialcode.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,13 +23,15 @@ import java.util.List;
 @Controller
 public class UserController {
     private UserRepository usersDao;
+    private PostRepository postsDao;
     private PasswordEncoder passwordEncoder;
     private UserService usersService;
 
-    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService) {
+    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService, PostRepository postRepository) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
         this.usersService = usersService;
+        this.postsDao = postRepository;
     }
 
 
@@ -67,9 +71,12 @@ public class UserController {
     @GetMapping("/users/{id}")
     public String showUser(@PathVariable Long id, Model viewModel){
         User user = usersDao.getOne(id);
+        List<Post> userPosts = postsDao.findPostsByUser_Id(id);
+        viewModel.addAttribute("userPosts", userPosts);
         viewModel.addAttribute("user", user);
         viewModel.addAttribute("sessionUser", usersService.loggedInUser());
         viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
+
         return "users/user";
     }
 

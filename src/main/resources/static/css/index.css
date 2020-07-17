@@ -7,9 +7,9 @@ body.community {
     column-count: 3;
     column-gap: 60px;
     padding: 80px;
-    /*max-width: 960px;*/
-    /*margin-right: auto;*/
-    /*margin-left: auto;*/
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 

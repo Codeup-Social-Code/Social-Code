@@ -32,8 +32,8 @@
                 var events = [];
                 $.each(response, function(idx, e) {
                     events.push({
-                        start: e.event_date,
-                        end: e.end_date,
+                        start: e.start_date_time,
+                        end: e.end_date_time,
                         title: e.meeting_title
 
                     });

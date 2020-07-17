@@ -108,6 +108,10 @@ public class PostController {
 //        User user = usersDao.findByUsername("test2@gmail.com");
 //        System.out.println(user.getFirstName());
 //        List<Post> currentPosts = postsDao.findTop9ByOrderByIdDesc();
+        UserWithRoles userWithRoles = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = usersDao.getOne(userWithRoles.getId());
+        model.addAttribute("user", user);
+
         List<Post> posts = postsDao.findAll();
         model.addAttribute("posts", posts);
 //        model.addAttribute("posts", currentPosts);

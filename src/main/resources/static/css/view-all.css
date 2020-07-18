@@ -1,0 +1,19 @@
+.cards {
+    display: grid;
+    column-count: 3;
+    column-gap: 10px;
+    padding: 30px;
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+    grid-template-areas:
+    "a a b"
+    "c d d"
+    "c e e";
+}
+
+.card1 { grid-area: a; }
+.card2 { grid-area: b; background-color: #4CAF50; }
+.card3 { grid-area: c; background-color: #FFCA28; }
+.card4 { grid-area: d; background-color: #F06292; }
+.card5 { grid-area: e; background-color: #FF8A80; }

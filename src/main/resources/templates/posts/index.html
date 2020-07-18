@@ -19,46 +19,34 @@
 </section>
 
 
-<div class="container">
+<!--<div class="container">-->
 
         <div th:each="post, iterStat : ${posts}" class="box" th:id=" 'masonry' + ${iterStat.count}">
-            <div class="card p-5 mt-5 text-center" style="width: 18rem">
-                <img th:src="@{/img/9.png}" class="card-img-top"  th:id="'image' + ${iterStat.count} "/>
-                <div class="card-body p-5">
-                    <h3 th:text="${post.title}">Title</h3>
-                    <div th:text="${post.body}">Description</div>
-                    <div th:text="${post.user.username}">Email</div>
-                    <div class="read mt-3" style="font-size: 18px"><a th:href="@{'/posts/' + ${post.id}}" class="btn btn-success"><em>Read more..</em></a></div>
-                    <div class="edit mt-2 text-center">
-                        <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white; border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Edit</a>
-                        <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white;  border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Delete</a>
+            <div class="row make-columns" th:style="${iterStat.odd}? 'width: 28rem' :'width: 18rem; height: 25rem'  ">
+                <div class="cards" >
+                    <div th:style="${iterStat.odd}? 'width: 18rem; height: 25rem' : 'width: 28rem'" class="card">
+                        <div class="card-header">
+    <!--                        <h1>Picture: <span th:text="${user.getPicture()}"></span></h1>-->
+                        </div>
+                        <div class="card-body p-5">
+                            <h3 th:text="${post.title}">Title</h3>
+                            <div th:text="${post.body}">Description</div>
+                            <div th:text="${post.user.username}">Email</div>
+
+                            <div class="card-footer text-center">
+                                <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br>
+                                <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white; border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Edit</a>
+                                <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white;  border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Delete</a>
+                            </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-</div>
-
-
-<div class="grid-container">
-        <div th:each="post, iterStat : ${posts}" class="box" th:id=" 'masonry' + ${iterStat.count}">
-            <div class="card mt-5 text-center">
-                <img th:src="@{/img/9.png}" class="card-img-top"  th:id="'image' + ${iterStat.count} "/>
-                <div class="card-body p-5">
-                    <h3 th:text="${post.title}">Title</h3>
-                    <div th:text="${post.body}">Description</div>
-                    <div th:text="${post.user.username}">Email</div>
-                    <div class="read mt-3" style="font-size: 18px"><a th:href="@{'/posts/' + ${post.id}}" class="btn btn-success"><em>Read more..</em></a></div>
-                    <div class="edit mt-2 text-center">
-                        <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white; border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Edit</a>
-                        <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white;  border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Delete</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<!--</div>-->
 
 
 

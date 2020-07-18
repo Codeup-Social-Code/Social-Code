@@ -3,22 +3,41 @@
 <head th:replace="fragments/head :: head('SocialCode | Users')">
         <meta charset="UTF-8">
         <title>Title</title>
-    </head>
-    <body>
+</head>
+<body>
     <nav th:replace="fragments/navbar :: navbar"></nav>
-    <a th:href="@{/posts}"><button class="btn btn-success">View events</button></a>
-        <div th:each="user : ${viewAll}">
-            <h1>Name: <span th:text="${user.getUsername()}"></span></h1>
-            <h1>Picture: <span th:text="${user.getPicture()}"></span></h1>
 
-    <!--        <h3>Languages: <span th:text="${user.}"></span></h3>-->
-    <!--        <h3>Skill Level: <span th:text="${user.}"></span></h3>-->
 
-            <h4>Location: <span th:text="${user.getCity()}"></span></h4>
-            <form th:action="${'/users/' + user.id }" th:method="GET">
-                <button>View Profile</button>
-            </form>
 
-        </div>
-    </body>
+
+<!--    <div class="container">-->
+<!--        <div th:each="user, iStat : ${viewAll}" th:style="${iStat.odd}? 'width: 18rem;'+ ${iStat.even}? 'width: 25rem'">-->
+            <div th:each="user, iStat : ${viewAll}" class="box" th:id="'masonry' + ${iStat.count}">
+            <div class="row make-columns" th:style="${iStat.odd}? 'width: 28rem' :'width: 18rem; height: 25rem'  ">
+<!--            <div class="col-6">-->
+                <div class="cards">
+                    <div th:style="${iStat.odd}? 'width: 18rem; height: 25rem' : 'width: 28rem'" class="card">
+                        <div class="card-header">
+                            <h1>Picture: <span th:text="${user.getPicture()}"></span></h1>
+                            <div class="card-body">
+                                <h1>Name: <span th:text="${user.getUsername()}"></span></h1>
+                                <!--        <h3>Languages: <span th:text="${user.}"></span></h3>-->
+                                <!--        <h3>Skill Level: <span th:text="${user.}"></span></h3>-->
+                                <h4>Location: <span th:text="${user.getCity()}"></span></h4>
+                            </div>
+                            <div class="card-footer text-center">
+                                <form th:action="${'/users/' + user.id }" th:method="GET">
+                                    <button class="btn btn-success" >View Profile</button>
+                                </form>
+                                <a th:href="@{/posts}"><button class="btn btn-success">View events</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--        </div>-->
+    </div>
+<!--    </div>-->
+
+</body>
 </html>

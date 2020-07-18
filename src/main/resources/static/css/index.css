@@ -1,73 +1,26 @@
-body.community {
-
-}
-
-#masonry{
+#masonry {
     display: grid;
-    column-count: 3;
-    column-gap: 60px;
-    padding: 80px;
-    max-width: 960px;
+    column-count: 4;
+    column-gap: 10px;
+    /*padding: 30px;*/
+    max-width: 1100px;
     margin-right: auto;
     margin-left: auto;
+    grid-template-areas:
+    "a a b b"
+    "c d d d"
+    "c c e e";
 }
 
-
-
-#masonry1 {
-    display: inline-block;
-    /*vertical-align: top;*/
-    margin-bottom: 10px;
-}
-
-
-#masonry2 {
-    display: inline-block;
-    /*vertical-align: top;*/
-    margin-bottom: 10px;
-}
-
-#masonry3 {
-    display: inline-block;
-    /*vertical-align: top;*/
-    margin-bottom: 10px;
-}
-
-#masonry4 {
-    display: inline-block;
-    /*vertical-align: top;*/
-    margin-bottom: 10px;
-}
-
-#masonry5 {
-    display: inline-block;
-    /*vertical-align: top;*/
-    margin-bottom: 10px;
-}
-
-#masonry6 {
-    display: inline-block;
-    /*vertical-align: top;*/
-    margin-bottom: 10px;
-}
-
-#masonry7 {
-    display: inline-block;
-    /*vertical-align: top;*/
-    margin-bottom: 10px;
-}
-
-#masonry8 {
-    display: inline-block;
-    /*vertical-align: top;*/
-    margin-bottom: 10px;
-}
-
-#masonry9 {
-    display: inline-block;
-    /*vertical-align: top;*/
-    margin-bottom: 10px;
-}
+#masonry1 { grid-area: a; }
+#masonry2 { grid-area: b; }
+#masonry3 { grid-area: c; }
+#masonry4 { grid-area: d; }
+#masonry5 { grid-area: e; }
+#masonry6 { grid-area: e; }
+#masonry7 { grid-area: e; }
+#masonry8 { grid-area: e; }
+#masonry9 { grid-area: e; }
 
 
 

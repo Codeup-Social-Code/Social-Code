@@ -4,6 +4,7 @@ import dev.socialcode.socialcode.daos.PostRepository;
 import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.User;
+import dev.socialcode.socialcode.services.EmailService;
 import dev.socialcode.socialcode.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -26,12 +27,14 @@ public class UserController {
     private PostRepository postsDao;
     private PasswordEncoder passwordEncoder;
     private UserService usersService;
+    private EmailService emailService;
 
-    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService, PostRepository postRepository) {
+    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService, PostRepository postRepository, EmailService emailService) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
         this.usersService = usersService;
         this.postsDao = postRepository;
+        this.emailService = emailService;
     }
 
 
@@ -64,6 +67,10 @@ public class UserController {
         user.setPasswordToConfirm(hashForConfirm);
 
         usersDao.save(user);
+
+        User savedUser = usersDao.save(user);
+        emailService.prepareAndSend(savedUser, "A new account has been created", "Thank you for signing up your One stop website where you can grow! Your username: " + savedUser.getUsername());
+
         return "redirect:/login";
     }
 

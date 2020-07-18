@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('SocialCode | Profile')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+    <button class="btn-success follow" type="submit" th:onclick="'javascript: addOnClick' + ${'clicks'} + '&amp;page=1\''">Follow</button>
+            <h2 id="clicks">150</h2>
+            <p>posts</p>
+
+
+
+<!--    <button th:onclick="'javascript: document.location=\'/chapterdetails?isbn=' + ${bookModel.isbn} + '&amp;page=1\''"></button>-->
+<!--    <input type="submit" value="Approve" onclick="return ( prompt('You must type APPROVED to continue') == 'APPROVED' )" />-->
+<!--    5. Conclusion-->
+
+
+
+
+</body>
+</html>

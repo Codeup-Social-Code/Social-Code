@@ -48,9 +48,32 @@
 
 
 
-<div th:each="comment: ${comments}">
-    <h2>Comment: <span th:text="${comment.body}"></span> Created by: <span th:text="${comment.user.firstName}"></span></h2>
+<!--<div th:each="comment: ${comments}">-->
+<!--    <h2>Comment: <span th:text="${comment.body}"></span> Created by: <span th:text="${comment.user.firstName}"></span></h2>-->
+<!--</div>-->
+
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        <li  th:text="${comment.body}" class="list-group-item" th:each="comment: ${comments}">
+        </li>
+    </ul>
 </div>
+
+<div class="card d-flex" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        This is some text within a card body.
+    </div>
+</div>
+
+<!--by: <span th:text="${comment.user.firstName}"></span>-->
 
 </body>
 </html>

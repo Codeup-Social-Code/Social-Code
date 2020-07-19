@@ -4,11 +4,13 @@ package dev.socialcode.socialcode.controllers;
 import dev.socialcode.socialcode.daos.*;
 import dev.socialcode.socialcode.models.*;
 import dev.socialcode.socialcode.services.UserService;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.ArrayList;
 //import java.sql.Date; -- we need to change to this
 import java.util.Date;
@@ -43,12 +45,14 @@ public class PostController {
     @GetMapping("/posts/{id}")
     public String showOne(@PathVariable long id, Model model) {
         Post post = postsDao.getOne(id);
-        User user = usersDao.findUsersByPosts_Id(id);
+//        User user = usersDao.findUsersByPosts_Id(id);
         List<Comment> comments = commentsDao.findCommentsByPostId(id);
         List<RSVP> rsvps = rsvpsDao.findRSVPSByPostId(id);
 
-        model.addAttribute("sessionUser", usersService.loggedInUser());
-        model.addAttribute("showEditControls", usersService.canEditProfile(user));
+        //the usersService carries the logic in figuring out userCanEdit
+        model.addAttribute("isOwner", usersService.isOwner(post.getUser()));
+
+        //
         model.addAttribute("rsvps", rsvps);
         model.addAttribute("comment", new Comment());
         model.addAttribute("post", post);
@@ -59,13 +63,13 @@ public class PostController {
 
 
     @PostMapping("/posts/create")
-    public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId) {
+    public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId, Authentication authentication) {
 
         System.out.println(postToBeSaved.getEventTime());
         System.out.println(postToBeSaved.getEvent_start());
         System.out.println(postToBeSaved.getEvent_end());
 
-        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = usersDao.findByUsername(authentication.getName());
         System.out.println(currentUser);
         postToBeSaved.setUser(currentUser);
 

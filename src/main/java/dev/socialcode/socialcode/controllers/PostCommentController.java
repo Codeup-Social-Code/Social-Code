@@ -35,6 +35,7 @@ public class PostCommentController {
     public String createComment(@ModelAttribute Comment commentToBeSaved, @RequestParam(name = "postId") String postId) {
         Post post = postsDao.getOne(Long.parseLong(postId));
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println("User" + currentUser);
         commentToBeSaved.setPost(post);
         commentToBeSaved.setUser(currentUser);
         Date currentDate = new Date();

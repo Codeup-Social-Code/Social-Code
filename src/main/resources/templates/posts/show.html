@@ -14,8 +14,16 @@
         <h2 th:text="${category.name}"></h2>
     </div>
 </div>
-<form th:if="${showEditControls}" th:action="${'/posts/' + post.id + '/edit'}">
-    <button class="btn btn-warning">EDIT</button>
+<form class="right" th:method="POST" th:action="@{/posts/delete}">
+    <input type="hidden" name="id" th:value="${post.id}" />
+    <span th:if="${isOwner}">
+                    <a class="btn btn-floating" th:href="@{ /posts/{id}/edit(id=${post.id}) }">
+                        <i class="material-icons">edit</i>
+                    </a>
+                    <button class="btn btn-floating deep-orange darken-4">
+                        <i class="material-icons">delete</i>
+                    </button>
+    </span>
 </form>
 
 <div>
@@ -45,7 +53,7 @@
             </div>
             <input th:field="*{body}" />
             <br />
-            <input class="bg-success" type="submit" />
+            <input class="btn btn-primary mt-2" type="submit" value="Submit">
         </form>
     </div>
 </div>

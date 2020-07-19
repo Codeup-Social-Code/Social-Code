@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('SocialCode | Profile')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>You can see me and im ready for code!!!!</h1>
+
+<form action="/users/follow-test" method="post">
+    Title:
+    <input name="title" />
+    <br />
+    Description:
+    <input name="description" />
+    <br />
+    <input type="submit" />
+</form>
+
+    <button id="follow_me" class="btn-success follow" type="submit" >Follow</button>
+            <h2 id="clicks">150</h2>
+            <p>posts</p>
+
+</body>
+</html>

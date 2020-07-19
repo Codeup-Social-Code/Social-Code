@@ -28,7 +28,7 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
         this.usersService = usersService;
         this.postsDao = postRepository;
-//        this.followersDao = followsRepository;
+
     }
 
 
@@ -151,13 +151,22 @@ public class UserController {
 
 
 
-    @GetMapping("/users/css-js")
+    @GetMapping("/users/follow-test")
     public String addFollower() {
 
-        return "users/css-js";
+        return "users/follow-test";
 
 
     }
+
+    @PostMapping("/users/follow-test")
+    public String TestMethod(User user)
+    {
+        return currentFollower.user;
+    }
+
+
+
 //
 ////    ADD FOLLOWER
 //

@@ -81,7 +81,6 @@ public class User {
                 joinColumns={@JoinColumn(name="follow_id")},
                 inverseJoinColumns={@JoinColumn(name="user_id")}
         )
-
         private List<Follow> follows;
 
         //empty constructor for Spring framework

@@ -12,7 +12,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -20,6 +19,7 @@ import java.util.List;
 public class UserController {
     private UserRepository usersDao;
     private PostRepository postsDao;
+//    private FollowsRepository followersDao;
     private PasswordEncoder passwordEncoder;
     private UserService usersService;
 
@@ -28,6 +28,7 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
         this.usersService = usersService;
         this.postsDao = postRepository;
+//        this.followersDao = followsRepository;
     }
 
 
@@ -147,6 +148,58 @@ public class UserController {
         return "redirect:/welcome";
 
     }
+
+
+
+    @GetMapping("/users/css-js")
+    public String addFollower() {
+
+        return "users/css-js";
+
+
+    }
+//
+////    ADD FOLLOWER
+//
+//    @RequestMapping(value = "/follow/add", method = RequestMethod.POST, produces = "application/json")
+//    @ResponseBody
+//    public boolean addFollower(HttpServletRequest request, @RequestParam String followeeID) throws Exception {
+//
+//
+//        System.out.println("reached controller");
+//        boolean flag = false;
+//        int id = Integer.parseInt(followeeID);
+//        HttpSession session = request.getSession();
+//        User follower = (User) session.getAttribute("user");
+//        try {
+//            User followee = (User) followerDao.get(id);
+//            if (followee.getFollowers().contains(follower)) {
+//                followee.getFollowers().remove(follower);
+//                System.out.println("removed");
+//                flag=followerDao.removeFollower(followee);
+//
+//            } else {
+//                followee.getFollowers().add(follower);
+//                System.out.println("added");
+//                flag=followerDao.addFollower(followee);
+//
+//            }
+//
+//        } catch (FollowerException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//        return flag;
+//
+//    }
+
+
+
+
+
+
+
+
 
 //
 

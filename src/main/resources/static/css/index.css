@@ -1,5 +1,5 @@
 
-.container{
+.index-container{
     display: inline-grid;
     columns: 3;
     column-gap: 10px;

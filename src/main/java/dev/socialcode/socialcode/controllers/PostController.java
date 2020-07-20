@@ -45,12 +45,12 @@ public class PostController {
     @GetMapping("/posts/{id}")
     public String showOne(@PathVariable long id, Model model) {
         Post post = postsDao.getOne(id);
-//        User user = usersDao.findUsersByPosts_Id(id);
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Comment> comments = commentsDao.findCommentsByPostId(id);
         List<RSVP> rsvps = rsvpsDao.findRSVPSByPostId(id);
 
         //the usersService carries the logic in figuring out userCanEdit
-        model.addAttribute("isOwner", usersService.isOwner(post.getUser()));
+        model.addAttribute("currentUser", currentUser);
 
         //
         model.addAttribute("rsvps", rsvps);

@@ -17,7 +17,11 @@ EDIT ON
                 <p class="card-text"><small class="text-muted">Created By: <span th:text="${post.user.firstName}"></span></small></p>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto at delectus deserunt dignissimos distinctio eos, ipsa maiores nobis pariatur praesentium, qui repellat rerum sequi voluptatibus. Ab accusantium assumenda blanditiis consequatur cum delectus dolorem eligendi esse est explicabo fugit illum laudantium modi, neque nesciunt odit quaerat quasi quia quos rerum sed sunt veniam. Distinctio dolores eius enim excepturi maxime molestias, necessitatibus quisquam quod sunt. Commodi consectetur corporis distinctio error et facere facilis fugiat fugit hic impedit incidunt libero magni maxime minus molestias natus, nisi nobis omnis perspiciatis quibusdam recusandae rem rerum sequi unde, velit veritatis voluptatem. Accusantium alias aperiam cumque cupiditate dicta, doloribus enim, expedita explicabo iusto natus numquam placeat provident quasi quisquam repudiandae similique totam veritatis, vitae! At ea est fuga, ipsum labore molestias nisi odio placeat vitae voluptatibus. At aut eos, excepturi ipsa labore nemo nulla obcaecati optio quidem repudiandae sapiente, totam unde vitae voluptas voluptatem. Placeat, quam.</p>
                 <div th:each="comment: ${comments}" class="card-body">
-                    <span><em th:text="${comment.user.firstName}"></em></span> <span><em th:text="${comment.user.lastName}"></em></span>: <span th:text="${comment.body}"></span>
+                    <span><em th:text="${comment.user.firstName}"></em></span> <span><em th:text="${comment.user.lastName}"></em></span>:
+                    <span th:text="${comment.body}"></span>
+                    <th:block th:if="${comment.user.id == currentUser.id}">
+                        <span>Edit</span> <span>Delete</span>
+                    </th:block>
                 </div>
                 <div th:if="${post}">
                     <form th:action="@{/comments/create}" th:method="post" th:object="${comment}">
@@ -36,10 +40,11 @@ EDIT ON
 
 
 <!--MODAL -->
+<!--button to activate-->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+<!---->
 
+<!--Modal Body-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -52,10 +57,6 @@ EDIT ON
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="form-group">
                         <label for="message-text" class="col-form-label">Message:</label>
                         <textarea class="form-control" id="message-text"></textarea>
                     </div>
@@ -63,11 +64,12 @@ EDIT ON
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
+                <button type="button" class="btn btn-primary">Save</button>
             </div>
         </div>
     </div>
 </div>
+<!---->
 <!---->
 
 

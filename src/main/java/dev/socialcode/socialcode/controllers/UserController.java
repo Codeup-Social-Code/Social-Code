@@ -1,9 +1,7 @@
 package dev.socialcode.socialcode.controllers;
 
-import dev.socialcode.socialcode.daos.FollowerRepository;
 import dev.socialcode.socialcode.daos.PostRepository;
 import dev.socialcode.socialcode.daos.UserRepository;
-import dev.socialcode.socialcode.models.Follower;
 import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.User;
 import dev.socialcode.socialcode.services.UserService;
@@ -11,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,16 +21,16 @@ import java.util.List;
 public class UserController {
     private UserRepository usersDao;
     private PostRepository postsDao;
-    private FollowerRepository followersDao;
+//    private FollowerRepository followersDao;
     private PasswordEncoder passwordEncoder;
     private UserService usersService;
 
-    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService, PostRepository postRepository, FollowerRepository followerRepository) {
+    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService, PostRepository postRepository) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
         this.usersService = usersService;
         this.postsDao = postRepository;
-        this.followersDao = followerRepository;
+//        this.followersDao = followerRepository;
 
     }
 
@@ -79,8 +78,29 @@ public class UserController {
         viewModel.addAttribute("sessionUser", usersService.loggedInUser());
         viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
 
+
         return "users/user";
     }
+
+    @PostMapping("user/{id}/follow")
+    public String saveFollower(@PathVariable long id) {
+        User loggedInUser = usersService.loggedInUser();
+        User userToFollow = usersDao.getOne(id);
+        List <User> currentFollowers =  userToFollow.getFollowers();
+        currentFollowers.add(loggedInUser);
+        userToFollow.setFollowers(currentFollowers);
+        return "users/user";
+    }
+//
+//    @RequestMapping(value="/follower-count", method=RequestMethod.GET)
+//    public String getFollowerCount(ModelMap map) {
+//        // TODO: retrieve the new value here so you can add it to model map
+//        map.addAttribute("updateFollower", count);
+//
+//        // change "myview" to the name of your view
+//        return "follow :: #followerCount";
+//    }
+
 
 
     @GetMapping("/users/profile")
@@ -165,17 +185,15 @@ public class UserController {
 
 
 
-  @PostMapping("users/{}/follow-test")
-    public String saveFollower(@PathVariable long id, List<User> user) {
-      usersDao.getOne(id);
-      Follower follower = new Follower();
-      follower.setId(id);
-      follower.setUser(user);
-      followersDao.save(follower);
-      return "users/follow-test";
-     }
-
-
+//
+//    @PostMapping("users/{}/follow-test")
+//    public String saveFollower(@ModelAttribute Follower followerToBeSaved, @RequestParam(name = " ") String makeId, long id) {
+////        Follower follower = followersDao.getOne(Long.parseLong(makeId));
+//        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        followerToBeSaved.setUser(currentUser);
+//        Follower savedFollower = followersDao.save(followerToBeSaved);
+//        return "redirect:/posts/" + savedFollower.getUser().getId();
+//    }
 
 
 }

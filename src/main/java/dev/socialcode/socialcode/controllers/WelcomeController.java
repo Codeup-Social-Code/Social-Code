@@ -43,4 +43,9 @@ public class WelcomeController {
         return "redirect:/login";
     }
 
+    @GetMapping("fragments/navbar")
+    public String viewNav(){
+        return "fragments/navbar";
+    }
+
 }

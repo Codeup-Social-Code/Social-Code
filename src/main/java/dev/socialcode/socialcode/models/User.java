@@ -74,18 +74,17 @@ public class User {
 
 //        Follow/Following
 
+
         @ManyToMany(cascade = CascadeType.ALL)
         @JoinTable(
-                name="users_followers",
-                joinColumns={@JoinColumn(name="users_id")},
+                name="followers",
+                joinColumns={@JoinColumn(name="user_id")},
                 inverseJoinColumns={@JoinColumn(name="follower_id")}
-        )
-
-        private List<Follower> followers;
+                )
+        private List<User> followers;
 
         //empty constructor for Spring framework
-        public User() {
-        }
+        public User() { }
 
         //copy constructor
         public User(User copy) {
@@ -96,7 +95,7 @@ public class User {
         }
 
         //read
-        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts, List<Follower> followers) {
+        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts, List<User> followers) {
                 this.id = id;
                 this.username = username;
                 this.firstName = firstName;
@@ -116,7 +115,7 @@ public class User {
 
 
         //insert
-        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts, List<Follower> followers) {
+        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts, List<User> followers) {
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
@@ -247,11 +246,9 @@ public class User {
                 this.posts = posts;
         }
 
-        public List<Follower> getFollowers() {
-                return followers;
-        }
+        public  List<User> getFollowers(){ return followers; }
 
-        public void setFollowers(List<Follower> followers) {
+        public void setFollowers(List<User> followers) {
                 this.followers = followers;
         }
 

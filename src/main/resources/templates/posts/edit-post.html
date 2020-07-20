@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Social Code || Edit')">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+</head>
+<body class="edit">
+
+<nav th:replace="fragments/navbar :: navbar"></nav>
+
+<div class="container edit-container text-center">
+    <div class="card edit-card">
+        <div class="card-header">
+            <h4>Edit Post:</h4>
+        </div>
+        <div th:if="${currentUser.id == post.user.id}">
+            <form th:action="${'/posts/edit'}" th:method="POST" th:object="${post}">
+                <div class="card-body">
+                    <div>
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title">
+                        <!--        <input type="text" name="title" id="title" th:field="*{title}">-->
+                    </div>
+                    <div>
+                        <input name="id" type="hidden">
+                        <!--        <input name="id" type="hidden" th:value="${post.id}" th:field="*{id}">-->
+                    </div>
+                    <div>
+                        <label for="body">Body</label>
+                        <input type="text" name="body" id="body">
+                        <!--        <input type="text" name="body" id="body" th:field="*{body}">-->
+                    </div>
+                    <div>
+                        <button class="btn btn-success">Update</button>
+                    </div>
+                </div>
+            </form>
+            <form th:class="alert" th:action="${'/posts/' + post.id + '/delete'}" th:method="POST">
+                <button class="btn btn-success" id="delete-alert" th:class="alert" th:onclick="this.parentElement.style.display=='none'">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

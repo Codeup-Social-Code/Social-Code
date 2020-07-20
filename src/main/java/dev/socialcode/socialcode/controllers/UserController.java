@@ -6,6 +6,7 @@ import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.User;
 import dev.socialcode.socialcode.services.EmailService;
 import dev.socialcode.socialcode.services.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,8 +25,8 @@ import java.util.List;
 @Controller
 public class UserController {
     private UserRepository usersDao;
-    private PostRepository postsDao;
     private PasswordEncoder passwordEncoder;
+    private PostRepository postsDao;
     private UserService usersService;
     private EmailService emailService;
 
@@ -78,6 +79,7 @@ public class UserController {
     @GetMapping("/users/{id}")
     public String showUser(@PathVariable Long id, Model viewModel){
         User user = usersDao.getOne(id);
+
         List<Post> userPosts = postsDao.findPostsByUser_Id(id);
         viewModel.addAttribute("userPosts", userPosts);
         viewModel.addAttribute("user", user);
@@ -102,6 +104,10 @@ public class UserController {
     // To view all users
     @GetMapping("/users/view-all")
     public String viewAllUsers(Model m) {
+        User logUser = usersService.loggedInUser();
+        if (logUser == null){
+            return "users/login";
+        }
         List<User> viewAll = usersDao.findAll();
         m.addAttribute("viewAll", viewAll);
         return "users/view-all";
@@ -110,6 +116,7 @@ public class UserController {
     //EDIT
     @GetMapping("/users/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model viewModel){
+        viewModel.addAttribute("apiKey", apiFromProperties);
         User user = usersDao.getOne(id);
         viewModel.addAttribute("user", user);
         viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
@@ -158,7 +165,12 @@ public class UserController {
 
     }
 
-//
+    //Adding filestack api
+    @Value("${filestack_api_key}")
+        private String apiFromProperties;
+
+
+
 
 
 //    @PostMapping("/sign-up")

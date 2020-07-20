@@ -1,6 +1,7 @@
 package dev.socialcode.socialcode.services;
 
 import dev.socialcode.socialcode.daos.UserRepository;
+import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.User;
 import dev.socialcode.socialcode.models.UserWithRoles;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -56,6 +57,10 @@ public class UserService {
         return isLoggedIn() && (profileUser.getId() == loggedInUser().getId());
     }
 
+    // this Edit is for creator view
+    public boolean canEditPost(Post creator){
+        return isLoggedIn() && (creator.getId() == loggedInUser().getId());
+    }
 
 
 

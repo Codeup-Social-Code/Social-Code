@@ -3,6 +3,7 @@ package dev.socialcode.socialcode.controllers;
 
 import dev.socialcode.socialcode.daos.*;
 import dev.socialcode.socialcode.models.*;
+import dev.socialcode.socialcode.services.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,13 +22,15 @@ public class PostController {
     private UserRepository usersDao;
     private CommentsRepository commentsDao;
     private RSVPsRepository rsvpsDao;
+    private UserService usersService;
 
-    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository, CommentsRepository commentsRepository, RSVPsRepository rsvpsRepository) {
+    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository, CommentsRepository commentsRepository, RSVPsRepository rsvpsRepository, UserService usersService) {
         this.postsDao = postRepository;
         this.categoriesDao = categoriesRepository;
         this.usersDao = userRepository;
         this.commentsDao = commentsRepository;
         this.rsvpsDao = rsvpsRepository;
+        this.usersService = usersService;
     }
 
     @GetMapping("/posts/create")
@@ -77,22 +80,55 @@ public class PostController {
     //update functionality will be added once user authentication is setup
 
 
+//    @GetMapping("/posts/{id}/edit")
+//    public String showEditForm(Model model, @PathVariable long id) {
+//        //find an ad
+//        Post postToEdit = postsDao.getOne(id);
+//        model.addAttribute("post", postToEdit);
+//        return "posts/edit";
+//    }
+//
+//    //Update Post
+//    @PostMapping("/posts/edit")
+//    public String update(@ModelAttribute Post postEdited) {
+//        Post postToBeUpdated = postsDao.getOne(postEdited.getId());
+//        postToBeUpdated.setTitle(postEdited.getTitle());
+//        postToBeUpdated.setBody(postEdited.getBody());
+//        postsDao.save(postToBeUpdated);
+//        return "redirect:/posts/" + postEdited.getId();
+//    }
+//
+////    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
+//
+//    @GetMapping("/posts")
+//    public String viewPosts(Model model) {
+////        User user = usersDao.findByUsername("test2@gmail.com");
+////        System.out.println(user.getFirstName());
+//        List<Post> currentPosts = postsDao.findTop9ByOrderByIdDesc();
+//        List<Post> posts = postsDao.findAll();
+//        model.addAttribute("posts", posts);
+//        model.addAttribute("posts", currentPosts);
+//        return "posts/index";
+//    }
+
+//    trial 1 USED UserService (added canEditPost methods in UserService)
     @GetMapping("/posts/{id}/edit")
     public String showEditForm(Model model, @PathVariable long id) {
-        //find an ad
         Post postToEdit = postsDao.getOne(id);
         model.addAttribute("post", postToEdit);
+        model.addAttribute("showEditControls", usersService.canEditPost(postToEdit));
         return "posts/edit";
     }
 
     //Update Post
-    @PostMapping("/posts/edit")
-    public String update(@ModelAttribute Post postEdited) {
-        Post postToBeUpdated = postsDao.getOne(postEdited.getId());
-        postToBeUpdated.setTitle(postEdited.getTitle());
-        postToBeUpdated.setBody(postEdited.getBody());
-        postsDao.save(postToBeUpdated);
-        return "redirect:/posts/" + postEdited.getId();
+    @PostMapping("/posts/{id}/edit")
+    public String update(@PathVariable Long id, @ModelAttribute Post postEdited) {
+        Post postToEdit = postsDao.getOne(id);
+//        Post postToBeUpdated = postsDao.getOne(postEdited.getId());
+        postToEdit.setTitle(postEdited.getTitle());
+        postToEdit.setBody(postEdited.getBody());
+        postsDao.save(postToEdit);
+        return "redirect:/posts/";
     }
 
 //    USING THE FOLLOWING TO BUILD COMMUNITY PAGE

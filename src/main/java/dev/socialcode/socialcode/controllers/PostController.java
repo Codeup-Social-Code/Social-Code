@@ -197,6 +197,7 @@ public class PostController {
         return "redirect:/posts";
     }
 
+
 //    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
 
     @GetMapping("/posts")

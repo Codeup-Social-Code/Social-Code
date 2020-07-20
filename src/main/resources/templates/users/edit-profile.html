@@ -18,7 +18,7 @@
 <!--                        <label for="picture"></label>-->
 <!--                        <input id="picture" th:field="*{picture}" />-->
                 <label for="upload">Picture</label>
-                <input id="stashFilestackURL" name="stashFilestackURL" value="replaceme" th:field="*{picture}" type="hidden">
+                <input id="picture" name="picture" value="replaceme" th:field="*{picture}" type="hidden">
                 <button type="button" id="upload" name="upload">Upload an image</button>
 
 
@@ -105,7 +105,10 @@
         fromSources: ["local_file_system","instagram","facebook"],
         onUploadDone:
             function (res){
-                console.log(res.filesUploaded[0].url);
+                // top line is preventing click function from working
+                $("#picture").val(res.filesUploaded[0].url);
+                // console.log("handle + " + val(res.filesUploaded[0].handle);
+                console.log("url + " + res.filesUploaded[0].url);
                 alert("Log fired");
             }
     }

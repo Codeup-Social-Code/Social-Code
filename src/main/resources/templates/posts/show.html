@@ -33,6 +33,39 @@ EDIT ON
     </div>
 </div>
 </div>
+<div style="background-color: darkolivegreen">
+    <div class="text-center p-4" style="background-color: #576541; color: #ffffff"><h1>List of RSVP: </h1></div>
+    <div>
+        <div class="row text-center">
+
+            <!--Grid column-->
+            <div th:each="rsvp: ${rsvps}">
+                <li th:text="${rsvp.user.firstName}"></li>
+            </div>
+            <div class="col-md-6 mb-4" th:each="rsvp: ${rsvps}">
+
+                <h2 class="my-5 h2" th:text="${rsvp.user.firstName}">Basic example</h2>
+
+                <img class="rounded-circle" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
+                     data-holder-rendered="true">
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+
+                <h2 class="my-5 h2">With shadow</h2>
+
+                <img class="rounded-circle z-depth-2" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
+                     data-holder-rendered="true">
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+    </div>
+</div>
 
 <!--<div th:if="${post}">-->
 <!--    <h1><span th:text="${post.title}"></span></h1>-->
@@ -60,15 +93,6 @@ EDIT ON
 <!--        <button class="btn btn-warning">RSVP</button>-->
 <!--    </form>-->
 <!--</div>-->
-
-
-        <h1>List of RSVP: </h1>
-        <ul >
-            <div th:each="rsvp: ${rsvps}">
-            <li th:text="${rsvp.user.firstName}"></li>
-            </div>
-        </ul>
-
 <!--<div class="card m-5">-->
 <!--    <div th:each="comment: ${comments}" class="card-body">-->
 <!--        <span th:text="${comment.body}"></span> by: <span th:text="${comment.user.firstName}"></span>-->

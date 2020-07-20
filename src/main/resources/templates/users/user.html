@@ -13,7 +13,8 @@
         <div class="card-header bg-success" style="height: 70px"></div>
         <div class="row bio-row no-gutters" style="height: 400px">
             <div class="wrapper col-md-4 ">
-                <img class="image--cover" src="/img/Profile-Placeholder.png" width="100%"/>
+<!--                <img class="image&#45;&#45;cover" src="/img/Profile-Placeholder.png" width="100%"/>-->
+                <img class="image--cover" th:src="*{user.picture}" width="100%"/>
             </div>
             <div class="col-md-8">
                 <div class="bio-card-body">
@@ -194,10 +195,6 @@
 
     $("#upload").click(function () {
         client.picker(options).open()
-        // const options = {
-        //     fromSources: ["local_file_system","instagram","facebook"],
-        // };
-
     });
 
     const options = {

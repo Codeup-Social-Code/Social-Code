@@ -10,27 +10,37 @@
 
 <section class="bio-container">
     <div class="card mb-3">
-        <div class="card-header bg-success" style="height: 70px"> </div>
+        <div class="card-header bg-success" style="height: 70px"></div>
         <div class="row bio-row no-gutters" style="height: 400px">
             <div class="wrapper col-md-4 ">
                 <img class="image--cover" src="/img/Profile-Placeholder.png" width="100%"/>
             </div>
             <div class="col-md-8">
                 <div class="bio-card-body">
-                                            <h3 id="first" th:text="${user.firstName}"></h3>
-<!--                                            <h3 id="last" th:text="${user.lastName}"></h3>-->
+
+<!--                    api key comes through-->
+<!--                    <script th:inline="javascript">-->
+<!--                        var apiKey = [[${apiKey}]];-->
+<!--                        alert("Your api key is: " + apiKey);-->
+<!--                    </script>-->
+
+                    <h3 id="first" th:text="${user.firstName}"></h3>
+                    <!--                                            <h3 id="last" th:text="${user.lastName}"></h3>-->
 
                     <h6 th:text="${user.city}">City</h6>
                     <div class="connect">
                         <h6 id="email" th:text="${user.username}">Email</h6>
-<!--                        <h6 id="github" class="card-text"th:text="${user.gitHub}">GitHub</h6>-->
+                        <!--                        <h6 id="github" class="card-text"th:text="${user.gitHub}">GitHub</h6>-->
 
                         <a id="github" class="card-text" th:text="${user.gitHub}" th:href="@{${user.gitHub}}">GitHub</a>
                         <a id="linkedin" class="card-text" th:text="${user.linkedIn}" th:href="@{${user.linkedIn}}">LinkedIn</a>
-<!--                        <h6 id="linkedin" class="card-text" th:text="${user.linkedIn}">LinkedIn</h6>-->
+                        <!--                        <h6 id="linkedin" class="card-text" th:text="${user.linkedIn}">LinkedIn</h6>-->
                         <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
-                        <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }"><h1>EDIT</h1></a>
-                        <a th:href="@{/users/view-all}"><button class="btn btn-success">View all users</button></a>
+                        <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }">
+                            <h1>EDIT</h1></a>
+                        <a th:href="@{/users/view-all}">
+                            <button class="btn btn-success">View all users</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -71,7 +81,7 @@
             <img src="/img/8.png" class="project-cover"/>
         </div>
         <div class="text-center">
-            <img src="/img/13.png" class="project-cover" />
+            <img src="/img/13.png" class="project-cover"/>
             <img src="/img/7.png" class="project-cover"/>
         </div>
     </div>
@@ -80,12 +90,13 @@
 <hr style="width: 50%">
 
 
-<section class="container posts" >
+<section class="container posts">
     <div class="card" th:each="post: ${userPosts}">
         <img src="/img/11.png" width="100%"/>
         <div class="card-body">
             <h5 class="card-title" th:text="${post.title}">Card title</h5>
-            <p class="card-text" th:text="${post.body}">This card has supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text" th:text="${post.body}">This card has supporting text below as a natural lead-in to
+                additional content.</p>
             <!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
             <p></p>
         </div>
@@ -94,11 +105,6 @@
 
 
 </div>
-
-
-
-
-
 
 
 <!--<section class="container posts">-->
@@ -171,7 +177,6 @@
 
 </body>
 </html>
-
 
 
 <!-- <nav th:replace="fragments/navbar :: navbar" />

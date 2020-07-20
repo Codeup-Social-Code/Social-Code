@@ -5,6 +5,7 @@ import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.User;
 import dev.socialcode.socialcode.services.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -72,6 +73,7 @@ public class UserController {
     public String showUser(@PathVariable Long id, Model viewModel){
         User user = usersDao.getOne(id);
         List<Post> userPosts = postsDao.findPostsByUser_Id(id);
+        viewModel.addAttribute("apiKey", apiFromProperties);
         viewModel.addAttribute("userPosts", userPosts);
         viewModel.addAttribute("user", user);
         viewModel.addAttribute("sessionUser", usersService.loggedInUser());
@@ -151,7 +153,12 @@ public class UserController {
 
     }
 
-//
+    //Adding filestack api
+    @Value("${filestack_api_key}")
+        private String apiFromProperties;
+
+
+
 
 
 //    @PostMapping("/sign-up")

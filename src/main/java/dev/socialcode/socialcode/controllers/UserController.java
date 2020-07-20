@@ -41,16 +41,17 @@ public class UserController {
         model.addAttribute("user", new User());
         return "users/sign-up";
     }
+
     @PostMapping("/sign-up")
-    public String saveUser(@ModelAttribute User user, Errors validation, Model model){
+    public String saveUser(@ModelAttribute User user, Errors validation, Model model) {
         User existingUsername = usersDao.findByUsername(user.getUsername());
 
-        if(existingUsername != null) {
+        if (existingUsername != null) {
             validation.rejectValue("username", "user.username", "You entered duplicated username, do you remember your email?");
         }
 
-        if(!user.getPassword().equals(user.getPasswordToConfirm())) {
-            validation.rejectValue("password",user.getPassword(), "Passwords are not match!");
+        if (!user.getPassword().equals(user.getPasswordToConfirm())) {
+            validation.rejectValue("password", user.getPassword(), "Passwords are not match!");
         }
 
         if (validation.hasErrors()) {
@@ -70,7 +71,7 @@ public class UserController {
 
 
     @GetMapping("/users/{id}")
-    public String showUser(@PathVariable Long id, Model viewModel){
+    public String showUser(@PathVariable Long id, Model viewModel) {
         User user = usersDao.getOne(id);
         List<Post> userPosts = postsDao.findPostsByUser_Id(id);
         viewModel.addAttribute("userPosts", userPosts);
@@ -83,10 +84,10 @@ public class UserController {
 
 
     @GetMapping("/users/profile")
-    public String showProfile(Model viewModel){
+    public String showProfile(Model viewModel) {
         User logUser = usersService.loggedInUser();
-    //not reading that user is logged in
-        if(logUser == null){
+        //not reading that user is logged in
+        if (logUser == null) {
             viewModel.addAttribute("msg", "You need to be logged in to be able to see this page");
             return "users/login";
         }
@@ -104,7 +105,7 @@ public class UserController {
 
     //EDIT
     @GetMapping("/users/{id}/edit")
-    public String showEditForm(@PathVariable Long id, Model viewModel){
+    public String showEditForm(@PathVariable Long id, Model viewModel) {
         User user = usersDao.getOne(id);
         viewModel.addAttribute("user", user);
         viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
@@ -116,7 +117,7 @@ public class UserController {
 //                           @RequestParam(name = "password") String password,
 //                           @RequestParam(name = "password_to_confirm") String passwordToConfirm,
 ////                           @PathVariable String password, @PathVariable String passwordToConfirm,
-                           @Valid User editedUser, Errors validation, Model model){
+                           @Valid User editedUser, Errors validation, Model model) {
         User user = usersDao.getOne(id);
         String password = user.getPassword();
         String passwordToConfirm = user.getPasswordToConfirm();
@@ -141,7 +142,7 @@ public class UserController {
     }
 
     //user has rights to edit
-    public Boolean checkEditAuth(User user){
+    public Boolean checkEditAuth(User user) {
         return usersService.isLoggedIn() && (user.getId() == usersService.loggedInUser().getId());
     }
 
@@ -152,149 +153,29 @@ public class UserController {
         return "redirect:/welcome";
 
     }
-//
-//
-//    @PostMapping("/users/follow-test")
-//    public String saveRSVP(@ModelAttribute Follower followertoBeSaved,  @RequestParam(name = "followId") String followId ) {
-//        Follower follower = followersDao.getOne(Long.parseLong(followId));
-//        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        followertoBeSaved.setUser(currentUser);
-//        Follower savedFollower = followersDao.save(followertoBeSaved);
-//        return "users/follow-test" + savedFollower.getUser().getId();
-//    }
-
-}
-
-
 
 //
-//    @GetMapping("/users/follow-test")
-//    public String showFollowers(Model vModel){
-//        User user = usersService.loggedInUser();
-//        vModel.addAttribute("friendsList", user.getFollowers());
+//    @GetMapping("users/{}/follow-test")
+//    public String getFollower(@PathVariable long id, List<User> user) {
+//        Follower followingUser = followersDao.getOne(1L);
+//        String newfollower = followingUser.getId(id);
+//        System.out.println();
 //        return "users/follow-test";
 //    }
-////
-//    @GetMapping("/users/{id}/friend-request")
-//    public void sendFriendRequest(@PathVariable long id ) {
-//        FollowerRepository.save(new Follower(usersService.loggedInUser(), usersDao.getOne(id)));
-//    }
-//
-//    @PostMapping("/users/follow-test")
-//    public String saveFollower(@ModelAttribute Follower followerToBeSaved, @RequestParam (name= ""))
-//    {
-//        return currentFollower.user;
-//    }
 
 
 
-//
-////    ADD FOLLOWER
-//
-//    @RequestMapping(value = "/follow/add", method = RequestMethod.POST, produces = "application/json")
-//    @ResponseBody
-//    public boolean addFollower(HttpServletRequest request, @RequestParam String followeeID) throws Exception {
-//
-//
-//        System.out.println("reached controller");
-//        boolean flag = false;
-//        int id = Integer.parseInt(followeeID);
-//        HttpSession session = request.getSession();
-//        User follower = (User) session.getAttribute("user");
-//        try {
-//            User followee = (User) followerDao.get(id);
-//            if (followee.getFollowers().contains(follower)) {
-//                followee.getFollowers().remove(follower);
-//                System.out.println("removed");
-//                flag=followerDao.removeFollower(followee);
-//
-//            } else {
-//                followee.getFollowers().add(follower);
-//                System.out.println("added");
-//                flag=followerDao.addFollower(followee);
-//
-//            }
-//
-//        } catch (FollowerException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//        return flag;
-//
-//    }
+  @PostMapping("users/{}/follow-test")
+    public String saveFollower(@PathVariable long id, List<User> user) {
+      usersDao.getOne(id);
+      Follower follower = new Follower();
+      follower.setId(id);
+      follower.setUser(user);
+      followersDao.save(follower);
+      return "users/follow-test";
+     }
 
 
 
 
-
-
-
-
-
-//
-
-
-//    @PostMapping("/sign-up")
-//    public String saveUser(@ModelAttribute User user) {
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
-//        usersDao.save(user);
-//        return "redirect:/welcome";
-//        return "redirect:/login";
-        //redirects go to urls, not to files
-//    }
-
-    //get single user view
-//    @GetMapping("/users/{id}")
-//    public String getUser(@PathVariable long id, Model model) {
-//        User user = usersDao.getOne(id);
-//        model.addAttribute("id", id);
-//        model.addAttribute("user", user);
-//        return "users/user";
-
-
-        //also I changed the UserRepository instance from users
-        // to usersDao for clarity
-
-        //what other controllers do we need?
-
-//    }
-
-
-
-//    public String saveUser(@ModelAttribute User user, Errors validation){
-//        User existingEmail = users.findByEmail(user.getEmail());
-//        if(existingEmail != null) {
-//            validation.rejectValue("email", "user.email", "Duplicated email " + user.getEmail());
-//        }
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
-//        users.save(user);
-////        return "/posts/index";
-//        return "redirect:/users/welcome";
-//    }
-    // From the Spring Validation Curriculum
-//    @PostMapping("/sign-up")
-//    public String saveUser(
-//            @ModelAttribute User user,
-//            @Valid User email,
-//            Errors validation,
-//            Model model
-//            ) {
-//        if (validation.hasErrors()) {
-//            model.addAttribute("errors", validation);
-//            model.addAttribute("email", email);
-//            return "users/sign-up";
-//        }
-////        User existingEmail = users.findByEmail(user.getEmail());
-////        if(existingEmail != null) {
-////            validation.rejectValue("email", "user.email", "Duplicated email " + user.getEmail());
-////        }
-//
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
-//        users.save(user);
-//        return "redirect:/login";
-//    }
-
-//}
+}

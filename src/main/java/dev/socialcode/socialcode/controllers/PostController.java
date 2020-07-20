@@ -4,6 +4,7 @@ package dev.socialcode.socialcode.controllers;
 import dev.socialcode.socialcode.daos.*;
 import dev.socialcode.socialcode.models.*;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -40,6 +41,11 @@ public class PostController {
     @GetMapping("/posts/{id}")
     public String showOne(@PathVariable long id, Model model) {
         Post post = postsDao.getOne(id);
+//        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        //  Add additional security. if they are not equal, send it to other
+//        if(post.getUser().getId() != currentUser.getId()) {
+//            return "redirect:/posts";
+//        }
         List<Comment> comments = commentsDao.findCommentsByPostId(id);
         List<RSVP> rsvps = rsvpsDao.findRSVPSByPostId(id);
         System.out.println("RSVP ID: " + rsvps);
@@ -134,7 +140,7 @@ public class PostController {
     }
 
 //    Trail 1
-    @GetMapping("/posts /{id}/edit")
+    @GetMapping("/posts/{id}/edit")
     public String showEditForm(Model model, @PathVariable long id) {
         Post postToEdit = postsDao.getOne(id);
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -147,10 +153,30 @@ public class PostController {
         return "posts/edit-post";
     }
 
-    //Update Post
+    //Update Post OG
+//    @PostMapping("/posts/{id}/edit")
+//    public String update(@ModelAttribute Post postEdited) {
+//        Post postToBeUpdated = postsDao.getOne(postEdited.getId());
+//        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        //  Add additional security. if they are not equal, send it to other
+//        if(postToBeUpdated.getUser().getId() != currentUser.getId()) {
+//            return "redirect:/posts";
+//        }
+//        postToBeUpdated.setTitle(postEdited.getTitle());
+//        postToBeUpdated.setBody(postEdited.getBody());
+//        postsDao.save(postToBeUpdated);
+//        return "redirect:/posts/" + postEdited.getId();
+////        return "redirect:/posts/" + postEdited.getId() + "/edit-post";
+////        return "redirect:/posts/";
+//    }
+    //Update Post Trial 1
     @PostMapping("/posts/{id}/edit")
-    public String update(@ModelAttribute Post postEdited) {
-        Post postToBeUpdated = postsDao.getOne(postEdited.getId());
+    public String update(
+            @ModelAttribute Post postEdited,
+            @PathVariable long id
+    ) {
+//        Post postToBeUpdated = postsDao.getOne(postEdited.getId());
+        Post postToBeUpdated = postsDao.getOne(id);
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         //  Add additional security. if they are not equal, send it to other
         if(postToBeUpdated.getUser().getId() != currentUser.getId()) {
@@ -160,7 +186,8 @@ public class PostController {
         postToBeUpdated.setBody(postEdited.getBody());
         postsDao.save(postToBeUpdated);
 //        return "redirect:/posts/" + postEdited.getId();
-        return "redirect:/posts/" + postEdited.getId() + "/edit-post";
+//        return "redirect:/posts/" + postEdited.getId() + "/edit-post";
+        return "redirect:/posts/";
     }
 
     // To delete posts

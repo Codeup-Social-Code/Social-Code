@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/head :: head('SocialCode | Post')">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -14,9 +14,14 @@
         <h2 th:text="${category.name}"></h2>
     </div>
 </div>
-<form th:action="${'/posts/' + post.id + '/edit'}">
-    <button class="btn btn-warning">EDIT</button>
-</form>
+<div th:if="${#authentication.principal.id == post.user.id}">
+    <form th:action="${'/posts/' + post.id + '/edit'}">
+        <button class="btn btn-warning">EDIT</button>
+    </form>
+<!--    <form th:action="${'/posts/' + post.id + '/edit'}">-->
+<!--        <button class="btn btn-warning">DELETE</button>-->
+<!--    </form>-->
+</div>
 
 <div class="container" th:if="${post}">
     <form th:action="@{/comments/create}" th:method="post" th:object="${comment}">

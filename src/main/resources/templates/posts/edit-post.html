@@ -15,8 +15,10 @@
         <div class="card-header">
             <h4>Edit Post:</h4>
         </div>
+<!--        OG ====>> th:action="${'/posts/edit'}" -->
+<!--        th:action="@{/posts/{id}/edit(id=${id})}" -->
         <div th:if="${currentUser.id == post.user.id}">
-            <form th:action="${'/posts/edit'}" th:method="POST" th:object="${post}">
+            <form th:action="@{'/posts/' + ${post.id} + '/edit'}" th:method="POST" th:object="${post}">
                 <div class="card-body">
                     <div>
                         <label for="title">Title</label>
@@ -38,7 +40,7 @@
                 </div>
             </form>
             <form th:class="alert" th:action="${'/posts/' + post.id + '/delete'}" th:method="POST">
-                <button class="btn btn-success" id="delete-alert" th:class="alert" th:onclick="this.parentElement.style.display=='none'">Delete</button>
+                <button class="btn btn-danger" id="delete-alert" th:class="alert" th:onclick="this.parentElement.style.display=='none'">Delete</button>
             </form>
         </div>
     </div>
@@ -48,6 +50,18 @@
 
 
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script>
+    "use strict";
+    $(document).ready(function () {
+        $("#delete-alert").click(function() {
+            confirm(`
+                Are you sure? It will delete the post!
+                `);
+        })
+    })();
+</script>
 </body>
 </html>

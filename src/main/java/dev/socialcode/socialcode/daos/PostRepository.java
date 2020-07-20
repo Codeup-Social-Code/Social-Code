@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
     List<Post> findPostsByUser_Id(long id);
-    List<Post> findTop9ByOrderByIdDesc();
-
-
+//    List<Post> findTop9ByOrderByIdDesc();
 
 }

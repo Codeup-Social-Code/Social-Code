@@ -6,51 +6,101 @@
 </head>
 <body>
 <nav th:replace="fragments/navbar :: navbar"></nav>
-<div th:if="${post}">
-    <h1>Title: <span th:text="${post.title}"></span></h1>
-    <h1>Created By: <span th:text="${post.user.firstName}"></span></h1>
-    <h3>Body: <span th:text="${post.body}"></span></h3>
-    <div th:each="category: ${post.categories}">
-        <h2 th:text="${category.name}"></h2>
+HTML CSS JSResult
+EDIT ON
+<div class="container">
+
+    <div class="card-deck" th:if="${post}">
+        <div class="card">
+            <div class="card-body">
+                <h1><span th:text="${post.title}"></span></h1>
+                <p class="card-text"><small class="text-muted">Created By: <span th:text="${post.user.firstName}"></span></small></p>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto at delectus deserunt dignissimos distinctio eos, ipsa maiores nobis pariatur praesentium, qui repellat rerum sequi voluptatibus. Ab accusantium assumenda blanditiis consequatur cum delectus dolorem eligendi esse est explicabo fugit illum laudantium modi, neque nesciunt odit quaerat quasi quia quos rerum sed sunt veniam. Distinctio dolores eius enim excepturi maxime molestias, necessitatibus quisquam quod sunt. Commodi consectetur corporis distinctio error et facere facilis fugiat fugit hic impedit incidunt libero magni maxime minus molestias natus, nisi nobis omnis perspiciatis quibusdam recusandae rem rerum sequi unde, velit veritatis voluptatem. Accusantium alias aperiam cumque cupiditate dicta, doloribus enim, expedita explicabo iusto natus numquam placeat provident quasi quisquam repudiandae similique totam veritatis, vitae! At ea est fuga, ipsum labore molestias nisi odio placeat vitae voluptatibus. At aut eos, excepturi ipsa labore nemo nulla obcaecati optio quidem repudiandae sapiente, totam unde vitae voluptas voluptatem. Placeat, quam.</p>
+                <div th:each="comment: ${comments}" class="card-body">
+                    <span><em th:text="${comment.user.firstName}"></em></span> <span><em th:text="${comment.user.lastName}"></em></span>: <span th:text="${comment.body}"></span>
+                </div>
+                <div th:if="${post}">
+                    <form th:action="@{/comments/create}" th:method="post" th:object="${comment}">
+                        <input type="hidden" name="postId" th:value="${post.id}">
+                    <div class="form-group green-border-focus">
+                        <label for="exampleFormControlTextarea5">Leave a Comment</label>
+                        <textarea th:field="*{body}" class="form-control" id="exampleFormControlTextarea5" rows="3"></textarea>
+                        <input class="btn-sm btn-success mt-2 float-right" type="submit" value="Submit">
+                    </div>
+                    </form>
+                </div>
+            </div>
     </div>
 </div>
-<form th:action="${'/posts/' + post.id + '/edit'}">
-    <button class="btn btn-warning">EDIT</button>
-</form>
-
-<div class="container" th:if="${post}">
-    <form th:action="@{/comments/create}" th:method="post" th:object="${comment}">
-        comment body:
-        <div>
-            <input type="hidden" name="postId" th:value="${post.id}">
-        </div>
-        <input th:field="*{body}" />
-        <br />
-        <input type="submit" />
-    </form>
 </div>
+<div style="background-color: darkolivegreen">
+    <div class="text-center p-4" style="background-color: #576541; color: #ffffff"><h1>List of RSVP</h1></div>
+    <div>
+        <div class="row text-center">
+            <div class="col-md-6 mb-4 text-white" th:each="rsvp: ${rsvps}">
 
-<div>
-    <form th:if="${post}" th:action="${'/posts/rsvp'}" th:method="POST">
-        <input type="hidden" name="postId" th:value="${post.id}">
-        <button class="btn btn-warning">RSVP</button>
-    </form>
-</div>
+                <h2 class="my-5 h2" th:text="${rsvp.user.firstName}">Basic example</h2>
 
+                <img class="rounded-circle" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
+                     data-holder-rendered="true">
 
-        <h1>List of RSVP: </h1>
-        <ul >
-            <div th:each="rsvp: ${rsvps}">
-            <li th:text="${rsvp.user.firstName}"></li>
             </div>
-        </ul>
-
-
-
-
-<div th:each="comment: ${comments}">
-    <h2>Comment: <span th:text="${comment.body}"></span> Created by: <span th:text="${comment.user.firstName}"></span></h2>
+        </div>
+    </div>
+    <div>
+        <form th:if="${post}" th:action="${'/posts/rsvp'}" th:method="POST">
+            <input type="hidden" name="postId" th:value="${post.id}">
+            <div class="col text-center">
+                <button class="btn btn-light mb-5 mt-5 text-black text-center">RSVP</button>
+            </div>
+        </form>
+    </div>
 </div>
+
+<!--<div th:if="${post}">-->
+<!--    <h1><span th:text="${post.title}"></span></h1>-->
+<!--    <h1>Created By: <span th:text="${post.user.firstName}"></span></h1>-->
+<!--    <h3>Body: <span th:text="${post.body}"></span></h3>-->
+<!--    <div th:each="category: ${post.categories}">-->
+<!--        <h2 th:text="${category.name}"></h2>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<form class="right" th:method="POST" th:action="@{/posts/delete}">-->
+<!--    <input type="hidden" name="id" th:value="${post.id}" />-->
+<!--    <span th:if="${isOwner}">-->
+<!--                    <a class="btn btn-floating" th:href="@{ /posts/{id}/edit(id=${post.id}) }">-->
+<!--                        <i class="material-icons">edit</i>-->
+<!--                    </a>-->
+<!--                    <button class="btn btn-floating deep-orange darken-4">-->
+<!--                        <i class="material-icons">delete</i>-->
+<!--                    </button>-->
+<!--    </span>-->
+<!--</form>-->
+
+<!--<div>-->
+<!--    <form th:if="${post}" th:action="${'/posts/rsvp'}" th:method="POST">-->
+<!--        <input type="hidden" name="postId" th:value="${post.id}">-->
+<!--        <button class="btn btn-warning">RSVP</button>-->
+<!--    </form>-->
+<!--</div>-->
+<!--<div class="card m-5">-->
+<!--    <div th:each="comment: ${comments}" class="card-body">-->
+<!--        <span th:text="${comment.body}"></span> by: <span th:text="${comment.user.firstName}"></span>-->
+<!--    </div>-->
+<!--    <div class="card-body " th:if="${post}">-->
+<!--        <form th:action="@{/comments/create}" th:method="post" th:object="${comment}">-->
+<!--            comment body:-->
+<!--            <div>-->
+<!--                <input type="hidden" name="postId" th:value="${post.id}">-->
+<!--            </div>-->
+<!--            <input th:field="*{body}" />-->
+<!--            <br />-->
+<!--            <input class="btn btn-primary mt-2" type="submit" value="Submit">-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+
+
 
 </body>
 </html>

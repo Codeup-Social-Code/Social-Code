@@ -24,8 +24,8 @@ import java.util.List;
 @Controller
 public class UserController {
     private UserRepository usersDao;
-    private PostRepository postsDao;
     private PasswordEncoder passwordEncoder;
+    private PostRepository postsDao;
     private UserService usersService;
     private EmailService emailService;
 
@@ -78,6 +78,7 @@ public class UserController {
     @GetMapping("/users/{id}")
     public String showUser(@PathVariable Long id, Model viewModel){
         User user = usersDao.getOne(id);
+
         List<Post> userPosts = postsDao.findPostsByUser_Id(id);
         viewModel.addAttribute("userPosts", userPosts);
         viewModel.addAttribute("user", user);

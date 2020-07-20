@@ -41,18 +41,25 @@ public class PostCommentController {
         return "redirect:/posts/" + savedComment.getPost().getId();
     }
 
-    @PostMapping("/comment/{commentId}/edit")
-    public String editComment(@PathVariable Long commentId, @RequestParam(name = "comment") String editedComment) {
-        Comment commentToBeEdited = commentsDao.getOne(commentId);
-
+    @PostMapping("/comment/{id}/edit")
+    public String editComment(@PathVariable Long id, @RequestParam(name = "comment") String editedComment) {
+        Comment commentToBeEdited = commentsDao.getOne(id);
         commentToBeEdited.setBody(editedComment);
-
         commentsDao.save(commentToBeEdited);
-
         Post postToReturnTo = commentToBeEdited.getPost();
 
         return "redirect:/posts/" + postToReturnTo.getId();
 
+    }
+
+    @PostMapping("/comment/{id}/delete")
+    public String destroyComment(@PathVariable Long id) {
+
+        Comment commentToBeDeleted = commentsDao.getOne(id);
+        Post postReturn = commentToBeDeleted.getPost();
+        commentsDao.delete(commentToBeDeleted);
+
+        return "redirect:/posts/" + postReturn.getId();
     }
 
 

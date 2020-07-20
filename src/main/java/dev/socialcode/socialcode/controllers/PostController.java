@@ -3,11 +3,14 @@ package dev.socialcode.socialcode.controllers;
 
 import dev.socialcode.socialcode.daos.*;
 import dev.socialcode.socialcode.models.*;
+import dev.socialcode.socialcode.services.UserService;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.ArrayList;
 //import java.sql.Date; -- we need to change to this
 import java.util.Date;
@@ -21,13 +24,15 @@ public class PostController {
     private UserRepository usersDao;
     private CommentsRepository commentsDao;
     private RSVPsRepository rsvpsDao;
+    private UserService usersService;
 
-    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository, CommentsRepository commentsRepository, RSVPsRepository rsvpsRepository) {
+    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository, CommentsRepository commentsRepository, RSVPsRepository rsvpsRepository, UserService usersService) {
         this.postsDao = postRepository;
         this.categoriesDao = categoriesRepository;
         this.usersDao = userRepository;
         this.commentsDao = commentsRepository;
         this.rsvpsDao = rsvpsRepository;
+        this.usersService = usersService;
     }
 
     @GetMapping("/posts/create")
@@ -36,13 +41,26 @@ public class PostController {
         return "posts/create";
     }
 
+    //Search Functionality
+    @GetMapping("/search")
+    public String showSearch(Model model, @RequestParam(name = "term") String term) {
+        List<Post> results = postsDao.searchByTitleLike(term);
+        model.addAttribute("results", results);
+        return "posts/index-search";
+    }
+
 //    Single Post View
     @GetMapping("/posts/{id}")
     public String showOne(@PathVariable long id, Model model) {
         Post post = postsDao.getOne(id);
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Comment> comments = commentsDao.findCommentsByPostId(id);
         List<RSVP> rsvps = rsvpsDao.findRSVPSByPostId(id);
-        System.out.println("RSVP ID: " + rsvps);
+
+        //the usersService carries the logic in figuring out userCanEdit
+        model.addAttribute("currentUser", currentUser);
+
+        //
         model.addAttribute("rsvps", rsvps);
         model.addAttribute("comment", new Comment());
         model.addAttribute("post", post);
@@ -53,13 +71,13 @@ public class PostController {
 
 
     @PostMapping("/posts/create")
-    public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId) {
+    public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId, Authentication authentication) {
 
         System.out.println(postToBeSaved.getEventTime());
         System.out.println(postToBeSaved.getEvent_start());
         System.out.println(postToBeSaved.getEvent_end());
 
-        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = usersDao.findByUsername(authentication.getName());
         System.out.println(currentUser);
         postToBeSaved.setUser(currentUser);
 
@@ -101,10 +119,14 @@ public class PostController {
     public String viewPosts(Model model) {
 //        User user = usersDao.findByUsername("test2@gmail.com");
 //        System.out.println(user.getFirstName());
-        List<Post> currentPosts = postsDao.findTop9ByOrderByIdDesc();
+//        List<Post> currentPosts = postsDao.findTop9ByOrderByIdDesc();
+        UserWithRoles userWithRoles = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = usersDao.getOne(userWithRoles.getId());
+        model.addAttribute("user", user);
+
         List<Post> posts = postsDao.findAll();
         model.addAttribute("posts", posts);
-        model.addAttribute("posts", currentPosts);
+//        model.addAttribute("posts", currentPosts);
         return "posts/index";
     }
 

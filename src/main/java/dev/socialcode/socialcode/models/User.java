@@ -1,11 +1,10 @@
 package dev.socialcode.socialcode.models;
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.hibernate.validator.constraints.NotBlank;
+
 import java.util.List;
 
 @Entity
@@ -77,11 +76,12 @@ public class User {
 
         @ManyToMany(cascade = CascadeType.ALL)
         @JoinTable(
-                name="follow_users",
-                joinColumns={@JoinColumn(name="follow_id")},
-                inverseJoinColumns={@JoinColumn(name="user_id")}
+                name="users_followers",
+                joinColumns={@JoinColumn(name="users_id")},
+                inverseJoinColumns={@JoinColumn(name="follower_id")}
         )
-        private List<Follow> follows;
+
+        private List<Follower> followers;
 
         //empty constructor for Spring framework
         public User() {
@@ -95,8 +95,8 @@ public class User {
                 passwordToConfirm = copy.passwordToConfirm;
         }
 
-        //read      , List<Follow> followers, List<Follow> followees
-        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts) {
+        //read
+        public User(long id, String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts, List<Follower> followers) {
                 this.id = id;
                 this.username = username;
                 this.firstName = firstName;
@@ -111,12 +111,12 @@ public class User {
                 this.comments = comments;
                 this.RSVP = RSVP;
                 this.posts = posts;
-                this.follows = follows;
+                this.followers = followers;
         }
 
 
         //insert
-        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts, List<Follow> follows) {
+        public User(String username, String firstName, String lastName, String password, String passwordToConfirm, String city, String linkedIn, String gitHub, String bio, String picture, List<Comment> comments, List<dev.socialcode.socialcode.models.RSVP> RSVP, List<Post> posts, List<Follower> followers) {
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
@@ -130,7 +130,7 @@ public class User {
                 this.comments = comments;
                 this.RSVP = RSVP;
                 this.posts = posts;
-                this.follows = follows;
+                this.followers = followers;
 //
         }
 
@@ -247,12 +247,12 @@ public class User {
                 this.posts = posts;
         }
 
-        public List<Follow> getFollows() {
-                return follows;
+        public List<Follower> getFollowers() {
+                return followers;
         }
 
-        public void setFollows(List<Follow> follows) {
-                this.follows = follows;
+        public void setFollowers(List<Follower> followers) {
+                this.followers = followers;
         }
 
 }

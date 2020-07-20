@@ -8,19 +8,43 @@
 
 <h1>You can see me and im ready for code!!!!</h1>
 
-<form action="/users/follow-test" method="post">
-    Title:
-    <input name="title" />
-    <br />
-    Description:
-    <input name="description" />
-    <br />
-    <input type="submit" />
-</form>
+<div>
+    <form th:if="${user}" th:action="${'/posts/rsvp'}" th:method="POST">
+        <input type="hidden" name="postId" th:value="${post.id}">
+        <button class="btn btn-warning">RSVP</button>
+    </form>
+</div>
 
-    <button id="follow_me" class="btn-success follow" type="submit" >Follow</button>
-            <h2 id="clicks">150</h2>
-            <p>posts</p>
+<!--<form action="/users/follow-test" method="post">-->
+
+<!--    <form th:if="${user}" th:action="@{/users/follow-test)}" th:method="POST">-->
+<!--        <input name="followerId" th:value="${follower.id}">  -->
+<!--    <button name="followerId" id="follow_me" class="btn-success follow" type="submit" th:class="alert" th:onclick=>Follow</button>-->
+<!--            <h2 id="clicks">150</h2>-->
+<!--            <p>posts</p>-->
+<!--        <button class="btn btn-success" id="delete-alert" >Delete</button>-->
+<!--</form>-->
+<!--    <h1>List of RSVP: </h1>-->
+<!--    <ul >-->
+<!--        <div th:each="follower: ${followers}">-->
+<!--            <li th:text="${user.id}"></li>-->
+<!--        </div>-->
+<!--    </ul>-->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script>
+        "use strict";
+        let count = 0;
+        $(document).ready(function () {
+            $("#follow_me").click(function() {
+               count++;
+               $('#clicks').innerText.parseJSON(count);
+            })
+        })();
+    </script>
 
 </body>
 </html>

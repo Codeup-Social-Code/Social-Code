@@ -17,8 +17,8 @@
             </div>
             <div class="col-md-8">
                 <div class="bio-card-body">
-                                            <h3 id="first" th:text="${user.firstName}"></h3>
-<!--                                            <h3 id="last" th:text="${user.lastName}"></h3>-->
+                    <h3 id="first" th:text="${user.firstName}"></h3>
+<!--                <h3 id="last" th:text="${user.lastName}"></h3>-->
 
                     <h6 th:text="${user.city}">City</h6>
                     <div class="connect">
@@ -30,7 +30,8 @@
 <!--                        <h6 id="linkedin" class="card-text" th:text="${user.linkedIn}">LinkedIn</h6>-->
                         <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
                         <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }"><h1>EDIT</h1></a>
-                        <a th:href="@{/users/view-all}"><button class="btn btn-success">View all users</button></a>
+
+
                     </div>
                 </div>
             </div>

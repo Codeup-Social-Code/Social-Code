@@ -1,10 +1,13 @@
 package dev.socialcode.socialcode.controllers;
 
+import dev.socialcode.socialcode.daos.FollowerRepository;
 import dev.socialcode.socialcode.daos.PostRepository;
 import dev.socialcode.socialcode.daos.UserRepository;
+import dev.socialcode.socialcode.models.Follower;
 import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.User;
 import dev.socialcode.socialcode.services.UserService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,15 +22,16 @@ import java.util.List;
 public class UserController {
     private UserRepository usersDao;
     private PostRepository postsDao;
-//    private FollowsRepository followersDao;
+    private FollowerRepository followersDao;
     private PasswordEncoder passwordEncoder;
     private UserService usersService;
 
-    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService, PostRepository postRepository) {
+    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService, PostRepository postRepository, FollowerRepository followerRepository) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
         this.usersService = usersService;
         this.postsDao = postRepository;
+        this.followersDao = followerRepository;
 
     }
 
@@ -148,22 +152,39 @@ public class UserController {
         return "redirect:/welcome";
 
     }
+//
+//
+//    @PostMapping("/users/follow-test")
+//    public String saveRSVP(@ModelAttribute Follower followertoBeSaved,  @RequestParam(name = "followId") String followId ) {
+//        Follower follower = followersDao.getOne(Long.parseLong(followId));
+//        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        followertoBeSaved.setUser(currentUser);
+//        Follower savedFollower = followersDao.save(followertoBeSaved);
+//        return "users/follow-test" + savedFollower.getUser().getId();
+//    }
+
+}
 
 
 
-    @GetMapping("/users/follow-test")
-    public String addFollower() {
-
-        return "users/follow-test";
-
-
-    }
-
-    @PostMapping("/users/follow-test")
-    public String TestMethod(User user)
-    {
-        return currentFollower.user;
-    }
+//
+//    @GetMapping("/users/follow-test")
+//    public String showFollowers(Model vModel){
+//        User user = usersService.loggedInUser();
+//        vModel.addAttribute("friendsList", user.getFollowers());
+//        return "users/follow-test";
+//    }
+////
+//    @GetMapping("/users/{id}/friend-request")
+//    public void sendFriendRequest(@PathVariable long id ) {
+//        FollowerRepository.save(new Follower(usersService.loggedInUser(), usersDao.getOne(id)));
+//    }
+//
+//    @PostMapping("/users/follow-test")
+//    public String saveFollower(@ModelAttribute Follower followerToBeSaved, @RequestParam (name= ""))
+//    {
+//        return currentFollower.user;
+//    }
 
 
 
@@ -276,4 +297,4 @@ public class UserController {
 //        return "redirect:/login";
 //    }
 
-}
+//}

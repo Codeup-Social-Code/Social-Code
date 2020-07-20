@@ -17,7 +17,60 @@ EDIT ON
                 <p class="card-text"><small class="text-muted">Created By: <span th:text="${post.user.firstName}"></span></small></p>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto at delectus deserunt dignissimos distinctio eos, ipsa maiores nobis pariatur praesentium, qui repellat rerum sequi voluptatibus. Ab accusantium assumenda blanditiis consequatur cum delectus dolorem eligendi esse est explicabo fugit illum laudantium modi, neque nesciunt odit quaerat quasi quia quos rerum sed sunt veniam. Distinctio dolores eius enim excepturi maxime molestias, necessitatibus quisquam quod sunt. Commodi consectetur corporis distinctio error et facere facilis fugiat fugit hic impedit incidunt libero magni maxime minus molestias natus, nisi nobis omnis perspiciatis quibusdam recusandae rem rerum sequi unde, velit veritatis voluptatem. Accusantium alias aperiam cumque cupiditate dicta, doloribus enim, expedita explicabo iusto natus numquam placeat provident quasi quisquam repudiandae similique totam veritatis, vitae! At ea est fuga, ipsum labore molestias nisi odio placeat vitae voluptatibus. At aut eos, excepturi ipsa labore nemo nulla obcaecati optio quidem repudiandae sapiente, totam unde vitae voluptas voluptatem. Placeat, quam.</p>
                 <div th:each="comment: ${comments}" class="card-body">
-                    <span><em th:text="${comment.user.firstName}"></em></span> <span><em th:text="${comment.user.lastName}"></em></span>: <span th:text="${comment.body}"></span>
+                    <span><em th:text="${comment.user.firstName}"></em></span> <span><em th:text="${comment.user.lastName}"></em></span>:
+                    <span th:text="${comment.body}"></span>
+                    <th:block th:if="${comment.user.id == currentUser.id}">
+                        <span class="d-flex float-right">
+                            <div>
+                                <button type="button" class="btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Edit</button>
+                            </div>
+                            <div>
+                                 <form class="" th:action="@{'/comment/' + ${comment.id} + '/delete'}" th:method="post">
+                                    <button class="rounded btn btn-link text-danger pb-2" type="submit">X</button>
+                                </form>
+                            </div>
+                        </span>
+
+                        <!--MODAL -->
+                        <!--button to activate-->
+                        <!---->
+
+                        <!--Modal Body-->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <form th:action="@{'/comment/' + ${comment.id} + '/edit'}" th:method="post" >
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Edit Comment</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="message-text" class="col-form-label">Comment:</label>
+                                                <textarea class="form-control" id="message-text" th:name="comment"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <input type="submit" class="btn btn-success" value="Save">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!---->
+                        <!---->
+
+                        <!--        Comment iteration ends here-->
+
+
+
+
+
+
+                    </th:block>
                 </div>
                 <div th:if="${post}">
                     <form th:action="@{/comments/create}" th:method="post" th:object="${comment}">
@@ -30,20 +83,22 @@ EDIT ON
                     </form>
                 </div>
             </div>
+        </div>
+
     </div>
 </div>
-</div>
+
+
 <div style="background-color: darkolivegreen">
-    <div class="text-center p-4" style="background-color: #576541; color: #ffffff"><h1>List of RSVP</h1></div>
+    <div class="text-center p-4" style="background-color: #576541; color: #ffffff"><h1>Attending</h1></div>
     <div>
         <div class="row text-center">
             <div class="col-md-6 mb-4 text-white" th:each="rsvp: ${rsvps}">
 
                 <h2 class="my-5 h2" th:text="${rsvp.user.firstName}">Basic example</h2>
 
-                <img class="rounded-circle" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
+                <img class="rounded-circle" alt="100x100" src="https://fer-uig.glitch.me"
                      data-holder-rendered="true">
-
             </div>
         </div>
     </div>
@@ -99,8 +154,20 @@ EDIT ON
 <!--        </form>-->
 <!--    </div>-->
 <!--</div>-->
-
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('Edit ')
+        modal.find('.modal-body input').val(recipient)
+    })
+</script>
 
 </body>
 </html>

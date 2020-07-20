@@ -12,8 +12,10 @@
     <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav mr-auto">
             <li id="search" class="nav-item ">
-                <input class="d-none d-md-block" id="search-box" type="text" placeholder="Search" style="color: dimgrey">
-                <i class="fas fa-search d-none d-md-block"></i>
+                <form action="/search">
+                <input class="d-none d-md-block" id="search-box" type="text" name="term" placeholder="Search" style="color: dimgrey">
+                <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>
+                </form>
             </li>
             <li id="login-btn" class="nav-item">
                 <form th:action="@{/login}" th:method="get">

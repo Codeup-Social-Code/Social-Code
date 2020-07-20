@@ -41,16 +41,24 @@ public class PostController {
         return "posts/create";
     }
 
+    //Search Functionality
+    @GetMapping("/search")
+    public String showSearch(Model model, @RequestParam(name = "term") String term) {
+        List<Post> results = postsDao.searchByTitleLike(term);
+        model.addAttribute("results", results);
+        return "posts/index-search";
+    }
+
 //    Single Post View
     @GetMapping("/posts/{id}")
     public String showOne(@PathVariable long id, Model model) {
         Post post = postsDao.getOne(id);
-//        User user = usersDao.findUsersByPosts_Id(id);
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Comment> comments = commentsDao.findCommentsByPostId(id);
         List<RSVP> rsvps = rsvpsDao.findRSVPSByPostId(id);
 
         //the usersService carries the logic in figuring out userCanEdit
-        model.addAttribute("isOwner", usersService.isOwner(post.getUser()));
+        model.addAttribute("currentUser", currentUser);
 
         //
         model.addAttribute("rsvps", rsvps);

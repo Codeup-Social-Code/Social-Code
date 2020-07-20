@@ -9,34 +9,23 @@
 HTML CSS JSResult
 EDIT ON
 <div class="container">
-    <p>Hover over the card to see the drop shadow added</p>
 
+    <div class="card-deck" th:if="${post}">
+        <div class="card">
+            <div class="card-body">
+                <h1><span th:text="${post.title}"></span></h1>
+                <p class="card-text"><small class="text-muted">Created By: <span th:text="${post.user.firstName}"></span></small></p>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto at delectus deserunt dignissimos distinctio eos, ipsa maiores nobis pariatur praesentium, qui repellat rerum sequi voluptatibus. Ab accusantium assumenda blanditiis consequatur cum delectus dolorem eligendi esse est explicabo fugit illum laudantium modi, neque nesciunt odit quaerat quasi quia quos rerum sed sunt veniam. Distinctio dolores eius enim excepturi maxime molestias, necessitatibus quisquam quod sunt. Commodi consectetur corporis distinctio error et facere facilis fugiat fugit hic impedit incidunt libero magni maxime minus molestias natus, nisi nobis omnis perspiciatis quibusdam recusandae rem rerum sequi unde, velit veritatis voluptatem. Accusantium alias aperiam cumque cupiditate dicta, doloribus enim, expedita explicabo iusto natus numquam placeat provident quasi quisquam repudiandae similique totam veritatis, vitae! At ea est fuga, ipsum labore molestias nisi odio placeat vitae voluptatibus. At aut eos, excepturi ipsa labore nemo nulla obcaecati optio quidem repudiandae sapiente, totam unde vitae voluptas voluptatem. Placeat, quam.</p>
+                <div class="form-group purple-border">
+                    <label for="exampleFormControlTextarea4">Colorful border</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
+                </div>
 
-    <div class="card-deck">
-        <div class="card">
-            <img class="card-img-top" src="https://dummyimage.com/600x400/000/fff" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div class="form-group green-border-focus">
+                    <label for="exampleFormControlTextarea5">Colorful border on :focus state</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea5" rows="3"></textarea>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="https://dummyimage.com/600x400/000/fff" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="https://dummyimage.com/600x400/000/fff" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
     </div>
 
 
@@ -48,7 +37,7 @@ EDIT ON
 
 
 <div th:if="${post}">
-    <h1>Title: <span th:text="${post.title}"></span></h1>
+    <h1><span th:text="${post.title}"></span></h1>
     <h1>Created By: <span th:text="${post.user.firstName}"></span></h1>
     <h3>Body: <span th:text="${post.body}"></span></h3>
     <div th:each="category: ${post.categories}">

@@ -18,11 +18,22 @@
             <div class="col-md-8">
                 <div class="bio-card-body">
 
-<!--                    api key comes through-->
-<!--                    <script th:inline="javascript">-->
-<!--                        var apiKey = [[${apiKey}]];-->
-<!--                        alert("Your api key is: " + apiKey);-->
-<!--                    </script>-->
+
+                    <input id="stashFilestackURL" name="stashFilestackURL" value="replaceme" th:field="*{user.picture}" type="hidden">
+                    <label for="upload"></label>
+                    <button type="button" id="upload" name="upload">Upload an image</button>
+                    <script th:inline="javascript">
+                        var apiKey = [[${apiKey}]];
+                        //testing it gets passed through
+                        // alert("Your api key is: " + apiKey);
+                        const client = filestack.init(apiKey);
+                        // client.picker().open();
+                        $("#upload").click(function () {
+                            client.picker().open()
+                        });
+
+                    </script>
+
 
                     <h3 id="first" th:text="${user.firstName}"></h3>
                     <!--                                            <h3 id="last" th:text="${user.lastName}"></h3>-->
@@ -174,7 +185,11 @@
 <!--    </div>-->
 
 <!--</section>-->
-
+<script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 </body>
 </html>
 

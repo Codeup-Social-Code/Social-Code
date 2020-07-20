@@ -1,25 +1,19 @@
-"use strict";
-
-var apiKey = [[${apiKey}]];
-//testing it gets passed through
-// alert("Your api key is: " + apiKey);
-const client = filestack.init(apiKey);
-// client.picker().open();
+// "use strict";
+// th:inline="javascript";
+//
+// var apiKey = [[${apiKey}]];
+// //testing it gets passed through
+// // alert("Your api key is: " + apiKey);
+// const client = filestack.init(apiKey);
 // $("#upload").click(function () {
-//     client.picker().open()
+//     client.picker(options).open()
 // });
-
-$("#upload").click(function () {
-    client.picker(options).open()
-});
-
-const options = {
-        fromSources: ["local_file_system","instagram","facebook"],
-        onUploadDone:
-            function (res){
-                console.log(res.filesUploaded[0].url);
-                alert("Log fired");
-            }
-    }
-
-
+//
+// const options = {
+//     fromSources: ["local_file_system","instagram","facebook"],
+//     onUploadDone:
+//         function (res){
+//             $("#picture").val(res.filesUploaded[0].url);
+//             // console.log("url + " + res.filesUploaded[0].url);
+//         }
+// }

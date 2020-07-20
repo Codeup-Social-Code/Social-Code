@@ -9,10 +9,7 @@ import dev.socialcode.socialcode.models.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.Date;
@@ -42,6 +39,20 @@ public class PostCommentController {
         commentToBeSaved.setCreateDate(currentDate);
         Comment savedComment = commentsDao.save(commentToBeSaved);
         return "redirect:/posts/" + savedComment.getPost().getId();
+    }
+
+    @PostMapping("/comment/{commentId}/edit")
+    public String editComment(@PathVariable Long commentId, @RequestParam(name = "comment") String editedComment) {
+        Comment commentToBeEdited = commentsDao.getOne(commentId);
+
+        commentToBeEdited.setBody(editedComment);
+
+        commentsDao.save(commentToBeEdited);
+
+        Post postToReturnTo = commentToBeEdited.getPost();
+
+        return "redirect:/posts/" + postToReturnTo.getId();
+
     }
 
 

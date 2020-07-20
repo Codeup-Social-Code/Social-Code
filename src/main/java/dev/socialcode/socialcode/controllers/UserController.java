@@ -96,6 +96,10 @@ public class UserController {
     // To view all users
     @GetMapping("/users/view-all")
     public String viewAllUsers(Model m) {
+        User logUser = usersService.loggedInUser();
+        if (logUser == null){
+            return "users/login";
+        }
         List<User> viewAll = usersDao.findAll();
         m.addAttribute("viewAll", viewAll);
         return "users/view-all";

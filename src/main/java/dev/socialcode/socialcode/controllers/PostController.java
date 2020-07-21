@@ -45,7 +45,7 @@ public class PostController {
     //Search Functionality
     @GetMapping("/search")
     public String showSearch(Model model, @RequestParam(name = "term") String term) {
-        List<Post> results = postsDao.searchByTitleLike(term);
+        List<Post> results = postsDao.searchByTerm(term);
         model.addAttribute("results", results);
         return "posts/index-search";
     }

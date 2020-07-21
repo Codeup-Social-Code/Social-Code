@@ -142,7 +142,7 @@
 
 @media screen and (min-width:2200px) {
     .logo {
-        width: 90%;
+        width: 50%;
     }
 
     ul {
@@ -155,36 +155,36 @@
     }
 
     #search-bar {
-        font-size: 30px;
+        font-size: 20px;
     }
 
     #search-box{
         float: left;
         width: 70%;
-        font-size: 30px;
+        font-size: 20px;
     }
 
     .fas {
         margin-top: 4px;
         margin-left: 2px;
-        font-size: 40px;
+        font-size: 30px;
         color: #444242;
     }
 
     #login {
-        font-size: 40px;
+        font-size: 30px;
     }
 
     #logout {
-        font-size: 40px;
+        font-size: 30px;
     }
 
     #register {
-        font-size: 40px;
+        font-size: 30px;
     }
 
     .dropdown-toggle {
-        font-size: 40px;
+        font-size: 30px;
     }
 
 

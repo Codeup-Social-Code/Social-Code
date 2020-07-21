@@ -8,69 +8,46 @@
 
 <nav th:replace="fragments/navbar :: navbar"></nav>
 
-<section class="bio-container">
-    <div class="card mb-3">
-        <div class="card-header bg-success" style="height: 70px"> </div>
-        <div class="row bio-row no-gutters" style="height: 400px">
-            <div class="wrapper col-md-4 ">
-                <img class="image--cover" src="/img/Profile-Placeholder.png" width="100%"/>
-            </div>
-            <div class="col-md-8">
-                <div class="bio-card-body">
-                    <h3 id="first" th:text="${user.firstName}"></h3>
-<!--                <h3 id="last" th:text="${user.lastName}"></h3>-->
+    <section class="bio-container">
+        <div class="card mb-3">
+            <div class="card-header bg-success" style="height: 70px"> </div>
+            <div class="row bio-row no-gutters" style="height: 400px">
+                <div class="wrapper col-md-4 ">
+                    <img class="image--cover" src="/img/Profile-Placeholder.png" width="100%"/>
+                </div>
+                <div class="col-md-8">
+                    <div class="bio-card-body">
+                        <h3 id="first" th:text="${user.firstName}"></h3>
+    <!--                <h3 id="last" th:text="${user.lastName}"></h3>-->
 
-                    <h6 th:text="${user.city}">City</h6>
-                    <div class="connect">
-                        <h6 id="email" th:text="${user.username}">Email</h6>
-<!--                        <h6 id="github" class="card-text"th:text="${user.gitHub}">GitHub</h6>-->
+                        <h6 th:text="${user.city}">City</h6>
+                        <div class="connect">
+                            <h6 id="email" th:text="${user.username}">Email</h6>
+    <!--                        <h6 id="github" class="card-text"th:text="${user.gitHub}">GitHub</h6>-->
 
-                        <a id="github" class="card-text" th:text="${user.gitHub}" th:href="@{${user.gitHub}}">GitHub</a>
-                        <a id="linkedin" class="card-text" th:text="${user.linkedIn}" th:href="@{${user.linkedIn}}">LinkedIn</a>
-<!--                        <h6 id="linkedin" class="card-text" th:text="${user.linkedIn}">LinkedIn</h6>-->
-                        <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
-                        <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }"><h1>EDIT</h1></a>
-
-
+                            <a id="github" class="card-text" th:text="${user.gitHub}" th:href="@{${user.gitHub}}">GitHub</a>
+                            <a id="linkedin" class="card-text" th:text="${user.linkedIn}" th:href="@{${user.linkedIn}}">LinkedIn</a>
+    <!--                        <h6 id="linkedin" class="card-text" th:text="${user.linkedIn}">LinkedIn</h6>-->
+                            <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
+                            <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }"><h1>EDIT</h1></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <!--FOLLOWS/POSTS/FOLLOWING-->
-
-
-<!--            <form th:if="${user}" th:action="${'/users/{id}/follow'}" th:method="POST">-->
-<!--                <input type="hidden" name="followerId" th:value="${user.id}">-->
-
-<!--            <form th:action="@{/users/{id}}" th:method="GET">-->
-<!--                <a th:href="@{/users/{id}}" id="follow-me" type="button" class="btn btn-success">Follow</a>-->
-<a th:href="@{/sign-up}" type="button" class="btn btn-success">Register</a>
-<!--                <button class="btn btn-success"  type="submit">Follow</button>-->
-<!--               <div th:data-thing="${follow-me}" onclick="doSomething(this.getAttribute('data-thing'));">-->
-<!--            </form>-->
-        <section class="container analytics text-center">
-            <div class="row">
-
-                    <div class="col-4">
-                        <h2 id="clicks">150</h2>
-                        <p>posts</p>
-                    </div>
-
-                    <div class="col-4">
-                        <h2>150</h2>
-                        <p>followers</p>
-                    </div>
-
-                    <div class="col-4">
-                        <h2>150</h2>
-                        <p>following</p>
-                    </div>
-                <a th:action="@{/users/{id}}" th:method="POST" type="button" id="follow-me" class="btn btn-success">Register</a>
+        <div class="container analytics text-center">
+            <div class="row text-center">
+                <ul>
+                    <li id="followersId" th:text="${user.followers.size()}" style="list-style: none">[size of followers list]</li>
+                    <form th:action="@{'/user/' + ${user.id} + '/follow'}" th:method="POST">
+                        <input  type="submit" id="follow-me" class="btn btn-success" style="color: white" value="Follow"></input>
+                    </form>
+                </ul>
             </div>
-        </section>
+        </div>
 
 
 <hr style="width: 50%">

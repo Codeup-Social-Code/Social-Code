@@ -51,7 +51,7 @@ public class PostController {
             for(Category category: categories) {
                 newTerm = category.getId();
             }
-            List<Post> results = postsDao.findPostsByCategory_Id(newTerm);
+            List<Post> results = postsDao.searchByCategoryId(newTerm);
             model.addAttribute("results", results);
             return "posts/index-search";
         }

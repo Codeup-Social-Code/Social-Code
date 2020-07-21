@@ -1,16 +1,14 @@
 
 body.sign-up{
     background-image: url("/img/login-register.png");
-    width: 100%;
-    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 100% 100%;
+    background-position: center center;
     background-color: rgba(136, 160, 99, 0.4);
 
 }
 
-.login-card-body {
+.signup-card-body {
     font-size: 11px;
 }
 
@@ -19,12 +17,12 @@ body.sign-up{
     margin-bottom: 100px;
 }
 
-.username {
+.signupEmail {
 margin-left: 27px;
 }
 
-.password {
-margin-left: 27px;
+.signupPassword {
+margin-left: 0px;
 }
 
 
@@ -32,18 +30,24 @@ margin-left: 27px;
     margin-right: 50px;
 }
 
-#firstName, #lastName {
+#sign-up-firstName, #sign-up-lastName {
     margin-right: 8px;
 }
 
-#city{
+#sign-up-city{
 
-    margin-right: -28px;
+    margin-right: -26px;
 
 }
 
-.register-btn {
+.signup-register-btn {
     margin-left: 32px;
+    margin-top: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.14);
+}
+
+.signup-register-btn.alert {
+    padding: 5px;
 }
 
 .existing-login {
@@ -62,25 +66,25 @@ margin-left: 27px;
     }
 
 
-    .username {
-        margin-left: 0px;
+    .signupEmail {
+        margin-left: -9px;
     }
 
-    .password {
-        margin-left: 0px;
+    .signupPassword {
+        margin-left: -32px;
     }
 
     #passwordToConfirm {
-        margin-right: 96px;
+        margin-right: 81px;
     }
 
-    #firstName, #lastName {
+    #sign-up-firstName, #sign-up-lastName {
         margin-right: 37px;
     }
 
-    #city{
+    #sign-up-city{
 
-        margin-right: -8px;
+        margin-right: 0px;
 
     }
 

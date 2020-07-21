@@ -12,14 +12,14 @@
     <nav class="navbar navbar-expand navbar-light bg-light"  th:fragment="navbar">
         <a class="navbar-brand d-sm-none d-md-block " href="/posts"><img class="logo" src="/img/codeup-logo.png"/></a>
         <div class="collapse navbar-collapse" id="navbar">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav nav-frag mr-auto">
                 <li id="search" class="nav-item ">
                     <input class="d-none d-md-block" id="search-box" type="text" placeholder="Search" style="color: dimgrey">
                     <i class="fas fa-search d-none d-md-block"></i>
                 </li>
-                <li id="login-btn" class="nav-item">
+                <li id="nav-login-btn" class="nav-item">
                     <form th:action="@{/login}" th:method="get">
-                        <button id="login" class="btn-link btn" style="color: dimgrey;">Login</button>
+                        <button id="nav-login" class="btn-link btn" style="color: dimgrey;">Login</button>
                     </form>
                 </li>
 

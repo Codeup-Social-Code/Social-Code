@@ -1,6 +1,7 @@
 
 body.login{
     background-image: url("/img/login-register.png");
+    height: 900px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -8,12 +9,10 @@ body.login{
 
 }
 
-.login-container{
-    text-align: center;
-    margin-top: 140px;
-    width: 18rem;
+.login-card{
+    margin-top: 150px;
+    margin-bottom: 100px;
 }
-
 
 #password{
     margin-right: 28px;

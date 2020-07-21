@@ -1,5 +1,5 @@
 
-.navbar-nav{
+.nav-frag{
     text-align: center;
 }
 
@@ -30,7 +30,7 @@
      color: #444242;
  }
 
- #login {
+ #nav-login {
      font-size: 10px;
  }
 
@@ -59,7 +59,7 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
-    ul {
+    ul.nav-frag {
         margin-left: 170px;
     }
 
@@ -94,11 +94,11 @@
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
-    ul {
+    ul.nav-frag {
         margin-left: 250px;
     }
 
-    #login {
+    #nav-login {
         font-size: 17px;
     }
 
@@ -134,7 +134,7 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
 
-    ul {
+    ul.nav-frag {
         margin-left: 590px;
     }
 
@@ -160,7 +160,7 @@
         color: #444242;
     }
 
-    #login {
+    #nav-login {
         font-size: 13px;
     }
 
@@ -188,7 +188,7 @@
         width: 50%;
     }
 
-    ul {
+    ul.nav-frag {
         margin-left: 1000px;
     }
 
@@ -214,7 +214,7 @@
         color: #444242;
     }
 
-    #login {
+    #nav-login {
         font-size: 20px;
     }
 

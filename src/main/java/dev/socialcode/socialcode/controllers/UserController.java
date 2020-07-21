@@ -215,16 +215,6 @@ public class UserController {
     @Value("${filestack_api_key}")
         private String apiFromProperties;
 
-//    //Search Functionality
-//    @GetMapping("/users/search")
-//    public String showSearch(Model model, @RequestParam(name = "term") String term) {
-//        List<User> firstNameResults = usersDao.searchByFirstNameLike(term);
-//        List<User> lastNameResults = usersDao.searchByLastNameLike(term);
-//        model.addAttribute("firstNameResults", firstNameResults);
-//        model.addAttribute("lastNameResults", lastNameResults);
-//        return "users/view-all-search";
-//    }
-
     //Search Functionality
     @GetMapping("/users/search")
     public String showSearch(Model model, @RequestParam(name = "term") String term) {
@@ -234,26 +224,6 @@ public class UserController {
 
         return "users/view-all-search";
     }
-
-//   grab user's input here check if the username is found or not
-//    @PostMapping("/users/search")
-//    public String checkSearch(Model model, @RequestParam(name = "term") String term) {
-//        List<User> checkSearchResult = usersDao.searchByNameLike(term); // go into my database
-////        if (checkSearchResult.size() == 0){
-////            return "User was not found from Controller";
-////        }else {
-////            return "Here are the users within the search";
-////             }
-//        if (checkSearchResult == null){
-//            return "User was not found from Controller";
-//        }else {
-//            return "Here are the users within the search";
-//        }
-//
-////        model.addAttribute("booL", boolean),
-//        model.addAttribute("No result", checkSearchResult.size() == 0);
-//        return "users/view-all-search";
-//    }
 
 }
 

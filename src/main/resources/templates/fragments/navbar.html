@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Navbar</title>
 
 </head>
 <body>
+
 
     <!--NEW NAVBAR-->
     <nav class="navbar navbar-expand navbar-light bg-light"  th:fragment="navbar">
@@ -21,6 +22,7 @@
                         <button id="login" class="btn-link btn" style="color: dimgrey;">Login</button>
                     </form>
                 </li>
+
 
                 <th:block sec:authorize="isAuthenticated()">
                     <li id="logout-btn" class="nav-item">

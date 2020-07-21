@@ -3,11 +3,15 @@ package dev.socialcode.socialcode.controllers;
 
 import dev.socialcode.socialcode.daos.*;
 import dev.socialcode.socialcode.models.*;
+import dev.socialcode.socialcode.services.UserService;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.ArrayList;
 //import java.sql.Date; -- we need to change to this
 import java.util.Date;
@@ -21,13 +25,15 @@ public class PostController {
     private UserRepository usersDao;
     private CommentsRepository commentsDao;
     private RSVPsRepository rsvpsDao;
+    private UserService usersService;
 
-    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository, CommentsRepository commentsRepository, RSVPsRepository rsvpsRepository) {
+    public PostController(PostRepository postRepository, CategoriesRepository categoriesRepository, UserRepository userRepository, CommentsRepository commentsRepository, RSVPsRepository rsvpsRepository, UserService usersService) {
         this.postsDao = postRepository;
         this.categoriesDao = categoriesRepository;
         this.usersDao = userRepository;
         this.commentsDao = commentsRepository;
         this.rsvpsDao = rsvpsRepository;
+        this.usersService = usersService;
     }
 
     @GetMapping("/posts/create")
@@ -36,13 +42,34 @@ public class PostController {
         return "posts/create";
     }
 
+    //Search Functionality
+    @GetMapping("/search")
+    public String showSearch(Model model, @RequestParam(name = "term") String term) {
+        List<Post> results = postsDao.searchByTitleLike(term);
+        model.addAttribute("results", results);
+        return "posts/index-search";
+    }
+
 //    Single Post View
     @GetMapping("/posts/{id}")
     public String showOne(@PathVariable long id, Model model) {
         Post post = postsDao.getOne(id);
+
+//        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        //  Add additional security. if they are not equal, send it to other
+//        if(post.getUser().getId() != currentUser.getId()) {
+//            return "redirect:/posts";
+//        }
+
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         List<Comment> comments = commentsDao.findCommentsByPostId(id);
         List<RSVP> rsvps = rsvpsDao.findRSVPSByPostId(id);
-        System.out.println("RSVP ID: " + rsvps);
+
+        //the usersService carries the logic in figuring out userCanEdit
+        model.addAttribute("currentUser", currentUser);
+
+        //
         model.addAttribute("rsvps", rsvps);
         model.addAttribute("comment", new Comment());
         model.addAttribute("post", post);
@@ -53,13 +80,13 @@ public class PostController {
 
 
     @PostMapping("/posts/create")
-    public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId) {
+    public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId, Authentication authentication) {
 
         System.out.println(postToBeSaved.getEventTime());
         System.out.println(postToBeSaved.getEvent_start());
         System.out.println(postToBeSaved.getEvent_end());
 
-        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = usersDao.findByUsername(authentication.getName());
         System.out.println(currentUser);
         postToBeSaved.setUser(currentUser);
 
@@ -77,36 +104,40 @@ public class PostController {
     //update functionality will be added once user authentication is setup
 
 
-    @GetMapping("/posts/{id}/edit")
-    public String showEditForm(Model model, @PathVariable long id) {
-        //find an ad
-        Post postToEdit = postsDao.getOne(id);
-        model.addAttribute("post", postToEdit);
-        return "posts/edit";
-    }
 
-    //Update Post
-    @PostMapping("/posts/edit")
-    public String update(@ModelAttribute Post postEdited) {
-        Post postToBeUpdated = postsDao.getOne(postEdited.getId());
-        postToBeUpdated.setTitle(postEdited.getTitle());
-        postToBeUpdated.setBody(postEdited.getBody());
-        postsDao.save(postToBeUpdated);
-        return "redirect:/posts/" + postEdited.getId();
-    }
+//    @GetMapping("/posts/{id}/edit")
+//    public String showEditForm(Model model, @PathVariable long id) {
+//        //find an ad
+//        Post postToEdit = postsDao.getOne(id);
+//        model.addAttribute("post", postToEdit);
+//        return "posts/edit";
+//    }
+//
+//    //Update Post
+//    @PostMapping("/posts/edit")
+//    public String update(@ModelAttribute Post postEdited) {
+//        Post postToBeUpdated = postsDao.getOne(postEdited.getId());
+//        postToBeUpdated.setTitle(postEdited.getTitle());
+//        postToBeUpdated.setBody(postEdited.getBody());
+//        postsDao.save(postToBeUpdated);
+//        return "redirect:/posts/" + postEdited.getId();
+//    }
+//
+////    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
+//
+//    @GetMapping("/posts")
+//    public String viewPosts(Model model) {
+////        User user = usersDao.findByUsername("test2@gmail.com");
+////        System.out.println(user.getFirstName());
+//        List<Post> currentPosts = postsDao.findTop9ByOrderByIdDesc();
+//        List<Post> posts = postsDao.findAll();
+//        model.addAttribute("posts", posts);
+//        model.addAttribute("posts", currentPosts);
+//        return "posts/index";
+//    }
 
-//    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
+ 
 
-    @GetMapping("/posts")
-    public String viewPosts(Model model) {
-//        User user = usersDao.findByUsername("test2@gmail.com");
-//        System.out.println(user.getFirstName());
-        List<Post> currentPosts = postsDao.findTop9ByOrderByIdDesc();
-        List<Post> posts = postsDao.findAll();
-        model.addAttribute("posts", posts);
-        model.addAttribute("posts", currentPosts);
-        return "posts/index";
-    }
 
 //    @GetMapping("/mapbox")
 //    public String viewMapbox(Model model) {
@@ -131,6 +162,78 @@ public class PostController {
     @GetMapping("/posts.json")
     public @ResponseBody List<Post> viewAllPostsWithAjax() {
         return postsDao.findAll();
+    }
+
+//    Trail 1
+    @GetMapping("/posts/{id}/edit")
+    public String showEditForm(Model model, @PathVariable long id) {
+        Post postToEdit = postsDao.getOne(id);
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    //  Add additional security. if they are not equal, send it to other
+        if(postToEdit.getUser().getId() != currentUser.getId()) {
+            return "redirect:/posts";
+        }
+        model.addAttribute("post", postToEdit);
+        model.addAttribute("currentUser", currentUser);
+        return "posts/edit-post";
+    }
+
+    //Update Post OG
+//    @PostMapping("/posts/{id}/edit")
+//    public String update(@ModelAttribute Post postEdited) {
+//        Post postToBeUpdated = postsDao.getOne(postEdited.getId());
+//        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        //  Add additional security. if they are not equal, send it to other
+//        if(postToBeUpdated.getUser().getId() != currentUser.getId()) {
+//            return "redirect:/posts";
+//        }
+//        postToBeUpdated.setTitle(postEdited.getTitle());
+//        postToBeUpdated.setBody(postEdited.getBody());
+//        postsDao.save(postToBeUpdated);
+//        return "redirect:/posts/" + postEdited.getId();
+////        return "redirect:/posts/" + postEdited.getId() + "/edit-post";
+////        return "redirect:/posts/";
+//    }
+    //Update Post Trial 1
+    @PostMapping("/posts/{id}/edit")
+    public String update(
+            @ModelAttribute Post postEdited,
+            @PathVariable long id
+    ) {
+//        Post postToBeUpdated = postsDao.getOne(postEdited.getId());
+        Post postToBeUpdated = postsDao.getOne(id);
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        //  Add additional security. if they are not equal, send it to other
+        if(postToBeUpdated.getUser().getId() != currentUser.getId()) {
+            return "redirect:/posts";
+        }
+        postToBeUpdated.setTitle(postEdited.getTitle());
+        postToBeUpdated.setBody(postEdited.getBody());
+        postsDao.save(postToBeUpdated);
+//        return "redirect:/posts/" + postEdited.getId();
+//        return "redirect:/posts/" + postEdited.getId() + "/edit-post";
+        return "redirect:/posts/";
+    }
+
+    // To delete posts
+    @PostMapping("/posts/{id}/delete")
+    public String destroy(@PathVariable long id) {
+        postsDao.deleteById(id);
+        return "redirect:/posts";
+    }
+
+
+//    USING THE FOLLOWING TO BUILD COMMUNITY PAGE
+
+    @GetMapping("/posts")
+    public String viewPosts(Model model) {
+//        User user = usersDao.findByUsername("test2@gmail.com");
+//        System.out.println(user.getFirstName());
+        List<Post> currentPosts = postsDao.findTop9ByOrderByIdDesc();
+        List<Post> posts = postsDao.findAll();
+        model.addAttribute("posts", posts);
+        model.addAttribute("posts", currentPosts);
+        return "posts/index";
     }
 
 

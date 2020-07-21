@@ -16,14 +16,14 @@
                 <div class="card-body login-card-body text-center">
                     <label class="username" for="username">Email</label>
                     <input id="username" name="username" th:class="validate" th:field="*{username}" />
-                          <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
                     <br>
                     <label class="username" for="password">Password</label>
                     <input id="password" name="password" type="password" th:class="validate" th:field="*{password}" />
-                          <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p> 
                      <br>
                     <label for="passwordToConfirm">Re-Enter Password</label>
                     <input id="passwordToConfirm" name="passwordToConfirm" type="password" />
+                        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                     <br>
                     <label for="firstName">First Name</label>
                     <input id="firstName" name="firstName" th:field="*{firstName}" />
@@ -34,7 +34,9 @@
                     <label for="city">City</label>
                     <input id="city" name="city" th:field="*{city}" />
                     <br>
-                    <input class="btn register-btn btn-success" type="submit" value="Register"/>
+                    <form th:class="alert" th:action="${'/users/' + user.id + '/delete'}" th:method="POST">
+                    <input id="register-alert" th:onclick="this.parentElement.style.display=='none'" class="btn register-btn btn-success alert" type="submit" value="Register"/>
+                    </form>
                     <br>
                     <form class="existing-login" th:action="@{/login}" th:method="post">
                         <span>Existing account?</span>
@@ -44,6 +46,19 @@
             </form>
         </div>
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script>
+        "use strict";
+        $(document).ready(function () {
+            $("#register-alert").click(function() {
+                confirm(`
+                Thank you so much! If there is no error, you should be good to go.
+                Happy Coding!
+                `);
+            })
+        })();
+    </script>
 </body>
 </html>

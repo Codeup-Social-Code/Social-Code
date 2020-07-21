@@ -14,13 +14,11 @@
                     <div class="cards">
                         <div th:style="${iStat.odd}? 'width: 18rem; height: 25rem' : 'width: 28rem;'" class="card">
                             <div class="card-header">
-                                <h1>Picture: <span th:text="${user.getPicture()}"></span></h1>
+                                <img class="image--cover" th:src="*{user.picture}" width="100%"/>
                             </div>
                             <div class="card-body">
-                                <h1>Name: <span th:text="${user.getUsername()}"></span></h1>
-                                            <!--        <h3>Languages: <span th:text="${user.}"></span></h3>-->
-                                            <!--        <h3>Skill Level: <span th:text="${user.}"></span></h3>-->
-                                <h4>Location: <span th:text="${user.getCity()}"></span></h4>
+                               <h1>Name: <span th:text="${user.getUsername()}"></span></h1>
+                              <h4>Location: <span th:text="${user.getCity()}"></span></h4>
                             </div>
                             <div class="card-footer text-center">
                                 <form th:action="${'/users/' + user.id }" th:method="GET">
@@ -32,6 +30,7 @@
                     </div>
                 </div>
             </div>
+
 
   </div>
 

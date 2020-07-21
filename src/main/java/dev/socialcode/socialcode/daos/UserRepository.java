@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository <User, Long> {
     User findByUsername (String username);
+    User findUsersByPosts_Id(long id);
 
     byte countByFollowers(User user);
 

@@ -5,8 +5,13 @@ import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.RSVP;
 import dev.socialcode.socialcode.models.User;
+import dev.socialcode.socialcode.services.EmailService;
 import dev.socialcode.socialcode.services.UserService;
+
 import org.springframework.security.core.context.SecurityContextHolder;
+
+import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,25 +29,18 @@ import java.util.List;
 @Controller
 public class UserController {
     private UserRepository usersDao;
-    private PostRepository postsDao;
     private PasswordEncoder passwordEncoder;
+    private PostRepository postsDao;
     private UserService usersService;
-//    private ArrayList<String> followersList;
-//
-//    public ArrayList<String> getClientList() {
-//        return followersList;
-//    }
-//
-//    public void setClientList(ArrayList<String> clientList) {
-//        this.followersList = followersList;
-//    }
+    private EmailService emailService;
 
 
-    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService, PostRepository postRepository) {
+    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService, PostRepository postRepository, EmailService emailService) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
         this.usersService = usersService;
         this.postsDao = postRepository;
+        this.emailService = emailService;
     }
 
 
@@ -76,6 +74,10 @@ public class UserController {
         user.setPasswordToConfirm(hashForConfirm);
 
         usersDao.save(user);
+
+        User savedUser = usersDao.save(user);
+        emailService.prepareAndSend(savedUser, "A new account has been created", "Thank you for signing up your One stop website where you can grow! Your username: " + savedUser.getUsername());
+
         return "redirect:/login";
     }
 
@@ -83,6 +85,7 @@ public class UserController {
     @GetMapping("/users/{id}")
     public String showUser(@PathVariable Long id, Model viewModel) {
         User user = usersDao.getOne(id);
+
         List<Post> userPosts = postsDao.findPostsByUser_Id(id);
         viewModel.addAttribute("userPosts", userPosts);
         viewModel.addAttribute("user", user);
@@ -105,26 +108,6 @@ public class UserController {
         return "redirect:/users/" + userToFollow.getId();
     }
 
-//
-//    @RequestMapping("/users/followers", method = RequestMethod.POST)
-//    public String printFollowersList(@ModelAttribute User followertoBeSaved, @RequestParam(name = "followersId") String followersId){
-//        User loggedInUser = usersService.loggedInUser();
-//        User userToFollow = usersDao.getOne(Long.parseLong(followersId);
-//        List <User> currentFollowers =  userToFollow.getFollowers();
-//        currentFollowers.add(loggedInUser);
-//
-//        return "users/user";
-//    }
-
-//    @PostMapping("/posts/rsvp")
-//    public String saveRSVP(@ModelAttribute RSVP RSVPtoBeSaved, @RequestParam(name = "postId") String postId) {
-//        Post post = postsDao.getOne(Long.parseLong(postId));
-//        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        RSVPtoBeSaved.setPost(post);
-//        RSVPtoBeSaved.setUser(currentUser);
-//        RSVP savedRSVP = rsvpsDao.save(RSVPtoBeSaved);
-//        return "redirect:/posts/" + savedRSVP.getPost().getId();
-//    }
 
     @GetMapping("/users/profile")
     public String showProfile(Model viewModel) {
@@ -141,6 +124,10 @@ public class UserController {
     // To view all users
     @GetMapping("/users/view-all")
     public String viewAllUsers(Model m) {
+        User logUser = usersService.loggedInUser();
+        if (logUser == null){
+            return "users/login";
+        }
         List<User> viewAll = usersDao.findAll();
         m.addAttribute("viewAll", viewAll);
         return "users/view-all";
@@ -148,7 +135,8 @@ public class UserController {
 
     //EDIT
     @GetMapping("/users/{id}/edit")
-    public String showEditForm(@PathVariable Long id, Model viewModel) {
+     public String showEditForm(@PathVariable Long id, Model viewModel){
+        viewModel.addAttribute("apiKey", apiFromProperties);
         User user = usersDao.getOne(id);
         viewModel.addAttribute("user", user);
         viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
@@ -156,15 +144,10 @@ public class UserController {
     }
 
     @PostMapping("/users/{id}/edit")
-    public String editUser(@PathVariable Long id,
-//                           @RequestParam(name = "password") String password,
-//                           @RequestParam(name = "password_to_confirm") String passwordToConfirm,
-////                           @PathVariable String password, @PathVariable String passwordToConfirm,
-                           @Valid User editedUser, Errors validation, Model model) {
+    public String editUser(@PathVariable Long id, @Valid User editedUser, Errors validation, Model model) {
         User user = usersDao.getOne(id);
         String password = user.getPassword();
         String passwordToConfirm = user.getPasswordToConfirm();
-
         editedUser.setId(id);
         editedUser.setPassword(password);
         editedUser.setPasswordToConfirm(passwordToConfirm);
@@ -175,12 +158,7 @@ public class UserController {
             model.addAttribute("showEditControls", checkEditAuth(editedUser));
             return "users/edit-profile";
         }
-        //i believe this was hashing their new password... but if they submitted their new hashed
-        //password with the below...their original password wouldn't work
-        //
-//        editedUser.setPassword(passwordEncoder.encode(editedUser.getPassword()));
         usersDao.save(editedUser);
-//        return "redirect:/users/"+id;
         return "redirect:/users/" + usersService.loggedInUser().getId();
     }
 
@@ -196,27 +174,10 @@ public class UserController {
         return "redirect:/welcome";
 
     }
-
-//
-//    @GetMapping("users/{}/follow-test")
-//    public String getFollower(@PathVariable long id, List<User> user) {
-//        Follower followingUser = followersDao.getOne(1L);
-//        String newfollower = followingUser.getId(id);
-//        System.out.println();
-//        return "users/follow-test";
-//    }
-
-
-
-//
-//    @PostMapping("users/{}/follow-test")
-//    public String saveFollower(@ModelAttribute Follower followerToBeSaved, @RequestParam(name = " ") String makeId, long id) {
-////        Follower follower = followersDao.getOne(Long.parseLong(makeId));
-//        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        followerToBeSaved.setUser(currentUser);
-//        Follower savedFollower = followersDao.save(followerToBeSaved);
-//        return "redirect:/posts/" + savedFollower.getUser().getId();
-//    }
+  
+    //Adding filestack api
+    @Value("${filestack_api_key}")
+        private String apiFromProperties;
 
 
 }

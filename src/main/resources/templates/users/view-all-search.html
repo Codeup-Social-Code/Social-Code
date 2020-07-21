@@ -10,7 +10,7 @@
 <header><nav th:replace="fragments/navbar :: navbar"></nav></header>
 <body>
 <form action="/users/search">
-    <input class="d-none d-md-block" id="search-box" type="text" name="term" placeholder="Search" style="color: dimgrey">
+    <input class="d-none d-md-block" id="search-box" type="text" name="term" placeholder="Search name" style="color: dimgrey">
     <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>
 <div class="container">
 
@@ -22,7 +22,6 @@
 <!--    </div>-->
     <div th:each="user, iterStat : ${userNameResult}" class="box" th:id=" 'masonry' + ${iterStat.count}">
         <div class="card p-5 mt-5 text-center" style="width: 18rem">
-            <h1>THIS IS VIEW ALL SEARCH HTML!</h1>
             <img th:src="@{/img/9.png}" class="card-img-top"  th:id="'image' + ${iterStat.count} "/>
             <div class="card-body p-5">
                 <h3 th:text="${user.getFirstName()}">First Name</h3>

@@ -32,7 +32,7 @@
                             <div class="card-body">
                                 <h3 th:text="${post.title}">Title</h3>
                                 <div th:text="${post.body}">Description</div>
-                                <div th:text="${post.user.username}">Email</div>
+<!--                                <div th:text="${post.user.username}">Email</div>-->
                             </div>
                             <div class="card-footer text-center">
                                 <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br>
@@ -41,6 +41,7 @@
                             </div>
                     </div>
                  </div>
+            </div>
         </div>
 
 </div>

@@ -1,0 +1,47 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Social Code')">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Search by first/last Name</title>
+
+</head>
+<body class="community">
+<header><nav th:replace="fragments/navbar :: navbar"></nav></header>
+<body>
+<form action="/users/search">
+    <input class="d-none d-md-block" id="search-box" type="text" name="term" placeholder="Search name" style="color: dimgrey">
+    <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>
+<div class="container">
+
+    <div th:if="${userNameResult.size() == 0}">
+        <p>User was not found</p>
+    </div>
+<!--    <div th:if="${booL}">-->
+<!--        <p>User was not found</p>-->
+<!--    </div>-->
+    <div th:each="user, iterStat : ${userNameResult}" class="box" th:id=" 'masonry' + ${iterStat.count}">
+        <div class="card p-5 mt-5 text-center" style="width: 18rem">
+            <img th:src="@{/img/9.png}" class="card-img-top"  th:id="'image' + ${iterStat.count} "/>
+            <div class="card-body p-5">
+                <h3 th:text="${user.getFirstName()}">First Name</h3>
+                <div th:text="${user.getPicture()}">Picture</div>
+<!--                <div th:text="${user.getPosts()}">Posts</div>-->
+<!--                <div th:text="${user.getCity()}">City</div>-->
+                <form th:action="${'/users/' + user.id}" th:method="GET">
+                    <button>View Profile</button>
+                </form>
+<!--                <div class="read mt-3" style="font-size: 18px"><a th:href="@{'/posts/' + ${post.id}}" class="btn btn-success"><em>Read more..</em></a></div>-->
+<!--                <div class="edit mt-2 text-center">-->
+<!--                    <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white; border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Edit</a>-->
+<!--                    <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white;  border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Delete</a>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+
+</div>
+</form>
+
+</body>
+</html>

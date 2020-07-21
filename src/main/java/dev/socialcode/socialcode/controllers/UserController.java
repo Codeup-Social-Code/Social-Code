@@ -3,10 +3,13 @@ package dev.socialcode.socialcode.controllers;
 import dev.socialcode.socialcode.daos.PostRepository;
 import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.Post;
+import dev.socialcode.socialcode.models.RSVP;
 import dev.socialcode.socialcode.models.User;
 import dev.socialcode.socialcode.models.UserWithRoles;
 import dev.socialcode.socialcode.services.EmailService;
 import dev.socialcode.socialcode.services.UserService;
+
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,6 +31,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Collections;
+import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -37,6 +46,7 @@ public class UserController {
     private PostRepository postsDao;
     private UserService usersService;
     private EmailService emailService;
+
 
     public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, UserService usersService, PostRepository postRepository, EmailService emailService) {
         this.usersDao = usersDao;
@@ -108,11 +118,25 @@ public class UserController {
         List<Post> userPosts = postsDao.findPostsByUser_Id(id);
         viewModel.addAttribute("userPosts", userPosts);
         viewModel.addAttribute("user", user);
+        int numberOfFollowers = user.getFollowers().size();
         viewModel.addAttribute("sessionUser", usersService.loggedInUser());
         viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
+        viewModel.addAttribute("followers", numberOfFollowers);
 
         return "users/user";
     }
+
+    @PostMapping("user/{id}/follow")
+    public String saveFollower(@PathVariable long id) {
+        User loggedInUser = usersService.loggedInUser();
+        User userToFollow = usersDao.getOne(id);
+        List <User> currentFollowers =  userToFollow.getFollowers();
+        currentFollowers.add(loggedInUser);
+        userToFollow.setFollowers(currentFollowers);
+        usersDao.save(userToFollow);
+        return "redirect:/users/" + userToFollow.getId();
+    }
+
 
     @GetMapping("/users/profile")
     public String showProfile(Model viewModel) {
@@ -140,8 +164,8 @@ public class UserController {
 
     //EDIT
     @GetMapping("/users/{id}/edit")
-    public String showEditForm(@PathVariable Long id, Model viewModel) {
-        User logUser = usersService.loggedInUser();
+  public String showEditForm(@PathVariable Long id, Model viewModel){
+          User logUser = usersService.loggedInUser();
         if (logUser == null) {
             return "users/login";
         }
@@ -157,15 +181,10 @@ public class UserController {
     }
 
     @PostMapping("/users/{id}/edit")
-    public String editUser(@PathVariable Long id,
-//                           @RequestParam(name = "password") String password,
-//                           @RequestParam(name = "password_to_confirm") String passwordToConfirm,
-////                           @PathVariable String password, @PathVariable String passwordToConfirm,
-                           @Valid User editedUser, Errors validation, Model model) {
+    public String editUser(@PathVariable Long id, @Valid User editedUser, Errors validation, Model model) {
         User user = usersDao.getOne(id);
         String password = user.getPassword();
         String passwordToConfirm = user.getPasswordToConfirm();
-
         editedUser.setId(id);
         editedUser.setPassword(password);
         editedUser.setPasswordToConfirm(passwordToConfirm);
@@ -176,12 +195,7 @@ public class UserController {
             model.addAttribute("showEditControls", checkEditAuth(editedUser));
             return "users/edit-profile";
         }
-        //i believe this was hashing their new password... but if they submitted their new hashed
-        //password with the below...their original password wouldn't work
-        //
-//        editedUser.setPassword(passwordEncoder.encode(editedUser.getPassword()));
         usersDao.save(editedUser);
-//        return "redirect:/users/"+id;
         return "redirect:/users/" + usersService.loggedInUser().getId();
     }
 
@@ -197,72 +211,11 @@ public class UserController {
         return "redirect:/welcome";
 
     }
-
+  
     //Adding filestack api
     @Value("${filestack_api_key}")
-    private String apiFromProperties;
+        private String apiFromProperties;
 
-
-//    @PostMapping("/sign-up")
-//    public String saveUser(@ModelAttribute User user) {
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
-//        usersDao.save(user);
-//        return "redirect:/welcome";
-//        return "redirect:/login";
-    //redirects go to urls, not to files
-//    }
-
-    //get single user view
-//    @GetMapping("/users/{id}")
-//    public String getUser(@PathVariable long id, Model model) {
-//        User user = usersDao.getOne(id);
-//        model.addAttribute("id", id);
-//        model.addAttribute("user", user);
-//        return "users/user";
-
-
-    //also I changed the UserRepository instance from users
-    // to usersDao for clarity
-
-    //what other controllers do we need?
-
-//    }
-
-
-//    public String saveUser(@ModelAttribute User user, Errors validation){
-//        User existingEmail = users.findByEmail(user.getEmail());
-//        if(existingEmail != null) {
-//            validation.rejectValue("email", "user.email", "Duplicated email " + user.getEmail());
-//        }
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
-//        users.save(user);
-////        return "/posts/index";
-//        return "redirect:/users/welcome";
-//    }
-    // From the Spring Validation Curriculum
-//    @PostMapping("/sign-up")
-//    public String saveUser(
-//            @ModelAttribute User user,
-//            @Valid User email,
-//            Errors validation,
-//            Model model
-//            ) {
-//        if (validation.hasErrors()) {
-//            model.addAttribute("errors", validation);
-//            model.addAttribute("email", email);
-//            return "users/sign-up";
-//        }
-////        User existingEmail = users.findByEmail(user.getEmail());
-////        if(existingEmail != null) {
-////            validation.rejectValue("email", "user.email", "Duplicated email " + user.getEmail());
-////        }
-//
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
-//        users.save(user);
-//        return "redirect:/login";
-//    }
 
 }
+

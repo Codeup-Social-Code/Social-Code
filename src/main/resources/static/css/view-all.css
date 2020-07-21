@@ -1,0 +1,20 @@
+
+
+.grid-container{
+    display: grid;
+    column-gap: 10px;
+    row-gap: 20px;
+    /*padding: 30px;*/
+    max-width: 1100px;
+    grid-template-areas:
+    "a a b"
+    "c d d"
+    "c e e";
+}
+
+/*#masonryIndex {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    */
+/*}*/

@@ -9,6 +9,7 @@ body.login{
 }
 
 .login-container{
+    text-align: center;
     margin-top: 140px;
     width: 18rem;
 }

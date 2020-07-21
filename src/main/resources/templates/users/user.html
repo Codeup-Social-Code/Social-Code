@@ -95,6 +95,9 @@
                 additional content.</p>
             <!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
             <p></p>
+            <form th:action="${'/posts/' + post.id + '/edit'}">
+                <button class="btn btn-warning">EDIT</button>
+            </form>
         </div>
     </div>
 </section>

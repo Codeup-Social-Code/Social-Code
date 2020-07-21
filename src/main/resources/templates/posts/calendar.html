@@ -12,37 +12,38 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+<script src="js/calendar.js"></script>
 <script>
 
-    $(function() {
-
-        $(document).ready(function() {
-            // Fetch our events
-            $.ajax({
-                url: "/posts.json",
-                method: "GET",
-                datatype: "json",
-                data: {
-                    "$where" : "start_date_time > '" + moment().subtract(31, 'days').format("YYYY-DD-MMT00:00:00") + "'",
-                    "city" : "Portland",
-                    "$order" : "start_date_time DESC"
-                }
-            }).done(function(response) {
-                // Parse our events into an event object for FullCalendar
-                var events = [];
-                $.each(response, function(idx, e) {
-                    events.push({
-                        start: e.start_date_time,
-                        end: e.end_date_time,
-                        title: e.title
-                    });
-                });
-                $('#calendar').fullCalendar({
-                    events: events
-                });
-            });
-        });
-    });
+    // $(function() {
+    //
+    //     $(document).ready(function() {
+    //         // Fetch our events
+    //         $.ajax({
+    //             url: "/posts.json",
+    //             method: "GET",
+    //             datatype: "json",
+    //             data: {
+    //                 "$where" : "start_date_time > '" + moment().subtract(31, 'days').format("YYYY-DD-MMT00:00:00") + "'",
+    //                 "city" : "Portland",
+    //                 "$order" : "start_date_time DESC"
+    //             }
+    //         }).done(function(response) {
+    //             // Parse our events into an event object for FullCalendar
+    //             var events = [];
+    //             $.each(response, function(idx, e) {
+    //                 events.push({
+    //                     start: e.start_date_time,
+    //                     end: e.end_date_time,
+    //                     title: e.title
+    //                 });
+    //             });
+    //             $('#calendar').fullCalendar({
+    //                 events: events
+    //             });
+    //         });
+    //     });
+    // });
     // document.addEventListener('DOMContentLoaded', function() {
     //     var calendarEl = document.getElementById('calendar');
     //     var calendar = new FullCalendar.Calendar(calendarEl, {

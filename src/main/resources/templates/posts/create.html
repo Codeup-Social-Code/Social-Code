@@ -30,10 +30,10 @@
                             <input id="end_date_time" type="date" name="end_date_time" th:field="*{end_date_time}">
 <!--                            <input type="time" name="eventTime">-->
                             <label for="start_time">Start Time</label>
-                            <input id="start_time" type="time" name="eventTime" th:field="*{start_time}">
+                            <input id="start_time" type="time" step='1' min="00:00:00" max="24:00:00" name="eventTime" th:field="*{start_time}">
 
                             <label for="end_time">End Time</label>
-                            <input id="end_time" type="time" name="eventTime" th:field="*{end_time}">
+                            <input id="end_time" type="time" step='1' min="00:00:00" max="24:00:00" name="eventTime" th:field="*{end_time}">
                         </div>
 
                         <div>

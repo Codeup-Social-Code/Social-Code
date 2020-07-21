@@ -4,6 +4,7 @@ package dev.socialcode.socialcode.controllers;
 import dev.socialcode.socialcode.daos.*;
 import dev.socialcode.socialcode.models.*;
 import dev.socialcode.socialcode.services.UserService;
+import javassist.Loader;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.parameters.P;
@@ -12,6 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 //import java.sql.Date; -- we need to change to this
 import java.util.Date;
@@ -96,6 +100,24 @@ public class PostController {
         User currentUser = usersDao.findByUsername(authentication.getName());
         System.out.println(currentUser);
         postToBeSaved.setUser(currentUser);
+        Date dateStart;
+        Date dateEnd;
+
+        try {
+            dateStart = new SimpleDateFormat("yyyy-MM-dd").parse(postToBeSaved.getStart_date_time());
+            dateEnd = new SimpleDateFormat("yyyy-MM-dd").parse(postToBeSaved.getEnd_date_time());
+            String startDate = new SimpleDateFormat("yyyy-MM-dd").format(dateStart);
+            String endDate = new SimpleDateFormat("yyyy-MM-dd").format(dateEnd);
+            String startFormat = startDate + 'T' +postToBeSaved.getStart_time() + ":00";
+            String endFormat = endDate + 'T' + postToBeSaved.getEnd_time() + ":00";
+            postToBeSaved.setStart_date_time(startFormat);
+            postToBeSaved.setEnd_date_time(endFormat);
+        } catch (ParseException e) {
+
+        }
+
+
+
 
         Category category = categoriesDao.findCategoryById(Long.parseLong(catId));
         List<Category> listOfCategories = new ArrayList<>();

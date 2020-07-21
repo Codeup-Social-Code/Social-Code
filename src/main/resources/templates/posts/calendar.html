@@ -23,7 +23,7 @@
                 method: "GET",
                 datatype: "json",
                 data: {
-                    "$where" : "start_date_time > '" + moment().subtract(31, 'days').format("YYYY-MM-DDT00:00:00") + "'",
+                    "$where" : "start_date_time > '" + moment().subtract(31, 'days').format("YYYY-DD-MMT00:00:00") + "'",
                     "city" : "Portland",
                     "$order" : "start_date_time DESC"
                 }
@@ -34,8 +34,7 @@
                     events.push({
                         start: e.start_date_time,
                         end: e.end_date_time,
-                        title: e.meeting_title
-
+                        title: e.title
                     });
                 });
                 $('#calendar').fullCalendar({

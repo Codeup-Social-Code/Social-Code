@@ -38,16 +38,22 @@
     </section>
 
 <!--FOLLOWS/POSTS/FOLLOWING-->
-        <div class="container analytics text-center">
+        <section class="container followers text-center">
             <div class="row text-center">
-                <ul>
-                    <li id="followersId" th:text="${user.followers.size()}" style="list-style: none">[size of followers list]</li>
-                    <form th:action="@{'/user/' + ${user.id} + '/follow'}" th:method="POST">
-                        <input  type="submit" id="follow-me" class="btn btn-success" style="color: white" value="Follow"></input>
-                    </form>
-                </ul>
+                <div class="col-12 d-flex justify-content-center align-items-center text-center">
+                        <div id="followersId" th:text="${user.followers.size()}" style="font-size: 30px"></div>
+                        <span class="d-flex align-items-end" style="font-size: 15px">Followers</span>
+                </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center align-items-center text-center">
+                        <form th:action="@{'/user/' + ${user.id} + '/follow'}" th:method="POST">
+                            <input  type="submit" id="follow-me" class="btn btn-success" style="color: white" value="Follow"></input>
+                        </form>
+                </div>
+            </div>
+
+        </section>
 
 
 <hr style="width: 50%">

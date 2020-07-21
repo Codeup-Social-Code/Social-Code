@@ -9,7 +9,7 @@
 
     <!--NEW NAVBAR-->
     <nav class="navbar navbar-expand navbar-light bg-light"  th:fragment="navbar">
-        <a class="navbar-brand" href="/posts"><img class="logo" src="/img/codeup-logo.png"/></a>
+        <a class="navbar-brand d-sm-none d-md-block " href="/posts"><img class="logo" src="/img/codeup-logo.png"/></a>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav mr-auto">
                 <li id="search" class="nav-item ">
@@ -25,7 +25,7 @@
                 <th:block sec:authorize="isAuthenticated()">
                     <li id="logout-btn" class="nav-item">
                         <form th:action="@{/logout}" th:method="POST">
-                            <button id="logout" class="btn-link btn">Logout</button>
+                            <button id="logout" class="btn-link btn" style="color: dimgrey">Logout</button>
                         </form>
                     </li>
                 </th:block>
@@ -35,27 +35,19 @@
                     </form>
                 </li>
                 <th:block sec:authorize="isAuthenticated()">
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
                             <li class="nav-item dropdown">
-                                <button class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    Community</button>
-                                <ul class="nav-item" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" th:href="@{/posts}">View events</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/users/view-all}">View all users</a> </li>
-                                    <div class="dropdown-divider"></div>
-                                    <li><a class="dropdown-item" th:href="@{/users/profile}">Your profile</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/posts/create}">Create an event</a></li>
-                                </ul>
+                                <a href="#" class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: dimgrey">Community</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" th:href="@{/posts}">View events</a>
+                                            <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" th:href="@{/users/view-all}">View all users</a>
+                                            <div class="dropdown-divider"></div>
+                                       <a class="dropdown-item" th:href="@{/users/profile}">Your profile</a>
+                                            <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" th:href="@{/posts/create}">Create an event</a>
+                                    </div>
                             </li>
-                        </ul>
-                    </div>
                 </th:block>
-            </ul>
-        </div>
-
             </ul>
         </div>
     </nav>

@@ -1,6 +1,12 @@
+ul
+.navbar-nav{
+    text-align: center;
+}
+
+
 .logo {
     float: left;
-    width: 30%;
+    width: 0%;
 }
 
 #search {
@@ -15,6 +21,7 @@
      width: 70%;
      font-size: 9px;
  }
+
 
  .fas {
      margin-left: 2px;
@@ -32,6 +39,15 @@
 }
 
 #register {
+    font-size: 10px;
+}
+
+#navbarDropdown{
+    font-size: 10px;
+}
+
+
+.dropdown-item {
     font-size: 10px;
 }
 
@@ -172,20 +188,17 @@
     }
 
     #login {
-        font-size: 30px;
+        font-size: 20px;
     }
 
     #logout {
-        font-size: 30px;
+        font-size: 20px;
     }
 
     #register {
-        font-size: 30px;
+        font-size: 20px;
     }
 
-    .dropdown-toggle {
-        font-size: 30px;
-    }
 
 
 }

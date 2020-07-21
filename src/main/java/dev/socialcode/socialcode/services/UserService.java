@@ -37,7 +37,6 @@ public class UserService {
         }
 
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
         return usersRepository.getOne(sessionUser.getId());
     }
 
@@ -46,15 +45,27 @@ public class UserService {
         if(isLoggedIn()){
             return (postUser.getUsername().equals(loggedInUser().getUsername()));
         }
-
         return false;
-
     }
 
     // Edit controls are being showed up if the user is logged in and it's the same user viewing the file
     public boolean canEditProfile(User profileUser){
         return isLoggedIn() && (profileUser.getId() == loggedInUser().getId());
     }
+
+//    // Checks if the user is the owner of the profile
+//    public boolean isProfileOwner(User profileUser) {
+//        if (isLoggedIn()) {
+//            return (profileUser.getUsername().equals(loggedInUser().getUsername()));
+//        }
+//        return false;
+//    }
+
+
+
+
+
+
 
 
 

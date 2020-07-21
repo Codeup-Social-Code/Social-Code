@@ -14,14 +14,23 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import dev.socialcode.socialcode.services.UserService;
 
 
 @Controller
 public class WelcomeController {
+    private UserService usersService;
 
+    public WelcomeController(UserService usersService) {
+        this.usersService = usersService;
+    }
 
     @GetMapping("/welcome")
     public String showSignupForm(Model model){
+        User logUser = usersService.loggedInUser();
+        if (logUser == null) {
+            return "users/login";
+        }
         model.addAttribute("user", new User());
         return "users/welcome";
     }

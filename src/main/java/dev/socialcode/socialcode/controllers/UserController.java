@@ -5,20 +5,33 @@ import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.RSVP;
 import dev.socialcode.socialcode.models.User;
+import dev.socialcode.socialcode.models.UserWithRoles;
 import dev.socialcode.socialcode.services.EmailService;
 import dev.socialcode.socialcode.services.UserService;
 
 import org.springframework.security.core.context.SecurityContextHolder;
-
 import org.springframework.beans.factory.annotation.Value;
-
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Collections;
+import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -74,16 +87,32 @@ public class UserController {
         user.setPasswordToConfirm(hashForConfirm);
 
         usersDao.save(user);
-
+        authenticate(user);
         User savedUser = usersDao.save(user);
         emailService.prepareAndSend(savedUser, "A new account has been created", "Thank you for signing up your One stop website where you can grow! Your username: " + savedUser.getUsername());
 
-        return "redirect:/login";
+        return "redirect:/welcome";
+    }
+
+    private void authenticate(User user) {
+        UserDetails userDetails = new UserWithRoles(user, Collections.emptyList());
+        Authentication auth = new UsernamePasswordAuthenticationToken(
+                userDetails,
+                userDetails.getPassword(),
+                userDetails.getAuthorities()
+        );
+        SecurityContext context = SecurityContextHolder.getContext();
+        context.setAuthentication(auth);
     }
 
 
     @GetMapping("/users/{id}")
     public String showUser(@PathVariable Long id, Model viewModel) {
+        User logUser = usersService.loggedInUser();
+        if (logUser == null) {
+            return "users/login";
+        }
+
         User user = usersDao.getOne(id);
 
         List<Post> userPosts = postsDao.findPostsByUser_Id(id);
@@ -125,7 +154,7 @@ public class UserController {
     @GetMapping("/users/view-all")
     public String viewAllUsers(Model m) {
         User logUser = usersService.loggedInUser();
-        if (logUser == null){
+        if (logUser == null) {
             return "users/login";
         }
         List<User> viewAll = usersDao.findAll();
@@ -135,10 +164,18 @@ public class UserController {
 
     //EDIT
     @GetMapping("/users/{id}/edit")
-     public String showEditForm(@PathVariable Long id, Model viewModel){
+  public String showEditForm(@PathVariable Long id, Model viewModel){
+          User logUser = usersService.loggedInUser();
+        if (logUser == null) {
+            return "users/login";
+        }
+
         viewModel.addAttribute("apiKey", apiFromProperties);
         User user = usersDao.getOne(id);
         viewModel.addAttribute("user", user);
+        viewModel.addAttribute("sessionUser", usersService.loggedInUser());
+        //still need to create "showEditPage"
+//        viewModel.addAttribute("showEditPage", usersService.isProfileOwner(user));
         viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
         return "users/edit-profile";
     }
@@ -181,3 +218,4 @@ public class UserController {
 
 
 }
+

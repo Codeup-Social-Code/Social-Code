@@ -17,8 +17,8 @@
                                 <img class="image--cover" th:src="*{user.picture}" width="100%"/>
                             </div>
                             <div class="card-body">
-                               <h1>Name: <span th:text="${user.getUsername()}"></span></h1>
-                              <h4>Location: <span th:text="${user.getCity()}"></span></h4>
+                               <h1>Name: <span th:text="${user.firstName}"></span></h1>
+                              <h1>Name: <span th:text="${user.lastName}"></span></h1>
                             </div>
                             <div class="card-footer text-center">
                                 <form th:action="${'/users/' + user.id }" th:method="GET">
@@ -30,7 +30,6 @@
                     </div>
                 </div>
             </div>
-
 
   </div>
 

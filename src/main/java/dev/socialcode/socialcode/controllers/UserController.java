@@ -168,6 +168,16 @@ public class UserController {
     @Value("${filestack_api_key}")
         private String apiFromProperties;
 
+    //Search Functionality
+    @GetMapping("/users/search")
+    public String showSearch(Model model, @RequestParam(name = "term") String term) {
+        List<User> firstNameResults = usersDao.searchByFirstNameLike(term);
+        List<User> lastNameResults = usersDao.searchByLastNameLike(term);
+        model.addAttribute("firstNameResults", firstNameResults);
+        model.addAttribute("lastNameResults", lastNameResults);
+        return "users/view-all-search";
+    }
+
 
 
 

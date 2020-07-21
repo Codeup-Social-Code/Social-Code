@@ -45,6 +45,17 @@ public class PostController {
     //Search Functionality
     @GetMapping("/search")
     public String showSearch(Model model, @RequestParam(name = "term") String term) {
+        List<Category> categories = categoriesDao.searchByCategory(term);
+        if(!categories.isEmpty()) {
+            long newTerm = 0;
+            for(Category category: categories) {
+                newTerm = category.getId();
+            }
+            List<Post> results = postsDao.findPostsByCategory_Id(newTerm);
+            model.addAttribute("results", results);
+            return "posts/index-search";
+        }
+
         List<Post> results = postsDao.searchByTerm(term);
         model.addAttribute("results", results);
         return "posts/index-search";

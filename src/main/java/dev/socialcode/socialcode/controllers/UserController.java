@@ -150,6 +150,8 @@ public class UserController {
         User user = usersDao.getOne(id);
         viewModel.addAttribute("user", user);
         viewModel.addAttribute("sessionUser", usersService.loggedInUser());
+        //still need to create "showEditPage"
+        viewModel.addAttribute("showEditPage", usersService.isProfileOwner(user));
         viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
         return "users/edit-profile";
     }

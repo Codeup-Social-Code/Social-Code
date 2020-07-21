@@ -53,6 +53,13 @@ public class UserService {
         return isLoggedIn() && (profileUser.getId() == loggedInUser().getId());
     }
 
+    // Checks if the user is the owner of the profile
+    public boolean isProfileOwner(User profileUser) {
+        if (isLoggedIn()) {
+            return (profileUser.getUsername().equals(loggedInUser().getUsername()));
+        }
+        return false;
+    }
 
 
 

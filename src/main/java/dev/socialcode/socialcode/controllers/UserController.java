@@ -98,6 +98,11 @@ public class UserController {
 
     @GetMapping("/users/{id}")
     public String showUser(@PathVariable Long id, Model viewModel) {
+        User logUser = usersService.loggedInUser();
+        if (logUser == null) {
+            return "users/login";
+        }
+
         User user = usersDao.getOne(id);
 
         List<Post> userPosts = postsDao.findPostsByUser_Id(id);
@@ -136,9 +141,15 @@ public class UserController {
     //EDIT
     @GetMapping("/users/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model viewModel) {
+        User logUser = usersService.loggedInUser();
+        if (logUser == null) {
+            return "users/login";
+        }
+
         viewModel.addAttribute("apiKey", apiFromProperties);
         User user = usersDao.getOne(id);
         viewModel.addAttribute("user", user);
+        viewModel.addAttribute("sessionUser", usersService.loggedInUser());
         viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
         return "users/edit-profile";
     }

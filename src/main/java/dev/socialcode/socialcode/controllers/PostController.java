@@ -94,8 +94,6 @@ public class PostController {
     public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId, Authentication authentication) {
 
         System.out.println(postToBeSaved.getEventTime());
-        System.out.println(postToBeSaved.getEvent_start());
-        System.out.println(postToBeSaved.getEvent_end());
 
         User currentUser = usersDao.findByUsername(authentication.getName());
         System.out.println(currentUser);

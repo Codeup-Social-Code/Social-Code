@@ -26,7 +26,7 @@ public class Post {
     private String title;
 
     @NotBlank(message = "required")
-    @Column(nullable = false, length = 3000)
+    @Column(nullable = false, columnDefinition="TEXT")
     private String body;
 
     @CreationTimestamp
@@ -34,13 +34,13 @@ public class Post {
     @Column(name = "create_date")
     private Date createDate;
 
-    @Column (name = "event_start", nullable = false, length = 255)
+    @Column (name = "start_date_time", nullable = false, length = 255)
     //use String or Date?
-    private String event_start;
+    private String start_date_time;
 
-    @Column (name = "event_end", nullable = false, length = 255)
+    @Column (name = "end_date_time", nullable = false, length = 255)
     //use String or Date?
-    private String event_end;
+    private String end_date_time;
 
     @Column (name = "event_time", nullable = false, length = 255)
     private String eventTime;
@@ -76,8 +76,8 @@ public class Post {
         this.title = title;
         this.body = body;
         this.createDate = createDate;
-        this.event_start = event_start;
-        this.event_end = event_end;
+        this.start_date_time = event_start;
+        this.end_date_time = event_end;
         this.eventTime = eventTime;
         this.user = user;
         this.categories = categories;
@@ -93,8 +93,8 @@ public class Post {
         this.title = title;
         this.body = body;
         this.createDate = createDate;
-        this.event_start = event_start;
-        this.event_end = event_end;
+        this.start_date_time = event_start;
+        this.end_date_time = event_end;
         this.eventTime = eventTime;
         this.user = user;
         this.categories = categories;
@@ -180,20 +180,20 @@ public class Post {
         return formatter.format(createDate);
     }
 
-    public String getEvent_start() {
-        return event_start;
+    public String getStart_date_time() {
+        return start_date_time;
     }
 
-    public void setEvent_start(String event_start) {
-        this.event_start = event_start;
+    public void setStart_date_time(String start_date_time) {
+        this.start_date_time = start_date_time;
     }
 
-    public String getEvent_end() {
-        return event_end;
+    public String getEnd_date_time() {
+        return end_date_time;
     }
 
-    public void setEvent_end(String event_end) {
-        this.event_end = event_end;
+    public void setEnd_date_time(String end_date_time) {
+        this.end_date_time = end_date_time;
     }
 
     public List<RSVP> getUsersAttending() {

@@ -48,7 +48,7 @@ public class User {
         @JsonIgnore
         String gitHub;
 
-        @Column
+        @Column(columnDefinition="TEXT")
         @JsonIgnore
         String bio;
 

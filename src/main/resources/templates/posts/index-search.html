@@ -11,7 +11,9 @@
 <body>
 
 <div class="container">
-
+    <th:block th:if="${results.size() == 0}">
+        <p>No Posts Found</p>
+    </th:block>
     <div th:each="post, iterStat : ${results}" class="box" th:id=" 'masonry' + ${iterStat.count}">
         <div class="card p-5 mt-5 text-center" style="width: 18rem">
             <img th:src="@{/img/9.png}" class="card-img-top"  th:id="'image' + ${iterStat.count} "/>

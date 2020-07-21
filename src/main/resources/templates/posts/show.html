@@ -57,6 +57,9 @@
                 </div>
                 <p class="card-text"><small class="text-muted">Created By: <span th:text="${post.user.firstName}"></span></small></p>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto at delectus deserunt dignissimos distinctio eos, ipsa maiores nobis pariatur praesentium, qui repellat rerum sequi voluptatibus. Ab accusantium assumenda blanditiis consequatur cum delectus dolorem eligendi esse est explicabo fugit illum laudantium modi, neque nesciunt odit quaerat quasi quia quos rerum sed sunt veniam. Distinctio dolores eius enim excepturi maxime molestias, necessitatibus quisquam quod sunt. Commodi consectetur corporis distinctio error et facere facilis fugiat fugit hic impedit incidunt libero magni maxime minus molestias natus, nisi nobis omnis perspiciatis quibusdam recusandae rem rerum sequi unde, velit veritatis voluptatem. Accusantium alias aperiam cumque cupiditate dicta, doloribus enim, expedita explicabo iusto natus numquam placeat provident quasi quisquam repudiandae similique totam veritatis, vitae! At ea est fuga, ipsum labore molestias nisi odio placeat vitae voluptatibus. At aut eos, excepturi ipsa labore nemo nulla obcaecati optio quidem repudiandae sapiente, totam unde vitae voluptas voluptatem. Placeat, quam.</p>
+                <th:block th:if="${comments.size() == 0}">
+                   <p>No comments Found</p>
+                </th:block>
                 <div th:each="comment: ${comments}" class="card-body">
                     <span><em th:text="${comment.user.firstName}"></em></span> <span><em th:text="${comment.user.lastName}"></em></span>:
                     <span th:text="${comment.body}"></span>

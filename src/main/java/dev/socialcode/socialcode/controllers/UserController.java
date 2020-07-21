@@ -4,9 +4,15 @@ import dev.socialcode.socialcode.daos.PostRepository;
 import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.User;
+import dev.socialcode.socialcode.models.UserWithRoles;
 import dev.socialcode.socialcode.services.EmailService;
 import dev.socialcode.socialcode.services.UserService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,8 +23,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -44,16 +52,17 @@ public class UserController {
         model.addAttribute("user", new User());
         return "users/sign-up";
     }
+
     @PostMapping("/sign-up")
-    public String saveUser(@ModelAttribute User user, Errors validation, Model model){
+    public String saveUser(@ModelAttribute User user, Errors validation, Model model) {
         User existingUsername = usersDao.findByUsername(user.getUsername());
 
-        if(existingUsername != null) {
+        if (existingUsername != null) {
             validation.rejectValue("username", "user.username", "You entered duplicated username, do you remember your email?");
         }
 
-        if(!user.getPassword().equals(user.getPasswordToConfirm())) {
-            validation.rejectValue("password",user.getPassword(), "Passwords are not match!");
+        if (!user.getPassword().equals(user.getPasswordToConfirm())) {
+            validation.rejectValue("password", user.getPassword(), "Passwords are not match!");
         }
 
         if (validation.hasErrors()) {
@@ -68,16 +77,27 @@ public class UserController {
         user.setPasswordToConfirm(hashForConfirm);
 
         usersDao.save(user);
-
+        authenticate(user);
         User savedUser = usersDao.save(user);
         emailService.prepareAndSend(savedUser, "A new account has been created", "Thank you for signing up your One stop website where you can grow! Your username: " + savedUser.getUsername());
 
-        return "redirect:/login";
+        return "redirect:/welcome";
+    }
+
+    private void authenticate(User user) {
+        UserDetails userDetails = new UserWithRoles(user, Collections.emptyList());
+        Authentication auth = new UsernamePasswordAuthenticationToken(
+                userDetails,
+                userDetails.getPassword(),
+                userDetails.getAuthorities()
+        );
+        SecurityContext context = SecurityContextHolder.getContext();
+        context.setAuthentication(auth);
     }
 
 
     @GetMapping("/users/{id}")
-    public String showUser(@PathVariable Long id, Model viewModel){
+    public String showUser(@PathVariable Long id, Model viewModel) {
         User user = usersDao.getOne(id);
 
         List<Post> userPosts = postsDao.findPostsByUser_Id(id);
@@ -90,10 +110,10 @@ public class UserController {
     }
 
     @GetMapping("/users/profile")
-    public String showProfile(Model viewModel){
+    public String showProfile(Model viewModel) {
         User logUser = usersService.loggedInUser();
-    //not reading that user is logged in
-        if(logUser == null){
+        //not reading that user is logged in
+        if (logUser == null) {
             viewModel.addAttribute("msg", "You need to be logged in to be able to see this page");
             return "users/login";
         }
@@ -105,7 +125,7 @@ public class UserController {
     @GetMapping("/users/view-all")
     public String viewAllUsers(Model m) {
         User logUser = usersService.loggedInUser();
-        if (logUser == null){
+        if (logUser == null) {
             return "users/login";
         }
         List<User> viewAll = usersDao.findAll();
@@ -115,7 +135,7 @@ public class UserController {
 
     //EDIT
     @GetMapping("/users/{id}/edit")
-    public String showEditForm(@PathVariable Long id, Model viewModel){
+    public String showEditForm(@PathVariable Long id, Model viewModel) {
         viewModel.addAttribute("apiKey", apiFromProperties);
         User user = usersDao.getOne(id);
         viewModel.addAttribute("user", user);
@@ -128,7 +148,7 @@ public class UserController {
 //                           @RequestParam(name = "password") String password,
 //                           @RequestParam(name = "password_to_confirm") String passwordToConfirm,
 ////                           @PathVariable String password, @PathVariable String passwordToConfirm,
-                           @Valid User editedUser, Errors validation, Model model){
+                           @Valid User editedUser, Errors validation, Model model) {
         User user = usersDao.getOne(id);
         String password = user.getPassword();
         String passwordToConfirm = user.getPasswordToConfirm();
@@ -153,7 +173,7 @@ public class UserController {
     }
 
     //user has rights to edit
-    public Boolean checkEditAuth(User user){
+    public Boolean checkEditAuth(User user) {
         return usersService.isLoggedIn() && (user.getId() == usersService.loggedInUser().getId());
     }
 
@@ -167,10 +187,7 @@ public class UserController {
 
     //Adding filestack api
     @Value("${filestack_api_key}")
-        private String apiFromProperties;
-
-
-
+    private String apiFromProperties;
 
 
 //    @PostMapping("/sign-up")
@@ -180,7 +197,7 @@ public class UserController {
 //        usersDao.save(user);
 //        return "redirect:/welcome";
 //        return "redirect:/login";
-        //redirects go to urls, not to files
+    //redirects go to urls, not to files
 //    }
 
     //get single user view
@@ -192,13 +209,12 @@ public class UserController {
 //        return "users/user";
 
 
-        //also I changed the UserRepository instance from users
-        // to usersDao for clarity
+    //also I changed the UserRepository instance from users
+    // to usersDao for clarity
 
-        //what other controllers do we need?
+    //what other controllers do we need?
 
 //    }
-
 
 
 //    public String saveUser(@ModelAttribute User user, Errors validation){

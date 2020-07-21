@@ -15,6 +15,9 @@ public class UserWithRoles extends User implements UserDetails {
         super(user);     // Call the copy constructor defined in User
     }
 
+    public <T> UserWithRoles(User user, Collection<T> emptyList) {
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         String roles = ""; // Since we're not using the authorization part of the component

@@ -10,6 +10,7 @@
 <div th:if="${post}">
     <h1>Title: <span th:text="${post.title}"></span></h1>
     <h1>Created By: <span th:text="${post.user.firstName}"></span></h1>
+    <img class="image--cover" th:src="*{post.user.picture}" width="100%"/>
     <h3>Body: <span th:text="${post.body}"></span></h3>
     <div th:each="category: ${post.categories}">
         <h2 th:text="${category.name}"></h2>
@@ -127,9 +128,9 @@ EDIT ON
             <div class="col-md-6 mb-4 text-white" th:each="rsvp: ${rsvps}">
 
                 <h2 class="my-5 h2" th:text="${rsvp.user.firstName}">Basic example</h2>
-
-                <img class="rounded-circle" alt="100x100" src="https://fer-uig.glitch.me"
-                     data-holder-rendered="true">
+                <img class="image--cover" th:src="*{rsvp.user.picture}" width="100%"/>
+<!--                <img class="rounded-circle" alt="100x100" src="https://fer-uig.glitch.me"-->
+<!--                     data-holder-rendered="true">-->
             </div>
         </div>
     </div>

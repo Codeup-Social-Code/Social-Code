@@ -8,13 +8,37 @@
 
 <nav th:replace="fragments/navbar :: navbar"></nav>
 
+    <section class="bio-container">
+        <div class="card mb-3">
+            <div class="card-header bg-success" style="height: 70px"> </div>
+            <div class="row bio-row no-gutters" style="height: 400px">
+                <div class="wrapper col-md-4 ">
+                   <img class="image--cover" th:src="*{user.picture}" width="100%"/>
+                </div>
+                <div class="col-md-8">
+                    <div class="bio-card-body">
+                        <h3 id="first" th:text="${user.firstName}"></h3>
+    <!--                <h3 id="last" th:text="${user.lastName}"></h3>-->
+
+                        <h6 th:text="${user.city}">City</h6>
+                        <div class="connect">
+                            <h6 id="email" th:text="${user.username}">Email</h6>
+    <!--                        <h6 id="github" class="card-text"th:text="${user.gitHub}">GitHub</h6>-->
+
+                            <a id="github" class="card-text" th:text="${user.gitHub}" th:href="@{${user.gitHub}}">GitHub</a>
+                            <a id="linkedin" class="card-text" th:text="${user.linkedIn}" th:href="@{${user.linkedIn}}">LinkedIn</a>
+    <!--                        <h6 id="linkedin" class="card-text" th:text="${user.linkedIn}">LinkedIn</h6>-->
+                            <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
+                            <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }"><h1>EDIT</h1></a>
+                        </div>
+
 <section class="bio-container">
     <div class="card mb-3">
         <div class="card-header bg-success" style="height: 70px"></div>
         <div class="row bio-row no-gutters" style="height: 400px">
             <div class="wrapper col-md-4 ">
 <!--                <img class="image&#45;&#45;cover" src="/img/Profile-Placeholder.png" width="100%"/>-->
-                <img class="image--cover" th:src="*{user.picture}" width="100%"/>
+              
             </div>
             <div class="col-md-8">
                 <div class="bio-card-body">
@@ -40,47 +64,47 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<div class="text-center">
-    <button class="btn-success follow" type="submit">Follow</button>
-</div>
-<section class="container analytics text-center">
-    <div class="row">
-        <div class="col-4">
-            <h2>150</h2>
-            <p>posts</p>
-        </div>
-        <div class="col-4">
-            <h2>150</h2>
-            <p>followers</p>
-        </div>
-        <div class="col-4">
-            <h2>150</h2>
-            <p>following</p>
-        </div>
-    </div>
-</section>
+<!--FOLLOWS/POSTS/FOLLOWING-->
+        <section class="container followers text-center">
+            <div class="row text-center">
+                <div class="col-12 d-flex justify-content-center align-items-center text-center">
+                        <div id="followersId" th:text="${user.followers.size()}" style="font-size: 30px"></div>
+                        <span class="d-flex align-items-end" style="font-size: 15px">Followers</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center align-items-center text-center">
+                        <form th:action="@{'/user/' + ${user.id} + '/follow'}" th:method="POST">
+                            <input  type="submit" id="follow-me" class="btn btn-success" style="color: white" value="Follow"></input>
+                        </form>
+                </div>
+            </div>
+
+        </section>
+
 
 <hr style="width: 50%">
 
 
-<section class="container project-section">
-    <div class="row project-wrapper text-center">
-        <div class="text-center">
-            <div class="button-container text-center">
-                <img src="/img/9.png" class="project-cover"/>
-                <a class="text-center" href="#">+</a>
+    <section class="container project-section">
+        <div class="row project-wrapper text-center">
+            <div class="text-center">
+                <div class="button-container text-center">
+                    <img src="/img/9.png" class="project-cover"/>
+                    <a class="text-center" href="#">+</a>
+                </div>
+                <img src="/img/8.png" class="project-cover"/>
             </div>
-            <img src="/img/8.png" class="project-cover"/>
+            <div class="text-center">
+                <img src="/img/13.png" class="project-cover" />
+                <img src="/img/7.png" class="project-cover"/>
+            </div>
         </div>
-        <div class="text-center">
-            <img src="/img/13.png" class="project-cover"/>
-            <img src="/img/7.png" class="project-cover"/>
-        </div>
-    </div>
-</section>
+    </section>
+
+
 
 <hr style="width: 50%">
 
@@ -94,102 +118,23 @@
             <p class="card-text" th:text="${post.body}">This card has supporting text below as a natural lead-in to
                 additional content.</p>
             <!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
-            <p></p>
             <form th:action="${'/posts/' + post.id + '/edit'}">
                 <button class="btn btn-warning">EDIT</button>
             </form>
+
         </div>
     </div>
 </section>
 
 
 
-<!--Example of users posts-->
-<section class="container posts" >
-    <div class="card" th:each="post: ${userPosts}">
-        <img src="/img/11.png" width="100%"/>
-        <div class="card-body">
-            <h5 class="card-title" th:text="${post.title}">Card title</h5>
-            <p class="card-text" th:text="${post.body}">This card has supporting text below as a natural lead-in to additional content.</p>
-<!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
-            <p></p>
-        </div>
-    </div>
-</section>
+<th:block th:replace="fragments/footer :: footer-script"></th:block>
+
+
 
 
 
 </div>
-
-<!--MOVING TO EDIT USER-->
-<!--<script-->
-<!--        src="https://code.jquery.com/jquery-3.5.1.js"-->
-<!--        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="-->
-<!--        crossorigin="anonymous"></script>-->
-<!--<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>-->
-
-<!--<script th:inline="javascript">-->
-<!--    var apiKey = [[${apiKey}]];-->
-<!--    //testing it gets passed through-->
-<!--    // alert("Your api key is: " + apiKey);-->
-<!--    const client = filestack.init(apiKey);-->
-<!--    // client.picker().open();-->
-<!--    // $("#upload").click(function () {-->
-<!--    //     client.picker().open()-->
-<!--    // });-->
-
-<!--    $("#upload").click(function () {-->
-<!--        client.picker(options).open()-->
-<!--    });-->
-
-<!--    const options = {-->
-<!--        fromSources: ["local_file_system","instagram","facebook"],-->
-<!--        onUploadDone:-->
-<!--            function (res){-->
-<!--                console.log(res.filesUploaded[0].url);-->
-<!--                alert("Log fired");-->
-<!--            }-->
-<!--    }-->
-
-
-<!--</script>-->
 </body>
 </html>
-
-
-<!-- <nav th:replace="fragments/navbar :: navbar" />
-<div class="container">
-    <h5>User Profile</h5>
-    <div th:if="${user == null}">User not found.</div>
-    <div th:if="${user}">
-        <div th:image="${user.picture}"/>
-        <div>
-            <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
-            <script>const client = filestack.init(filestack_api_key);-->
-<!--                    client.picker().open();-->
-<!--            </script>-->
-<!--        </div>-->
-<!--         <label for="name">Name</label> -->
-<!--         <h3 id="name" th:text="${user.firstName}"/> -->
-<!--         <h3 th:text="${user.lastName}"/> -->
-<!--         <label for="username">Email</label> -->
-<!--         <h6 id="username" th:text="${user.username}"/> -->
-<!--        need to let it display page even if below values are null-->
-<!--         <label for="city">City</label> -->
-<!--         <h6 id="city" th:text="${user.city}">City</h6> -->
-<!--         <label for="gitHub">GitHub</label> -->
-<!--         <h6 id="github" th:text="${user.gitHub}">GitHub</h6> -->
-<!--         <label for="linkedIn">LinkedIn</label> -->
-<!--         <h6 id="linkedIn" th:text="${user.linkedIn}">LinkedIn</h6> -->
-<!--         <label for="bio">Bio</label> -->
-<!--         <h5 id="bio" th:text="${user.bio}">Bio</h5> -->
-<!--     </div> -->
-
-<!--     <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }"><h6>edit</h6></a> -->
-
-<!--button return to all users -->
-<!-- </div> -->
-<!-- <script src="application.properties"></script> --> -->
-<!-- </body> -->
-<!-- </html> -->
 

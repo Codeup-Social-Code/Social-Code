@@ -1,4 +1,4 @@
-ul
+
 .navbar-nav{
     text-align: center;
 }
@@ -64,6 +64,15 @@ ul
     }
 
 
+    #navbarDropdown{
+        font-size: 20px;
+    }
+
+
+    .dropdown-item {
+        font-size: 20px;
+    }
+
     #login {
         font-size: 20px;
     }
@@ -98,6 +107,15 @@ ul
     }
 
     #register {
+        font-size: 17px;
+    }
+
+    #navbarDropdown{
+        font-size: 17px;
+    }
+
+
+    .dropdown-item {
         font-size: 17px;
     }
 
@@ -154,6 +172,15 @@ ul
         font-size: 13px;
     }
 
+    #navbarDropdown{
+        font-size: 13px;
+    }
+
+
+    .dropdown-item {
+        font-size: 13px;
+    }
+
 }
 
 @media screen and (min-width:2200px) {
@@ -199,6 +226,14 @@ ul
         font-size: 20px;
     }
 
+    #navbarDropdown{
+        font-size: 20px;
+    }
+
+
+    .dropdown-item {
+        font-size: 20px;
+    }
 
 
 }

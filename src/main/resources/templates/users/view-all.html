@@ -6,6 +6,10 @@
     </head>
     <body>
     <nav th:replace="fragments/navbar :: navbar"></nav>
+    <form action="/users/search"> <!-- make sure the search bar has a form that maps to  -->
+        <input class="d-none d-md-block" id="search-box" type="text" name="term" placeholder="Search" style="color: dimgrey">
+        <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>
+    </form>
     <a th:href="@{/posts}"><button class="btn btn-success">View events</button></a>
         <div th:each="user : ${viewAll}">
             <h1>Name: <span th:text="${user.getUsername()}"></span></h1>

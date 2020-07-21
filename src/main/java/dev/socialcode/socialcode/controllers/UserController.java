@@ -162,7 +162,6 @@ public class UserController {
     public String destroy(@PathVariable long id) {
         usersDao.deleteById(id);
         return "redirect:/welcome";
-
     }
 
     //Adding filestack api

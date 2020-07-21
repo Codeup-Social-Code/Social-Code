@@ -115,8 +115,10 @@ public class UserController {
 
     //Search through users
     @GetMapping("/users/search")
-    public String showSearch(Model model, @RequestParam(name = "term") String term) {
-        User results = usersDao.searchByNameLike(term);
+    public String showSearch(Model model, @RequestParam(name = "firstName") String firstName) {
+        User results = usersDao.searchByFirstNameLike(firstName);
+//        User results = usersDao.searchByLastNameLike(lastName);
+//        User results = usersDao.searchByUsernameLike(userName);
         model.addAttribute("results", results);
         return "users/search";
     }

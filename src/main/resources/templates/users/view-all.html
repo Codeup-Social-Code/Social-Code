@@ -7,10 +7,17 @@
     <body>
     <nav th:replace="fragments/navbar :: navbar"></nav>
     <a th:href="@{/posts}"><button class="btn btn-success">View events</button></a>
+
+    <div class="nav-item ">
+        <form action="/users/search">
+            <input class="d-none d-md-block" id="search-users" type="text" name="term" placeholder="Search" style="color: dimgrey">
+            <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>
+        </form>
+    </div>
         <div th:each="user : ${viewAll}">
-            <h1>Name: <span th:text="${user.getUsername()}"></span></h1>
+            <h1>Name: <span th:text="${user.firstName}"></span></h1>
             <img class="image--cover" th:src="*{user.picture}" width="100%"/>
-            <h4>Location: <span th:text="${user.getCity()}"></span></h4>
+            <h4>Location: <span th:text="${user.city}"></span></h4>
             <form th:action="${'/users/' + user.id }" th:method="GET">
                 <button>View Profile</button>
             </form>

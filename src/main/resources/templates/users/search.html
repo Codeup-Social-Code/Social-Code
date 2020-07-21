@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('SocialCode | Search Users')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+
+<div class="container">
+
+    <div th:each="user, iterStat : ${results}" class="box" th:id=" 'masonry' + ${iterStat.count}">
+        <div class="card p-5 mt-5 text-center" style="width: 18rem">
+            <img th:src="@{/img/9.png}" class="card-img-top"  th:id="'image' + ${iterStat.count} "/>
+
+            <div th:each="user : ${viewAll}">
+                <h1>Name: <span th:text="${user.firstName}"></span></h1>
+                <img class="image--cover" th:src="*{user.picture}" width="100%"/>
+                <h4>Location: <span th:text="${user.city}"></span></h4>
+                <form th:action="${'/users/' + user.id}" th:method="GET">
+                    <button>View Profile</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

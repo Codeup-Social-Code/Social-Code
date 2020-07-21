@@ -113,6 +113,15 @@ public class UserController {
         return "users/view-all";
     }
 
+    //Search through users
+    @GetMapping("/users/search")
+    public String showSearch(Model model, @RequestParam(name = "term") String term) {
+        User results = usersDao.searchByNameLike(term);
+        model.addAttribute("results", results);
+        return "users/search";
+    }
+
+
     //EDIT
     @GetMapping("/users/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model viewModel){

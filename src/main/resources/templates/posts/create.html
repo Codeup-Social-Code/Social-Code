@@ -24,10 +24,16 @@
                         </div>
                         <div>
 <!--                            <input type="date" name="eventDate">-->
-                            <input type="date" name="eventDate" th:field="*{event_start}">
-                            <input type="date" name="eventDate" th:field="*{event_end}">
+                            <label for="start_date_time">Start Date:</label>
+                            <input id="start_date_time" type="date" name="start_date_time" th:field="*{start_date_time}">
+                            <label for="end_date_time">End Date:</label>
+                            <input id="end_date_time" type="date" name="end_date_time" th:field="*{end_date_time}">
 <!--                            <input type="time" name="eventTime">-->
-                            <input type="time" name="eventTime" th:field="*{eventTime}">
+                            <label for="start_time">Start Time</label>
+                            <input id="start_time" type="time" name="eventTime" th:field="*{start_time}">
+
+                            <label for="end_time">End Time</label>
+                            <input id="end_time" type="time" name="eventTime" th:field="*{end_time}">
                         </div>
 
                         <div>

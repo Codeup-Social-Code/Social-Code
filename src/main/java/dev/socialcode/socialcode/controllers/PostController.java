@@ -93,8 +93,6 @@ public class PostController {
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId, Authentication authentication) {
 
-        System.out.println(postToBeSaved.getEventTime());
-
         User currentUser = usersDao.findByUsername(authentication.getName());
         System.out.println(currentUser);
         postToBeSaved.setUser(currentUser);
@@ -238,10 +236,10 @@ public class PostController {
     public String viewPosts(Model model) {
 //        User user = usersDao.findByUsername("test2@gmail.com");
 //        System.out.println(user.getFirstName());
-        List<Post> currentPosts = postsDao.findTop9ByOrderByIdDesc();
+//        List<Post> currentPosts = postsDao.findTop9ByOrderByIdDesc();
         List<Post> posts = postsDao.findAll();
         model.addAttribute("posts", posts);
-        model.addAttribute("posts", currentPosts);
+//        model.addAttribute("posts", currentPosts);
         return "posts/index";
     }
 

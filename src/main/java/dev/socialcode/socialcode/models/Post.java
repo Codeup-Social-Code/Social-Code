@@ -42,8 +42,11 @@ public class Post {
     //use String or Date?
     private String end_date_time;
 
-    @Column (name = "event_time", nullable = false, length = 255)
-    private String eventTime;
+    @Column (name = "start_time", nullable = false, length = 255)
+    private String start_time;
+
+    @Column (name = "end_time", nullable = false, length = 255)
+    private String end_time;
 
     //is this what allows us to pull in the user name, email, & picture?
     @ManyToOne
@@ -71,14 +74,15 @@ public class Post {
 
     //add user, user picture
 
-    public Post(Long id, @NotBlank(message = "required") @Size(min = 3, message = "must be at least 3 characters") String title, @NotBlank(message = "required") String body, Date createDate, String event_start, String event_end, String eventTime, User user, List<Category> categories, List<Comment> comments, List<RSVP> usersAttending) {
+    public Post(Long id, @NotBlank(message = "required") @Size(min = 3, message = "must be at least 3 characters") String title, @NotBlank(message = "required") String body, Date createDate, String event_start, String event_end, String start_time, String end_time, User user, List<Category> categories, List<Comment> comments, List<RSVP> usersAttending) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.createDate = createDate;
         this.start_date_time = event_start;
         this.end_date_time = event_end;
-        this.eventTime = eventTime;
+        this.start_time = start_time;
+        this.end_time = end_time;
         this.user = user;
         this.categories = categories;
         this.comments = comments;
@@ -89,13 +93,14 @@ public class Post {
     //add user info
 
 
-    public Post(@NotBlank(message = "required") @Size(min = 3, message = "must be at least 3 characters") String title, @NotBlank(message = "required") String body, Date createDate, String event_start, String event_end, String eventTime, User user, List<Category> categories, List<Comment> comments, List<RSVP> usersAttending) {
+    public Post(@NotBlank(message = "required") @Size(min = 3, message = "must be at least 3 characters") String title, @NotBlank(message = "required") String body, Date createDate, String event_start, String event_end, String start_time, String end_time, User user, List<Category> categories, List<Comment> comments, List<RSVP> usersAttending) {
         this.title = title;
         this.body = body;
         this.createDate = createDate;
         this.start_date_time = event_start;
         this.end_date_time = event_end;
-        this.eventTime = eventTime;
+        this.start_time = start_time;
+        this.end_time = end_time;
         this.user = user;
         this.categories = categories;
         this.comments = comments;
@@ -129,12 +134,20 @@ public class Post {
         this.body = body;
     }
 
-    public String getEventTime() {
-        return eventTime;
+    public String getStart_time() {
+        return start_time;
     }
 
-    public void setEventTime(String eventTime) {
-        this.eventTime = eventTime;
+    public void setStart_time(String start_time) {
+        this.start_time = start_time;
+    }
+
+    public String getEnd_time() {
+        return end_time;
+    }
+
+    public void setEnd_time(String end_time) {
+        this.end_time = end_time;
     }
 
     public List<Category> getCategories() {

@@ -25,12 +25,16 @@
             <img th:src="@{/img/9.png}" class="card-img-top"  th:id="'image' + ${iterStat.count} "/>
             <div class="card-body p-5">
                 <h3 th:text="${user.getFirstName()}">First Name</h3>
+                <h3 th:text="${user.getLastName()}">Last Name</h3>
                 <div th:text="${user.getPicture()}">Picture</div>
 <!--                <div th:text="${user.getPosts()}">Posts</div>-->
 <!--                <div th:text="${user.getCity()}">City</div>-->
-                <form th:action="${'/users/' + user.id}" th:method="GET">
-                    <button>View Profile</button>
-                </form>
+<!--                <form th:action="${'/users/' + user.id}" th:method="GET">-->
+<!--                    <button>View Profile</button>-->
+<!--                </form>-->
+                <a th:href="${'/users/' + user.id}">
+                    View Profile
+                </a>
 <!--                <div class="read mt-3" style="font-size: 18px"><a th:href="@{'/posts/' + ${post.id}}" class="btn btn-success"><em>Read more..</em></a></div>-->
 <!--                <div class="edit mt-2 text-center">-->
 <!--                    <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white; border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Edit</a>-->

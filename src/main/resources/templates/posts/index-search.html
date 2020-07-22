@@ -22,7 +22,7 @@
                 <div th:text="${post.body}">Description</div>
                 <div th:text="${post.user.username}">Email</div>
                 <th:block th:each="cat : ${post.categories}">
-                    <div th:text="${cat.name}">Category</div>
+                    <div >Category: <span th:text="${cat.name}"></span></div>
                 </th:block>
                 <div class="read mt-3" style="font-size: 18px"><a th:href="@{'/posts/' + ${post.id}}" class="btn btn-success"><em>Read more..</em></a></div>
                 <div class="edit mt-2 text-center">

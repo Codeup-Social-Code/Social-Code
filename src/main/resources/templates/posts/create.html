@@ -4,36 +4,49 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body class="create">
+<body class="create bg-white">
 <nav th:replace="fragments/navbar :: navbar" />
 
-        <div class="container create-container text-center">
+        <div class="container create-container text-center bg-white">
             <div class="card create-card">
-                <div class="card-header">
-                    <h4>Fill out the form to create your post.</h4>
-                </div>
+
+                    <h4 class="p-5">Fill out the form to create your post.</h4>
+
                 <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
                     <div class="card-body">
                         <label for="title">Title</label>
-<!--                        <input type="text" name="title" id="title">-->
-                        <input type="text" name="title" id="title" th:field="*{title}">
                         <div>
-                            <label for="body">Body</label>
-<!--                            <input type="text" name="body" id="body">-->
-                            <input type="text" name="body" id="body" th:field="*{body}">
+                            <input type="text" name="title" id="title" style="width: 300px" th:field="*{title}">
                         </div>
+                        <label for="body">Body</label>
                         <div>
-<!--                            <input type="date" name="eventDate">-->
-                            <label for="start_date_time">Start Date:</label>
-                            <input id="start_date_time" type="date" name="start_date_time" th:field="*{start_date_time}">
-                            <label for="end_date_time">End Date:</label>
-                            <input id="end_date_time" type="date" name="end_date_time" th:field="*{end_date_time}">
-<!--                            <input type="time" name="eventTime">-->
-                            <label for="start_time">Start Time</label>
-                            <input id="start_time" type="time" step='1' min="00:00" max="24:00" name="eventTime" th:field="*{start_time}">
+                            <textarea type="text" name="body" id="body" rows="15" cols="50" th:field="*{body}">Body</textarea>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center">
+                            <div class="d-flex justify-content-center">
+                                <div>
+                                    <label for="start_date_time" class="d-block" style="margin-right: 55px ">Start Date:</label>
+                                    <input id="start_date_time" type="date" name="start_date_time" th:field="*{start_date_time}">
+                                </div>
 
-                            <label for="end_time">End Time</label>
-                            <input id="end_time" type="time" step='1' min="00:00" max="24:00" name="eventTime" th:field="*{end_time}">
+                                <div>
+                                    <label for="end_time"   class="d-block" style="margin-right: 55px ">End Time</label>
+                                    <input id="end_time" type="time" step='1' min="00:00" max="24:00" name="eventTime" th:field="*{end_time}">
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-center">
+                                <div>
+                                    <label for="end_date_time" class="d-block" style="margin-right: 55px ">End Date:</label>
+                                    <input id="end_date_time" type="date" name="end_date_time" th:field="*{end_date_time}">
+                                </div>
+
+                                <div>
+                                    <label for="start_time" class="d-block" style="margin-right: 55px ">Start Time</label>
+                                    <input id="start_time" type="time" step='1' min="00:00" max="24:00" name="eventTime" th:field="*{start_time}">
+                                </div>
+                            </div>
+
                         </div>
 
                         <div>

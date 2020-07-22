@@ -71,7 +71,7 @@
 
                     <th:block th:if="${currentUser.id == post.user.id}">
     <form th:action="${'/posts/' + post.id + '/edit'}">
-        <button class="btn-sm btn-warning">edit</button>
+        <button class="btn-sm btn-warning" style="cursor: pointer">edit</button>
     </form>
 </th:block>
 
@@ -88,7 +88,7 @@
                     <th:block th:if="${comment.user.id == currentUser.id}">
                         <span class="d-flex float-right">
                             <div>
-                                <button type="button" class="btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Edit</button>
+                                <button type="button" class="btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="cursor: pointer">Edit</button>
                             </div>
                             <div>
                                  <form class="" th:action="@{'/comment/' + ${comment.id} + '/delete'}" th:method="post">

@@ -11,7 +11,7 @@
        <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>
     </form>
 
-  <div class="container ">
+  <div class="container view-all-grid ">
 
             <div th:each="user, iStat : ${viewAll}" class="box" th:id="'masonry' + ${iStat.count}">
                 <div class="row" th:style="${iStat.odd}? 'width: 35rem' :'width: 18rem; height: 25rem;'">

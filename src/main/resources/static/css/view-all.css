@@ -1,5 +1,5 @@
 
-.grid-container{
+.view-all-grid{
     display: grid;
     column-gap: 10px;
     row-gap: 20px;

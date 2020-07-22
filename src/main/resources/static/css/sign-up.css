@@ -56,7 +56,7 @@ margin-left: 0px;
 
 @media screen and (min-width:768px) {
 
-    .login-card-body {
+    .signup-card-body {
         font-size: 15px;
     }
 
@@ -67,7 +67,7 @@ margin-left: 0px;
 
 
     .signupEmail {
-        margin-left: -9px;
+        margin-left: -2px;
     }
 
     .signupPassword {
@@ -75,7 +75,7 @@ margin-left: 0px;
     }
 
     #passwordToConfirm {
-        margin-right: 81px;
+        margin-right: 96px;
     }
 
     #sign-up-firstName, #sign-up-lastName {
@@ -84,7 +84,7 @@ margin-left: 0px;
 
     #sign-up-city{
 
-        margin-right: 0px;
+        margin-right: -8px;
 
     }
 

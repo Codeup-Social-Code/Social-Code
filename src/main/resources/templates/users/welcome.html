@@ -11,56 +11,55 @@
 <nav th:replace="fragments/navbar :: navbar"></nav>
 
 
+ <div class="container">
 
-        <h1 id="welcome-header" class="text-center" style="color: #576541;">Welcome to Social Code, <h1 th:text="${user.lastName}"></h1>!</h1>
-        <h3 class="text-center" style="color: #576541;">Get going in as little as <span style="color: #ffde59; font-size: 50px">1 </span> - <span style="color: #ffde59; font-size: 50px">2</span> - <span style="color: #ffde59; font-size: 50px">3</span>!</h3>
+        <h1 id="welcome-header" class="text-center" style="color: #576541;">Welcome to Social Code!</h1>
 
-        <div class="container">
-            <div class="row d-flex justify-content-center align-items-center">
-                    <div class="card-deck">
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img" src="/img/12.png" width="100%"/>
+     <h3 class="text-center get-going" style="color: #576541;">Get going in as little as <br> <span id="1" style="color: #ffde59;">1 </span > - <span id="2" style="color: #ffde59;">2</span> - <span id="3" style="color: #ffde59; ">3</span>!</h3>
+
+
+     <div class="row d-flex justify-content-center align-items-center">
+                    <div class="card-deck welcome-card-deck">
+                            <div class="card mt-5" style="width: 18rem;">
+                                <img class="welcome-card-img" src="/img/12.png" width="100%"/>
                                 <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">1</h3>
-                                <div class="card-body">
-                                    <h4 class="card-text text-center">Edit your profile.</h4>
-        
-                                    <form th:action="@{/users/profile}" th:method="get">
+                                <div class="card-body wel-card-body">
+                                    <h4 class="card-text text-center" id="wel-create">Create your profile.</h4>
+                                    <form class="text-center pt-4" th:action="@{/users/profile}" th:method="get">
                                 <input class="btn btn-success" type="submit" value="Go to profile">
                             </form>
                                 </div>
                               
                             </div>
 
-                            <div class="card mt-5" style="width: 18rem; height: 21rem">
-                                <img class="card-img"  src="/img/9.png" />
+                            <div class="card middle-card mt-5 " style="width: 18rem; height: 25rem ">
+                                <img class="welcome-card-img"  src="/img/9.png" width="100%" />
                                 <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">2</h3>
-                                <div class="card-body">
+                                <div class="card-body wel-card-body">
                                     <h4 class="card-text text-center">Create a community post.</h4>
                                 </div>
-                               <form th:action="@{/posts/create}" th:method="get">
-                                <input class="btn btn-success" type="submit" value="Create a post">
-                            </form>
+                               <form class="text-center pb-4" th:action="@{/posts/create}" th:method="get">
+                                 <input class="btn btn-success" type="submit" value="Create a post">
+                                </form>
                             </div>
 
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img"  src="/img/11.png" width="100%"/>
+                            <div class="card mt-5 text-center" style="width: 18rem;">
+                                <img class="welcome-card-img"  src="/img/11.png" width="100%"/>
                                 <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">3</h3>
-                                <div class="card-body text-center">
+                                <div class="card-body wel-card-body text-center">
                                     <h4 class="card-text">Connect</h4>
                                 </div>
-                              
-                                <form th:action="@{/posts}" th:method="get">
-                            <input class="btn btn-success" type="submit" value="View current events">
-                        </form>
-                                <a th:href="@{/users/view-all}"><button class="btn btn-success">View all users</button></a>
+                                <form class="text-center" th:action="@{/posts}" th:method="get">
+                                     <input class="btn btn-success" type="submit" value="View events">
+                                 </form>
+                                <div class="pb-4">
+                                    <a th:href="@{/users/view-all}"><button class="btn btn-success mt-2">View users</button></a>
+                                </div>
                             </div>
-
                     </div>
-            </div>
-        </div>
-<!--             <form class="text-center" action="">
-                <span><a class="text-center" href="/user" style="color: #576541; font-size: 30px">Let's Get Started!</a></span>
-            </form> -->
+     </div>
+ </div>
+
 <th:block th:replace="fragments/footer :: footer-script"></th:block>
 
 </body>

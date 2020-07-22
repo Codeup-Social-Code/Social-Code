@@ -13,29 +13,29 @@
                 <div class="card-header text-center">
                     <h1>Create An Account</h1>
                 </div>
-                <div class="card-body login-card-body text-center">
-                    <label class="username" for="username">Email</label>
-                    <input id="username" name="username" th:class="validate" th:field="*{username}" />
+                <div class="card-body signup-card-body text-center">
+                    <label class="signupEmail" for="sign-up-email">Email</label>
+                    <input id="sign-up-email" name="username" th:class="validate" th:field="*{username}" />
                         <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
                     <br>
-                    <label class="username" for="password">Password</label>
-                    <input id="password" name="password" type="password" th:class="validate" th:field="*{password}" />
+                    <label class="signupPassword" for="sign-up-password">Password</label>
+                    <input id="sign-up-password" name="password" type="password" th:class="validate" th:field="*{password}" />
                      <br>
                     <label for="passwordToConfirm">Re-Enter Password</label>
                     <input id="passwordToConfirm" name="passwordToConfirm" type="password" />
                         <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                     <br>
-                    <label for="firstName">First Name</label>
-                    <input id="firstName" name="firstName" th:field="*{firstName}" />
+                    <label for="sign-up-firstName">First Name</label>
+                    <input id="sign-up-firstName" name="firstName" th:field="*{firstName}" />
                     <br>
-                    <label for="lastName">Last Name</label>
-                    <input id="lastName" name="lastName" th:field="*{lastName}" />
+                    <label for="sign-up-lastName">Last Name</label>
+                    <input id="sign-up-lastName"name="lastName" th:field="*{lastName}" />
                     <br>
-                    <label for="city">City</label>
-                    <input id="city" name="city" th:field="*{city}" />
+                    <label for="sign-up-city">City</label>
+                    <input id="sign-up-city" name="city" th:field="*{city}" />
                     <br>
                     <form th:class="alert" th:action="${'/users/' + user.id + '/delete'}" th:method="POST">
-                    <input id="register-alert" th:onclick="this.parentElement.style.display=='none'" class="btn register-btn btn-success alert" type="submit" value="Register"/>
+                    <input id="register-alert" th:onclick="this.parentElement.style.display=='none'" class="btn signup-register-btn btn-success alert" type="submit" value="Register"/>
                     </form>
                     <br>
                     <form class="existing-login" th:action="@{/login}" th:method="post">

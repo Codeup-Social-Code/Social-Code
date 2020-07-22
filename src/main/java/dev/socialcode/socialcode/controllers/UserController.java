@@ -1,46 +1,37 @@
 package dev.socialcode.socialcode.controllers;
-
 import dev.socialcode.socialcode.daos.PostRepository;
 import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.Post;
-import dev.socialcode.socialcode.models.RSVP;
 import dev.socialcode.socialcode.models.User;
 import dev.socialcode.socialcode.models.UserWithRoles;
 import dev.socialcode.socialcode.services.EmailService;
 import dev.socialcode.socialcode.services.UserService;
-
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.Collections;
-import org.springframework.web.bind.annotation.*;
-import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
+import org.thymeleaf.ITemplateEngine;
+import org.thymeleaf.context.WebContext;
 import java.util.List;
 
 
 @Controller
-public class UserController {
+public class UserController{
     private UserRepository usersDao;
     private PasswordEncoder passwordEncoder;
     private PostRepository postsDao;
@@ -146,6 +137,7 @@ public class UserController {
             viewModel.addAttribute("msg", "You need to be logged in to be able to see this page");
             return "users/login";
         }
+
         return "redirect:/users/" + usersService.loggedInUser().getId();
     }
 
@@ -215,16 +207,6 @@ public class UserController {
     @Value("${filestack_api_key}")
         private String apiFromProperties;
 
-//    //Search Functionality
-//    @GetMapping("/users/search")
-//    public String showSearch(Model model, @RequestParam(name = "term") String term) {
-//        List<User> firstNameResults = usersDao.searchByFirstNameLike(term);
-//        List<User> lastNameResults = usersDao.searchByLastNameLike(term);
-//        model.addAttribute("firstNameResults", firstNameResults);
-//        model.addAttribute("lastNameResults", lastNameResults);
-//        return "users/view-all-search";
-//    }
-
     //Search Functionality
     @GetMapping("/users/search")
     public String showSearch(Model model, @RequestParam(name = "term") String term) {
@@ -234,26 +216,6 @@ public class UserController {
 
         return "users/view-all-search";
     }
-
-//   grab user's input here check if the username is found or not
-//    @PostMapping("/users/search")
-//    public String checkSearch(Model model, @RequestParam(name = "term") String term) {
-//        List<User> checkSearchResult = usersDao.searchByNameLike(term); // go into my database
-////        if (checkSearchResult.size() == 0){
-////            return "User was not found from Controller";
-////        }else {
-////            return "Here are the users within the search";
-////             }
-//        if (checkSearchResult == null){
-//            return "User was not found from Controller";
-//        }else {
-//            return "Here are the users within the search";
-//        }
-//
-////        model.addAttribute("booL", boolean),
-//        model.addAttribute("No result", checkSearchResult.size() == 0);
-//        return "users/view-all-search";
-//    }
 
 }
 

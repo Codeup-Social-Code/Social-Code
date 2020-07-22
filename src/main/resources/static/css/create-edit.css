@@ -3,14 +3,6 @@ body.create, body.edit, body.edit-profile {
 
 }
 
-/*body.edit{*/
-/*    background-color: rgba(136, 160, 99, 0.4);*/
-/*}*/
-
-/*body.edit-profile{*/
-/*    background-color: rgba(136, 160, 99, 0.4);*/
-/*}*/
-
 .create-card, .edit-card {
     margin-top: 150px;
 }

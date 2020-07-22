@@ -1,5 +1,4 @@
 
-
 .grid-container{
     display: grid;
     column-gap: 10px;
@@ -12,9 +11,29 @@
     "c e e";
 }
 
-/*#masonryIndex {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    */
-/*}*/
+#all-image.all-profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 5px 20px 20px 20px;
+    box-shadow: rgba(9, 0, 0, 0.87) 10px 10px 26px;
+
+    object-fit: cover;
+    object-position: center right;
+}
+
+
+@media screen and (min-width:2200px) {
+
+    #all-image.all-profile-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        /*margin: 5px 20px 20px 20px;*/
+        box-shadow: rgba(9, 0, 0, 0.87) 10px 10px 26px;
+
+        object-fit: cover;
+        object-position: center right;
+    }
+
+}

@@ -4,10 +4,76 @@ body.welcome {
 }
 
 #welcome-header {
+    font-size: 30px;
     margin-top: 75px;
 }
 
+#1, #2, #3 {
+    font-size: 25px
+}
 
-.card-img {
+
+.welcome-card-img {
     box-shadow: 10px 10px 10px 10px rgba(68, 66, 66, 0.44);
 }
+div.card-body.wel-card-body {
+    padding-top: 0px;
+}
+
+@media screen and (min-width:768px) {
+
+    .welcome-card-deck{
+        margin-bottom: 100px;
+    }
+
+    .middle-card{
+        margin-top: 20px;
+    }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width:992px) {
+
+    #welcome-header {
+        font-size: 50px;
+        margin-top: 75px;
+    }
+
+    #1, #2, #3 {
+        font-size: 70px
+    }
+    .get-going {
+        font-size: 40px;
+    }
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) {
+
+
+
+}
+
+
+
+
+@media screen and (min-width:2200px) {
+
+
+    #welcome-header {
+        font-size: 80px;
+        margin-top: 120px;
+    }
+
+    #1, #2, #3 {
+        font-size: 100px
+    }
+    .get-going {
+        font-size: 80px;
+    }
+
+
+}
+

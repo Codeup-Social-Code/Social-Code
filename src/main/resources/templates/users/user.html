@@ -8,52 +8,27 @@
 
 <nav th:replace="fragments/navbar :: navbar"></nav>
 
-<!--    <section class="bio-container">-->
-<!--        <div class="card mb-3">-->
-<!--            <div class="card-header bg-success" style="height: 70px"> </div>-->
-<!--            <div class="row bio-row no-gutters" style="height: 400px">-->
-<!--                <div class="wrapper col-md-4 ">-->
-
-<!--                </div>-->
-<!--                <div class="col-md-8">-->
-<!--                    <div class="bio-card-body">-->
-<!--                        <h3 id="first" th:text="${user.firstName}"></h3>-->
-<!--    &lt;!&ndash;                <h3 id="last" th:text="${user.lastName}"></h3>&ndash;&gt;-->
-
-<!--                        <h6 th:text="${user.city}">City</h6>-->
-<!--                        <div class="connect">-->
-<!--                            <h6 id="email" th:text="${user.username}">Email</h6>-->
-<!--    &lt;!&ndash;                        <h6 id="github" class="card-text"th:text="${user.gitHub}">GitHub</h6>&ndash;&gt;-->
-
-<!--                            <a id="github" class="card-text" th:text="${user.gitHub}" th:href="@{${user.gitHub}}">GitHub</a>-->
-<!--                            <a id="linkedin" class="card-text" th:text="${user.linkedIn}" th:href="@{${user.linkedIn}}">LinkedIn</a>-->
-<!--    &lt;!&ndash;                        <h6 id="linkedin" class="card-text" th:text="${user.linkedIn}">LinkedIn</h6>&ndash;&gt;-->
-<!--                            <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>-->
-<!--                            <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }"><h1>EDIT</h1></a>-->
-<!--                        </div>-->
-
     <section class="bio-container">
         <div class="card mb-3">
             <div class="card-header bg-success" style="height: 70px"></div>
                 <div class="row bio-row no-gutters" style="height: 400px">
-                 <div class="wrapper col-md-4 ">
-
-
+                 <div class="wrapper profile-img col-md-4 ">
+                     <img id="all-image" class="image--cover all-image-cover" th:src="*{user.picture}" width="100%"/>
                 </div>
                 <div class="col-md-8">
                     <div class="bio-card-body">
                         <h3 id="first" th:text="${user.firstName}"></h3>
-                        <img class="image--cover" th:src="*{user.picture}" width="100%"/>
+
                         <h6 th:text="${user.city}">City</h6>
                         <div class="connect">
                             <h6 id="email" th:text="${user.username}">Email</h6>
                             <a id="github" class="card-text" th:text="${user.gitHub}" th:href="@{${user.gitHub}}">GitHub</a>
                             <a id="linkedin" class="card-text" th:text="${user.linkedIn}" th:href="@{${user.linkedIn}}">LinkedIn</a>
                             <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
-                            <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }">
-                                <h1>EDIT</h1></a>
+                            <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }" style="color: dimgrey;">
+                                <h6>EDIT PROFILE</h6></a>
                             <a th:href="@{/users/view-all}">
-                                <button class="btn btn-success">View all users</button>
+                                <button id="prof-view-users" class="btn btn-success">View all users</button>
                             </a>
                         </div>
                     </div>
@@ -103,23 +78,26 @@
 
     <hr style="width: 50%">
 
-
-    <section class="container posts">
-        <h3>Your posts</h3>
-        <div class="card" th:each="post: ${userPosts}">
-            <img src="/img/11.png" width="100%"/>
-            <div class="card-body">
-                <h5 class="card-title" th:text="${post.title}">Card title</h5>
-                <p class="card-text" th:text="${post.body}">This card has supporting text below as a natural lead-in to
-                    additional content.</p>
-                <!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
-                <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br>
-                <div th:if="${#authentication.principal.id == post.user.id}">
+    <div class="row text-center p-3 pb-5">
+        <div class="col-12">
+            <h3>Your posts</h3>
+        </div>
+    </div>
+    <section class="container posts-container text-center d-flex justify-content-center">
+        <div class="row prof-post-row d-flex justify-content-center">
+                <div class="card col-12 col-md-4 prof-post-card text-center" th:each="post: ${userPosts}">
+                    <img src="/img/11.png" width="100%"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${post.title}">Card title</h5>
+                        <p class="card-text" th:text="${post.body}">This card has supporting text below as a natural lead-in to
+                            additional content.</p>
+                        <!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+                       <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br> 
+                      <div th:if="${#authentication.principal.id == post.user.id}">
                 <form th:action="${'/posts/' + post.id + '/edit'}">
                     <button class="btn btn-warning">EDIT</button>
                 </form>
-                </div>
-
+               </div>
             </div>
         </div>
     </section>

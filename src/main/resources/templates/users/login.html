@@ -8,11 +8,11 @@
 <body class="login">
 <nav th:replace="fragments/navbar :: navbar" />
 
-        <div class="login-container">
-            <div class="card">
+        <div class="container login-container">
+            <div class="card login-card text-center">
                 <form th:action="@{/login}" method="post">
                     <div class="card-header text-center">
-                        <h1>Please Log In</h1>
+                        <h3>Please Log In</h3>
                     </div>
                     <div class="card-body login-card-body text-center">
                         <label for="username">Email</label>
@@ -26,26 +26,5 @@
                 </form>
             </div>
         </div>
-
-
-
-
-<!--<div th:if="${param.error}">-->
-<!--    Invalid email and password.-->
-<!--    <br>-->
-<!--    <div>Try entering it again, or you can register here:</div>-->
-<!--    <form th:action="@{/sign-up}" th:method="get">-->
-<!--        <button class="btn-link btn" style="margin-top: 8px">Register</button>-->
-<!--    </form>-->
-<!--</div>-->
-
-<!--<div th:if="${param.logout}">-->
-<!--    You have been logged out.-->
-<!--    <br>-->
-<!--    <div>Would you like to log in again?</div>-->
-<!--</div>-->
-
-
-
 </body>
 </html>

@@ -78,23 +78,23 @@ public class UserController{
         user.setPasswordToConfirm(hashForConfirm);
 
         usersDao.save(user);
-        authenticate(user);
+//        authenticate(user);
         User savedUser = usersDao.save(user);
         emailService.prepareAndSend(savedUser, "A new account has been created", "Thank you for signing up your One stop website where you can grow! Your username: " + savedUser.getUsername());
 
-        return "redirect:/welcome";
+        return "redirect:/login";
     }
 
-    private void authenticate(User user) {
-        UserDetails userDetails = new UserWithRoles(user, Collections.emptyList());
-        Authentication auth = new UsernamePasswordAuthenticationToken(
-                userDetails,
-                userDetails.getPassword(),
-                userDetails.getAuthorities()
-        );
-        SecurityContext context = SecurityContextHolder.getContext();
-        context.setAuthentication(auth);
-    }
+//    private void authenticate(User user) {
+//        UserDetails userDetails = new UserWithRoles(user, Collections.emptyList());
+//        Authentication auth = new UsernamePasswordAuthenticationToken(
+//                userDetails,
+//                userDetails.getPassword(),
+//                userDetails.getAuthorities()
+//        );
+//        SecurityContext context = SecurityContextHolder.getContext();
+//        context.setAuthentication(auth);
+//    }
 
 
     @GetMapping("/users/{id}")

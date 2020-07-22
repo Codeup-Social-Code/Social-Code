@@ -15,9 +15,14 @@
             <ul class="navbar-nav nav-frag mr-auto">
                 <li id="search" class="nav-item ">
                     <input class="d-none d-md-block" id="search-box" type="text" placeholder="Search" style="color: dimgrey">
-                    <i class="fas fa-search d-none d-md-block"></i>
+<!--                   add styling for search icon functionaity  -->
+                  <i class="fas fa-search d-none d-md-block"></i>
                 </li>
+
                 <li id="nav-login-btn" class="nav-item">
+
+                <li id="nav-login-btn" class="nav-item" sec:authorize="!isAuthenticated()">
+
                     <form th:action="@{/login}" th:method="get">
                         <button id="nav-login" class="btn-link btn" style="color: dimgrey;">Login</button>
                     </form>
@@ -31,7 +36,7 @@
                         </form>
                     </li>
                 </th:block>
-                <li id="register-btn" class="nav-item">
+                <li id="register-btn" class="nav-item" sec:authorize="!isAuthenticated()">
                     <form th:action="@{/sign-up}" th:method="get">
                         <button id="register" class="btn-link btn" style="color: dimgrey">Register</button>
                     </form>

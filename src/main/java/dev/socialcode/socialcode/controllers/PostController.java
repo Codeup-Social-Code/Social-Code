@@ -4,6 +4,7 @@ package dev.socialcode.socialcode.controllers;
 import dev.socialcode.socialcode.daos.*;
 import dev.socialcode.socialcode.models.*;
 import dev.socialcode.socialcode.services.UserService;
+import javassist.Loader;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.parameters.P;
@@ -12,6 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 //import java.sql.Date; -- we need to change to this
 import java.util.Date;
@@ -45,7 +49,18 @@ public class PostController {
     //Search Functionality
     @GetMapping("/search")
     public String showSearch(Model model, @RequestParam(name = "term") String term) {
-        List<Post> results = postsDao.searchByTitleLike(term);
+        List<Category> categories = categoriesDao.searchByCategory(term);
+        if(!categories.isEmpty()) {
+            long newTerm = 0;
+            for(Category category: categories) {
+                newTerm = category.getId();
+            }
+            List<Post> results = postsDao.searchByCategoryId(newTerm);
+            model.addAttribute("results", results);
+            return "posts/index-search";
+        }
+
+        List<Post> results = postsDao.searchByTerm(term);
         model.addAttribute("results", results);
         return "posts/index-search";
     }
@@ -71,13 +86,31 @@ public class PostController {
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId, Authentication authentication) {
 
-        System.out.println(postToBeSaved.getEventTime());
-        System.out.println(postToBeSaved.getEvent_start());
-        System.out.println(postToBeSaved.getEvent_end());
-
-        User currentUser = usersDao.findByUsername(authentication.getName());
-        System.out.println(currentUser);
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         postToBeSaved.setUser(currentUser);
+        Date dateStart;
+        Date dateEnd;
+
+        try {
+            dateStart = new SimpleDateFormat("yyyy-MM-dd").parse(postToBeSaved.getStart_date_time());
+            dateEnd = new SimpleDateFormat("yyyy-MM-dd").parse(postToBeSaved.getEnd_date_time());
+            System.out.println(dateEnd);
+            System.out.println(dateStart);
+            String startDate = new SimpleDateFormat("yyyy-MM-dd").format(dateStart);
+            String endDate = new SimpleDateFormat("yyyy-MM-dd").format(dateEnd);
+            System.out.println(startDate);
+            System.out.println(endDate);
+            System.out.println(postToBeSaved.getStart_time());
+            System.out.println(postToBeSaved.getEnd_time());
+            String startFormat = startDate + 'T' +postToBeSaved.getStart_time() + ":00";
+            String endFormat = endDate + 'T' + postToBeSaved.getEnd_time() + ":00";
+            System.out.println(startFormat);
+            System.out.println(endFormat);
+            postToBeSaved.setStart_date_time(startFormat);
+            postToBeSaved.setEnd_date_time(endFormat);
+        } catch (ParseException e) {
+
+        }
 
         Category category = categoriesDao.findCategoryById(Long.parseLong(catId));
         List<Category> listOfCategories = new ArrayList<>();

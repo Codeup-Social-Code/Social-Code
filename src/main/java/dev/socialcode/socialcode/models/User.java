@@ -47,7 +47,7 @@ public class User {
         @JsonIgnore
         String gitHub;
 
-        @Column
+        @Column(columnDefinition="TEXT")
         @JsonIgnore
         String bio;
 
@@ -81,6 +81,7 @@ public class User {
                 joinColumns={@JoinColumn(name="user_id")},
                 inverseJoinColumns={@JoinColumn(name="follower_id")}
                 )
+        @JsonBackReference
         private List<User> followers;
 
         //empty constructor for Spring framework

@@ -16,25 +16,25 @@ INSERT INTO users (username, bio, password, password_to_confirm, city, first_nam
     VALUE ('ron@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, aperiam aut commodi consequuntur cum ea excepturi impedit ipsum iusto magnam nemo optio quaerat quibusdam quidem quis quo soluta temporibus ullam vero voluptatibus. Ab asperiores cupiditate error explicabo, illum iste repudiandae suscipit. Aperiam consequatur deleniti maiores neque nostrum quidem tempora totam?
 ', 'password', 'password', 'Arlington', 'Ron', 'Palencia', 'ron', 'ron', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequuntur deserunt dolores quasi?');
 
-INSERT INTO posts (title, body, create_date, end_date_time, start_date_time, event_time)
+INSERT INTO posts (title, body, create_date, end_date_time, start_date_time, start_time, end_time)
 VALUES ('First Post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aspernatur dolor exercitationem nemo quia quis quo saepe. Ad aspernatur, autem beatae dolorem impedit labore nesciunt non officia, sed sequi veniam!
-', curdate(), '2021-12-08T08:30:00.000', '2021-12-09T16:30:00.000', '12:00');
+', curdate(), '2020-17-07T16:00:00.000', '2020-17-07T16:30:00.000', '12:00', '12:00');
 
-INSERT INTO posts (title, body, create_date, end_date_time, start_date_time, event_time)
+INSERT INTO posts (title, body, create_date, end_date_time, start_date_time, start_time, end_time)
 VALUES ('Second Post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aspernatur dolor exercitationem nemo quia quis quo saepe. Ad aspernatur, autem beatae dolorem impedit labore nesciunt non officia, sed sequi veniam!
-', curdate(), '2021-12-08T08:30:00.000', '2021-12-09T16:30:00.000', '12:00');
+', curdate(), '2020-16-07T16:00:00.000', '2020-16-07T16:30:00.000', '12:00', '12:00');
 
-INSERT INTO posts (title, body, create_date, end_date_time, start_date_time, event_time)
+INSERT INTO posts (title, body, create_date, end_date_time, start_date_time, start_time, end_time)
 VALUES ('Third Post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aspernatur dolor exercitationem nemo quia quis quo saepe. Ad aspernatur, autem beatae dolorem impedit labore nesciunt non officia, sed sequi veniam!
-', curdate(), '2021-12-08T08:30:00.000', '2021-12-09T16:30:00.000', '12:00');
+', curdate(), '2020-15-07T16:00:00.000', '2020-15-07T16:30:00.000', '12:00', '12:00');
 
-INSERT INTO posts (title, body, create_date, end_date_time, start_date_time, event_time)
+INSERT INTO posts (title, body, create_date, end_date_time, start_date_time, start_time, end_time)
 VALUES ('Fourth Post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aspernatur dolor exercitationem nemo quia quis quo saepe. Ad aspernatur, autem beatae dolorem impedit labore nesciunt non officia, sed sequi veniam!
-', curdate(), '2021-12-08T08:30:00.000', '2021-12-09T16:30:00.000', '12:00');
+', curdate(), '2020-14-07T16:00:00.000', '2020-14-07T16:30:00.000', '12:00', '12:00');
 
-INSERT INTO posts (title, body, create_date, end_date_time, start_date_time, event_time)
+INSERT INTO posts (title, body, create_date, end_date_time, start_date_time, start_time, end_time)
 VALUES ('Fifth Post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aspernatur dolor exercitationem nemo quia quis quo saepe. Ad aspernatur, autem beatae dolorem impedit labore nesciunt non officia, sed sequi veniam!
-', curdate(), '2021-12-08T08:30:00.000', '2021-12-09T16:30:00.000', '12:00');
+', curdate(), '2020-13-07T16:00:00.000', '2020-13-07T16:30:00.000', '12:00', '12:00');
 
 
 INSERT INTO comments (body, post_id, user_id) VALUE('I want to join!.', 1, 1);

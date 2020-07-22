@@ -97,8 +97,7 @@ public class PostController {
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post postToBeSaved, @RequestParam(name = "category") String catId, Authentication authentication) {
 
-        User currentUser = usersDao.findByUsername(authentication.getName());
-        System.out.println(currentUser);
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         postToBeSaved.setUser(currentUser);
         Date dateStart;
         Date dateEnd;
@@ -106,18 +105,23 @@ public class PostController {
         try {
             dateStart = new SimpleDateFormat("yyyy-MM-dd").parse(postToBeSaved.getStart_date_time());
             dateEnd = new SimpleDateFormat("yyyy-MM-dd").parse(postToBeSaved.getEnd_date_time());
+            System.out.println(dateEnd);
+            System.out.println(dateStart);
             String startDate = new SimpleDateFormat("yyyy-MM-dd").format(dateStart);
             String endDate = new SimpleDateFormat("yyyy-MM-dd").format(dateEnd);
+            System.out.println(startDate);
+            System.out.println(endDate);
+            System.out.println(postToBeSaved.getStart_time());
+            System.out.println(postToBeSaved.getEnd_time());
             String startFormat = startDate + 'T' +postToBeSaved.getStart_time() + ":00";
             String endFormat = endDate + 'T' + postToBeSaved.getEnd_time() + ":00";
+            System.out.println(startFormat);
+            System.out.println(endFormat);
             postToBeSaved.setStart_date_time(startFormat);
             postToBeSaved.setEnd_date_time(endFormat);
         } catch (ParseException e) {
 
         }
-
-
-
 
         Category category = categoriesDao.findCategoryById(Long.parseLong(catId));
         List<Category> listOfCategories = new ArrayList<>();

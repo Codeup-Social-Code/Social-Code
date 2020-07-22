@@ -66,14 +66,16 @@
                     <div>Category: <span th:text="${cat.name}"></span></div>
                 </th:block>
                 <div class="d-flex">
-<!--                    <th:block th:if="${#authentication.principal.id == post.user.id}">-->
-<!--    <form th:action="${'/posts/' + post.id + '/edit'}">-->
-<!--        <button class="btn-sm btn-warning">edit</button>-->
-<!--    </form>-->
-<!--&lt;!&ndash;    <form th:action="${'/posts/' + post.id + '/edit'}" class="ml-2 pl-2 pr-2">&ndash;&gt;-->
-<!--&lt;!&ndash;        <button class="btn-sm btn-danger">x</button>&ndash;&gt;-->
-<!--&lt;!&ndash;    </form>&ndash;&gt;-->
-<!--</th:block>-->
+
+
+
+                    <th:block th:if="${currentUser.id == post.user.id}">
+    <form th:action="${'/posts/' + post.id + '/edit'}">
+        <button class="btn-sm btn-warning">edit</button>
+    </form>
+</th:block>
+
+
                 </div>
                 <p class="card-text"><small class="text-muted">Created By: <span th:text="${post.user.firstName}"></span> <span th:text="${post.user.lastName}"></span></small></p>
                 <p class="card-text" th:text="${post.body}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto at delectus deserunt dignissimos distinctio eos, ipsa maiores nobis pariatur praesentium, qui repellat rerum sequi voluptatibus. Ab accusantium assumenda blanditiis consequatur cum delectus dolorem eligendi esse est explicabo fugit illum laudantium modi, neque nesciunt odit quaerat quasi quia quos rerum sed sunt veniam. Distinctio dolores eius enim excepturi maxime molestias, necessitatibus quisquam quod sunt. Commodi consectetur corporis distinctio error et facere facilis fugiat fugit hic impedit incidunt libero magni maxime minus molestias natus, nisi nobis omnis perspiciatis quibusdam recusandae rem rerum sequi unde, velit veritatis voluptatem. Accusantium alias aperiam cumque cupiditate dicta, doloribus enim, expedita explicabo iusto natus numquam placeat provident quasi quisquam repudiandae similique totam veritatis, vitae! At ea est fuga, ipsum labore molestias nisi odio placeat vitae voluptatibus. At aut eos, excepturi ipsa labore nemo nulla obcaecati optio quidem repudiandae sapiente, totam unde vitae voluptas voluptatem. Placeat, quam.</p>

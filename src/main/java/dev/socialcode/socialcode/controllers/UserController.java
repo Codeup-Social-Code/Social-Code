@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.io.InputStream;
 import java.util.Collections;
 import org.thymeleaf.ITemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -54,6 +55,7 @@ public class UserController{
         return "users/sign-up";
     }
 
+
     @PostMapping("/sign-up")
     public String saveUser(@ModelAttribute User user, Errors validation, Model model) {
         User existingUsername = usersDao.findByUsername(user.getUsername());
@@ -72,10 +74,12 @@ public class UserController{
             return "users/sign-up";
         }
 
+        String defaultPicture = "https://cdn.filestackcontent.com/qbyJUdMTSFW6rjp72FAq";
         String hash = passwordEncoder.encode(user.getPassword());
         String hashForConfirm = passwordEncoder.encode(user.getPasswordToConfirm());
         user.setPassword(hash);
         user.setPasswordToConfirm(hashForConfirm);
+        user.setPicture(defaultPicture);
 
         usersDao.save(user);
 //        authenticate(user);

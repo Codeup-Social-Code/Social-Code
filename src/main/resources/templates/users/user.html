@@ -113,6 +113,7 @@
                 <p class="card-text" th:text="${post.body}">This card has supporting text below as a natural lead-in to
                     additional content.</p>
                 <!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+                <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br>
                 <div th:if="${#authentication.principal.id == post.user.id}">
                 <form th:action="${'/posts/' + post.id + '/edit'}">
                     <button class="btn btn-warning">EDIT</button>

@@ -13,11 +13,12 @@
         <a class="navbar-brand d-sm-none d-md-block " href="/posts"><img class="logo" src="/img/codeup-logo.png"/></a>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav nav-frag mr-auto">
-                <li id="search" class="nav-item" sec:authorize="isAuthenticated()">
-                    <input class="d-none d-md-block" id="search-box" type="text" placeholder="Search posts" style="color: dimgrey">
-<!--                   add styling for search icon functionaity  -->
-                  <i class="fas fa-search d-none d-md-block"></i>
-                </li>
+<!--                    <input class="d-none d-md-block" id="search-box" type="text" placeholder="Search posts" style="color: dimgrey">-->
+<!--                    <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>-->
+                        <form action="/search"> <!-- make sure the search bar has a form that maps to  -->
+                            <input class="d-none d-md-block" id="search-box" type="text" name="term" placeholder="Search posts" style="color: dimgrey">
+                            <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>
+                        </form>
 
                 <li id="nav-login-btn" class="nav-item" sec:authorize="!isAuthenticated()">
                     <form th:action="@{/login}" th:method="get">

@@ -26,21 +26,21 @@
             <div class="row" th:style="${iterStat.odd}? 'width: 35rem' :'width: 18rem; height: 35rem;'">
                 <div class="cards col-6" >
                     <div th:style="${iterStat.odd}? 'width: 20rem; height: 25rem' : 'width: 38rem; height: 15'" class="card">
-                            <div class="card-header">
-        <!--                        <h1>Picture: <span th:text="${user.getPicture()}"></span></h1>-->
-                            </div>
-                            <div class="card-body">
-                                <h3 th:text="${post.title}">Title</h3>
-                                <div th:text="${post.body}">Description</div>
+                        <div class="card-header">
+    <!--                        <h1>Picture: <span th:text="${user.getPicture()}"></span></h1>-->
+                        </div>
+                        <div class="card-body">
+                            <h3 th:text="${post.title}">Title</h3>
+                            <div th:text="${post.body}">Description</div>
 <!--                                <div th:text="${post.user.username}">Email</div>-->
-                            </div>
-                            <div class="card-footer text-center">
-                                <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br>
-                                <div th:if="${#authentication.principal.id == post.user.id}">
+                        </div>
+                        <div class="card-footer text-center">
+                            <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br>
+                            <div th:if="${#authentication.principal.id == post.user.id}">
                                 <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white; border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Edit</a>
 <!--                                <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white;  border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Delete</a>-->
-                                </div>
                             </div>
+                        </div>
                     </div>
                  </div>
             </div>

@@ -22,6 +22,16 @@
     object-position: center right;
 }
 
+/*.iview-post-btn {*/
+/*    background-color: #ffde59;*/
+/*    color: black;*/
+/*    border: 1px black solid;*/
+/*}*/
+.view-all-card-header{
+    background-color: #7ea552;
+}
+
+
 .view-all-grid{
     display: flex;
 }

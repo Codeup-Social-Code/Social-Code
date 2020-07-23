@@ -16,10 +16,12 @@
 
 <!--                    <input class="d-none d-md-block" id="search-box" type="text" placeholder="Search posts" style="color: dimgrey">-->
 <!--                    <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>-->
+              <th:block sec:authorize="isAuthenticated()">
                         <form action="/search"> <!-- make sure the search bar has a form that maps to  -->
                             <input class="d-none d-md-block" id="search-box" type="text" name="term" placeholder="Search posts" style="color: dimgrey">
                             <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>
                         </form>
+                     </th:block>
 
 <!--                 <li id="search" class="nav-item ">
 <!--                     <form th:action="@{/search}" > -->
@@ -30,7 +32,6 @@
                 <!-- </li> -->
 
 <!--                <li id="nav-login-btn" class="nav-item">-->
-
 
                 <li id="nav-login-btn" class="nav-item" sec:authorize="!isAuthenticated()">
                     <form th:action="@{/login}" th:method="get">

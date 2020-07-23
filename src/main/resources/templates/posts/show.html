@@ -83,7 +83,7 @@
                    <p>No comments Found</p>
                 </th:block>
                 <div th:each="comment: ${comments}" class="card-body">
-                    <a class="text-decoration-none" th:href="${'/users/' + post.user.id }"> <span><em th:text="${comment.user.firstName}"></em></span> <span><em th:text="${comment.user.lastName}"></em></a></span>:
+                    <a class="text-decoration-none" th:href="${'/users/' + comment.user.id }"> <span><em th:text="${comment.user.firstName}"></em></span> <span><em th:text="${comment.user.lastName}"></em></a></span>:
                     <span th:text="${comment.body}"></span>
                     <th:block th:if="${comment.user.id == currentUser.id}">
                         <span class="d-flex float-right">

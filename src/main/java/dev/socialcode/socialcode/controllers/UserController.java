@@ -117,6 +117,8 @@ public class UserController{
         viewModel.addAttribute("sessionUser", usersService.loggedInUser());
         viewModel.addAttribute("showEditControls", usersService.canEditProfile(user));
         viewModel.addAttribute("followers", numberOfFollowers);
+        viewModel.addAttribute("showGitHub", usersService.displayGitHub(user));
+        viewModel.addAttribute("showLinkedIn", usersService.displayLinkedIn(user));
 
         return "users/user";
     }

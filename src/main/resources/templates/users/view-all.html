@@ -6,36 +6,82 @@
 </head>
 <body class="view-all">
     <nav th:replace="fragments/navbar :: navbar"></nav>
-    <form action="/users/search"> <!-- make sure the search bar has a form that maps to  -->
-        <input class="d-none d-md-block" id="search-box" type="text" name="term" placeholder="Search name" style="color: dimgrey">
-       <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>
-    </form>
 
-  <div class="container ">
 
-            <div th:each="user, iStat : ${viewAll}" class="box" th:id="'masonry' + ${iStat.count}">
-                <div class="row" th:style="${iStat.odd}? 'width: 35rem' :'width: 18rem; height: 25rem;'">
-                    <div class="cards">
-                        <div th:style="${iStat.odd}? 'width: 18rem; height: 25rem' : 'width: 28rem;'" class="card">
-                            <div class="card-header">
+
+    <section class="header-border d-flex justify-content-center align-items-center" style="background-color: #576541; ">
+        <div class="header-fill d-flex justify-content-center align-items-center" style="background-color: #876A3B;">
+            <div class="social">
+                <img class="social-img" src="/img/Social-lg.png"/>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid text center">
+        <form action="/users/search">
+            <div class="form-group row">
+                <div class="text-center">
+                 <input class="form-control" id="search-box" type="text" name="term" placeholder="Search Users" style="color: dimgrey">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+             </div>
+        </form>
+    </section>
+
+
+
+
+
+
+<!--            <div th:each="user, iStat : ${viewAll}" class="box" th:id="'masonry' + ${iStat.count}">-->
+<!--                <div class="row" th:style="${iStat.odd}? 'width: 35rem' :'width: 18rem; height: 25rem;'">-->
+<!--                    <div class="cards">-->
+<!--                        <div th:style="${iStat.odd}? 'width: 18rem; height: 25rem' : 'width: 28rem;'" class="card">-->
+<!--                            <div class="card-header">-->
+<!--                                <img id="all-image" class="image&#45;&#45;cover all-profile-image" th:src="*{user.picture}" width="100%"/>-->
+<!--                            </div>-->
+<!--                            <div class="card-body">-->
+<!--                               <h1>Name: <span th:text="${user.firstName}"></span></h1>-->
+<!--                              <h1>Name: <span th:text="${user.lastName}"></span></h1>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-center">-->
+<!--                                <form th:action="${'/users/' + user.id }" th:method="GET">-->
+<!--                                    <button class="btn btn-success" >View Profile</button>-->
+<!--                                </form>-->
+<!--                                <a th:href="@{/posts}"><button class="btn btn-success">View events</button></a>-->
+<!--                            </div>-->
+<!--                    </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+    <div class="container-fluid text-center">
+            <div class="row content justify-content-center">
+                    <div th:each="user : ${viewAll}">
+                        <div class="card view-all-card">
+                            <div class="card-header bg-success">
                                 <img id="all-image" class="image--cover all-profile-image" th:src="*{user.picture}" width="100%"/>
                             </div>
                             <div class="card-body">
-                               <h1>Name: <span th:text="${user.firstName}"></span></h1>
-                              <h1>Name: <span th:text="${user.lastName}"></span></h1>
+                                <h1><span th:text="${user.firstName}"></span></h1>
+                                <h1><span th:text="${user.lastName}"></span></h1>
                             </div>
                             <div class="card-footer text-center">
                                 <form th:action="${'/users/' + user.id }" th:method="GET">
-                                    <button class="btn btn-success" >View Profile</button>
+                                    <button class="btn btn-success m-1" >View Profile</button>
                                 </form>
-                                <a th:href="@{/posts}"><button class="btn btn-success">View events</button></a>
                             </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
             </div>
+        </div>
+    </div>
 
-  </div>
 
+    <footer class="container-fluid text-center">
+        <p>Footer Text</p>
+    </footer>
+
+    <th:block th:replace="fragments/footer :: footer-script"></th:block>
 </body>
 </html>

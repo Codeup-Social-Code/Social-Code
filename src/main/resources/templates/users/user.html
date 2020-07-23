@@ -20,9 +20,11 @@
                         <h3 id="first" th:text="${user.firstName + ' ' + user.lastName}"></h3>
                         <div class="connect">
                             <h6 id="email" th:text="${user.username}">Email</h6>
-                            <a th:if="${showGitHub}" id="github" class="card-text" th:href="@{${user.gitHub}}">GitHub</a>
+                            <a id="github" class="card-text" th:href="@{${user.gitHub}}">GitHub</a>
+<!--                            th:if="${showGitHub}"-->
                             <br>
-                            <a th:if="${showLinkedIn}" id="linkedin" class="card-text" th:href="@{${user.linkedIn}}">LinkedIn</a>
+                            <a id="linkedin" class="card-text" th:href="@{${user.linkedIn}}">LinkedIn</a>
+<!--                                th:if="${showLinkedIn}" -->
                             <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
                         </div>
                         <div class="connect">

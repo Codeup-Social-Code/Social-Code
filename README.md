@@ -2,6 +2,7 @@
 
 <h1>Scripts</h1>
   <h6>Emily: https://docs.google.com/document/d/1GbgoDd1ZwSV6wwFKJ0kYjMJWmlma2RNlzSxNFbmfMpc/edit?usp=sharing</h6>
+ <h6>DeLayne: https://docs.google.com/document/d/1mgcF79qUkNQ1rspvFA0_MNoTn3WcGfbJ7cKyqgnkhAQ/edit?usp=sharing<h6>
 
 <h1>APIs</h1>
 

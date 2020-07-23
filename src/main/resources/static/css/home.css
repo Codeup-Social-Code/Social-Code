@@ -156,9 +156,6 @@ h2.block-msg {
     .hcard-content{
         font-size: 16px;
     }
-    .fa-laptop{
-        font-size: 50px;
-    }
 
     .cta-grid{
         margin-top: 20px;
@@ -168,11 +165,15 @@ h2.block-msg {
         font-size: 16px;
     }
 
+
     #about-us{
         margin-top: -131px;
     }
     .gif-container {
         margin-top: 145px;
+    }
+    .connect-home{
+        margin-top: 10px;
     }
 
 }

@@ -94,6 +94,14 @@
     .masonry {
         columns: 2;
     }
+
+    .plan-grid-box {
+        padding-top: 89px;
+    }
+
+    .home-logo{
+        padding-top: 80px;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */

@@ -84,11 +84,11 @@ INSERT INTO post_categories(post_id, category_id) VALUES (9, 10);
 INSERT INTO post_categories(post_id, category_id) VALUES (10, 11);
 
 
-INSERT INTO comments (body, post_id, user_id) VALUE('I want to join!.', 1, 1);
-INSERT INTO comments (body, post_id, user_id) VALUE('I want to join!.', 2, 1);
-INSERT INTO comments (body, post_id, user_id) VALUE('I want to join!.', 1, 2);
-INSERT INTO comments (body, post_id, user_id) VALUE('I want to join!.', 3, 1);
-INSERT INTO comments (body, post_id, user_id) VALUE('I want to join!.', 4, 1);
+INSERT INTO comments (body, post_id, user_id) VALUE('I want to join!', 1, 1);
+INSERT INTO comments (body, post_id, user_id) VALUE('I want to join!', 2, 1);
+INSERT INTO comments (body, post_id, user_id) VALUE('I want to join!', 1, 2);
+INSERT INTO comments (body, post_id, user_id) VALUE('I want to join!', 3, 1);
+INSERT INTO comments (body, post_id, user_id) VALUE('I want to join!', 4, 1);
 
 INSERT INTO rsvp(post_id, user_id) VALUES (1, 1);
 INSERT INTO rsvp(post_id, user_id) VALUES (2, 2);

@@ -1,77 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head('Social Code || Edit')">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head th:replace="fragments/head :: head('SocialCode | Edit Post')">
     <meta charset="UTF-8">
-    <title>Home</title>
-
+    <title>Title</title>
 </head>
-<body class="edit">
+<body class="create bg-white">
+<nav th:replace="fragments/navbar :: navbar" />
 
-<nav th:replace="fragments/navbar :: navbar"></nav>
+<div class="container create-container text-center bg-white">
+    <div class="card create-card" th:if="${currentUser.id == post.user.id}">
 
-<div class="container edit-container text-center">
-    <div class="card edit-card">
-        <div class="card-header">
-            <h4>Edit Post:</h4>
-        </div>
-<!--        OG ====>> th:action="${'/posts/edit'}" -->
-<!--        th:action="@{/posts/{id}/edit(id=${id})}" -->
-        <div th:if="${currentUser.id == post.user.id}">
-            <form th:action="@{'/posts/' + ${post.id} + '/edit'}" th:method="POST" th:object="${post}">
-                <div class="card-body">
-                    <div>
-                        <label for="title">Title</label>
-                        <input type="text" name="title" id="title">
-                        <!--        <input type="text" name="title" id="title" th:field="*{title}">-->
-                    </div>
-                    <div>
-                        <input name="id" type="hidden">
-                        <!--        <input name="id" type="hidden" th:value="${post.id}" th:field="*{id}">-->
-                    </div>
-                    <div>
-                        <label for="body">Body</label>
-                        <input type="text" name="body" id="body">
-                        <!--        <input type="text" name="body" id="body" th:field="*{body}">-->
-                    </div>
-                    <div>
-                        <button class="btn btn-success">Update</button>
-                    </div>
+        <h4 class="p-5">Fill out the form to create your post.</h4>
+
+        <form th:action="@{'/posts/' + ${post.id} + '/edit'}" th:method="POST" th:object="${post}">
+            <div class="card-body">
+                <label for="title">Title</label>
+                <div>
+                    <input type="text" name="title" id="title" style="width: 300px" th:field="*{title}">
                 </div>
-            </form>
-<!--            <form th:class="alert" th:action="${'/posts/' + post.id + '/delete'}" th:method="POST">-->
-<!--                <button class="btn btn-danger" id="delete-alert-post" th:class="alert" th:onclick="this.parentElement.style.display=='none'">Delete</button>-->
-<!--            </form>-->
-            <form th:action="${'/posts/' + post.id + '/delete'}" th:method="POST">
-                <button class="btn btn-danger" id="delete-alert-post" th:class="alert" th:onclick="this.parentElement.style.display=='none'">Delete</button>
-            </form>
-        </div>
+                <label for="body">Body</label>
+                <div>
+                    <textarea type="text" name="body" id="body" rows="15" cols="50" th:field="*{body}">Body</textarea>
+                </div>
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <label for="start_date_time" class="d-block" style="margin-right: 55px ">Start Date:</label>
+                            <input id="start_date_time" type="date" name="start_date_time" th:field="*{start_date_time}">
+                        </div>
+
+                        <div>
+                            <label for="end_date_time" class="d-block" style="margin-right: 55px ">End Date:</label>
+                            <input id="end_date_time" type="date" name="end_date_time" th:field="*{end_date_time}">
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <label for="start_time" class="d-block" style="margin-right: 55px ">Start Time</label>
+                            <input id="start_time" type="time" step='1' min="00:00" max="24:00" name="eventTime" th:field="*{start_time}">
+                        </div>
+
+                        <div>
+                            <label for="end_time"   class="d-block" style="margin-right: 55px ">End Time</label>
+                            <input id="end_time" type="time" step='1' min="00:00" max="24:00" name="eventTime" th:field="*{end_time}">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div>
+                    <label class="category" for="category">Category</label>
+                    <select name="category" id="category">
+                        <option value="1">Javascript</option>
+                        <option value="2">Java</option>
+                        <option value="3">Bootstrap</option>
+                        <option value="4">CSS</option>
+                        <option value="5">HTML</option>
+                        <option value="6">MySQL</option>
+                        <option value="7">JQuery</option>
+                        <option value="8">Spring</option>
+                        <option value="9">UX Design</option>
+                        <option value="10">Front-end</option>
+                        <option value="11">Back-end</option>
+                        <option value="13">Github</option>
+                        <option value="14">Code Review</option>
+                        <option value="15">Tech Life</option>
+                        <option value="16">Other</option>
+                    </select>
+                </div>
+            </div>
+            <input class="btn btn-success" value="Save" type="submit"/>
+        </form>
+        <form th:action="${'/posts/' + post.id + '/delete'}" th:method="POST">
+            <button class="btn btn-danger" id="delete-alert-post" th:class="alert" th:onclick="this.parentElement.style.display=='none'">Delete</button>
+        </form>
     </div>
 </div>
 
-
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-<script>
-    // "use strict";
-    // $(document).ready(function () {
-    //     $("#delete-alert-post").click(function() {
-    //         confirm(`
-    //             Are you sure? It will delete the post!
-    //             `);
-    //     })
-    // })();
-
-    // "use strict";
-    // $(document).ready(function () {
-    //     $("#delete-alert-post").click(function() {
-    //         confirm("Are you sure? It will delete the post!");
-    //     })
-    // })();
-</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

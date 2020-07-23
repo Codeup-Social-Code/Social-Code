@@ -18,39 +18,87 @@
     </div>
 </section>
 
+<!--        <div th:each="post, iterStat : ${posts}" class="box" th:id=" 'masonryIndex' + ${iterStat.count}">-->
+<!--            <div class="row" th:style="${iterStat.odd}? 'width: 35rem' :'width: 18rem; height: 35rem;'">-->
+<!--                <div class="cards col-6" >-->
+<!--                    <div th:style="${iterStat.odd}? 'width: 20rem; height: 25rem' : 'width: 38rem; height: 15'" class="card">-->
+<!--                            <div class="card-header">-->
+<!--                                <img id="all-image" class="image&#45;&#45;cover all-profile-image" th:src="*{user.picture}" width="100%"/>-->
+<!--                            </div>-->
+<!--                            <div class="card-body">-->
+<!--                                <h3 th:text="${post.title}">Title</h3>-->
+<!--                                <div th:text="${post.body}">Description</div>-->
+<!--&lt;!&ndash;                                <div th:text="${post.user.username}">Email</div>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-center">-->
+<!--                                <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br>-->
+<!--&lt;!&ndash;                                <div th:if="${#authentication.principal.id == post.user.id}">&ndash;&gt;-->
+<!--                                <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white; border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Edit</a>-->
+<!--&lt;!&ndash;                                <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white;  border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Delete</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                    </div>-->
+<!--                 </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--</div>-->
 
 
-<div class="container index-container">
 
-        <div th:each="post, iterStat : ${posts}" class="box" th:id=" 'masonryIndex' + ${iterStat.count}">
-            <div class="row" th:style="${iterStat.odd}? 'width: 35rem' :'width: 18rem; height: 35rem;'">
-                <div class="cards col-6" >
-                    <div th:style="${iterStat.odd}? 'width: 20rem; height: 25rem' : 'width: 38rem; height: 15'" class="card">
-                            <div class="card-header">
-        <!--                        <h1>Picture: <span th:text="${user.getPicture()}"></span></h1>-->
-                            </div>
-                            <div class="card-body">
-                                <h3 th:text="${post.title}">Title</h3>
-                                <div th:text="${post.body}">Description</div>
+
+ <!-- <div class="container index-container">-->
+
+        <!-- <div th:each="post, iterStat : ${posts}" class="box" th:id=" 'masonryIndex' + ${iterStat.count}">-->
+            <!--<div class="row" th:style="${iterStat.odd}? 'width: 35rem' :'width: 18rem; height: 35rem;'">-->
+               <!--  <div class="cards col-6" >-->
+                    <!--<div th:style="${iterStat.odd}? 'width: 20rem; height: 25rem' : 'width: 38rem; height: 15'" class="card">-->
+                       <!-- <div class="card-header">-->
+    <!--                        <h1>Picture: <span th:text="${user.getPicture()}"></span></h1>-->
+                       <!-- </div>-->
+                       <!-- <div class="card-body">-->
+                          <!--  <h3 th:text="${post.title}">Title</h3>-->
+                          <!--  <div th:text="${post.body}">Description</div>-->
 <!--                                <div th:text="${post.user.username}">Email</div>-->
-                            </div>
-                            <div class="card-footer text-center">
-                                <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br>
-                                <div th:if="${#authentication.principal.id == post.user.id}">
-                                <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white; border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Edit</a>
+                       <!-- </div>-->
+                        <!--<div class="card-footer text-center">-->
+                           <!-- <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br>-->
+                           <!-- <div th:if="${#authentication.principal.id == post.user.id}">-->
+                              <!--  <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white; border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Edit</a>-->
 <!--                                <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white;  border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Delete</a>-->
-                                </div>
-                            </div>
+                         <!--   </div>-->
+                       <!-- </div>-->
+ 
+
+
+<div class="container-fluid text-center index-container">
+    <div class="row justify-content-center">
+        <div th:each="post : ${posts}">
+            <div class="card comm-post-card ">
+                    <div class="card-header bg-success">
+                        <img id="all-image" class="image--cover all-profile-image" th:src="*{post.user.picture}" width="100%"/
                     </div>
-                 </div>
+                    <div class="card-body">
+                        <h3 th:text="${post.title}">Title</h3>
+                        <div th:text="${post.body}">Description</div>
+                        <div th:text="${post.categories}">Categories</div>
+                        <!--                                <div th:text="${post.user.username}">Email</div>-->
+                    </div>
+                    <div class="card-footer text-center">
+                        <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br>
+                        <!--                                <div th:if="${#authentication.principal.id == post.user.id}">-->
+                        <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white; border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Edit</a>
+                        <!--                                <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white;  border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Delete</a>-->
+                        <!--                                </div>-->
+
+                    </div>
+                </div>
             </div>
         </div>
-
 </div>
 
 
 
-
+<th:block th:replace="fragments/footer :: footer-script"></th:block>
 </body>
 </html>
 

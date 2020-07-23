@@ -33,6 +33,15 @@
 
 <!--                <li id="nav-login-btn" class="nav-item">-->
 
+
+<!--                ADD ABOUT US BUTTON-->
+<!--                <li id="about-us-btn" class="nav-item">-->
+<!--                    <form th:action="@{/about}" th:method="get">-->
+<!--                        <button id="about-us" class="btn-link btn" style="color: dimgrey;">About Us</button>-->
+<!--                    </form>-->
+<!--                </li>-->
+
+
                 <li id="nav-login-btn" class="nav-item" sec:authorize="!isAuthenticated()">
                     <form th:action="@{/login}" th:method="get">
                         <button id="nav-login" class="btn-link btn" style="color: dimgrey;">Login</button>

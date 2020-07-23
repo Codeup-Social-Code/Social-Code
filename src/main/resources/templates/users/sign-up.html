@@ -14,20 +14,20 @@
                     <h1>Create An Account</h1>
                 </div>
                 <div class="card-body signup-card-body text-center">
-                    <label for="firstName">First Name</label>
-                    <input id="firstName" name="firstName" th:field="*{firstName}" />
+                    <label for="sign-up-firstName">First Name</label>
+                    <input id="sign-up-firstName" name="firstName" th:field="*{firstName}" />
                     <br>
-                    <label for="lastName">Last Name</label>
-                    <input id="lastName" name="lastName" th:field="*{lastName}" />
+                    <label for="sign-up-lastName">Last Name</label>
+                    <input id="sign-up-lastName" name="lastName" th:field="*{lastName}" />
                     <br>
-                    <label class="username" for="username">Email</label>
-                    <input id="username" name="username" th:class="validate" th:field="*{username}" />
+                    <label class="signupEmail" for="sign-up-Email">Email</label>
+                    <input id="sign-up-Email" name="username" th:class="validate" th:field="*{username}" />
                     <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
                     <br>
-                    <label class="username" for="password">Password</label>
-                    <input id="password" name="password" type="password" th:class="validate" th:field="*{password}" />
+                    <label class="signupPassword" for="sign-up-Password">Password</label>
+                    <input id="sign-up-Password" name="password" type="password" th:class="validate" th:field="*{password}" />
                     <br>
-                    <label for="passwordToConfirm">Re-Enter Password</label>
+                    <label for="passwordToConfirm">Confirm Password</label>
                     <input id="passwordToConfirm" name="passwordToConfirm" type="password" />
                     <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                     <br>

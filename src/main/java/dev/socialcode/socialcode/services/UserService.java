@@ -61,6 +61,13 @@ public class UserService {
 //        return false;
 //    }
 
+    public boolean displayGitHub(User user){
+        return !(user.getGitHub().equals(""));
+    }
+
+    public boolean displayLinkedIn(User user){
+        return !(user.getLinkedIn().equals(""));
+    }
 
 
 

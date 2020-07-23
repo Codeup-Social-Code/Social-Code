@@ -21,10 +21,10 @@
                             <input class="d-none d-md-block" id="search-box" type="text" name="term" placeholder="Search posts" style="color: dimgrey">
                             <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>
                         </form>
-                     </th:block>
+              </th:block>
 
 <!--                 <li id="search" class="nav-item ">
-<!--                     <form th:action="@{/search}" > -->
+                     <form th:action="@{/search}" > -->
 <!--                         <input class="d-none d-md-block" id="search-box" type="text" name="term" placeholder="Search" style="color: dimgrey"> -->
                         <!--                   add styling for search icon functionaity  -->
 <!--                         <button type="submit" class="fas fa-search d-none d-md-block"></button> -->
@@ -63,6 +63,10 @@
                                        <a class="dropdown-item" th:href="@{/users/profile}">Your profile</a>
                                             <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" th:href="@{/posts/create}">Create an event</a>
+                                            <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" th:href="@{/mapbox}">View Our global users</a>
+                                            <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" th:href="@{/calendar}">View Calendar</a>
                                     </div>
                             </li>
                 </th:block>

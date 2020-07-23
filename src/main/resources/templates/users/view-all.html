@@ -59,7 +59,7 @@
             <div class="row content justify-content-center">
                     <div th:each="user : ${viewAll}">
                         <div class="card view-all-card">
-                            <div class="card-header bg-success">
+                            <div class="card-header view-all-card-header">
                                 <img id="all-image" class="image--cover all-profile-image" th:src="*{user.picture}" width="100%"/>
                             </div>
                             <div class="card-body">

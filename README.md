@@ -1,5 +1,8 @@
 # Social-Code
 
+<h1>Scripts</h1>
+  <h6>Emily: https://docs.google.com/document/d/1GbgoDd1ZwSV6wwFKJ0kYjMJWmlma2RNlzSxNFbmfMpc/edit?usp=sharing</h6>
+
 <h1>APIs</h1>
 
 <h3>Calendar</h3>

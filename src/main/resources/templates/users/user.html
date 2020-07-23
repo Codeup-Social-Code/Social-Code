@@ -20,9 +20,9 @@
                         <h3 id="first" th:text="${user.firstName + ' ' + user.lastName}"></h3>
                         <div class="connect">
                             <h6 id="email" th:text="${user.username}">Email</h6>
-                            <a id="github" class="card-text" th:href="@{${user.gitHub}}">GitHub</a>
+                            <a th:if="${showGitHub}" id="github" class="card-text" th:href="@{${user.gitHub}}">GitHub</a>
                             <br>
-                            <a id="linkedin" class="card-text" th:href="@{${user.linkedIn}}">LinkedIn</a>
+                            <a th:if="${showLinkedIn}" id="linkedin" class="card-text" th:href="@{${user.linkedIn}}">LinkedIn</a>
                             <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
                         </div>
                         <div class="connect">
@@ -95,9 +95,11 @@
                         <!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
                        <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br> 
                       <div th:if="${#authentication.principal.id == post.user.id}">
-                <form th:action="${'/posts/' + post.id + '/edit'}">
-                    <button class="btn btn-warning">EDIT</button>
-                </form>
+                        <form th:action="${'/posts/' + post.id + '/edit'}">
+                            <button class="btn btn-warning">EDIT</button>
+                        </form>
+                      </div>
+                    </div>
                </div>
             </div>
         </div>

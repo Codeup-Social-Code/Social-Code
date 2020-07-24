@@ -28,13 +28,13 @@
                 </form>
             </li>
 
-            <th:block sec:authorize="isAuthenticated()">
-                <li id="logout-btn" class="nav-item">
-                    <form th:action="@{/logout}" th:method="POST">
-                        <button id="logout" class="btn-link btn"  style="color: #7ea552">Logout</button>
-                    </form>
-                </li>
-            </th:block>
+<!--            <th:block sec:authorize="isAuthenticated()">-->
+<!--                <li id="logout-btn" class="nav-item">-->
+<!--                    <form th:action="@{/logout}" th:method="POST">-->
+<!--                        <button id="logout" class="btn-link btn"  style="color: #7ea552">Logout</button>-->
+<!--                    </form>-->
+<!--                </li>-->
+<!--            </th:block>-->
             <th:block sec:authorize="isAuthenticated()">
                 <li class="nav-item dropdown">
                     <a href="#" id="nav-community" class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  style="color: #7ea552">Community</a>
@@ -59,6 +59,13 @@
                 <input id="search-box" type="text" name="term" placeholder="Search posts" style="color: #576541">
                 <button id="search-icon" type="submit"><i class="fas fa-search" style=" color: #7ea552;"></i></button>
             </form>
+        </th:block>
+        <th:block sec:authorize="isAuthenticated()">
+            <li id="logout-btn" class="nav-item">
+                <form th:action="@{/logout}" th:method="POST">
+                    <button id="logout" class="btn-link btn"  style="color: #7ea552">Logout</button>
+                </form>
+            </li>
         </th:block>
     </div>
 </nav>

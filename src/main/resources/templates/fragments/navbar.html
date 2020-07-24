@@ -8,9 +8,16 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
+    <th:block sec:authorize="!isAuthenticated()">
     <a class="navbar-brand " href="#">
         <a class="navbar-brand d-none d-md-block" href="/posts"><img class="logo" src="/img/codeup-logo.png"/></a>
     </a>
+    </th:block>
+    <th:block sec:authorize="isAuthenticated()">
+        <a class="navbar-brand " href="#">
+            <a class="navbar-brand d-none d-md-block" href="/posts"><img class="logo" src="/img/codeup-logo.png"/></a>
+        </a>
+    </th:block>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,13 +35,13 @@
                 </form>
             </li>
 
-            <th:block sec:authorize="isAuthenticated()">
-                <li id="logout-btn" class="nav-item">
-                    <form th:action="@{/logout}" th:method="POST">
-                        <button id="logout" class="btn-link btn"  style="color: #7ea552">Logout</button>
-                    </form>
-                </li>
-            </th:block>
+<!--            <th:block sec:authorize="isAuthenticated()">-->
+<!--                <li id="logout-btn" class="nav-item">-->
+<!--                    <form th:action="@{/logout}" th:method="POST">-->
+<!--                        <button id="logout" class="btn-link btn"  style="color: #7ea552">Logout</button>-->
+<!--                    </form>-->
+<!--                </li>-->
+<!--            </th:block>-->
             <th:block sec:authorize="isAuthenticated()">
                 <li class="nav-item dropdown">
                     <a href="#" id="nav-community" class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  style="color: #7ea552">Community</a>
@@ -59,6 +66,13 @@
                 <input id="search-box" type="text" name="term" placeholder="Search posts" style="color: #576541">
                 <button id="search-icon" type="submit"><i class="fas fa-search" style=" color: #7ea552;"></i></button>
             </form>
+        </th:block>
+        <th:block sec:authorize="isAuthenticated()">
+            <li id="logout-btn" class="nav-item">
+                <form th:action="@{/logout}" th:method="POST">
+                    <button id="logout" class="btn-link btn"  style="color: #7ea552">Logout</button>
+                </form>
+            </li>
         </th:block>
     </div>
 </nav>

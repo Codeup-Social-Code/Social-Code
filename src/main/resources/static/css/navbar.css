@@ -208,15 +208,6 @@
         margin-left: 1000px;
     }
 
-
-    #search {
-        margin-top: 13px;
-    }
-
-    #search-bar {
-        font-size: 20px;
-    }
-
     #search-box{
         float: left;
         width: 70%;
@@ -243,6 +234,10 @@
     }
 
     #nav-community{
+        font-size: 20px;
+    }
+
+    #nav-about{
         font-size: 20px;
     }
 

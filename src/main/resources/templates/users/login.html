@@ -6,29 +6,73 @@
 </head>
 
 <body class="login">
-<nav th:replace="fragments/navbar :: navbar" />
 
-        <div class="container login-container">
-            <div class="card login-card text-center">
-                <form th:action="@{/login}" method="post">
-                    <div class="card-header text-center">
-                        <h3>Please Log In</h3>
-                    </div>
-                    <div class="card-body login-card-body text-center">
-                        <label for="username">Email</label>
-                        <input id="username" name="username" type="email" />
-                        <br>
-                        <label for="password">Password</label>
-                        <input class="login-password" id="password" name="password" type="password" />
-                        <br>
-                        <input class="btn btn-success mt-2" type="submit" value="Log In"/>
-                    </div>
-                    <form class="existing-login" th:action="@{/sign-up}" th:method="post">
-                        <span>Want to join us?</span>
-                        <a href="/sign-up">Sign up here</a>
-                    </form>
-                </form>
-            </div>
+
+<!--        <div class="container login-container">-->
+<!--            <div class="card login-card text-center">-->
+<!--                <form th:action="@{/login}" method="post">-->
+<!--                    <div class="card-header text-center">-->
+<!--                        <h3>Please Log In</h3>-->
+<!--                    </div>-->
+<!--                    <div class="card-body login-card-body text-center">-->
+<!--                        <label for="username">Email</label>-->
+<!--                        <input id="username" name="username" type="email" />-->
+<!--                        <br>-->
+<!--                        <label for="password">Password</label>-->
+<!--                        <input class="login-password" id="password" name="password" type="password" />-->
+<!--                        <br>-->
+<!--                        <input class="btn btn-success mt-2" type="submit" value="Log In"/>-->
+<!--                    </div>-->
+<!--                    <form class="existing-login" th:action="@{/sign-up}" th:method="post">-->
+<!--                        <span>Want to join us?</span>-->
+<!--                        <a href="/sign-up">Sign up here</a>-->
+<!--                    </form>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<div class="wrapper login-wrapper fadeInDown">
+    <div id="login-formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first p-3">
+            <img src="/img/codeup-logo.png" width="30%"/>
         </div>
+
+        <!-- Login Form -->
+        <form th:action="@{/login}" method="post">
+            <div class="card-header text-center" style="color: #576541">
+                <h3>Please Log In</h3>
+            </div>
+            <div class="card-body login-card-body text-center">
+                <label for="username">Email</label>
+                <input id="username" name="username" type="email" />
+                <br>
+                <label for="password">Password</label>
+                <input class="login-password" id="password" name="password" type="password" />
+                <br>
+                <input class="btn btn-success mt-2" type="submit" value="Log In"/>
+            </div>
+
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="login-formFooter">
+            <form class="existing-login" th:action="@{/sign-up}" th:method="post">
+                <span>Want to join us?</span>
+                <a href="/sign-up">Sign up here</a>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
 </body>
 </html>

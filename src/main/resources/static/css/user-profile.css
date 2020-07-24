@@ -153,9 +153,9 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
     .image--cover {
-        width: 400px;
-        height: 400px;
-        margin-top: 50px;
+        width: 340px;
+        height: 340px;
+        margin-top: 20px;
         margin-left: 175px;
 
     }
@@ -163,24 +163,47 @@
         padding-left: 388px;
     }
 
+
+    .github{
+        width: 10%;
+    }
+
+    .linkedin{
+        width: 9%;
+    }
+
+
 }
 
 @media screen and (min-width:2200px) {
 
-    .user-prof-image {
-        width: 450px;
-        height: 450px;
-        margin-top: 50px;
-        margin-left: 300px;
+    .image--cover {
+        margin-top: 30px;
+        margin-left: 800px;
 
     }
+    .bio-card-body {
+        text-align: unset;
+        margin-left: 175px;
+        margin-top: 60px;
+        margin-left: 500px;
+    }
+
 
     #first, #last {
         font-size: 40px;
     }
 
-    #email, #github, #linkedin, #profile-bio {
+    #email, #profile-bio {
         font-size: 25px;
+    }
+
+    .github{
+        width: 6%;
+    }
+
+    .linkedin{
+        width: 5%;
     }
 
     .follow{

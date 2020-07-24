@@ -8,9 +8,16 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
+    <th:block sec:authorize="!isAuthenticated()">
     <a class="navbar-brand " href="#">
         <a class="navbar-brand d-none d-md-block" href="/posts"><img class="logo" src="/img/codeup-logo.png"/></a>
     </a>
+    </th:block>
+    <th:block sec:authorize="isAuthenticated()">
+        <a class="navbar-brand " href="#">
+            <a class="navbar-brand d-none d-md-block" href="/posts"><img class="logo" src="/img/codeup-logo.png"/></a>
+        </a>
+    </th:block>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

@@ -110,7 +110,7 @@
 
         function locationExecution () {
             $.ajax({
-                "url": "http://localhost:8080/users.json",
+                "url": "/users.json",
                 "type": "GET"
             }).done(function (data) {
                 console.log(data);

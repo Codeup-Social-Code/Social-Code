@@ -27,6 +27,12 @@
 .comm-post-card{
     margin: 10px;
     width: 21rem;
+
+    box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;
+}
+
+.index-btn{
+    box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;
 }
 
 .header-border {
@@ -93,6 +99,14 @@
     }
     .masonry {
         columns: 2;
+    }
+
+    .plan-grid-box {
+        padding-top: 89px;
+    }
+
+    .home-logo{
+        padding-top: 80px;
     }
 }
 

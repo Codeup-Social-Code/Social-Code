@@ -2,6 +2,9 @@
 
 <h1>Scripts</h1>
   <h6>Emily: https://docs.google.com/document/d/1GbgoDd1ZwSV6wwFKJ0kYjMJWmlma2RNlzSxNFbmfMpc/edit?usp=sharing</h6>
+  <h6>Sung :https://docs.google.com/document/d/1NtwcaANFb6mOV4yt9s6PyGuwdtsEqoEmUbW6XpnyFHI/edit?usp=sharing</h6>
+  <h6>Ron: https://docs.google.com/document/d/1wg3NiwN2cTwE4ZVzUgBzwLzFcPC0T3rXPeyZa7ASpBQ/edit?usp=sharing</h6>
+ <h6>DeLayne: https://docs.google.com/document/d/1mgcF79qUkNQ1rspvFA0_MNoTn3WcGfbJ7cKyqgnkhAQ/edit?usp=sharing<h6>
 
 <h1>APIs</h1>
 

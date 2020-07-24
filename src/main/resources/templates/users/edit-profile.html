@@ -22,7 +22,7 @@
         <form th:action="@{/users/{id}/edit(id=${id})}" th:method="POST" th:object="${user}">
             <div class="card-body">
                 <input id="picture" name="picture" value="replaceme" th:field="*{picture}" type="hidden">
-                <button type="button" id="upload" name="upload">Upload an image</button>
+                <button class="mb-5" type="button" id="upload" name="upload">Upload an image</button>
 
                 <div>
                     <label class="edit-prof-firstName" for="edit-prof-firstName">First Name</label>
@@ -42,14 +42,14 @@
 
                     <!--         anchor-->
                     <label class="edit-prof-github" for="edit-prof-gitHub">GitHub URL</label>
-                    <input id="edit-prof-gitHub" th:field="*{gitHub}"/>
+                    <input id="edit-prof-gitHub"  maxlength="1"  th:field="*{gitHub}"/>
                     <br>
                     <!--        anchor-->
                     <label class="edit-prof-linkedin" for="edit-prof-linkedIn">LinkedIn URL</label>
-                    <input id="edit-prof-linkedIn" th:field="*{linkedIn}"/>
+                    <input id="edit-prof-linkedIn"  maxlength="10" th:field="*{linkedIn}"/>
                     <br>
                     <label for="bio">Bio</label>
-                    <textarea  id="bio" type="text" rows="5" cols="20" th:field="*{bio}" name="edit-prof-bio" ></textarea>
+                    <textarea  id="bio" type="text" rows="5" cols="28" th:field="*{bio}" name="edit-prof-bio" ></textarea>
                 </div>
 
                 <form th:action="${'/users/' + user.id + '/delete'}" th:method="POST">

@@ -17,20 +17,24 @@
                 </div>
                 <div class="col-md-8">
                     <div class="bio-card-body">
-                        <h3 id="first" th:text="${user.firstName + ' ' + user.lastName}"></h3>
                         <div class="connect">
+                            <h3 id="first" th:text="${user.firstName + ' ' + user.lastName}"></h3>
                             <h6 id="email" th:text="${user.username}">Email</h6>
-                            <a id="github" class="card-text" th:href="@{${user.gitHub}}">GitHub</a>
-<!--                            th:if="${showGitHub}"-->
                             <br>
-                            <a id="linkedin" class="card-text" th:href="@{${user.linkedIn}}">LinkedIn</a>
+                            <a id="github" class="card-text" th:href="@{${user.gitHub}}">
+<!--                            th:if="${showGitHub}"-->
+                                <img class="github" src="/img/4.png"/>
+                            </a>
+                            <a id="linkedin" class="card-text" th:href="@{${user.linkedIn}}">
+                                <img class="linkedin" src="/img/5.png"/>
+                            </a>
 <!--                                th:if="${showLinkedIn}" -->
                             <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
                         </div>
                         <div class="connect">
                             <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }" style="color: dimgrey;">
                                 <h6>EDIT PROFILE</h6></a>
-                            <a th:href="@{/users/view-all}">
+                            <a class="view-all-btn" th:href="@{/users/view-all}">
                                 <button id="prof-view-users" class="btn btn-success">View all users</button>
                             </a>
                         </div>
@@ -61,21 +65,21 @@
 <!--<hr style="width: 50%">-->
 
 <!--example for displaying followers-->
-<!--        <section class="container project-section">-->
-<!--            <div class="row project-wrapper text-center">-->
-<!--                <div class="text-center">-->
-<!--                    <div class="button-container text-center">-->
-<!--                        <img src="/img/9.png" class="project-cover"/>-->
-<!--                        <a class="text-center" href="#">+</a>-->
-<!--                    </div>-->
-<!--                    <img src="/img/8.png" class="project-cover"/>-->
-<!--                </div>-->
-<!--                <div class="text-center">-->
-<!--                    <img src="/img/13.png" class="project-cover" />-->
-<!--                    <img src="/img/7.png" class="project-cover"/>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
+        <section class="container project-section">
+            <div class="row project-wrapper text-center">
+                <div class="text-center">
+                    <div class="profile-button-container text-center">
+                        <img src="/img/9.png" class="project-cover"/>
+                        <a class="text-center" href="#">+</a>
+                    </div>
+                    <img src="/img/8.png" class="project-cover"/>
+                </div>
+                <div class="text-center">
+                    <img src="/img/13.png" class="project-cover" />
+                    <img src="/img/7.png" class="project-cover"/>
+                </div>
+            </div>
+        </section>
 
 
 

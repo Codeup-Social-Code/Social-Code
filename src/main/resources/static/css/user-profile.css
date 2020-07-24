@@ -18,14 +18,22 @@
 }
 
 .image--cover {
-    width: 200px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     border-radius: 50%;
-    margin: 5px 20px 20px 20px;
+    margin: 13px 20px 20px 20px;
     box-shadow: rgba(9, 0, 0, 0.87) 10px 10px 26px;
 
     object-fit: cover;
     object-position: center right;
+}
+
+.github{
+    width: 15%;
+}
+
+.linkedin{
+    width: 12%;
 }
 
 #follow-me{
@@ -34,6 +42,7 @@
     border-radius: 8%;
     width: 100px;
 }
+
 #prof-view-users{
     box-shadow: rgba(2, 0, 0, 0.31) 2px 2px 6px 2px;
     border: grey 1px solid;
@@ -55,13 +64,13 @@
     object-position: center right;
 }
 
-.button-container{
+.profile-button-container{
     display:inline-block;
     position:relative;
     text-align: center;
 }
 
-.button-container a{
+.profile-button-container a{
     position: absolute;
     bottom: 18px;
     right: 11px;
@@ -74,7 +83,9 @@
     padding: 0px 8px;
 }
 
-
+.prof-view-users {
+    margin-bottom: 10px;
+}
 
 
 /* Small devices (phones and pocket devices, 576 and up) */
@@ -88,9 +99,10 @@
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
     .image--cover {
-        width: 365px;
-        height: 365px;
-        margin-top: 55px;
+        width: 200px;
+        height: 200px;
+        margin-top: 100px;
+        margin-left: 100px;
 
         float: left;
 
@@ -99,7 +111,7 @@
     .bio-card-body {
         text-align: unset;
         margin-left: 175px;
-        margin-top: 100px;
+        margin-top: 60px;
     }
 
     .follow{
@@ -117,6 +129,14 @@
     .prof-post-card {
         margin: 10px;
         width: 25rem;
+    }
+
+    .github{
+        width: 15%;
+    }
+
+    .linkedin{
+        width: 15%;
     }
 
 

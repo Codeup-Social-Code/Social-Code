@@ -34,10 +34,6 @@
      font-size: 10px;
  }
 
- #about-us {
-     font-size: 10px;
- }
-
 #logout {
     font-size: 10px;
 }
@@ -77,10 +73,6 @@
         font-size: 20px;
     }
 
-    #about-us {
-        font-size: 20px;
-    }
-
     #login {
         font-size: 20px;
     }
@@ -104,10 +96,6 @@
 @media screen and (min-width:992px) {
     ul.nav-frag {
         margin-left: 250px;
-    }
-
-    #about-us {
-        font-size: 17px;
     }
 
     #nav-login {
@@ -172,10 +160,6 @@
         color: #444242;
     }
 
-    #about-us {
-        font-size: 13px;
-    }
-
     #nav-login {
         font-size: 13px;
     }
@@ -228,10 +212,6 @@
         margin-left: 2px;
         font-size: 30px;
         color: #444242;
-    }
-
-    #about-us {
-        font-size: 20px;
     }
 
     #nav-login {

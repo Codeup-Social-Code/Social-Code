@@ -49,6 +49,14 @@
     flex: 50%;
 }
 
+.github{
+    width: 15%;
+}
+
+.linkedin{
+    width: 12%;
+}
+
 @media screen and (min-width:2200px) {
 
     #all-image.all-profile-image {

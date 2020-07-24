@@ -14,6 +14,10 @@
 
 }
 
+.home-card-text{
+    font-size: 12px;
+}
+
 .center-green {
     height: 850px;
 }
@@ -43,6 +47,8 @@
     vertical-align: middle;
 
 }
+
+
 .about-us {
     color: white;
     font-size: 15px;
@@ -100,27 +106,33 @@ h2.block-msg {
 
 
 
-/*MEDIA QUERIES*/
-@media screen and (min-width:425px) {
-
-    .home-card-deck {
-        margin-left: 35px;
-    }
-    .bottom-fold {
-
-        height: 700px;
-
-    }
-
-}
-
-/* Small devices (phones and pocket devices, 576 and up) */
-@media screen and (min-width:576px) {
-
-}
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
+
+    .home-card-deck {
+        margin: 36px -35px 0px ;
+
+    }
+    .home-card{
+        padding: 0px;
+    }
+    .home-card-text{
+        font-size: 9px;
+    }
+    i.fas.fa-laptop::before{
+        font-size: 40px;!important;
+    }
+
+    i.fas.fa-user-tie::before{
+        font-size: 50px;!important;
+        margin-top: 30px;
+    }
+
+    i.fas.fa-users::before{
+        font-size: 40px;!important;
+    }
+
     .top-fold {
         height: 636px;
 
@@ -154,7 +166,7 @@ h2.block-msg {
     }
 
     .hcard-content{
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .cta-grid{
@@ -230,7 +242,5 @@ h2.block-msg {
     #community-gif{
         width: 55%;
     }
-    /*#about-message {*/
-    /*    margin-right: 5px;*/
-    /*}*/
+
 }

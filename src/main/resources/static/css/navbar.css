@@ -1,4 +1,9 @@
-
+.nav-container{
+    display: flex;
+}
+.nav-list{
+    float: right;
+}
 .nav-frag{
     text-align: center;
 }
@@ -9,9 +14,10 @@
     width: 0%;
 }
 
-#search {
-    margin-top: 7px;
+#search-icon.fa-search{
+    font-size: 25px;
 }
+
  #search-bar {
      font-size: 2px;
  }
@@ -22,13 +28,6 @@
      font-size: 9px;
  }
 
-
- .fas {
-     margin-left: 2px;
-     margin-top: 3px;
-     font-size: 12px;
-     color: #444242;
- }
 
  #nav-login {
      font-size: 10px;
@@ -42,7 +41,7 @@
     font-size: 10px;
 }
 
-#navbarDropdown{
+#nav-community{
     font-size: 10px;
 }
 
@@ -64,29 +63,36 @@
     }
 
 
-    #navbarDropdown{
-        font-size: 20px;
-    }
-
 
     .dropdown-item {
-        font-size: 20px;
+        font-size: 12px;
     }
 
     #login {
-        font-size: 20px;
+        font-size: 12px;
     }
 
     #logout {
-        font-size: 20px;
+        font-size: 12px;
+    }
+    #nav-about{
+        font-size: 12px;
+    }
+
+    #nav-community{
+        font-size: 12px;
     }
 
     #register {
         font-size: 20px;
     }
 
-    #search {
-        margin-top: 11px;
+    #search-icon .fa-search{
+        font-size: 15px;
+    }
+
+    #search-box{
+        width: 100px;
     }
 
 
@@ -110,18 +116,18 @@
         font-size: 17px;
     }
 
-    #navbarDropdown{
+    #nav-community{
         font-size: 17px;
     }
 
+    #nav-about{
+        font-size: 17px;
+    }
 
     .dropdown-item {
         font-size: 17px;
     }
 
-    #search {
-        margin-top: 9px;
-    }
 
 
     #search-box{
@@ -153,11 +159,11 @@
         font-size: 15px;
     }
 
-    .fas {
+    #search-icon.fa-search {
         margin-top: 4px;
         margin-left: 2px;
         font-size: 20px;
-        color: #444242;
+
     }
 
     #nav-login {
@@ -172,7 +178,7 @@
         font-size: 13px;
     }
 
-    #navbarDropdown{
+    #nav-community{
         font-size: 13px;
     }
 
@@ -207,11 +213,11 @@
         font-size: 20px;
     }
 
-    .fas {
+    #search-icon.fa-search {
         margin-top: 4px;
         margin-left: 2px;
         font-size: 30px;
-        color: #444242;
+        /*color: #444242;*/
     }
 
     #nav-login {
@@ -226,7 +232,7 @@
         font-size: 20px;
     }
 
-    #navbarDropdown{
+    #nav-community{
         font-size: 20px;
     }
 

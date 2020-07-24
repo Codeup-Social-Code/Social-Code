@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" style="background-color: white">
 <head th:replace="fragments/head :: head('Community Map')">
     <meta charset="UTF-8">
     <title>Mapbox Maps API</title>
@@ -42,15 +42,15 @@
     </style>
 
 </head>
-<body>
+<body style="background-color: white">
 <header><nav th:replace="fragments/navbar :: navbar"></nav></header>
 <!--<div class="social">-->
 <!--    <img class="social-img" src="/img/social.png"/>-->
 <!--</div>-->
 
-<h2>Social Code Community</h2>
+<h3 class="text-center mt-5 mb-3">Social Code Community</h3>
 
-<div id='map' style='width: 800px; height: 600px;'></div>
+<div id='map' class="border border-success" style='width: 1000px; height: 500px; margin: 0 auto;'></div>
 
 <script src="js/keys.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

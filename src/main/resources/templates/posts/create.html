@@ -7,86 +7,98 @@
 <body class="create bg-white">
 <nav th:replace="fragments/navbar :: navbar" />
 
-        <div class="container create-container text-center bg-white">
-            <div class="card create-card">
+                <div class="text-center">
+                    <h1 style="color: #576541" class="p-5">Fill out the form to create your post.</h1>
+                </div>
 
-                    <h4 class="p-5">Fill out the form to create your post.</h4>
+<div class="wrapper create-wrapper fadeInDown">
+    <div id="create-formContent">
+        <!-- Tabs Titles -->
 
-                <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
-                    <div class="card-body">
-                        <label for="title">Title</label>
-                        <div>
-                            <input type="text" name="title" id="title" style="width: 300px" th:field="*{title}">
-                        </div>
-                        <label for="body">Body</label>
-                        <div>
-                            <textarea type="text" name="body" id="body" rows="15" cols="50" th:field="*{body}">Body</textarea>
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                            <div class="d-flex justify-content-center">
-                                <div>
-                                    <label for="start_date_time" class="d-block" style="margin-right: 55px ">Start Date:</label>
-                                    <input id="start_date_time" type="date" name="start_date_time" th:field="*{start_date_time}">
-                                </div>
-
-                                <div>
-                                    <label for="end_date_time" class="d-block" style="margin-right: 55px ">End Date:</label>
-                                    <input id="end_date_time" type="date" name="end_date_time" th:field="*{end_date_time}">
-                                </div>
-
-                            </div>
-
-                            <div class="d-flex justify-content-center">
-                                <div>
-                                    <label for="start_time" class="d-block" style="margin-right: 55px ">Start Time</label>
-                                    <input id="start_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{start_time}">
-                                </div>
-
-                                <div>
-                                    <label for="end_time"   class="d-block" style="margin-right: 55px ">End Time</label>
-                                    <input id="end_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{end_time}">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div>
-                            <label class="category" for="category">Category</label>
-                            <select name="category" id="category">
-                                <option value="1">Javascript</option>
-                                <option value="2">Java</option>
-                                <option value="3">Bootstrap</option>
-                                <option value="4">CSS</option>
-                                <option value="5">HTML</option>
-                                <option value="6">MySQL</option>
-                                <option value="7">JQuery</option>
-                                <option value="8">Spring</option>
-                                <option value="9">UX Design</option>
-                                <option value="10">Front-end</option>
-                                <option value="11">Back-end</option>
-                                <option value="13">Github</option>
-                                <option value="14">Code Review</option>
-                                <option value="15">Tech Life</option>
-                                <option value="16">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    <input class="btn btn-success"  type="submit"/>
-                </form>
-            </div>
+        <!-- Icon -->
+        <div class="fadeIn first p-3">
+            <img src="/img/codeup-logo.png" width="30%"/>
         </div>
 
+        <!-- Login Form -->
 
-<div class="card">
-    <div class="card-header">
-        Featured
-    </div>
-    <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
+            <div class="card-body">
+                <label for="title">Title</label>
+                <div>
+                    <input type="text" name="title" id="title" style="max-width: 100%" th:field="*{title}">
+                </div>
+                <label for="body">Body</label>
+                <div>
+                    <textarea type="text" name="body" id="body" rows="15" cols="20" th:field="*{body}">Body</textarea>
+                </div>
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <div class="text-center">
+                                    <label for="start_date_time" class="d-block" >Start Date:</label>
+                                    <input id="start_date_time" type="date" name="start_date_time" th:field="*{start_date_time}">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 m-1">
+                                <div>
+                                    <label for="end_date_time" class="d-block" >End Date:</label>
+                                    <input id="end_date_time" type="date" name="end_date_time" th:field="*{end_date_time}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <div class="row">
+                            <div class="col-sm-12 m-1">
+                                <label for="start_time" class="d-block">Start Time</label>
+                                <input id="start_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{start_time}">
+                            </div>
+
+                            <div class="col-sm-12 m-1">
+                                <label for="end_time"   class="d-block">End Time</label>
+                                <input id="end_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{end_time}">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-2">
+                    <label class="category" for="category">Category</label>
+                    <select name="category" id="category">
+                        <option value="1">Javascript</option>
+                        <option value="2">Java</option>
+                        <option value="3">Bootstrap</option>
+                        <option value="4">CSS</option>
+                        <option value="5">HTML</option>
+                        <option value="6">MySQL</option>
+                        <option value="7">JQuery</option>
+                        <option value="8">Spring</option>
+                        <option value="9">UX Design</option>
+                        <option value="10">Front-end</option>
+                        <option value="11">Back-end</option>
+                        <option value="13">Github</option>
+                        <option value="14">Code Review</option>
+                        <option value="15">Tech Life</option>
+                        <option value="16">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-4">
+                <input class="btn btn-success"  type="submit"/>
+            </div>
+        </form>
+
+
     </div>
 </div>
+
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Community Map')">
     <meta charset="UTF-8">
     <title>Mapbox Maps API</title>
 
@@ -43,7 +43,7 @@
 
 </head>
 <body>
-
+<header><nav th:replace="fragments/navbar :: navbar"></nav></header>
 <!--<div class="social">-->
 <!--    <img class="social-img" src="/img/social.png"/>-->
 <!--</div>-->

@@ -9,12 +9,27 @@ body.create, body.edit, body.edit-profile {
     margin-top: 150px;
 }
 
-
-/* BASIC */
-
-
-
-
+.edit-prof-firstName{
+    font-size: 13px;
+}
+#edit-prof-firstName, #edit-prof-lastName {
+    margin-right: 20px;
+}
+.edit-prof-lastName{
+    font-size: 13px;
+}
+.edit-prof-email{
+    font-size: 13px;
+}
+.edit-prof-city{
+    font-size: 13px;
+}
+ .edit-prof-github, .edit-prof-linkedin {
+     font-size: 13px;
+ }
+#bio{
+    font-size: 13px;
+}
 /* STRUCTURE */
 
 .create-wrapper, .edit-profile-wrapper {

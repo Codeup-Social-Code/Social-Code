@@ -21,41 +21,40 @@
         <h5>Edit your profile:</h5>
         <form th:action="@{/users/{id}/edit(id=${id})}" th:method="POST" th:object="${user}">
             <div class="card-body">
-                <label for="upload">Picture</label>
                 <input id="picture" name="picture" value="replaceme" th:field="*{picture}" type="hidden">
                 <button type="button" id="upload" name="upload">Upload an image</button>
 
                 <div>
-                    <label for="edit-prof-firstName">First Name</label>
-                    <input id="edit-prof-firstName" th:field="*{firstName}"/>
+                    <label class="edit-prof-firstName" for="edit-prof-firstName">First Name</label>
+                    <input id="edit-prof-firstName" maxlength="10" th:field="*{firstName}"/>
                     <br>
-                    <label for="edit-prof-lastName">Last Name</label>
-                    <input id="edit-prof-lastName" th:field="*{lastName}"/>
+                    <label class="edit-prof-lastName" for="edit-prof-lastName">Last Name</label>
+                    <input id="edit-prof-lastName"  maxlength="10" th:field="*{lastName}"/>
                     <br>
-                    <label for="edit-prof-email">Email</label>
-                    <input id="edit-prof-email" th:field="*{username}"/>
+                    <label class="edit-prof-email" for="edit-prof-email">Email</label>
+                    <input id="edit-prof-email" maxlength="10" th:field="*{username}"/>
                     <br>
 
-                    <label for="edit-prof-city">City</label>
-                    <input id="edit-prof-city" th:field="*{city}"/>
+                    <label class="edit-prof-city" for="edit-prof-city">City</label>
+                    <input id="edit-prof-city" maxlength="10" th:field="*{city}"/>
                 </div>
                 <div>
 
                     <!--         anchor-->
-                    <label for="gitHub">GitHub URL</label>
-                    <input id="gitHub" th:field="*{gitHub}"/>
+                    <label class="edit-prof-github" for="edit-prof-gitHub">GitHub URL</label>
+                    <input id="edit-prof-gitHub" th:field="*{gitHub}"/>
                     <br>
                     <!--        anchor-->
-                    <label for="linkedIn">LinkedIn URL</label>
-                    <input id="linkedIn" th:field="*{linkedIn}"/>
+                    <label class="edit-prof-linkedin" for="edit-prof-linkedIn">LinkedIn URL</label>
+                    <input id="edit-prof-linkedIn" th:field="*{linkedIn}"/>
                     <br>
                     <label for="bio">Bio</label>
-                    <input id="bio" th:field="*{bio}"/>
+                    <textarea  id="bio" type="text" rows="5" cols="20" th:field="*{bio}" name="edit-prof-bio" ></textarea>
                 </div>
 
                 <form th:action="${'/users/' + user.id + '/delete'}" th:method="POST">
 
-                    <button class="btn btn-success" id="edit-profile-btn" type="submit">Submit</button>
+                    <button class="btn btn-success"  id="edit-profile-btn" type="submit">Submit</button>
                 </form>
             </div>
         </form>

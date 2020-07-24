@@ -18,17 +18,20 @@ body.sign-up{
 }
 
 .signupEmail {
-margin-left: 27px;
+margin-left: 19px;
 }
 
 .signupPassword {
-margin-left: 0px;
+margin-left: -3px;
 }
 
+.signup-city {
+    margin-left: 26px;
+}
 
 #passwordToConfirm {
 
-    margin-right: 71px;
+    margin-right: 44px;
 }
 
 #sign-up-firstName, #sign-up-lastName {
@@ -76,7 +79,11 @@ margin-left: 0px;
     }
 
     #passwordToConfirm {
-        margin-right: 96px;
+        margin-right: 90px;
+    }
+
+    .signup-city{
+        margin-left: 6px;
     }
 
     #sign-up-firstName, #sign-up-lastName {

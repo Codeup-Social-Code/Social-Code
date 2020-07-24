@@ -17,7 +17,7 @@ body.create, body.edit, body.edit-profile {
 
 /* STRUCTURE */
 
-.create-wrapper {
+.create-wrapper, .edit-profile-wrapper {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -27,7 +27,7 @@ body.create, body.edit, body.edit-profile {
     padding: 20px;
 }
 
-#create-formContent {
+#create-formContent, #edit-profile-formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: #fff;

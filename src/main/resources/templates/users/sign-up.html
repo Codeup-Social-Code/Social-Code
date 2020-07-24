@@ -78,11 +78,11 @@
                     <input id="passwordToConfirm" name="passwordToConfirm" type="password" />
                     <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                     <br>
-                    <label for="city">City</label>
-                    <input id="city" name="city" th:field="*{city}" />
+                    <label class="signup-city" for="signup-city">City</label>
+                    <input id="signup-city" name="city" th:field="*{city}" />
                     <br>
                     <form th:class="alert" th:action="${'/users/' + user.id + '/delete'}" th:method="POST">
-                        <input id="register-alert" th:onclick="this.parentElement.style.display=='none'" class="btn register-btn btn-success alert" type="submit" value="Register"/>
+                        <input id="register-alert" th:onclick="this.parentElement.style.display=='none'" class="btn register-btn btn-success alert ml-4" type="submit" value="Register"/>
                     </form>
                     <br>
 

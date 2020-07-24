@@ -9,8 +9,8 @@
 <nav th:replace="fragments/navbar :: navbar"></nav>
 
     <section class="bio-container">
-        <div class="card mb-3">
-            <div class="card-header bg-success" style="height: 70px"></div>
+        <div class="card bio-card mb-3">
+            <div class="card-header" style="background-color: #7ea552; height: 70px"></div>
                 <div class="row bio-row no-gutters" style="height: 400px">
                  <div class="wrapper profile-img col-md-4 ">
                      <img id="all-image" class="image--cover all-image-cover" th:src="*{user.picture}" width="100%"/>
@@ -31,9 +31,9 @@
 <!--                                th:if="${showLinkedIn}" -->
                             <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
                         </div>
-                        <div class="connect">
-                            <a th:if="${showEditControls}" class="card-text" th:href="@{/users/{id}/edit(id=${user.id}) }" style="color: dimgrey;">
-                                <h6>EDIT PROFILE</h6></a>
+                        <div class="profile-connect">
+                            <a th:if="${showEditControls}" class="connect-card-text card-text" th:href="@{/users/{id}/edit(id=${user.id}) }" style="color: dimgrey;">
+                                EDIT PROFILE</a> <br>
                             <a class="view-all-btn" th:href="@{/users/view-all}">
                                 <button id="prof-view-users" class="btn btn-success">View all users</button>
                             </a>
@@ -49,7 +49,7 @@
             <div class="row text-center">
                 <div class="col-12 d-flex justify-content-center align-items-center text-center">
                         <div id="followersId" th:text="${user.followers.size()}" style="font-size: 30px"></div>
-                        <span class="d-flex align-items-end" style="font-size: 15px">Followers</span>
+                        <span class="d-flex followerCount align-items-end" style="font-size: 15px">Followers</span>
                 </div>
             </div>
             <div class="row">

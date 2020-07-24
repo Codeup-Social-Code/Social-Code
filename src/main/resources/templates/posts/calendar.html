@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head('Calendar Event')">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" style="background-color: white">
+<head th:include="fragments/head :: head('Calendar Event')">
     <meta charset='utf-8' />
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css">
-
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css">
+    <style>
+        html {
+            background-color: white;
+        }
+        div.fc-content span.fc-time {
+            color: white;
+        }
+    </style>
 </head>
 <body>
 <header><nav th:replace="fragments/navbar :: navbar"></nav></header>
-<div id='calendar'></div>
+<div id='calendar' class="shadow p-3 mb-5 bg-white rounded" style="margin: 30px auto 30px auto; width: 1200px;"></div>
 
 <th:block th:replace="fragments/footer :: footer-script"></th:block>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
@@ -16,9 +24,16 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
 <script src="js/calendar.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.3.0/fullcalendar.min.css" />
+<style>
+    html body div#calendar  {
+        color: #68ba68;
+    }
+</style>
 
 <script>
-
+$(document).ready(function () {
+    $('#calendar .fc-toolbar').css("color", "white");
+});
     // $(function() {
     //
     //     $(document).ready(function() {

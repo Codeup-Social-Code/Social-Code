@@ -14,8 +14,12 @@
     width: 0%;
 }
 
-#search-icon.fa-search{
-    font-size: 25px;
+#search-icon{
+    display: flex;
+    font-size: 15px;
+    border-width: .5px;
+
+
 }
 
  #search-bar {
@@ -32,6 +36,9 @@
  #nav-login {
      font-size: 10px;
  }
+#nav-about{
+    font-size: 10px;
+}
 
 #logout {
     font-size: 10px;
@@ -87,14 +94,14 @@
         font-size: 20px;
     }
 
-    #search-icon .fa-search{
-        font-size: 15px;
-    }
-
     #search-box{
         width: 100px;
     }
-
+    #search-icon{
+        display: flex;
+        font-size: 16px;
+        border-width: .5px;
+    }
 
 }
 
@@ -109,21 +116,24 @@
     }
 
     #logout {
-        font-size: 17px;
+        font-size: 18px;
     }
 
     #register {
         font-size: 17px;
     }
-
     #nav-community{
         font-size: 17px;
     }
-
     #nav-about{
         font-size: 17px;
     }
 
+    #search-icon{
+        display: flex;
+        font-size: 23px;
+        border-width: .5px;
+    }
     .dropdown-item {
         font-size: 17px;
     }
@@ -160,8 +170,8 @@
     }
 
     #search-icon.fa-search {
-        margin-top: 4px;
-        margin-left: 2px;
+        display: flex;
+        border-width: .5px;
         font-size: 20px;
 
     }
@@ -213,9 +223,9 @@
         font-size: 20px;
     }
 
-    #search-icon.fa-search {
-        margin-top: 4px;
-        margin-left: 2px;
+    #search-icon{
+        display: flex;
+       border-width: .5px;
         font-size: 30px;
         /*color: #444242;*/
     }

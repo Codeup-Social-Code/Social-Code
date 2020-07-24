@@ -56,8 +56,8 @@
         </ul>
         <th:block sec:authorize="isAuthenticated()">
             <form action="/search"> <!-- make sure the search bar has a form that maps to  -->
-                <input class="d-none d-md-block" id="search-box" type="text" name="term" placeholder="Search posts" style="color: #576541">
-                <button id="search-icon" type="submit"><i class="fas fa-search d-none d-md-block" style=" color: #7ea552"></i></button>
+                <input id="search-box" type="text" name="term" placeholder="Search posts" style="color: #576541">
+                <button id="search-icon" type="submit"><i class="fas fa-search" style=" color: #7ea552;"></i></button>
             </form>
         </th:block>
     </div>

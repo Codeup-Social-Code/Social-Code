@@ -41,14 +41,6 @@ body.create, body.edit, body.edit-profile {
     text-align: center;
 }
 
-/*#create-formFooter {*/
-/*    background-color: #f6f6f6;*/
-/*    border-top: 1px solid #dce8f1;*/
-/*    padding: 25px;*/
-/*    text-align: center;*/
-/*    -webkit-border-radius: 0 0 10px 10px;*/
-/*    border-radius: 0 0 10px 10px;*/
-/*}*/
 
 
 /* ANIMATIONS */
@@ -135,4 +127,26 @@ body.create, body.edit, body.edit-profile {
 
 
 
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
+    body.create, body.edit, body.edit-profile {
+        height: 100vh;
+
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) {
+
+
+
+}
+
+@media screen and (min-width:2200px) {
+    body.create, body.edit, body.edit-profile {
+        height: 50vh;
+
+    }
+
+}
 

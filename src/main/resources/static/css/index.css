@@ -1,25 +1,4 @@
 
-/*.index-container{*/
-/*    display: inline-grid;*/
-/*    columns: 3;*/
-/*    column-gap: 10px;*/
-/*    row-gap: 20px;*/
-/*    !*padding: 30px;*!*/
-/*    max-width: 1100px;*/
-/*    !*justify-items: start;*!*/
-/*    grid-template-areas:*/
-/*    "a a b"*/
-/*    "c d d"*/
-/*    "c e e";*/
-/*}*/
-/*#masonryIndex {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-content: center;*/
-
-
-/*}*/
-
 .index-container{
     display: flex;
 }
@@ -58,16 +37,6 @@
 .card-img-top {
     box-shadow: black -1px 10px 29px -3px;
 }
-
-
-/*maybe for images? have 2 or more sets of post templates label item1 item2 */
-/*that connect to category with selected styling per group*/
-/*.item { !* Masonry bricks or child elements *!*/
-/*    background-color: #eee;*/
-/*    display: inline-block;*/
-/*    margin: 0 0 1em;*/
-/*    width: 100%;*/
-/*}*/
 
 
 

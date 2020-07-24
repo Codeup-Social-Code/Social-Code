@@ -7,67 +7,62 @@
 </head>
 <body>
 
-
-    <!--NEW NAVBAR-->
-    <nav class="navbar navbar-expand navbar-light bg-light"  th:fragment="navbar">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
+    <a class="navbar-brand" href="#">
         <a class="navbar-brand d-sm-none d-md-block " href="/posts"><img class="logo" src="/img/codeup-logo.png"/></a>
-        <div class="collapse navbar-collapse" id="navbar">
-            <ul class="navbar-nav nav-frag mr-auto">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-              <th:block sec:authorize="isAuthenticated()">
-                        <form action="/search"> <!-- make sure the search bar has a form that maps to  -->
-                            <input class="d-none d-md-block" id="search-box" type="text" name="term" placeholder="Search posts" style="color: dimgrey">
-                            <button type="submit"><i class="fas fa-search d-none d-md-block"></i></button>
-                        </form>
-              </th:block>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li id="about-us-btn" class="nav-item">
+                <form th:action="@{/about}" th:method="get">
+                    <button id="nav-about" class="btn-link btn" style="color: #7ea552">About Us</button>
+                </form>
+            </li>
+            <li id="nav-login-btn" class="nav-item" sec:authorize="!isAuthenticated()">
+                <form th:action="@{/login}" th:method="get">
+                    <button id="nav-login" class="btn-link btn"  style="color: #7ea552">Login</button>
+                </form>
+            </li>
 
-                <li id="about-us-btn" class="nav-item">
-                    <form th:action="@{/about}" th:method="get">
-                        <button id="nav-login" class="btn-link btn" style="color: dimgrey;">About Us</button>
+            <th:block sec:authorize="isAuthenticated()">
+                <li id="logout-btn" class="nav-item">
+                    <form th:action="@{/logout}" th:method="POST">
+                        <button id="logout" class="btn-link btn"  style="color: #7ea552">Logout</button>
                     </form>
                 </li>
-
-                <li id="nav-login-btn" class="nav-item" sec:authorize="!isAuthenticated()">
-                    <form th:action="@{/login}" th:method="get">
-                        <button id="nav-login" class="btn-link btn" style="color: dimgrey;">Login</button>
-                    </form>
+            </th:block>
+            <th:block sec:authorize="isAuthenticated()">
+                <li class="nav-item dropdown">
+                    <a href="#" id="nav-community" class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  style="color: #7ea552">Community</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item"  style="color: #576541" th:href="@{/posts}">View events</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" style="color: #576541"  th:href="@{/users/view-all}">View all users</a>
+                        <div class="dropdown-divider" ></div>
+                        <a class="dropdown-item" style="color: #576541"  th:href="@{/users/profile}">Your profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" style="color: #576541"  th:href="@{/posts/create}">Create an event</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" style="color: #576541"  th:href="@{/mapbox}">View Our global users</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" style="color: #576541"  th:href="@{/calendar}">View Calendar</a>
+                    </div>
                 </li>
+            </th:block>
+        </ul>
+        <th:block sec:authorize="isAuthenticated()">
+            <form action="/search"> <!-- make sure the search bar has a form that maps to  -->
+                <input id="search-box" type="text" name="term" placeholder="Search posts" style="color: #576541">
+                <button id="search-icon" type="submit"><i class="fas fa-search" style=" color: #7ea552;"></i></button>
+            </form>
+        </th:block>
+    </div>
+</nav>
 
-                <th:block sec:authorize="isAuthenticated()">
-                    <li id="logout-btn" class="nav-item">
-                        <form th:action="@{/logout}" th:method="POST">
-                            <button id="logout" class="btn-link btn" style="color: dimgrey">Logout</button>
-                        </form>
-                    </li>
-                </th:block>
-
-                <li id="register-btn" class="nav-item" sec:authorize="!isAuthenticated()">
-                    <form th:action="@{/sign-up}" th:method="get">
-                        <button id="register" class="btn-link btn" style="color: dimgrey">Register</button>
-                    </form>
-                </li>
-                
-                <th:block sec:authorize="isAuthenticated()">
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: dimgrey">Community</a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" th:href="@{/posts}">View events</a>
-                                            <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" th:href="@{/users/view-all}">View all users</a>
-                                            <div class="dropdown-divider"></div>
-                                       <a class="dropdown-item" th:href="@{/users/profile}">Your profile</a>
-                                            <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" th:href="@{/posts/create}">Create an event</a>
-                                            <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" th:href="@{/mapbox}">View Our global users</a>
-                                            <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" th:href="@{/calendar}">View Calendar</a>
-                                    </div>
-                            </li>
-                </th:block>
-            </ul>
-        </div>
-    </nav>
 
 </body>
 </html>

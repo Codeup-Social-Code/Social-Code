@@ -1,4 +1,9 @@
-
+.nav-container{
+    display: flex;
+}
+.nav-list{
+    float: right;
+}
 .nav-frag{
     text-align: center;
 }
@@ -9,9 +14,14 @@
     width: 0%;
 }
 
-#search {
-    margin-top: 7px;
+#search-icon{
+    display: flex;
+    font-size: 15px;
+    border-width: .5px;
+
+
 }
+
  #search-bar {
      font-size: 2px;
  }
@@ -23,16 +33,12 @@
  }
 
 
- .fas {
-     margin-left: 2px;
-     margin-top: 3px;
-     font-size: 12px;
-     color: #444242;
- }
-
  #nav-login {
      font-size: 10px;
  }
+#nav-about{
+    font-size: 10px;
+}
 
 #logout {
     font-size: 10px;
@@ -42,7 +48,7 @@
     font-size: 10px;
 }
 
-#navbarDropdown{
+#nav-community{
     font-size: 10px;
 }
 
@@ -64,31 +70,38 @@
     }
 
 
-    #navbarDropdown{
-        font-size: 20px;
-    }
-
 
     .dropdown-item {
-        font-size: 20px;
+        font-size: 12px;
     }
 
     #login {
-        font-size: 20px;
+        font-size: 12px;
     }
 
     #logout {
-        font-size: 20px;
+        font-size: 12px;
+    }
+    #nav-about{
+        font-size: 12px;
+    }
+
+    #nav-community{
+        font-size: 12px;
     }
 
     #register {
         font-size: 20px;
     }
 
-    #search {
-        margin-top: 11px;
+    #search-box{
+        width: 100px;
     }
-
+    #search-icon{
+        display: flex;
+        font-size: 16px;
+        border-width: .5px;
+    }
 
 }
 
@@ -103,25 +116,28 @@
     }
 
     #logout {
-        font-size: 17px;
+        font-size: 18px;
     }
 
     #register {
         font-size: 17px;
     }
-
-    #navbarDropdown{
+    #nav-community{
+        font-size: 17px;
+    }
+    #nav-about{
         font-size: 17px;
     }
 
-
+    #search-icon{
+        display: flex;
+        font-size: 23px;
+        border-width: .5px;
+    }
     .dropdown-item {
         font-size: 17px;
     }
 
-    #search {
-        margin-top: 9px;
-    }
 
 
     #search-box{
@@ -153,11 +169,11 @@
         font-size: 15px;
     }
 
-    .fas {
-        margin-top: 4px;
-        margin-left: 2px;
+    #search-icon.fa-search {
+        display: flex;
+        border-width: .5px;
         font-size: 20px;
-        color: #444242;
+
     }
 
     #nav-login {
@@ -172,9 +188,14 @@
         font-size: 13px;
     }
 
-    #navbarDropdown{
+    #nav-community{
         font-size: 13px;
     }
+
+    #nav-about{
+        font-size: 13px;
+    }
+
 
 
     .dropdown-item {
@@ -192,26 +213,17 @@
         margin-left: 1000px;
     }
 
-
-    #search {
-        margin-top: 13px;
-    }
-
-    #search-bar {
-        font-size: 20px;
-    }
-
     #search-box{
         float: left;
         width: 70%;
         font-size: 20px;
     }
 
-    .fas {
-        margin-top: 4px;
-        margin-left: 2px;
+    #search-icon{
+        display: flex;
+       border-width: .5px;
         font-size: 30px;
-        color: #444242;
+        /*color: #444242;*/
     }
 
     #nav-login {
@@ -226,7 +238,11 @@
         font-size: 20px;
     }
 
-    #navbarDropdown{
+    #nav-community{
+        font-size: 20px;
+    }
+
+    #nav-about{
         font-size: 20px;
     }
 

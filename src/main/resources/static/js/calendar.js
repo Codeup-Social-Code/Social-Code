@@ -8,7 +8,7 @@ $(function() {
             method: "GET",
             datatype: "json",
             data: {
-                "$where" : "start_date_time > '" + moment().subtract(31, 'days').format("YYYY-DD-MMT00:00:00") + "'",
+                "$where" : "start_date_time > '" + moment().subtract(31, 'days').format("YYYY-MM-DDT00:00:00") + "'",
                 "city" : "Portland",
                 "$order" : "start_date_time DESC"
             }
@@ -22,6 +22,7 @@ $(function() {
                     title: e.title
                 });
             });
+            console.log(events)
             $('#calendar').fullCalendar({
                 events: events
             });

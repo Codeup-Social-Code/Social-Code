@@ -102,8 +102,8 @@ public class PostController {
             System.out.println(endDate);
             System.out.println(postToBeSaved.getStart_time());
             System.out.println(postToBeSaved.getEnd_time());
-            String startFormat = startDate + 'T' +postToBeSaved.getStart_time() + ":00";
-            String endFormat = endDate + 'T' + postToBeSaved.getEnd_time() + ":00";
+            String startFormat = startDate + 'T' +postToBeSaved.getStart_time();
+            String endFormat = endDate + 'T' + postToBeSaved.getEnd_time();
             System.out.println(startFormat);
             System.out.println(endFormat);
             postToBeSaved.setStart_date_time(startFormat);

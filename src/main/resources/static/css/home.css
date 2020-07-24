@@ -165,6 +165,9 @@ h2.block-msg {
         font-size: 16px;
     }
 
+    .rsvp-block{
+        margin-top: 25px;
+    }
 
     #about-us{
         margin-top: -131px;

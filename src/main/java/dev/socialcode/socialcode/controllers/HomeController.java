@@ -8,10 +8,16 @@ public class HomeController {
 
 
     @GetMapping("/")
-
     public String homepage(){
         return "posts/home";
     }
+
+
+    @GetMapping("/about")
+    public String aboutUs() {
+        return "posts/aboutus";
+    }
+
 
 
 

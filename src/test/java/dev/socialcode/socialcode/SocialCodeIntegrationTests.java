@@ -47,20 +47,22 @@ public class SocialCodeIntegrationTests {
     @Before
     public void setup() throws Exception {
 
-        testUser = userDao.findByUsername("testUser");
+        testUser = userDao.findByUsername("testUser@codeup.com");
 
         // Creates the test user if not exists
         if(testUser == null){
             User newUser = new User();
-            newUser.setUsername("testUser");
-            newUser.setPassword(passwordEncoder.encode("pass"));
             newUser.setUsername("testUser@codeup.com");
+            newUser.setFirstName("testUser");
+            newUser.setLastName("testUser");
+            newUser.setPassword(passwordEncoder.encode("pass"));
+            newUser.setPasswordToConfirm(passwordEncoder.encode("pass"));
             testUser = userDao.save(newUser);
         }
 
         // Throws a Post request to /login and expect a redirection to the Posts index page after being logged in
         httpSession = this.mvc.perform(post("/login").with(csrf())
-                .param("username", "testUser")
+                .param("username", "testUser@codeup.com")
                 .param("password", "pass"))
                 .andExpect(status().is(HttpStatus.FOUND.value()))
                 .andExpect(redirectedUrl("/welcome"))

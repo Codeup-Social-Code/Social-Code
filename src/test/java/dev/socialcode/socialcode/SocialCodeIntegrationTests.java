@@ -11,13 +11,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CsrfToken;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import javax.servlet.http.HttpSession;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -28,6 +33,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @SpringBootTest(classes = SocialcodeApplication.class)
 @AutoConfigureMockMvc
 public class SocialCodeIntegrationTests {
+
+    String TOKEN_ATTR_NAME = "org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository.CSRF_TOKEN";
+    HttpSessionCsrfTokenRepository httpSessionCsrfTokenRepository = new HttpSessionCsrfTokenRepository();
+    CsrfToken csrfToken = httpSessionCsrfTokenRepository.generateToken(new MockHttpServletRequest());
 
     private User testUser;
     private HttpSession httpSession;
@@ -82,18 +91,7 @@ public class SocialCodeIntegrationTests {
         // It makes sure the returned session is not null
         assertNotNull(httpSession);
     }
-//    @Test
-//    public void testCreatePost() throws Exception {
-//        // Makes a Post request to /ads/create and expect a redirection to the Ad
-//        this.mvc.perform(
-//                post("/posts/create").with(csrf())
-//                        .session((MockHttpSession) httpSession)
-//                        // Add all the required parameters to your request like this
-//                        .param("title", "test")
-//                        .param("body", "Ready to study together!")
-//                        .param("category", "CSS"))
-//                .andExpect(status().is3xxRedirection());
-//    }
+
 
     @Test
     public void testShowCreatePostPage() throws Exception {
@@ -102,25 +100,25 @@ public class SocialCodeIntegrationTests {
                 .andExpect(redirectedUrlPattern("**/login"));
     }
 
-//
-//    @Test
-//    public void testCreateAPost() throws Exception {
-//
-//        User testUser = usersRepository.findByUsername("fer");
-//        assertThat(testUser != null);
-//
-//        this.mvc.perform(post("/posts/create")
-//                .sessionAttr(TOKEN_ATTR_NAME, csrfToken)
-//                .param(csrfToken.getParameterName(), csrfToken.getToken())
-//                .param("title", "test post")
-//                .param("body", "lorem")
-//                .param("tags", "1")
-//                .param("user", String.valueOf(testUser.getId()))
-//                .contentType(MediaType.APPLICATION_FORM_URLENCODED))
-//                .andExpect(status().is3xxRedirection())
-//                .andExpect(redirectedUrlPattern("**/"));
-//
-//    }
+
+    @Test
+    public void testCreateAPost() throws Exception {
+
+        User testUser = userDao.findByUsername("testUser@codeup.com");
+        assertThat(testUser != null);
+
+        this.mvc.perform(post("/posts/create")
+                .sessionAttr(TOKEN_ATTR_NAME, csrfToken)
+                .param(csrfToken.getParameterName(), csrfToken.getToken())
+                .param("title", "test post")
+                .param("body", "lorem")
+                .param("categories", "CSS")
+                .param("user", String.valueOf(testUser.getId()))
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrlPattern("**/"));
+
+    }
 
 
 

@@ -7,14 +7,23 @@
 .project-wrapper {
     padding-left: 100px;
 }
-
-.bio-row{
+.bio-card{
+    border: none;
+}
+.bio-imgRow{
     margin: 0; !important;
     padding: 0; !important;
 }
 
-.bio-card-body {
+.bio-headerBody {
     text-align: center;
+}
+#profile-bio{
+    padding-top: 22px;
+}
+
+.followDiv{
+    margin-top: 34px;
 }
 
 .image--cover {
@@ -35,6 +44,7 @@
 .linkedin{
     width: 12%;
 }
+
 
 #follow-me{
     box-shadow: rgba(2, 0, 0, 0.31) 2px 2px 6px 2px;
@@ -116,7 +126,11 @@
 
     }
 
-    .bio-card-body {
+    .followDiv{
+        margin-top: 0px;
+    }
+
+    .bio-headerBody {
         text-align: unset;
         margin-left: 175px;
         margin-top: 60px;
@@ -129,22 +143,26 @@
     .connect {
         margin-top: 40px;
     }
+
     .project-wrapper{
         padding-left: 135px;
     }
 
-
+    .edit-prof-link{
+        margin-left: 149px;
+        font-size: 11px;
+    }
     .prof-post-card {
         margin: 10px;
         width: 25rem;
     }
 
     .github{
-        width: 15%;
+        width: 9%;
     }
 
     .linkedin{
-        width: 15%;
+        width: 9%;
     }
 
 
@@ -155,7 +173,10 @@
     .project-wrapper {
         padding-left: 308px;
     }
-
+    .edit-prof-link{
+        margin-left: 65px;
+        font-size: 18px;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -165,6 +186,10 @@
         height: 340px;
         margin-top: 20px;
         margin-left: 175px;
+
+    }
+    .edit-prof-link{
+        margin-left: 212px;
 
     }
     .project-wrapper {
@@ -190,7 +215,7 @@
         margin-left: 800px;
 
     }
-    .bio-card-body {
+    .bio-headerBody {
         text-align: unset;
         margin-left: 175px;
         margin-top: 60px;

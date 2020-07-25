@@ -121,17 +121,6 @@ public class SocialCodeIntegrationTests {
                 .andExpect(redirectedUrlPattern("**/"));
 
     }
-    @Test
-    public void testShowPost() throws Exception {
-
-        Post existingPost = postsDao.findAll().get(0);
-
-        // Makes a Get request to /ads/{id} and expect a redirection to the Ad show page
-        this.mvc.perform(get("/posts/" + existingPost.getId()))
-                .andExpect(status().isOk())
-                // Test the dynamic content of the page
-                .andExpect(content().string(containsString(existingPost.getBody())));
-    }
 
     @Test
     public void testPostsIndex() throws Exception {
@@ -144,6 +133,18 @@ public class SocialCodeIntegrationTests {
                 .andExpect(content().string(containsString("lorem")))
                 // Test the dynamic content of the page
                 .andExpect(content().string(containsString(existingPost.getTitle())));
+    }
+
+    @Test
+    public void testShowPost() throws Exception {
+
+        Post existingPost = postsDao.findAll().get(0);
+
+        // Makes a Get request to /ads/{id} and expect a redirection to the Ad show page
+        this.mvc.perform(get("/posts/" + existingPost.getId()))
+                .andExpect(status().isOk())
+                // Test the dynamic content of the page
+                .andExpect(content().string(containsString(existingPost.getBody())));
     }
 
 

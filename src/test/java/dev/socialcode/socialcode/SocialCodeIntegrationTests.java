@@ -3,6 +3,7 @@ package dev.socialcode.socialcode;
 
 import dev.socialcode.socialcode.daos.PostRepository;
 import dev.socialcode.socialcode.daos.UserRepository;
+import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.User;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,6 +24,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import javax.servlet.http.HttpSession;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertNotNull;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -119,7 +121,30 @@ public class SocialCodeIntegrationTests {
                 .andExpect(redirectedUrlPattern("**/"));
 
     }
+    @Test
+    public void testShowPost() throws Exception {
 
+        Post existingPost = postsDao.findAll().get(0);
+
+        // Makes a Get request to /ads/{id} and expect a redirection to the Ad show page
+        this.mvc.perform(get("/posts/" + existingPost.getId()))
+                .andExpect(status().isOk())
+                // Test the dynamic content of the page
+                .andExpect(content().string(containsString(existingPost.getBody())));
+    }
+
+    @Test
+    public void testPostsIndex() throws Exception {
+        Post existingPost = postsDao.findAll().get(0);
+
+        // Makes a Get request to /ads and verifies that we get some of the static text of the ads/index.html template and at least the title from the first Ad is present in the template.
+        this.mvc.perform(get("/posts"))
+                .andExpect(status().isOk())
+                // Test the static content of the page
+                .andExpect(content().string(containsString("lorem")))
+                // Test the dynamic content of the page
+                .andExpect(content().string(containsString(existingPost.getTitle())));
+    }
 
 
 }

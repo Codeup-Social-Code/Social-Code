@@ -17,7 +17,7 @@ body.welcome {
     box-shadow: 10px 10px 10px 10px rgba(68, 66, 66, 0.44);
 }
 div.card-body.wel-card-body {
-    padding-top: 0px;
+    padding: 0px;
 }
 
 @media screen and (min-width:768px) {

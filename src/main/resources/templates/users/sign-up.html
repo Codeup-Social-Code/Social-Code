@@ -37,7 +37,7 @@
                         <label class="signupPassword" for="sign-up-Password">Password</label>
                         <input id="sign-up-Password" name="password" type="password" th:class="validate" th:field="*{password}" />
                         <br>
-                        <label for="passwordToConfirm">Confirm Password</label>
+                        <label for="passwordToConfirm">Confirm</label>
                         <input id="passwordToConfirm" name="passwordToConfirm" type="password" />
                         <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                         <br>

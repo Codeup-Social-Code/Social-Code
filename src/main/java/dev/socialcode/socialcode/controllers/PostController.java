@@ -72,7 +72,6 @@ public class PostController {
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Comment> comments = commentsDao.findCommentsByPostId(id);
         List<RSVP> rsvps = rsvpsDao.findRSVPSByPostId(id);
-        //the usersService carries the logic in figuring out userCanEdit
         model.addAttribute("currentUser", currentUser);
         model.addAttribute("rsvps", rsvps);
         model.addAttribute("comment", new Comment());

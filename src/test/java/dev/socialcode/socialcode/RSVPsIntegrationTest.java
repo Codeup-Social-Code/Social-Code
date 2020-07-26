@@ -3,9 +3,11 @@ package dev.socialcode.socialcode;
 
 import dev.socialcode.socialcode.daos.CommentsRepository;
 import dev.socialcode.socialcode.daos.PostRepository;
+import dev.socialcode.socialcode.daos.RSVPsRepository;
 import dev.socialcode.socialcode.daos.UserRepository;
 import dev.socialcode.socialcode.models.Comment;
 import dev.socialcode.socialcode.models.Post;
+import dev.socialcode.socialcode.models.RSVP;
 import dev.socialcode.socialcode.models.User;
 import org.junit.Assert;
 import org.junit.Before;
@@ -33,11 +35,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SocialcodeApplication.class)
 @AutoConfigureMockMvc
-public class CommentsIntegrationTest {
+public class RSVPsIntegrationTest {
 
     private User testUser;
     private HttpSession httpSession;
     private Comment commentToView;
+    private RSVP rsvpToView;
     private Post testPost;
 
     @Autowired
@@ -58,11 +61,14 @@ public class CommentsIntegrationTest {
     @Autowired
     PostRepository postsDao;
 
+    @Autowired
+    RSVPsRepository rsvpsDao;
+
     @Before
     public void setup() throws Exception {
 
         testUser = userDao.findByUsername("testUser");
-        commentToView = commentsDao.findByBody("This is a comment to view");
+
 
         // Creates the test user if not exists
         if(testUser == null){
@@ -72,14 +78,14 @@ public class CommentsIntegrationTest {
             testUser = userDao.save(newUser);
         }
 
-        if(commentToView == null) {
-            Comment commentToView = new Comment();
-            commentToView.setBody("This is a comment to view");
-            commentToView.setPost(postsDao.getOne(1L));
-            commentToView.setUser(testUser);
-            commentsDao.save(commentToView);
-            commentToView = commentsDao.findByBody("This is a comment to view");
-        }
+//        if(commentToView == null) {
+//            Comment commentToView = new Comment();
+//            commentToView.setBody("This is a comment to view");
+//            commentToView.setPost(postsDao.getOne(1L));
+//            commentToView.setUser(testUser);
+//            commentsDao.save(commentToView);
+//            commentToView = commentsDao.findByBody("This is a comment to view");
+//        }
 
         // Throws a Post request to /login and expect a redirection to the Ads index page after being logged in
         httpSession = this.mvc.perform(post("/login").with(csrf())
@@ -105,7 +111,7 @@ public class CommentsIntegrationTest {
     }
 
     @Test
-    public void createComment() throws Exception {
+    public void RSVP() throws Exception {
 
         this.mvc.perform(
                 post("/comments/create").with(csrf())
@@ -117,30 +123,32 @@ public class CommentsIntegrationTest {
 
     }
 
-    @Test
-    public void testEditPost() throws Exception {
-        // Gets the first Ad for tests purposes
-        Comment existingComment = commentsDao.findAll().get(0);
-
-        // Makes a Post request to /ads/{id}/edit and expect a redirection to the Ad show page
-        this.mvc.perform(
-                post("/comment/" + existingComment.getId() + "/edit").with(csrf())
-                        .session((MockHttpSession) httpSession)
-                        .param("comment", "Edit Comment!")
-                        .param("postId", "1"))
-                .andExpect(status().is3xxRedirection());
-
-    }
-
-    @Test
-    public void deleteComment() throws Exception {
-
-        Comment existingComment = commentsDao.findAll().get(0);
-
-        this.mvc.perform(
-                post("/comment/" + existingComment.getId() + "/delete").with(csrf())
-                        .session((MockHttpSession) httpSession))
-                .andExpect(status().is3xxRedirection());
-    }
+//    @Test
+//    public void testEditPost() throws Exception {
+//        // Gets the first Ad for tests purposes
+//        Comment existingComment = commentsDao.findAll().get(0);
+//
+//        // Makes a Post request to /ads/{id}/edit and expect a redirection to the Ad show page
+//        this.mvc.perform(
+//                post("/comment/" + existingComment.getId() + "/edit").with(csrf())
+//                        .session((MockHttpSession) httpSession)
+//                        .param("comment", "Edit Comment!")
+//                        .param("postId", "1"))
+//                .andExpect(status().is3xxRedirection());
+//
+//    }
+//
+//    @Test
+//    public void deleteComment() throws Exception {
+//
+//        Comment existingComment = commentsDao.findAll().get(0);
+//
+//        Assert.assertNotNull(existingComment);
+//
+//        this.mvc.perform(
+//                post("/comment/" + existingComment.getId() + "/delete").with(csrf())
+//                        .session((MockHttpSession) httpSession))
+//                .andExpect(status().is3xxRedirection());
+//    }
 
 }

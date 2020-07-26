@@ -152,16 +152,31 @@ public class PostsIntegrationTest {
                 .andExpect(content().string(containsString(existingPost.getTitle())));
     }
 
-//    @Test
-//    public void testShowPost() throws Exception {
-//
-//        Post existingPost = postsDao.findAll().get(0);
-//        System.out.println("EXISTING POST ID: " + existingPost.getId());
-//
-//
-//        this.mvc.perform(get("/posts/" + existingPost.getId()))
-//                .andExpect(status().isOk())
-//                // Test the dynamic content of the page
-//                .andExpect(content().string(containsString(existingPost.getTitle())));
-//    }
+    @Test
+    public void testDeletePost() throws Exception {
+        // Creates a test Ad to be deleted
+        this.mvc.perform(
+                post("/posts/create").with(csrf())
+                        .session((MockHttpSession) httpSession)
+                        .param("title", "post to be deleted")
+                        .param("body", "won't last long")
+                        .param("postId", "1")
+                        .param("end_date_time", "00000000")
+                        .param("end_time", "00000000")
+                        .param("start_date_time", "00000000")
+                        .param("category", "1")
+                        .param("start_time", "00000000"))
+                .andExpect(status().is3xxRedirection());
+
+        // Get the recent Ad that matches the title
+        Post existingPost = postsDao.findByTitle("post to be deleted");
+
+        // Makes a Post request to /ads/{id}/delete and expect a redirection to the Ads index
+        this.mvc.perform(
+                post("/posts/" + existingPost.getId() + "/delete").with(csrf())
+                        .session((MockHttpSession) httpSession)
+                        .param("id", String.valueOf(existingPost.getId())))
+                .andExpect(status().is3xxRedirection());
+    }
+
 }

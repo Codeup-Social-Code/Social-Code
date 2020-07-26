@@ -70,14 +70,14 @@ public class PostController {
     public String showOne(@PathVariable long id, Model model) {
         Post post = postsDao.getOne(id);
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<Comment> comments = commentsDao.findCommentsByPostId(id);
+//        List<Comment> comments = commentsDao.findCommentsByPostId(id);
         List<RSVP> rsvps = rsvpsDao.findRSVPSByPostId(id);
         model.addAttribute("currentUser", currentUser);
         model.addAttribute("rsvps", rsvps);
         model.addAttribute("comment", new Comment());
         model.addAttribute("post", post);
-        model.addAttribute("No Comments", comments.size() == 0);
-        model.addAttribute("comments", comments);
+//        model.addAttribute("No Comments", comments.size() == 0);
+//        model.addAttribute("comments", comments);
         return "posts/show";
     }
 

@@ -1,9 +1,13 @@
 package dev.socialcode.socialcode;
 
 
+import dev.socialcode.socialcode.daos.CommentsRepository;
 import dev.socialcode.socialcode.daos.PostRepository;
 import dev.socialcode.socialcode.daos.UserRepository;
+import dev.socialcode.socialcode.models.Comment;
+import dev.socialcode.socialcode.models.Post;
 import dev.socialcode.socialcode.models.User;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,6 +16,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.mock.web.MockHttpSession;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -32,6 +37,8 @@ public class CommentsIntegrationTest {
 
     private User testUser;
     private HttpSession httpSession;
+    private Comment commentToView;
+    private Post testPost;
 
     @Autowired
     private MockMvc mvc;
@@ -45,10 +52,17 @@ public class CommentsIntegrationTest {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    CommentsRepository commentsDao;
+
+    @Autowired
+    PostRepository postsDao;
+
     @Before
     public void setup() throws Exception {
 
         testUser = userDao.findByUsername("testUser");
+        commentToView = commentsDao.findByBody("This is a comment to view");
 
         // Creates the test user if not exists
         if(testUser == null){
@@ -56,6 +70,15 @@ public class CommentsIntegrationTest {
             newUser.setUsername("testUser@codeup.com");
             newUser.setPassword(passwordEncoder.encode("pass"));
             testUser = userDao.save(newUser);
+        }
+
+        if(commentToView == null) {
+            Comment commentToView = new Comment();
+            commentToView.setBody("This is a comment to view");
+            commentToView.setPost(postsDao.getOne(1L));
+            commentToView.setUser(testUser);
+            commentsDao.save(commentToView);
+            commentToView = commentsDao.findByBody("This is a comment to view");
         }
 
         // Throws a Post request to /login and expect a redirection to the Ads index page after being logged in
@@ -79,5 +102,18 @@ public class CommentsIntegrationTest {
     public void testIfUserSessionIsActive() throws Exception {
         // It makes sure the returned session is not null
         assertNotNull(httpSession);
+    }
+
+    @Test
+    public void createComment() throws Exception {
+
+        this.mvc.perform(
+                post("/comments/create").with(csrf())
+                        .session((MockHttpSession) httpSession)
+                        // Add all the required parameters to your request like this
+                        .param("body", "Test Comment!")
+                        .param("postId", "1"))
+                .andExpect(status().is3xxRedirection());
+
     }
 }

@@ -38,6 +38,9 @@
     box-shadow: black -1px 10px 29px -3px;
 }
 
+.comm-post-card{
+    height: 455px;
+}
 
 
 /* Small devices (phones and pocket devices, 576 and up) */

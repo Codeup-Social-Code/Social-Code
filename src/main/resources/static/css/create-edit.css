@@ -228,7 +228,10 @@ body.create, body.edit, body.edit-profile {
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
 
+    body.create, body.edit, body.edit-profile {
+        height: 50vh;
 
+    }
 
 }
 

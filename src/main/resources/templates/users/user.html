@@ -14,16 +14,16 @@
                 <div class="row bio-imgRow no-gutters" style="height: 400px">
                      <div class="wrapper profile-img col-md-4 ">
                          <img id="all-image" class="image--cover all-image-cover" th:src="*{user.picture}" width="100%"/>
-                         <div class="col-12 profile-connect text-center mt-1">
-                             <a th:if="${showEditControls}" class="edit-prof-link card-text" th:href="@{/users/{id}/edit(id=${user.id}) }" style="color: dimgrey;">
-                                 EDIT PROFILE</a> <br>
-                         </div>
+<!--                         <a th:if="${showEditControls}" class="edit-prof-link card-text" th:href="@{/users/{id}/edit(id=${user.id}) }" style="color: dimgrey;">-->
+<!--                             EDIT PROFILE</a> -->
                     </div>
                     <div class="col-md-8">
                              <div class="row">
                                 <div class="card-body bio-headerBody col-12 col-lg-9">
                                     <div class="connect">
                                     <h3 id="first" th:text="${user.firstName + ' ' + user.lastName}"></h3>
+                                        <span><a th:if="${showEditControls}" class="edit-prof-link card-text" th:href="@{/users/{id}/edit(id=${user.id}) }" style="color: #0303a8;">
+                             EDIT PROFILE</a></span>
                                     <h6 id="email" th:text="${user.username}">Email</h6>
                                         <a id="github" class="card-text" th:href="@{${user.gitHub}}">
                                             <!--                            th:if="${showGitHub}"-->

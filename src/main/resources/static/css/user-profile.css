@@ -37,6 +37,10 @@
     object-position: center right;
 }
 
+.edit-prof-link{
+    font-size: 13px;
+}
+
 .github{
     width: 15%;
 }
@@ -148,10 +152,10 @@
         padding-left: 135px;
     }
 
-    .edit-prof-link{
-        margin-left: 149px;
-        font-size: 11px;
-    }
+    /*.edit-prof-link{*/
+    /*    margin-left: 149px;*/
+    /*    font-size: 11px;*/
+    /*}*/
     .prof-post-card {
         margin: 10px;
         width: 25rem;
@@ -173,10 +177,10 @@
     .project-wrapper {
         padding-left: 308px;
     }
-    .edit-prof-link{
-        margin-left: 65px;
-        font-size: 18px;
-    }
+    /*.edit-prof-link{*/
+    /*    margin-left: 65px;*/
+    /*    font-size: 18px;*/
+    /*}*/
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -188,23 +192,22 @@
         margin-left: 175px;
 
     }
-    .edit-prof-link{
-        margin-left: 212px;
 
-    }
+    /*.edit-prof-link{*/
+    /*    margin-left: 212px;*/
+    /*}*/
     .project-wrapper {
         padding-left: 388px;
     }
 
 
-    .github{
+    .github {
         width: 10%;
     }
 
-    .linkedin{
+    .linkedin {
         width: 9%;
     }
-
 
 }
 
@@ -231,6 +234,9 @@
         font-size: 25px;
     }
 
+    .edit-prof-link{
+        font-size: 16px;
+    }
     .github{
         width: 6%;
     }

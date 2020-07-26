@@ -26,7 +26,7 @@
     margin-top: 34px;
 }
 
-.image--cover {
+.user-image-cover{
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -120,7 +120,7 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
-    .image--cover {
+    .user-image-cover {
         width: 200px;
         height: 200px;
         margin-top: 100px;
@@ -185,7 +185,7 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
-    .image--cover {
+    .user-image-cover{
         width: 340px;
         height: 340px;
         margin-top: 20px;
@@ -213,11 +213,12 @@
 
 @media screen and (min-width:2200px) {
 
-    .image--cover {
-        margin-top: 30px;
+    .user-image-cover {
+        margin-top: 85px;
         margin-left: 800px;
 
     }
+
     .bio-headerBody {
         text-align: unset;
         margin-left: 175px;
@@ -233,6 +234,9 @@
     #email, #profile-bio {
         font-size: 25px;
     }
+    #profile-bio{
+        margin-right: 69px;
+    }
 
     .edit-prof-link{
         font-size: 16px;
@@ -245,6 +249,9 @@
         width: 5%;
     }
 
+    .followDiv{
+        margin-top: 140px;
+    }
     .follow{
        font-size: 30px;
         width: 200px;

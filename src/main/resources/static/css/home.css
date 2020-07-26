@@ -15,7 +15,7 @@
 }
 
 .home-card-text{
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .center-green {
@@ -117,8 +117,9 @@ h2.block-msg {
     .home-card{
         padding: 0px;
     }
+
     .home-card-text{
-        font-size: 9px;
+        font-size: 12px;
     }
     i.fas.fa-laptop::before{
         font-size: 40px;!important;
@@ -187,9 +188,6 @@ h2.block-msg {
     .gif-container {
         margin-top: 145px;
     }
-    .connect-home{
-        margin-top: 10px;
-    }
 
 }
 
@@ -210,10 +208,18 @@ h2.block-msg {
     #about-message {
         margin-top: 100px;
     }
+
+
+    .home-card-text{
+        font-size: 15px;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
+    .home-card-text{
+        font-size: 15px;
+    }
     .home-welcome-header {
         margin-top: 100px;
     }
@@ -234,9 +240,22 @@ h2.block-msg {
         margin-top: 90px;
     }
 
+    .home-welcome-message{
+        font-size: 17px;
+    }
+
+    .home-card{
+        width: 1000px;
+        height: 150px;
+    }
 
     .home-card-deck {
         margin-top: 150px;
+        height: 100px;
+    }
+
+    .home-card-text{
+        font-size: 17px;
     }
 
     #community-gif{

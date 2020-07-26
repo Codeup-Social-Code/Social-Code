@@ -48,13 +48,13 @@
                     <label class="edit-prof-linkedin" for="edit-prof-linkedIn">LinkedIn URL</label>
                     <input id="edit-prof-linkedIn"  maxlength="10" th:field="*{linkedIn}"/>
                     <br>
-                    <label for="bio">Bio</label>
+                    <label class="mt-2" for="bio">Bio</label><br>
                     <textarea  id="bio" type="text" rows="5" cols="28" th:field="*{bio}" name="edit-prof-bio" ></textarea>
                 </div>
 
                 <form th:action="${'/users/' + user.id + '/delete'}" th:method="POST">
 
-                    <button class="btn btn-success"  id="edit-profile-btn" type="submit">Submit</button>
+                    <button class="btn btn-success mt-2"  id="edit-profile-btn" type="submit">Submit</button>
                 </form>
             </div>
         </form>

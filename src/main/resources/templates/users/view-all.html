@@ -16,7 +16,7 @@
             </div>
         </div>
     </section>
-    <section class="container-fluid text center">
+    <section class="container-fluid justify-content-end text center">
         <form action="/users/search">
             <div class="form-group row">
                 <div class="text-center">
@@ -62,18 +62,10 @@
                             <div class="card-header view-all-card-header">
                                 <img id="all-image" class="image--cover all-profile-image" th:src="*{user.picture}" width="100%"/>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <h5><span th:text="${user.firstName}"></span></h5>
                                 <h5><span th:text="${user.lastName}"></span></h5>
-<!--                                <a id="github" class="card-text" th:href="@{${user.gitHub}}">-->
-<!--                                    &lt;!&ndash;                            th:if="${showGitHub}"&ndash;&gt;-->
-<!--                                    <img class="github" src="/img/4.png" width="12%"/>-->
-<!--                                </a>-->
-<!--                                <a id="linkedin" class="card-text" th:href="@{${user.linkedIn}}">-->
-<!--                                    <img class="linkedin" src="/img/5.png" width="12%"/>-->
-<!--                                </a>-->
-<!--                                &lt;!&ndash;                                th:if="${showLinkedIn}" &ndash;&gt;-->
-                                <h6 id="profile-bio" class="card-text" style="font-size: 15px" th:text="${user.bio}">Bio</h6>
+                                <h6 id="profile-bio" class="card-text text-center" style="font-size: 15px" th:text="${user.bio}">Bio</h6>
                             </div>
                                 <div class="card-footer text-center">
                                     <form th:action="${'/users/' + user.id }" th:method="GET">

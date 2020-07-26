@@ -24,8 +24,33 @@ $(function() {
             });
             console.log(events)
             $('#calendar').fullCalendar({
-                events: events
+                // eventClick: function(info) {
+                //     alert('Event: ' + info.e.title);
+                //     alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+                //     alert('View: ' + info.view.type);
+                //
+                //     // change the border color just for fun
+                //     info.el.style.borderColor = 'red';
+                //     info.jsEvent.preventDefault(); // don't let the browser navigate
+                //
+                //     if (info.event.url) {
+                //         window.open(info.event.url);
+                //     }
+                // },
+                events: events,
             });
+            // $('.fc-title').click(function () {
+            //     let title = $(this).text();
+            //     let link = `
+            //                 <a href="http://localhost:8080/search?term=${title}">
+            //                 `;
+            //     // $(".fc-title").append(link);
+            //     ($(".fc-title").append(link));
+            //     alert($(".fc-title").append(link));
+            //     console.log($(".fc-title").append(link));
+            //     // $("#dialog").dialog();
+            //     $( "#dialog" ).dialog( "open" );
+            // })
         });
     });
 });

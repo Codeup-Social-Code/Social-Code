@@ -4,6 +4,8 @@
     <meta charset='utf-8' />
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css">
+<!--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+<!--    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
     <style>
         html {
             background-color: white;
@@ -16,6 +18,10 @@
 <body>
 <header><nav th:replace="fragments/navbar :: navbar"></nav></header>
 <div id='calendar' class="shadow p-3 mb-5 bg-white rounded" style="margin: 30px auto 30px auto; width: 1200px;"></div>
+
+<!--<div id="dialog" title="Basic dialog">-->
+<!--    <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>-->
+<!--</div>-->
 
 <th:block th:replace="fragments/footer :: footer-script"></th:block>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
@@ -38,19 +44,7 @@
 <script>
 $(document).ready(function () {
     $('#calendar .fc-toolbar').css("color", "white");
-    $('#calendar .fc-title').click(function () {
-        alert('event title was clicked!');
-    });
-//    class = fc-title
-//     $('.fc-title').onclick(function () {
-//         alert('event title was clicked!');
-//     });
 });
-// $(document).ready(function () {
-//     $('.fc-title').onclick(function () {
-//         alert('event title was clicked!');
-//     });
-// });
     // $(function() {
     //
     //     $(document).ready(function() {

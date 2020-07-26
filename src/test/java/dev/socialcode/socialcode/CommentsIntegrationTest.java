@@ -132,4 +132,17 @@ public class CommentsIntegrationTest {
 
     }
 
+    @Test
+    public void deleteComment() throws Exception {
+
+        Comment existingComment = commentsDao.findAll().get(0);
+
+        Assert.assertNotNull(existingComment);
+
+        this.mvc.perform(
+                post("/comment/" + existingComment.getId() + "/delete").with(csrf())
+                        .session((MockHttpSession) httpSession))
+                .andExpect(status().is3xxRedirection());
+    }
+
 }

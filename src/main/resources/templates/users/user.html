@@ -90,19 +90,21 @@
     </div>
     <section class="container posts-container text-center d-flex justify-content-center">
         <div class="row prof-post-row d-flex justify-content-center">
-                <div class="card col-12 col-md-4 prof-post-card text-center" th:each="post: ${userPosts}">
+                <div class="card prof-post-card text-center mb-3" th:each="post: ${userPosts}">
                     <img src="/img/11.png" width="100%"/>
-                    <div class="card-body">
+                    <div class="card-body text-center align-items-center">
                         <h5 class="card-title" th:text="${post.title}">Card title</h5>
                         <p class="card-text" th:text="${post.body}">This card has supporting text below as a natural lead-in to
                             additional content.</p>
                         <!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
-                       <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br> 
-                      <div th:if="${#authentication.principal.id == post.user.id}">
-                        <form th:action="${'/posts/' + post.id + '/edit'}">
-                            <button class="btn btn-warning">EDIT</button>
-                        </form>
-                      </div>
+                    </div>
+                    <div>
+                        <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success mb-3"><em>View Post</em></a> <br>
+                        <div th:if="${#authentication.principal.id == post.user.id}">
+                            <form th:action="${'/posts/' + post.id + '/edit'}">
+                                <button class="btn btn-warning mb-3">EDIT</button>
+                            </form>
+                        </div>
                     </div>
                </div>
             </div>

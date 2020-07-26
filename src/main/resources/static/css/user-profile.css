@@ -71,11 +71,11 @@
     border: grey 1px solid;
     border-radius: 8%;
 }
-
-.prof-post-card {
-    margin: 10px;
-    width: 15rem;
-}
+/*.prof-post-card {*/
+/*    margin: 10px;*/
+/*    width: 21rem;*/
+/*    height: 50rem;*/
+/*}*/
 
 .project-cover {
     width: 75px;
@@ -161,11 +161,11 @@
         font-size: 14px;
 
     }
-
-    .prof-post-card {
-        margin: 10px;
-        width: 25rem;
-    }
+    /*.prof-post-card {*/
+    /*    margin: 10px;*/
+    /*    width: 44rem;*/
+    /*    height: 31rem;*/
+    /*}*/
 
     .github{
         width: 9%;
@@ -201,8 +201,19 @@
     /*}*/
 }
 
+@media screen and (min-width:1280px) {
+    .user-image-cover{
+        width: 300px;
+        height: 300px;
+        margin-top: 68px;
+        margin-left: 272px;
+
+    }
+}
+
+
 /* Extra large devices (large desktops, 1200px and up) */
-@media screen and (min-width:1200px) {
+@media screen and (min-width:1300px) {
     .user-image-cover{
         width: 300px;
         height: 300px;
@@ -234,9 +245,13 @@
 }
 
 
+
+
 @media screen and (min-width:2200px) {
 
     .user-image-cover {
+        width: 350px;
+        height: 350px;
         margin-top: 85px;
         margin-left: 800px;
 

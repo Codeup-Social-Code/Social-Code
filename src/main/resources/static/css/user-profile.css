@@ -7,17 +7,26 @@
 .project-wrapper {
     padding-left: 100px;
 }
-
-.bio-row{
+.bio-card{
+    border: none;
+}
+.bio-imgRow{
     margin: 0; !important;
     padding: 0; !important;
 }
 
-.bio-card-body {
+.bio-headerBody {
     text-align: center;
 }
+#profile-bio{
+    padding-top: 22px;
+}
 
-.image--cover {
+.followDiv{
+    margin-top: 34px;
+}
+
+.user-image-cover{
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -28,6 +37,10 @@
     object-position: center right;
 }
 
+.edit-prof-link{
+    font-size: 13px;
+}
+
 .github{
     width: 15%;
 }
@@ -35,6 +48,7 @@
 .linkedin{
     width: 12%;
 }
+
 
 #follow-me{
     box-shadow: rgba(2, 0, 0, 0.31) 2px 2px 6px 2px;
@@ -106,7 +120,7 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
-    .image--cover {
+    .user-image-cover {
         width: 200px;
         height: 200px;
         margin-top: 100px;
@@ -116,7 +130,11 @@
 
     }
 
-    .bio-card-body {
+    .followDiv{
+        margin-top: 0px;
+    }
+
+    .bio-headerBody {
         text-align: unset;
         margin-left: 175px;
         margin-top: 60px;
@@ -129,22 +147,26 @@
     .connect {
         margin-top: 40px;
     }
+
     .project-wrapper{
         padding-left: 135px;
     }
 
-
+    /*.edit-prof-link{*/
+    /*    margin-left: 149px;*/
+    /*    font-size: 11px;*/
+    /*}*/
     .prof-post-card {
         margin: 10px;
         width: 25rem;
     }
 
     .github{
-        width: 15%;
+        width: 9%;
     }
 
     .linkedin{
-        width: 15%;
+        width: 9%;
     }
 
 
@@ -155,42 +177,49 @@
     .project-wrapper {
         padding-left: 308px;
     }
-
+    /*.edit-prof-link{*/
+    /*    margin-left: 65px;*/
+    /*    font-size: 18px;*/
+    /*}*/
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
-    .image--cover {
+    .user-image-cover{
         width: 340px;
         height: 340px;
         margin-top: 20px;
         margin-left: 175px;
 
     }
+
+    /*.edit-prof-link{*/
+    /*    margin-left: 212px;*/
+    /*}*/
     .project-wrapper {
         padding-left: 388px;
     }
 
 
-    .github{
+    .github {
         width: 10%;
     }
 
-    .linkedin{
+    .linkedin {
         width: 9%;
     }
-
 
 }
 
 @media screen and (min-width:2200px) {
 
-    .image--cover {
-        margin-top: 30px;
+    .user-image-cover {
+        margin-top: 85px;
         margin-left: 800px;
 
     }
-    .bio-card-body {
+
+    .bio-headerBody {
         text-align: unset;
         margin-left: 175px;
         margin-top: 60px;
@@ -205,7 +234,13 @@
     #email, #profile-bio {
         font-size: 25px;
     }
+    #profile-bio{
+        margin-right: 69px;
+    }
 
+    .edit-prof-link{
+        font-size: 16px;
+    }
     .github{
         width: 6%;
     }
@@ -214,6 +249,9 @@
         width: 5%;
     }
 
+    .followDiv{
+        margin-top: 140px;
+    }
     .follow{
        font-size: 30px;
         width: 200px;

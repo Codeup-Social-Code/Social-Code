@@ -8,7 +8,7 @@
 <nav th:replace="fragments/navbar :: navbar" />
 
                 <div class="text-center">
-                    <h1 style="color: #576541" class="p-5">Fill out the form to create your post.</h1>
+                    <h1 id="createPost-header" style="color: #576541" class="p-5">Fill out the form to create your post.</h1>
                 </div>
 
 <div class="wrapper create-wrapper fadeInDown">
@@ -17,7 +17,7 @@
 
         <!-- Icon -->
         <div class="fadeIn first p-3">
-            <img src="/img/codeup-logo.png" width="30%"/>
+            <img src="/img/SocialCode-01.png" width="40%"/>
         </div>
 
         <!-- Login Form -->
@@ -30,7 +30,7 @@
                 </div>
                 <label for="body">Body</label>
                 <div>
-                    <textarea type="text" name="body" id="body" rows="15" cols="20" th:field="*{body}">Body</textarea>
+                    <textarea type="text" name="body" id="body" rows="5" cols="40" th:field="*{body}">Body</textarea>
                 </div>
                 <div class="d-flex flex-column justify-content-center">
                     <div class="d-flex justify-content-center">

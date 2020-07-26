@@ -1,12 +1,13 @@
 
-body.sign-up{
-    background-image: url("/img/login-register.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-color: rgba(136, 160, 99, 0.4);
-
+html {
+    background-color: #7ea552;
 }
+
+body.signup {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+}
+
 
 .signup-card-body {
     font-size: 11px;
@@ -25,13 +26,9 @@ margin-left: 19px;
 margin-left: -3px;
 }
 
-.signup-city {
-    margin-left: 26px;
-}
-
 #passwordToConfirm {
 
-    margin-right: 44px;
+    margin-right: -7px;
 }
 
 #sign-up-firstName, #sign-up-lastName {
@@ -79,11 +76,11 @@ margin-left: -3px;
     }
 
     #passwordToConfirm {
-        margin-right: 90px;
+        margin-right: 19px;
     }
 
     .signup-city{
-        margin-left: 6px;
+        margin-left: 8px;
     }
 
     #sign-up-firstName, #sign-up-lastName {
@@ -92,7 +89,7 @@ margin-left: -3px;
 
     #sign-up-city{
 
-        margin-right: -8px;
+        margin-right: 1px;
 
     }
 
@@ -249,5 +246,3 @@ body.sign-up {
     -moz-animation-delay: 1s;
     animation-delay: 1s;
 }
-
-

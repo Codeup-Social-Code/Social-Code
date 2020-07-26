@@ -11,33 +11,35 @@
     <section class="bio-container">
         <div class="card bio-card mb-3">
             <div class="card-header" style="background-color: #7ea552; height: 70px"></div>
-                <div class="row bio-row no-gutters" style="height: 400px">
-                 <div class="wrapper profile-img col-md-4 ">
-                     <img id="all-image" class="image--cover all-image-cover" th:src="*{user.picture}" width="100%"/>
-                </div>
-                <div class="col-md-8">
-                    <div class="bio-card-body">
-                        <div class="connect">
-                            <h3 id="first" th:text="${user.firstName + ' ' + user.lastName}"></h3>
-                            <h6 id="email" th:text="${user.username}">Email</h6>
-                            <br>
-                            <a id="github" class="card-text" th:href="@{${user.gitHub}}">
-<!--                            th:if="${showGitHub}"-->
-                                <img class="github" src="/img/4.png"/>
-                            </a>
-                            <a id="linkedin" class="card-text" th:href="@{${user.linkedIn}}">
-                                <img class="linkedin" src="/img/5.png"/>
-                            </a>
-<!--                                th:if="${showLinkedIn}" -->
-                            <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
-                        </div>
-                        <div class="profile-connect">
-                            <a th:if="${showEditControls}" class="connect-card-text card-text" th:href="@{/users/{id}/edit(id=${user.id}) }" style="color: dimgrey;">
-                                EDIT PROFILE</a> <br>
-                            <a class="view-all-btn" th:href="@{/users/view-all}">
-                                <button id="prof-view-users" class="btn btn-success">View all users</button>
-                            </a>
-                        </div>
+                <div class="row bio-imgRow no-gutters" style="height: 400px">
+                     <div class="wrapper profile-img col-md-4 ">
+                         <img id="user-image" class="image--cover user-image-cover" th:src="*{user.picture}" width="100%"/>
+
+                    </div>
+                    <div class="col-md-8">
+                             <div class="row">
+                                <div class="card-body bio-headerBody col-12 col-lg-9">
+                                    <div class="connect">
+                                    <h3 id="first" th:text="${user.firstName + ' ' + user.lastName}"></h3>
+                                        <span><a th:if="${showEditControls}" class="edit-prof-link card-text" th:href="@{/users/{id}/edit(id=${user.id}) }" style="color: #0303a8;">
+                             EDIT PROFILE</a></span>
+                                    <h6 id="email" th:text="${user.username}">Email</h6>
+                                        <a id="github" class="card-text" th:href="@{${user.gitHub}}">
+                                            <!--                            th:if="${showGitHub}"-->
+                                            <img class="github" src="/img/4.png"/>
+                                        </a>
+                                        <a id="linkedin" class="card-text" th:href="@{${user.linkedIn}}">
+                                            <img class="linkedin" src="/img/5.png"/>
+                                        </a>
+                                </div>
+                                <div class="bioDiv col-12 col-lg-9">
+                                    <h6 id="profile-bio" class="card-text" th:text="${user.bio}">Bio</h6>
+                                    <!--                                        <a class="view-all-btn" th:href="@{/users/view-all}">-->
+                                    <!--                                            <button id="prof-view-users" class="btn btn-success">View all users</button>-->
+                                    <!--                                        </a>-->
+                                </div>
+
+                            </div>
                     </div>
                 </div>
             </div>
@@ -47,7 +49,7 @@
 <!--FOLLOWS/POSTS/FOLLOWING-->
         <section class="container followers text-center">
             <div class="row text-center">
-                <div class="col-12 d-flex justify-content-center align-items-center text-center">
+                <div class="col-12 followDiv d-flex justify-content-center align-items-center text-center">
                         <div id="followersId" th:text="${user.followers.size()}" style="font-size: 30px"></div>
                         <span class="d-flex followerCount align-items-end" style="font-size: 15px">Followers</span>
                 </div>

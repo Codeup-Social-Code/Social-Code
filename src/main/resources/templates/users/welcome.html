@@ -23,11 +23,11 @@
                             <div class="card mt-5" style="width: 18rem;">
                                 <img class="welcome-card-img" src="/img/12.png" width="100%"/>
                                 <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">1</h3>
-                                <div class="card-body wel-card-body">
-                                    <h4 class="card-text text-center" id="wel-create">Create your profile.</h4>
+                                <div class="card-body pb-2  wel-card-body">
+                                    <h4 class="card-text text-center" id="wel-create">Create your profile</h4>
                                     <form class="text-center pt-4" th:action="@{/users/profile}" th:method="get">
-                                <input class="btn btn-success" type="submit" value="Go to profile">
-                            </form>
+                                        <input class="btn btn-success" type="submit" value="Go to profile">
+                                    </form>
                                 </div>
                               
                             </div>
@@ -35,26 +35,27 @@
                             <div class="card middle-card mt-5 " style="width: 18rem;">
                                 <img class="welcome-card-img"  src="/img/10.png" width="100%" />
                                 <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">2</h3>
-                                <div class="card-body wel-card-body">
-                                    <h4 class="card-text text-center">Create a community post.</h4>
+                                <div class="card-body pb-2 wel-card-body">
+                                    <h4 class="card-text text-center">Create a community post</h4>
+                                    <form class="text-center pt-4" th:action="@{/posts/create}" th:method="get">
+                                        <input class="btn btn-success" type="submit" value="Create a post">
+                                    </form>
                                 </div>
-                               <form class="text-center pb-4" th:action="@{/posts/create}" th:method="get">
-                                 <input class="btn btn-success" type="submit" value="Create a post">
-                                </form>
                             </div>
 
                             <div class="card mt-5 text-center" style="width: 18rem;">
                                 <img class="welcome-card-img"  src="/img/11.png" width="100%"/>
                                 <h3 class="card-title text-center mt-3" style="color: #ffde59; font-size: 60px; font-weight: bolder">3</h3>
-                                <div class="card-body wel-card-body text-center">
+                                <div class="card-body pb-2 wel-card-body text-center">
                                     <h4 class="card-text">Connect</h4>
+                                    <form class="text-center" th:action="@{/posts}" th:method="get">
+                                        <input class="btn btn-success" type="submit" value="View events">
+                                    </form>
+                                    <div class="">
+                                        <a th:href="@{/users/view-all}"><button class="btn btn-success mt-2">View users</button></a>
+                                    </div>
                                 </div>
-                                <form class="text-center" th:action="@{/posts}" th:method="get">
-                                     <input class="btn btn-success" type="submit" value="View events">
-                                 </form>
-                                <div class="pb-4">
-                                    <a th:href="@{/users/view-all}"><button class="btn btn-success mt-2">View users</button></a>
-                                </div>
+
                             </div>
                     </div>
      </div>

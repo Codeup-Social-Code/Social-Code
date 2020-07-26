@@ -15,7 +15,7 @@
 }
 
 .home-card-text{
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .center-green {
@@ -43,9 +43,19 @@
     font-size: 15px;
     font-family: "Open Sans";
     font-weight: lighter;
-    margin-top: 5vh;
+    margin-top: 2vh;
     vertical-align: middle;
 
+}
+
+
+
+.build-comm-logo{
+    margin-bottom: 29px;
+}
+
+.build-comm{
+    font-size: 16px;
 }
 
 
@@ -79,10 +89,10 @@
 
 .home-grid {
     display: inline-grid;
-    padding: 10px;
     grid-template-columns: auto auto;
     width: 550px;
     height: 470px;
+    margin-bottom: 75px;
 }
 
 .home-grid-cta {
@@ -96,7 +106,7 @@ h2.block-msg {
 }
 
 .cta-message {
-    font-size: 8px;
+    font-size: 11px;
 }
 
 .block-btn {
@@ -117,8 +127,9 @@ h2.block-msg {
     .home-card{
         padding: 0px;
     }
+
     .home-card-text{
-        font-size: 9px;
+        font-size: 12px;
     }
     i.fas.fa-laptop::before{
         font-size: 40px;!important;
@@ -141,6 +152,10 @@ h2.block-msg {
             height: 1200px;
     }
 
+    .build-comm{
+        font-size: 17px;
+    }
+
     .bottom-fold {
 
         height: 500px;
@@ -154,6 +169,7 @@ h2.block-msg {
     }
     .hero-top {
         padding: 0px;
+        margin-top: 73px;
     }
     #header-image{
         margin-top: 50px;
@@ -163,6 +179,7 @@ h2.block-msg {
 
         width: 658px;
         height: 1020px;
+        margin-bottom: 0px;
     }
 
     .hcard-content{
@@ -181,14 +198,25 @@ h2.block-msg {
         margin-top: 25px;
     }
 
+    .build-comm-logo{
+        margin-bottom: 0px;
+        padding-top: 200px;
+    }
+
+
+    .build-comm{
+        font-size: 17px;
+    }
+
     #about-us{
         margin-top: -131px;
     }
     .gif-container {
         margin-top: 145px;
     }
-    .connect-home{
-        margin-top: 10px;
+
+    .meet-creators{
+        margin-top: 109px;
     }
 
 }
@@ -210,10 +238,22 @@ h2.block-msg {
     #about-message {
         margin-top: 100px;
     }
+
+
+    .home-card-text{
+        font-size: 15px;
+    }
+    .meet-creators{
+        margin-top: 0px;
+    }
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
+    .home-card-text{
+        font-size: 15px;
+    }
     .home-welcome-header {
         margin-top: 100px;
     }
@@ -234,13 +274,47 @@ h2.block-msg {
         margin-top: 90px;
     }
 
+    .home-welcome-message{
+        font-size: 23px;
+        margin-top: 1vh;
+    }
+
+    .hero-top {
+        margin-top: 136px;
+    }
+     .cta-message{
+         font-size: 20px;
+     }
+    .home-card{
+        width: 1000px;
+        height: 150px;
+    }
 
     .home-card-deck {
         margin-top: 150px;
+        height: 100px;
+    }
+
+    .home-card-text{
+        font-size: 17px;
     }
 
     #community-gif{
         width: 55%;
     }
 
+
+    .build-comm-logo{
+        margin-bottom: 0px;
+        padding-top: 145px;
+
+    }
+
+    .build-comm{
+        font-size: 24px;
+    }
+
+    .center-green{
+        height: 1400px;
+    }
 }

@@ -11,7 +11,7 @@ $(function() {
                 "$where" : "start_date_time > '" + moment().subtract(31, 'days').format("YYYY-MM-DDT00:00:00") + "'",
                 "city" : "Portland",
                 "$order" : "start_date_time DESC"
-            }git 
+            }
         }).done(function(response) {
             // Parse our events into an event object for FullCalendar
             var events = [];

@@ -84,7 +84,10 @@
             <version>2.1.2.RELEASE</version>
         </dependency>
 
+
+
 <!--        for integration tests-->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-test</artifactId>

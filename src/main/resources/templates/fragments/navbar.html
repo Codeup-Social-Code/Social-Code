@@ -10,20 +10,20 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
     <th:block sec:authorize="!isAuthenticated()">
     <a class="navbar-brand " href="#">
-        <a class="navbar-brand d-none d-md-block" href="/posts"><img class="logo" src="/img/SocialCode-01.png" style="width: 150px"/></a>
+        <a class="navbar-brand d-none d-md-block col-5" href="/posts"><img class="nav-logo" src="/img/SocialCode-01.png"/></a>
     </a>
     </th:block>
     <th:block sec:authorize="isAuthenticated()">
         <a class="navbar-brand " href="#">
-            <a class="navbar-brand d-none d-md-block" href="/posts"><img class="logo" src="/img/codeup-logo.png"/></a>
+            <a class="navbar-brand d-none d-md-block col-5" href="/posts"><img class="nav-logo" src="/img/SocialCode-01.png"/></a>
         </a>
     </th:block>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse right-nav justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav ">
             <li id="about-us-btn" class="nav-item">
                 <form th:action="@{/about}" th:method="get">
                     <button id="nav-about" class="btn-link btn" style="color: #7ea552">About Us</button>
@@ -61,19 +61,21 @@
                 </li>
             </th:block>
         </ul>
+        <ul class="d-flex p-1" style="list-style: none">
         <th:block sec:authorize="isAuthenticated()">
-            <form action="/search"> <!-- make sure the search bar has a form that maps to  -->
+            <form class="searchBox" action="/search"> <!-- make sure the search bar has a form that maps to  -->
                 <input id="search-box" type="text" name="term" placeholder="Search posts" style="color: #576541">
                 <button id="search-icon" type="submit"><i class="fas fa-search" style=" color: #7ea552;"></i></button>
             </form>
         </th:block>
         <th:block sec:authorize="isAuthenticated()">
-            <li id="logout-btn" class="nav-item">
+            <li id="navLogout-btn" class="nav-item">
                 <form th:action="@{/logout}" th:method="POST">
                     <button id="logout" class="btn-link btn"  style="color: #7ea552">Logout</button>
                 </form>
             </li>
         </th:block>
+        </ul>
     </div>
 </nav>
 

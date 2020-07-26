@@ -9,9 +9,9 @@
 }
 
 
-.logo {
+.nav-logo {
 
-    width: 40%;
+    width: 20%;
 }
 
 #search-icon{
@@ -69,10 +69,13 @@
         margin-left: 170px;
     }
 
-
-
     .dropdown-item {
         font-size: 12px;
+    }
+
+    .nav-logo{
+        width: 56%;
+        margin-left: 114px;
     }
 
     #login {
@@ -102,6 +105,9 @@
         font-size: 16px;
         border-width: .5px;
     }
+    .navbar-toggler{
+      display: flex;
+    }
 
 }
 
@@ -114,9 +120,20 @@
     #nav-login {
         font-size: 17px;
     }
+    .nav-logo{
+        width: 56%;
+        margin-left: -26px;
+    }
+    .searchBox{
+        padding-top: 18px;
+    }
+
+    #navLogout-btn{
+        padding-top: 10px;
+    }
 
     #logout {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     #register {
@@ -137,7 +154,6 @@
     .dropdown-item {
         font-size: 17px;
     }
-
 
 
     #search-box{
@@ -196,7 +212,10 @@
         font-size: 13px;
     }
 
-
+    .nav-logo{
+        width: 40%;
+        margin-left: -26px;
+    }
 
     .dropdown-item {
         font-size: 13px;
@@ -205,12 +224,14 @@
 }
 
 @media screen and (min-width:2200px) {
-    .logo {
-        width: 50%;
-    }
 
     ul.nav-frag {
         margin-left: 1000px;
+    }
+
+    .nav-logo{
+        width: 30%;
+
     }
 
     #search-box{
@@ -222,7 +243,7 @@
     #search-icon{
         display: flex;
        border-width: .5px;
-        font-size: 30px;
+        font-size: 31.3px;
         /*color: #444242;*/
     }
 

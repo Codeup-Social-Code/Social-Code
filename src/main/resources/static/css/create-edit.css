@@ -8,6 +8,9 @@ body.create, body.edit, body.edit-profile {
 .create-card, .edit-card {
     margin-top: 150px;
 }
+#createPost-header{
+    font-size: 25px;
+}
 
 .edit-prof-firstName{
     font-size: 13px;
@@ -44,6 +47,9 @@ body.create, body.edit, body.edit-profile {
     margin-left: 20px;
     margin-bottom: 5px;
     font-size: 13px;
+}
+#createPost-header{
+    font-size: 30px;
 }
 
 #bio{
@@ -230,6 +236,12 @@ body.create, body.edit, body.edit-profile {
     body.create, body.edit, body.edit-profile {
         height: 50vh;
 
+    }
+    #createPost-header{
+        font-size: 54px;
+    }
+    .right-nav{
+        margin-left: -62px;
     }
 
 }

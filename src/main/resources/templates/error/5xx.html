@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head('Social Code')">
+<head th:replace="fragments/head :: head('Error 500')">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Error 500 Internal Server</title>
+    <style>
+        html {
+            background-color: white;
+        }
+        /*div.fc-content span.fc-time {*/
+        /*    color: white;*/
+        /*}*/
+    </style>
 </head>
 <body>
 <header><nav th:replace="fragments/navbar :: navbar"></nav></header>

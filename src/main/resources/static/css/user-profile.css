@@ -161,11 +161,7 @@
         font-size: 14px;
 
     }
-    /*.prof-post-card {*/
-    /*    margin: 10px;*/
-    /*    width: 44rem;*/
-    /*    height: 31rem;*/
-    /*}*/
+
 
     .github{
         width: 9%;
@@ -192,13 +188,6 @@
 
     }
 
-    .project-wrapper {
-        /*padding-left: 308px;*/
-    }
-    /*.edit-prof-link{*/
-    /*    margin-left: 65px;*/
-    /*    font-size: 18px;*/
-    /*}*/
 }
 
 @media screen and (min-width:1280px) {
@@ -307,8 +296,8 @@
         object-fit: cover;
         object-position: center right;
     }
-    .project-wrapper {
-        /*padding-left: 308px;*/
-    }
+    .prof-post-row {
+        width: 27rem;
 
+    }
 }

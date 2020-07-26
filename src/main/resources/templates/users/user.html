@@ -86,6 +86,9 @@
     <div class="row text-center p-3 pb-5">
         <div class="col-12">
             <h3>Your posts</h3>
+            <form th:href="${'/posts/create'}">
+                <button class="btn btn-success mb-3">Create Post</button>
+            </form>
         </div>
     </div>
     <section class="container posts-container text-center d-flex justify-content-center">

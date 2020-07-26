@@ -121,10 +121,12 @@
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
     .user-image-cover {
-        width: 200px;
-        height: 200px;
+        width: 225px;
+        height: 225px;
         margin-top: 100px;
-        margin-left: 100px;
+        margin-left: 122px;
+        float: left;
+
 
         float: left;
 
@@ -174,6 +176,18 @@
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
+    .user-image-cover {
+        width: 225px;
+        height: 225px;
+        margin-top: 100px;
+        margin-left: 188px;
+        float: left;
+
+
+        float: left;
+
+    }
+
     .project-wrapper {
         padding-left: 308px;
     }
@@ -186,11 +200,15 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
     .user-image-cover{
-        width: 340px;
-        height: 340px;
-        margin-top: 20px;
-        margin-left: 175px;
+        width: 300px;
+        height: 300px;
+        margin-top: 73px;
+        margin-left: 223px;
 
+    }
+
+    #profile-bio{
+        margin-right: 54px;
     }
 
     /*.edit-prof-link{*/
@@ -210,6 +228,7 @@
     }
 
 }
+
 
 @media screen and (min-width:2200px) {
 

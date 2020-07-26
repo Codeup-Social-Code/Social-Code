@@ -54,7 +54,7 @@
                         <span class="d-flex followerCount align-items-end" style="font-size: 15px">Followers</span>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" th:if="${!isUser}">
                 <div class="col-12 d-flex justify-content-center align-items-center text-center">
                         <form th:action="@{'/user/' + ${user.id} + '/follow'}" th:method="POST">
                             <input  type="submit" id="follow-me" class="btn btn-success" style="color: white" value="Follow"></input>
@@ -67,22 +67,18 @@
 <!--<hr style="width: 50%">-->
 
 <!--example for displaying followers-->
-        <section class="container project-section">
-            <div class="row project-wrapper text-center">
-                <div class="text-center">
-                    <div class="profile-button-container text-center">
-                        <img src="/img/9.png" class="project-cover"/>
-                        <a class="text-center" href="#">+</a>
-                    </div>
-                    <img src="/img/8.png" class="project-cover"/>
-                </div>
-                <div class="text-center">
-                    <img src="/img/13.png" class="project-cover" />
-                    <img src="/img/7.png" class="project-cover"/>
-                </div>
-            </div>
-        </section>
+<!--        <section class="container project-section">-->
 
+            <section class="row project-wrapper text-center justify-content-center mt-5">
+                        <div class="ml-3" th:each="follower : ${user.getFollowers()}">
+                            <div class="text-center">
+                                <img id="listOfFollowers" th:src="${follower.picture}" alt="followerPic">
+                            </div>
+                            <div class="text-center">
+                                <a th:href="@{'/users/' + ${follower.id}}" th:text="${follower.firstName}"></a>
+                            </div>
+                        </div>
+            </section>
 
 
     <hr style="width: 50%">

@@ -5,7 +5,7 @@
 }
 
 .project-wrapper {
-    padding-left: 100px;
+    /*padding-left: 100px;*/
 }
 .bio-card{
     border: none;
@@ -19,6 +19,7 @@
     text-align: center;
 }
 #profile-bio{
+    font-size: 10px;
     padding-top: 22px;
 }
 
@@ -56,7 +57,10 @@
     border-radius: 8%;
     width: 100px;
 }
-
+#listOfFollowers{
+    width: 100px;
+    height: 100px;
+}
 .connect-card-text {
     font-size: 15px;
     padding: 10px;
@@ -113,7 +117,7 @@
 /* Small devices (phones and pocket devices, 576 and up) */
 @media screen and (min-width:425px) {
     .project-wrapper{
-        padding-left: 135px;
+        /*padding-left: 135px;*/
     }
 
 }
@@ -151,13 +155,13 @@
     }
 
     .project-wrapper{
-        padding-left: 135px;
+        /*padding-left: 135px;*/
+    }
+    #profile-bio{
+        font-size: 14px;
+
     }
 
-    /*.edit-prof-link{*/
-    /*    margin-left: 149px;*/
-    /*    font-size: 11px;*/
-    /*}*/
     .prof-post-card {
         margin: 10px;
         width: 25rem;
@@ -189,7 +193,7 @@
     }
 
     .project-wrapper {
-        padding-left: 308px;
+        /*padding-left: 308px;*/
     }
     /*.edit-prof-link{*/
     /*    margin-left: 65px;*/
@@ -215,7 +219,7 @@
     /*    margin-left: 212px;*/
     /*}*/
     .project-wrapper {
-        padding-left: 388px;
+        /*padding-left: 388px;*/
     }
 
 
@@ -254,7 +258,8 @@
         font-size: 25px;
     }
     #profile-bio{
-        margin-right: 69px;
+        font-size: 19px;
+        margin-right: 399px;
     }
 
     .edit-prof-link{
@@ -288,7 +293,7 @@
         object-position: center right;
     }
     .project-wrapper {
-        padding-left: 308px;
+        /*padding-left: 308px;*/
     }
 
 }

@@ -20,8 +20,12 @@
         <form action="/users/search">
             <div class="form-group row">
                 <div class="text-center">
-                 <input class="form-control" id="search-box" type="text" name="term" placeholder="Search Users" style="color: dimgrey">
-                    <button type="submit"><i class="fas fa-search"></i></button>
+                    <div class="text-inline-search-users">Search coders:
+                        <span class="text-success nowrap">
+                        <input class="form-control nowrap" id="search-box" type="text" name="term" placeholder="Search name" style="color: dimgrey">
+                        <button class="nowrap" type="submit"><i class="fas fa-search nowrap"></i></button>
+                        </span>
+                    </div>
                 </div>
              </div>
         </form>

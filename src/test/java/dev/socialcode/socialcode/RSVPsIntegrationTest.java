@@ -123,32 +123,5 @@ public class RSVPsIntegrationTest {
 
     }
 
-//    @Test
-//    public void testEditPost() throws Exception {
-//        // Gets the first Ad for tests purposes
-//        Comment existingComment = commentsDao.findAll().get(0);
-//
-//        // Makes a Post request to /ads/{id}/edit and expect a redirection to the Ad show page
-//        this.mvc.perform(
-//                post("/comment/" + existingComment.getId() + "/edit").with(csrf())
-//                        .session((MockHttpSession) httpSession)
-//                        .param("comment", "Edit Comment!")
-//                        .param("postId", "1"))
-//                .andExpect(status().is3xxRedirection());
-//
-//    }
-//
-//    @Test
-//    public void deleteComment() throws Exception {
-//
-//        Comment existingComment = commentsDao.findAll().get(0);
-//
-//        Assert.assertNotNull(existingComment);
-//
-//        this.mvc.perform(
-//                post("/comment/" + existingComment.getId() + "/delete").with(csrf())
-//                        .session((MockHttpSession) httpSession))
-//                .andExpect(status().is3xxRedirection());
-//    }
 
 }

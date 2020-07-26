@@ -49,6 +49,16 @@
 }
 
 
+
+.build-comm-logo{
+    margin-bottom: 29px;
+}
+
+.build-comm{
+    font-size: 16px;
+}
+
+
 .about-us {
     color: white;
     font-size: 15px;
@@ -142,6 +152,10 @@ h2.block-msg {
             height: 1200px;
     }
 
+    .build-comm{
+        font-size: 17px;
+    }
+
     .bottom-fold {
 
         height: 500px;
@@ -182,12 +196,24 @@ h2.block-msg {
         margin-top: 25px;
     }
 
+    .build-comm-logo{
+        margin-bottom: 0px;
+        padding-top: 200px;
+    }
+
+
+    .build-comm{
+        font-size: 17px;
+    }
+
     #about-us{
         margin-top: -131px;
     }
     .gif-container {
         margin-top: 145px;
     }
+
+
 
 }
 
@@ -241,9 +267,16 @@ h2.block-msg {
     }
 
     .home-welcome-message{
-        font-size: 17px;
+        font-size: 23px;
+        margin-top: 1vh;
     }
 
+    .hero-top {
+        margin-top: 136px;
+    }
+     .cta-message{
+         font-size: 20px;
+     }
     .home-card{
         width: 1000px;
         height: 150px;
@@ -260,6 +293,17 @@ h2.block-msg {
 
     #community-gif{
         width: 55%;
+    }
+
+
+    .build-comm-logo{
+        margin-bottom: 0px;
+        padding-top: 145px;
+
+    }
+
+    .build-comm{
+        font-size: 24px;
     }
 
 }

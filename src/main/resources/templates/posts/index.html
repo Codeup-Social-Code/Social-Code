@@ -74,7 +74,7 @@
         <div th:each="post : ${posts}">
             <div class="card comm-post-card ">
                     <div class="card-header">
-                        <img id="all-image" class="image--cover all-profile-image" th:src="*{post.user.picture}" width="100%"/
+                        <img id="all-image" class="image--cover all-profile-image" th:src="*{post.user.picture}" width="100%"/>
                     </div>
                     <div class="card-body">
                         <h3 th:text="${post.title}" style="color: #7ea552;">Title</h3>

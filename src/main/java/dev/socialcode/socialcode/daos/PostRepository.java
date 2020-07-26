@@ -10,7 +10,7 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post, Long> {
     List<Post> findPostsByUser_Id(long id);
 
-
+Post findPostByTitle(String title);
     @Query("from Post p inner join p.categories c where c.id = ?1")
     List<Post> searchByCategoryId(long id);
 

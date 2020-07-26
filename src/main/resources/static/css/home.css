@@ -43,7 +43,7 @@
     font-size: 15px;
     font-family: "Open Sans";
     font-weight: lighter;
-    margin-top: 5vh;
+    margin-top: 2vh;
     vertical-align: middle;
 
 }
@@ -89,10 +89,10 @@
 
 .home-grid {
     display: inline-grid;
-    padding: 10px;
     grid-template-columns: auto auto;
     width: 550px;
     height: 470px;
+    margin-bottom: 75px;
 }
 
 .home-grid-cta {
@@ -106,7 +106,7 @@ h2.block-msg {
 }
 
 .cta-message {
-    font-size: 8px;
+    font-size: 11px;
 }
 
 .block-btn {
@@ -169,6 +169,7 @@ h2.block-msg {
     }
     .hero-top {
         padding: 0px;
+        margin-top: 73px;
     }
     #header-image{
         margin-top: 50px;
@@ -178,6 +179,7 @@ h2.block-msg {
 
         width: 658px;
         height: 1020px;
+        margin-bottom: 0px;
     }
 
     .hcard-content{
@@ -213,7 +215,9 @@ h2.block-msg {
         margin-top: 145px;
     }
 
-
+    .meet-creators{
+        margin-top: 109px;
+    }
 
 }
 
@@ -239,6 +243,10 @@ h2.block-msg {
     .home-card-text{
         font-size: 15px;
     }
+    .meet-creators{
+        margin-top: 0px;
+    }
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -306,4 +314,7 @@ h2.block-msg {
         font-size: 24px;
     }
 
+    .center-green{
+        height: 1400px;
+    }
 }

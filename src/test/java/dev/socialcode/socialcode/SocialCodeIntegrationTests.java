@@ -42,6 +42,7 @@ public class SocialCodeIntegrationTests {
 
     private User testUser;
     private HttpSession httpSession;
+    private UserRepository usersRepository;
 
     @Autowired
     private MockMvc mvc;
@@ -102,7 +103,6 @@ public class SocialCodeIntegrationTests {
                 .andExpect(redirectedUrlPattern("**/login"));
     }
 
-
     @Test
     public void testCreateAPost() throws Exception {
 
@@ -135,6 +135,36 @@ public class SocialCodeIntegrationTests {
                 .andExpect(content().string(containsString(existingPost.getTitle())));
     }
 
+    @Test
+    public void testShowRegisterPage() throws Exception {
+        this.mvc.perform(get("/sign-up"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void testRedirectToLoginIfNoSessionIsActive() throws Exception {
+        mvc.perform(get("/users/profile"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Please Log In")));
+    }
+
+    @Test
+    public void testRegisterAUser() throws Exception {
+
+        // Create a test user
+        this.mvc.perform(post("/login")
+                .sessionAttr(TOKEN_ATTR_NAME, csrfToken)
+                .param(csrfToken.getParameterName(), csrfToken.getToken())
+                .param("firstName", "stacy")
+                .param("lastName", "parker")
+                .param("username", "testUser@codeup.com")
+                .param("password", "pass")
+                .param("passwordToConfirm", "pass")
+                .param("city", "dallas")
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/welcome"));
+    }
 
 
 

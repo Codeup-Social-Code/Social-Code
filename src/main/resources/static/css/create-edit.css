@@ -233,7 +233,7 @@ body.create, body.edit, body.edit-profile {
     }
 
     body.edit-profile, body.edit{
-        height: 152vh;
+        height: 90vh;
     }
 
     #bio{
@@ -249,7 +249,7 @@ body.create, body.edit, body.edit-profile {
     }
 
     body.edit, body.edit-profile {
-        height: 160vh;
+        height: 70vh;
     }
 
     #createPost-header{

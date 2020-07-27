@@ -30,8 +30,8 @@
             <div class="container-fluid text-center">
                 <div class="row content justify-content-center">
                     <div th:each="user, iterStat : ${userNameResult}" class="box" th:id=" 'masonry' + ${iterStat.count}">
-                        <div class="card view-all-card">
-                            <div class="card-header bg-success">
+                        <div class="card view-all-card m-5">
+                            <div class="card-header" style="background-color: #7ea552">
                                 <img id="all-image" class="image--cover all-profile-image" th:src="*{user.picture}" width="100%"/>
                             </div>
                             <div class="card-body">

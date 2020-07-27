@@ -5,12 +5,6 @@
 .row.content{
     height: 5000px;
 }
-/*.comm-post-card{*/
-/*    margin: 10px;*/
-/*    width: 21rem;*/
-
-/*    box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;*/
-/*}*/
 
 .index-btn{
     box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;
@@ -47,14 +41,6 @@ div#map {
 }
 
 
-/*h2 {*/
-/*    text-align: center;*/
-/*    font-family: sans-serif;*/
-/*    border: 1px solid #000;*/
-/*    background: #000;*/
-/*    color: #fff;*/
-/*}*/
-
 #select-container #zoom-level {
     width: 90px;
     margin-left: 30px;
@@ -81,7 +67,6 @@ label {
     cursor: pointer;
 }
 
-
 div.fc-content span.fc-time {
     color: white;
     background-color: #7ea552;
@@ -90,9 +75,6 @@ div.fc-content span.fc-time {
     color: #4d5e34;
 }
 
-.shadow {
-    color: #4d5e34;
-}
 
 /* Small devices (phones and pocket devices, 576 and up) */
 @media screen and (min-width:425px) {
@@ -183,6 +165,17 @@ div.fc-content span.fc-time {
 
 
 @media screen and (min-width:2200px) {
+
+    #calendar{
+        width: 70%;
+        margin-left: 130px;
+        color: #4d5e34;
+    }
+
+    div.fc-content, span.fc-time {
+        color: white;
+        background-color: #7ea552;
+    }
 
     .header-border {
         height: 500px

@@ -90,7 +90,7 @@
 
         var option = {
             maxWidth: '300px',
-            color: 'red',
+            color: '#799e50',
             draggable: false,
             anchor: 'bottom-left'
 
@@ -146,7 +146,7 @@
             // }
 
             var popup = new mapboxgl.Popup()
-                .setHTML(`<h3>${location.city}</h3>`);
+                .setHTML(`<h5 class="p-2 text-center">${location.city}</h5>`);
 
             new mapboxgl.Marker(option)
                 .setLngLat(result)

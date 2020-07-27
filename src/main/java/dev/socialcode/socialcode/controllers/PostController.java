@@ -57,12 +57,12 @@ public class PostController {
             }
             List<Post> posts = postsDao.searchByCategoryId(newTerm);
             model.addAttribute("posts", posts);
-            return "posts/index";
+            return "posts/index-search";
         }
 
         List<Post> posts = postsDao.searchByTerm(term);
         model.addAttribute("posts", posts);
-        return "posts/index";
+        return "posts/index-search";
     }
 
 //    Single Post View

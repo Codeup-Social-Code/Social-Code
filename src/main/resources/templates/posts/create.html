@@ -24,13 +24,13 @@
 
         <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
             <div class="card-body">
-                <label style="font-family: 'Open Sans'"  for="title">Title:</label>
-                <div>
-                    <input type="text" name="title" cols="40" id="title" style="max-width: 100%; font-family: 'Open Sans'" th:field="*{title}">
+                <div class="ml-3">
+                    <label class="d-flex flex-start" style="font-family: 'Open Sans'"  for="title">Title:</label>
+                    <input type="text" class="d-block d-flex flex-start" name="title" cols="40" id="title" style="width: 90%; font-family: 'Open Sans'" th:field="*{title}">
                 </div>
-                <div class="mt-2 mr-2" style="font-family: 'Open Sans'" >
-                    <label class="category" for="category" style="font-family: 'Open Sans'" >Category</label>
-                    <select name="category" id="category" style="font-family: 'Open Sans'" >
+                <div class="mt-2 mr-2 ml-3" style="font-family: 'Open Sans'" >
+                    <label class="category d-flex flex-start" for="category" style="font-family: 'Open Sans'" >Category</label>
+                    <select name="category" id="category" style="font-family: 'Open Sans'; width: 92%" class="d-block d-flex flex-start">
                         <option value="1">Javascript</option>
                         <option value="2">Java</option>
                         <option value="3">Bootstrap</option>
@@ -48,43 +48,47 @@
                         <option value="16">Other</option>
                     </select>
                 </div>
-                <label class="pt-2" for="body" style="font-family: 'Open Sans'" >Body:</label>
                 <div>
-                    <textarea type="text" name="body" id="body" rows="5" cols="40" style="max-width: 100%; font-family: 'Open Sans'" th:field="*{body}">Body</textarea>
+
+                <div class="ml-3">
+                    <label class="pt-2 d-flex flex-start" for="body" style="font-family: 'Open Sans'" >Body:</label>
+                    <textarea type="text" class="d-block d-flex flex-start" name="body" id="body" rows="5" cols="42" style="max-width: 100%; font-family: 'Open Sans'" th:field="*{body}">Body</textarea>
                 </div>
-                <div class="d-flex flex-column justify-content-center">
-                    <div class="d-flex justify-content-center">
+                <div class="d-flex flex-column flex-start pt-2">
+                    <div class="d-flex flex-start">
                         <div class="row">
-                            <div class="col-sm-12 text-center">
-                                <div class="text-center">
-                                    <label for="start_date_time" class="d-block"  style="font-family: 'Open Sans'" >Start Date:</label>
-                                    <input id="start_date_time" style="font-family: 'Open Sans'"  type="date" name="start_date_time" th:field="*{start_date_time}">
+                            <div class="col-sm-6 ">
+                                <div class="">
+                                    <label for="start_date_time" class="d-block d-flex flex-start ml-1"  style="font-family: 'Open Sans'" >Start Date:</label>
+                                    <input id="start_date_time" style="font-family: 'Open Sans'" class="d-block d-flex flex-start ml-1" type="date" name="start_date_time" th:field="*{start_date_time}">
                                 </div>
                             </div>
-                            <div class="col-sm-12 m-1">
+                            <div class="col-sm-5 ml-1">
                                 <div>
-                                    <label style="font-family: 'Open Sans'"  for="end_date_time" class="d-block" >End Date:</label>
-                                    <input style="font-family: 'Open Sans'"  id="end_date_time" type="date" name="end_date_time" th:field="*{end_date_time}">
+                                    <label style="font-family: 'Open Sans'"  for="end_date_time" class="d-block d-flex flex-start" >End Date:</label>
+                                    <input style="font-family: 'Open Sans'"  id="end_date_time" class="d-block d-flex flex-start" type="date" name="end_date_time" th:field="*{end_date_time}">
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex flex-start pt-2">
                         <div class="row">
-                            <div class="col-sm-12 m-1">
-                                <label style="font-family: 'Open Sans'"  for="start_time" class="d-block">Start Time:</label>
-                                <input style="font-family: 'Open Sans'"  id="start_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{start_time}">
+                            <div class="col-sm-6 ml-1">
+                                <label style="font-family: 'Open Sans'"  for="start_time" class="d-block d-flex flex-start">Start Time:</label>
+                                <input style="font-family: 'Open Sans'" class="d-block d-flex flex-start pl-3 pr-3" id="start_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{start_time}">
                             </div>
 
-                            <div class="col-sm-12 m-1">
-                                <label style="font-family: 'Open Sans'"  for="end_time"   class="d-block">End Time:</label>
-                                <input style="font-family: 'Open Sans'"  id="end_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{end_time}">
+                            <div class="col-sm-5 ">
+                                <label style="font-family: 'Open Sans'"  for="end_time"   class="d-block d-flex flex-start">End Time:</label>
+                                <input style="font-family: 'Open Sans'" class="d-block d-flex flex-start pl-3 pr-2" id="end_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{end_time}">
                             </div>
                         </div>
                     </div>
 
                 </div>
+
+            </div>
 
             </div>
             <div class="mb-4">

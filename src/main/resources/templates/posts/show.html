@@ -62,8 +62,11 @@
 <!--            This is important to iterate for categories-->
             <div class="card-body">
                 <h1><span th:text="${post.title}"></span></h1>
+                <p id="date">
+                    Date: <span th:text="${post.start_date_time}"></span>
+                </p>
                 <th:block th:each="cat : ${post.categories}">
-                    <div>Category: <span th:text="${cat.name}"></span></div>
+                    <div>Category: <span th:text="${cat.name}"></span> </div>
                 </th:block>
                 <div class="d-flex">
 
@@ -154,12 +157,17 @@
     <div>
         <div class="row text-center">
             <div class="col-md-6 mb-4 text-white" th:each="rsvp: ${rsvps}">
-
-                <h2 class="my-5 h2" th:text="${rsvp.user.firstName}">Basic example</h2>
-                <img class="image--cover" th:src="*{rsvp.user.picture}" width="100%"/>
+                <div>
+                    <h2 class="my-5 h2" th:text="${rsvp.user.firstName}">
+                        Basic example
+                    </h2>
+                    <img class="" th:src="*{rsvp.user.picture}" width="25%"/>
+                </div>
             </div>
         </div>
     </div>
+    <th:block th:if="${post}">
+    <th:block th:if="${currentUser.id != post.user.id}">
     <div>
         <form th:if="${post}" th:action="${'/posts/rsvp'}" th:method="POST">
             <input type="hidden" name="postId" th:value="${post.id}">
@@ -168,6 +176,8 @@
             </div>
         </form>
     </div>
+    </th:block>
+    </th:block>
 </div>
 
 <!--<div th:if="${post}">-->
@@ -225,6 +235,31 @@
         modal.find('.modal-title').text('Edit ')
         modal.find('.modal-body input').val(recipient)
     })
+
+    $(document).ready(function() {
+        let value = $("p#date").text().split("Date: ")[1].split("T");
+        let time = value[1].split(":");
+        console.log(time);
+        let hour = 0;
+        let minutes = time[1];
+        if(time[0] > 12) {
+            hour = time[0] - 12;
+        } else {
+            hour = time[0];
+        }
+        let amOrPm = '';
+        if(time[0] < 12) {
+            amOrPm = 'AM';
+        } else{
+            amOrPm = 'PM';
+        }
+        let date = value[0].split("-");
+        let month = date[1];
+        let day = date[2];
+        let year = date[0];
+        $("p#date").html("<strong>Event Date: </strong>" + month + "-" + day + "-" + year + " " + "Time: " + hour + ":" + minutes + amOrPm);
+    });
+
 </script>
 
 </body>

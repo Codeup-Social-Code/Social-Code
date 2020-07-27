@@ -20,60 +20,38 @@ body.create, body.edit, body.edit-profile {
     margin-left: -2px;
 }
 
-.edit-prof-firstName{
-    font-size: 13px;
-}
-#edit-prof-firstName, #edit-prof-lastName {
-    margin-right: 32px;
-
-}
-
-.edit-prof-lastName{
-    font-size: 13px;
-}
-
-.edit-prof-email{
-    font-size: 13px;
-    margin-right: 11px
-}
-
-#edit-prof-email{
-    margin-left: -11px;
-}
-
-.edit-prof-city{
-    font-size: 13px;
-    margin-left: 10px;
-}
-
- .edit-prof-github{
-     font-size: 12px;
-     margin-left: -31px;
- }
-
-    .edit-prof-linkedin{
-        font-size: 12px;
-        margin-left: -39px;
-    }
-
-  #edit-prof-gitHub, #edit-prof-linkedIn{
-
-    margin-bottom: 5px;
-    font-size: 13px;
-}
 #createPost-header{
     font-size: 30px;
 }
 
 #bio{
     font-size: 13px;
+    width: 236px;
 }
 
-#edit-prof-firstName, #edit-prof-lastName, #edit-prof-email,
-#edit-prof-city {
-    font-size: 13px;
+.edit-prof-field {
+    font-size: 12px;
+    width: 161px;
+
 }
 
+.edit-prof-label{
+    width: 70px;
+    text-align: left;
+    font-size: 12px;
+}
+
+#editProfEmail {
+    margin-left: 26px;
+}
+#editProfCity{
+    margin-left: 35px;
+}
+
+
+#linkedInEditProf{
+    margin-left: -8px;
+}
 
 /* STRUCTURE */
 
@@ -200,40 +178,6 @@ body.create, body.edit, body.edit-profile {
     }
 
 
-    .edit-prof-firstName, .edit-prof-lastName, .edit-prof-email, .edit-prof-city, edit-prof-github, .edit-prof-linkedin {
-        font-size: 16px;
-        }
-
-    #edit-prof-firstName, #edit-prof-lastName {
-        margin-right: -6px;
-
-    }
-
-    .edit-prof-email{
-        margin-left: 43px;
-    }
-
-    .edit-prof-city {
-        margin-left: 57px;
-    }
-
-
-    #edit-prof-linkedIn{
-        margin-left: -2px;
-        /*margin-bottom: 5px;*/
-        font-size: 13px;
-    }
-
-    .edit-prof-github, .edit-prof-linkedin {
-        font-size: 14px;
-    }
-    .edit-prof-github{
-        margin-left: 10px;
-    }
-
-    .edit-prof-linkedin{
-        margin-left: 4px;
-    }
 
     #bio{
         font-size: 14px;

@@ -115,7 +115,17 @@ h2.block-msg {
 }
 
 
+.plan-block-msg{
+    margin-top: 110px;
+}
 
+.rsvp-block{
+    margin-top: 121px;
+}
+
+.connect-block{
+    margin-top: 120px;
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
@@ -195,7 +205,7 @@ h2.block-msg {
     }
 
     .rsvp-block{
-        margin-top: 25px;
+        margin-top: 121px;
     }
 
     .build-comm-logo{

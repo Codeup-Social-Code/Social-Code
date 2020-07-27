@@ -53,10 +53,10 @@ div#map {
     align-items: center;
 }
 
-label {
-    margin-bottom: 10px;
-    font-size: 2em;
-}
+/*label.map {*/
+/*    margin-bottom: 10px;*/
+/*    font-size: 2em;*/
+/*}*/
 
 .marker {
     background-image: url('img/Cody.png');

@@ -11,24 +11,24 @@
 <nav th:replace="fragments/navbar :: navbar"></nav>
 
             <div class="container edit-container text-center">
-                <div class="card edit-card" style="color: #000;">
+                <div class="card edit-card" style="color: #000; font-family: 'Open Sans'">
                     <div class="card-header">
                         <h4>Edit Post:</h4>
                     </div>
                     <form th:action="${'/posts/edit'}" th:method="POST" th:object="${post}">
                         <div class="card-body">
                             <div>
-                                <label for="title">Title</label>
-                                <input type="text" name="title" id="title">
+                                <label style="font-family: 'Open Sans'"  for="title">Title</label>
+                                <input style="font-family: 'Open Sans'"  type="text" name="title" id="title">
                             <!--        <input type="text" name="title" id="title" th:field="*{title}">-->
                             </div>
                             <div>
-                                <input name="id" type="hidden">
+                                <input style="font-family: 'Open Sans'"  name="id" type="hidden">
                             <!--        <input name="id" type="hidden" th:value="${post.id}" th:field="*{id}">-->
                             </div>
                             <div>
-                                <label for="body">Body</label>
-                            <input type="text" name="body" id="body">
+                                <label style="font-family: 'Open Sans'"  for="body">Body</label>
+                            <input style="font-family: 'Open Sans'"  type="text" name="body" id="body">
                     <!--        <input type="text" name="body" id="body" th:field="*{body}">-->
                             </div>
                             <div>

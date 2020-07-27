@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="card-body">
                                     <h3 th:text="${post.title}" style="color: #7ea552;">Title</h3>
-                                    <div th:text="${post.body}">Description</div>
+                                    <div style="font-family: 'Open Sans'; font-weight: lighter"  th:text="${post.body}">Description</div>
                                     <th:block th:each="cat : ${post.categories}">
                                         <div>Category: <span th:text="${cat.name}"></span></div>
                                     </th:block>
@@ -86,7 +86,7 @@
                                 <!--                Log in users -->
                                 <th:block sec:authorize="isAuthenticated()">
                                     <div class="card-footer text-center" style="background-color: #7ea552; box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;">
-                                        <a sec:authorize="isAuthenticated()" th:href="@{'/posts/' + ${post.id}}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Post</em></a> <br>
+                                        <a sec:authorize="isAuthenticated()" th:href="@{'/posts/' + ${post.id}}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Event</em></a> <br>
                                     </div>
                                 </th:block>
 

@@ -12,6 +12,14 @@ body.create, body.edit, body.edit-profile {
     font-size: 25px;
 }
 
+.category-title{
+   font-size: 14px;
+}
+#category-field{
+    font-size: 14px;
+    margin-left: -2px;
+}
+
 .edit-prof-firstName{
     font-size: 13px;
 }
@@ -87,7 +95,12 @@ body.create, body.edit, body.edit-profile {
     text-align: center;
 }
 
-
+#end_date_time{
+    margin-right: 1.1px;
+}
+#start_date_time{
+    margin-left: 7.1px;
+}
 
 /* ANIMATIONS */
 
@@ -255,6 +268,14 @@ body.create, body.edit, body.edit-profile {
     #createPost-header{
         font-size: 54px;
     }
+
+    .category-title{
+        margin-left: 6px;
+    }
+    #category-field{
+        margin-left: 11px;
+    }
+
     .right-nav{
         margin-left: -62px;
     }

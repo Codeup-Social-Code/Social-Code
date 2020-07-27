@@ -29,8 +29,8 @@
                     <input type="text" name="title" cols="40" id="title" style="max-width: 100%; font-family: 'Open Sans'" th:field="*{title}">
                 </div>
                 <div class="mt-2 mr-2" style="font-family: 'Open Sans'" >
-                    <label class="category" for="category" style="font-family: 'Open Sans'" >Category</label>
-                    <select name="category" id="category" style="font-family: 'Open Sans'" >
+                    <label class="category-title" for="category-field" style="font-family: 'Open Sans'">Category:</label>
+                    <select name="category" id="category-field" style="font-family: 'Open Sans'" >
                         <option value="1">Javascript</option>
                         <option value="2">Java</option>
                         <option value="3">Bootstrap</option>
@@ -61,7 +61,7 @@
                                     <input id="start_date_time" style="font-family: 'Open Sans'"  type="date" name="start_date_time" th:field="*{start_date_time}">
                                 </div>
                             </div>
-                            <div class="col-sm-12 m-1">
+                            <div class="col-sm-12">
                                 <div>
                                     <label style="font-family: 'Open Sans'"  for="end_date_time" class="d-block" >End Date:</label>
                                     <input style="font-family: 'Open Sans'"  id="end_date_time" type="date" name="end_date_time" th:field="*{end_date_time}">

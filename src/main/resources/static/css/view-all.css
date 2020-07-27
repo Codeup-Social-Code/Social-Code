@@ -78,7 +78,7 @@
     white-space: nowrap;
     /*float: right;*/
 }
-/*.text-inline-search-users{*/
-/*    !*position: center;*!*/
-/*    display: flex;*/
-/*}*/
+.text-inline-search-users{
+    /*position: center;*/
+   /*justify-content: right;*/
+}

@@ -17,27 +17,22 @@
         </div>
     </section>
     <section class="container-fluid justify-content-end text center">
-        <form action="/users/search">
-            <div class="form-group row">
-                <div class="text-center">
-                    <div class="text-inline-search-users">Search coders:
-                        <span class="text-success nowrap">
-                        <input class="form-control nowrap" id="search-box" type="text" name="term" placeholder="Search name" style="color: dimgrey">
-                        <button class="nowrap" type="submit"><i class="fas fa-search nowrap"></i></button>
-                        </span>
-                    </div>
-                </div>
-             </div>
-        </form>
+        <div class="row d-flex justify-content-end">
+            <div class="col-sm-6 col-md-3 mt-1">
+                <form action="/users/search"> <!-- make sure the search bar has a form that maps to  -->
+                    <input id="search-box" type="text" name="term" placeholder="Search Users" style="color: #576541">
+                    <button id="searchUsers-icon" type="submit"><i class="fas fa-search" style=" color: #7ea552;"></i></button>
+                </form>
+            </div>
+        </div>
     </section>
 
 
-
     <div class="container-fluid text-center">
-            <div class="row content justify-content-center">
+            <div class="row justify-content-center">
                     <div th:each="user : ${viewAll}">
-                        <div class="card view-all-card">
-                            <div class="card-header view-all-card-header">
+                        <div class="card view-users-card">
+                            <div class="card-header view-users-card-header">
                                 <img id="all-image" class="image--cover all-profile-image" th:src="*{user.picture}" width="100%"/>
                             </div>
                             <div class="card-body text-center mt-5">
@@ -46,7 +41,7 @@
                             </div>
                                 <div class="card-footer text-center">
                                     <form th:action="${'/users/' + user.id }" th:method="GET">
-                                        <button class="btn view-all-btn btn-success m-1" style="background-color: #ffde59; color: black; border: gray .2px solid; border-radius: 5px; margin-bottom: 3px;  box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;" >View Profile</button>
+                                        <button class="btn view-all-users-btn btn-success m-1" style="background-color: #ffde59; color: black; border: gray .2px solid; border-radius: 5px; margin-bottom: 3px;  box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;" >View Profile</button>
                                     </form>
                                 </div>
                             </div>

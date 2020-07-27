@@ -1,16 +1,4 @@
 
-/*.view-all-grid{*/
-/*    display: grid;*/
-/*    column-gap: 10px;*/
-/*    row-gap: 20px;*/
-/*    !*padding: 30px;*!*/
-/*    max-width: 1100px;*/
-/*    grid-template-areas:*/
-/*    "a a b"*/
-/*    "c d d"*/
-/*    "c e e";*/
-/*}*/
-
 #all-image.all-profile-image {
     width: 95px;
     height: 95px;
@@ -22,34 +10,34 @@
     object-position: center right;
 }
 
-.view-all-card{
+.view-users-card{
     box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;
     height: 630px;
     text-align: center;
 }
 
-.view-all-card-header{
+.view-users-card-header{
     background-color: #7ea552;
 }
 
-.view-all-grid{
-    display: flex;
-}
 
-.view-all-card{
+.view-users-card{
     margin: 10px;
     width: 20rem;
 }
 
-.view-all-row {
+.view-users-row {
     display: flex;
 }
 
 
-#column {
-    flex: 50%;
-}
+#searchUsers-icon{
+    display: flex;
+    font-size: 16px;
+    border-width: .5px;
 
+
+}
 .github{
     width: 15%;
 }
@@ -57,6 +45,19 @@
 .linkedin{
     width: 12%;
 }
+
+
+@media screen and (min-width:996px) {
+
+    #searchUsers-icon{
+        display: flex;
+        font-size: 23px;
+        border-width: .5px;
+
+
+    }
+}
+
 
 @media screen and (min-width:2200px) {
 
@@ -71,16 +72,13 @@
         object-position: center right;
     }
 
-}
 
-/*  To make it one line
-    And make them to right side */
-.nowrap{
-    display: inline-block;
-    white-space: nowrap;
-    /*float: right;*/
-}
-.text-inline-search-users{
-    /*position: center;*/
-   /*justify-content: right;*/
+    #searchUsers-icon{
+        display: flex;
+        font-size: 31px;
+        border-width: .5px;
+
+
+    }
+
 }

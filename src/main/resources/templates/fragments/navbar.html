@@ -29,6 +29,11 @@
                     <button id="nav-about" class="btn-link btn" style="color: #7ea552">About Us</button>
                 </form>
             </li>
+            <li id="profile-btn" class="nav-item" sec:authorize="isAuthenticated()">
+                <form th:action="@{/users/profile}" th:method="get">
+                    <button id="nav-about" class="btn-link btn" style="color: #7ea552">Profile</button>
+                </form>
+            </li>
             <li id="nav-login-btn" class="nav-item" sec:authorize="!isAuthenticated()">
                 <form th:action="@{/login}" th:method="get">
                     <button id="nav-login" class="btn-link btn"  style="color: #7ea552">Login</button>
@@ -50,13 +55,11 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" style="color: #576541"  th:href="@{/users/view-all}">View all users</a>
                         <div class="dropdown-divider" ></div>
-                        <a class="dropdown-item" style="color: #576541"  th:href="@{/users/profile}">Your profile</a>
-                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" style="color: #576541"  th:href="@{/posts/create}">Create an event</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" style="color: #576541"  th:href="@{/mapbox}">View Our global users</a>
+                        <a class="dropdown-item" style="color: #576541"  th:href="@{/mapbox}">View community map</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" style="color: #576541"  th:href="@{/calendar}">View Calendar</a>
+                        <a class="dropdown-item" style="color: #576541"  th:href="@{/calendar}">View calendar</a>
                     </div>
                 </li>
             </th:block>

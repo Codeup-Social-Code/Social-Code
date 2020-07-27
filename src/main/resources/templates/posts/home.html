@@ -8,146 +8,168 @@
 </head>
 <body class="home">
 
-    <nav th:replace="fragments/navbar :: navbar"></nav>
-    <main>
-<!--            TOP SECTION-->
-        <section class="container top-fold" style="background-color: white;">
-                <div class="row main-header d-flex justify-content-center align-content-center mt-4">
-                    <div class="col-sm-12 col-md-5 text-center">
-                         <h2 class="home-welcome-header">Welcome Message from Social Code</h2>
-                                <div class="home-welcome-message d-flex justify-content-center align-content-center">
-                                        <p class="home-welcome-message">Welcome to the newest home for the Codeup community, Social Code! With multiple campuses across the state of Texas, we
-                                            thought there is no better way to support each others success than to have one place to network, study, and socialize
-                                            with other Codeup cohorts!
-                                        </p>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+<main>
+    <!--            TOP SECTION-->
+    <section class="container top-fold" style="background-color: white;">
+        <div class="row main-header d-flex justify-content-center align-content-center mt-4">
+            <div class="col-sm-12 col-md-5 text-center">
+                <h2 class="home-welcome-header">Welcome to Social Code!</h2>
+                <div class="home-welcome-message d-flex justify-content-center align-content-center">
+                    <p class="home-welcome-message">Welcome to our online coding community, Social Code! We wanted to
+                        create a place for coders to come together and support each other along our learning journeys.
+                        Join now and start networking, studying, and socializing with other developers!
+                    </p>
 
-                                </div>
-                        <a th:href="@{/sign-up}" type="button" class="btn btn-success">Register</a>
-                    </div>
-                    <div class="hero-top col-sm-12 col-md-7 text-center">
-                        <div id="header-image">
-                            <img src="/img/9.png" width="80%"/></ul>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="card-deck home-card-deck d-flex justify-content-center align-content-center">
-                    <div class="card home-card" style="max-width: 20rem; height: 11rem">
-                        <div class="card-body col-7" style="max-width: 18rem;  height: 10rem">
-                            <h6 class="card-title hcard-content"> Study Sessions</h6>
-                            <div class="row">
-                                <div class="col-8">
-                                    <p class="card-text home-card-text pb-2" style="font-family: 'Open Sans'; font-weight: lighter;">Find mentors and support outside of your local community! </p>
-                                </div>
-                                <div>
-                                    <i class="fas fa-laptop" style="color: #7ea552; font-size: 50px"></i>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="card home-card" style="max-width: 20rem; height: 11rem">
-                        <div class="card-body col-7" style="max-width: 18rem;  height: 10rem">
-                            <h5 class="card-title hcard-content">Code Convo's</h5>
-                            <div class="row">
-                                <div class="col-8">
-                                    <p class="card-text home-card-text pb-4" style="font-family: 'Open Sans'; font-weight: lighter">Nervous about upcoming interviews? Come to Social Code!</p>
-                                </div>
-                                <div>
-                                    <i class="fas fa-user-tie ml-3" style="color: #7ea552; font-size: 50px"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card home-card" style="max-width: 20rem;  height: 11rem">
-                        <div class="card-body  col-7" style="max-width: 18rem;  height: 10rem">
-                            <h5 class="card-title hcard-content">Code Community</h5>
-                            <div class="row">
-                                <div class="col-7">
-                                        <p class="card-text home-card-text" style="font-family: 'Open Sans'; font-weight: lighter;"> Build a lifelong network of developers! </p>
-                                </div>
-                                <div class="justify-content-center align-content-center">
-                                    <i class="fas fa-users" style="color: #7ea552; font-size: 50px"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </section>
-
-        <section class="center-green d-flex text-center justify-content-center align-items-center" style="background-color: #576541;">
-            <div class="grid-container home-grid">
-                <div class="grid-item home-grid-cta plan-grid-box" style="width: 100%; height: 100%; background-color: white">
-                    <div class="cta-grid mt-3 text-center justify-content-center align-items-center">
-                        <h2 class="block-msg" style="color:  #7ea552">Plan Study Sessions</h2>
-                        <div class="col-12 cta-message d-flex justify-content-center align-content-center">
-                            <p class="cta-message">Pre-plan study sessions with a date and time by creating a post to be
-                                displayed on our community page for other's to see!
-                            </p>
-                        </div>
-<!--                        <a th:href="@{/sign-up}" type="button" class="btn btn-success">Register</a>-->
-                    </div>
-                </div>
-                <div class="grid-item home-grid-item" style="width: 100%; height: 100%"><img src="/img/13.png" width="100%" height="100%"/></div>
-                <div class="grid-item grid-item" style="width: 100%; height: 100%"><img src="/img/11.png" width="100%" height="100%"/></div>
-                <div class="grid-item home-grid-cta plan-grid-box" style="width: 100%; height: 100%; background-color: white">
-                    <div class="cta-grid mt-3 text-center justify-content-center align-items-center">
-                        <h2 class="block-msg rsvp-block" style="color:  #7ea552">RSVP</h2>
-                        <div class="col-12 cta-message d-flex justify-content-center align-content-center">
-                            <p class="cta-message">See a study session, code review, or peer interview prep that you would like
-                                attend? Just click the RSVP button to let the host know you're attending!
-                            </p>
-                        </div>
-<!--                        <a th:href="@{/sign-up}" type="button" class="btn btn-success">Register</a>-->
-                    </div>
-                </div>
-
-                <div class="grid-item home-grid-cta plan-grid-box" style="width: 100%; height: 100%; background-color: white">
-                    <div class="cta-grid mt-3 text-center justify-content-center align-items-center">
-                        <h2 class="block-msg connect-block" style="color:  #7ea552">Connect</h2>
-                        <div class="col-12 cta-message d-flex justify-content-center align-content-center">
-                            <p class="cta-message">Once your profile is created, follow other members of Social Code to
-                                keep up with their activity so you never miss an opportunity to
-                                network and study together!
-                            </p>
-                        </div>
-<!--                        <a th:href="@{/sign-up}" type="button" class="btn btn-success">Register</a>-->
-                    </div>
-                </div>
-                <div class="grid-item" style="width: 100%; height: 100%"><img src="/img/10.png" width="100%" height="100%"/></div>
+                <a th:href="@{/sign-up}" type="button" class="btn btn-success">Register</a>
             </div>
-        </section>
+            <div class="hero-top col-sm-12 col-md-7 text-center">
+                <div id="header-image">
+                    <img src="/img/9.png" width="80%"/></ul>
+                </div>
+            </div>
+        </div>
 
-        <section class="container bottom-center  d-flex justify-content-center align-items-center" style="background-color: white; height: 500px">
-            <div class="row community">
-                <div class="build-comm-logo col-sm-5 col-md-7 text-center"><img src="/img/SocialCode-01.png" width="60%"/></div>
-                    <div class="bottom-community col-sm-7 col-md-5 text-center d-flex justify-content-center align-items-center ">
+        <div class="card-deck home-card-deck d-flex justify-content-center align-content-center">
+            <div class="card home-card" style="max-width: 20rem; height: 11rem">
+                <div class="card-body col-7" style="max-width: 18rem;  height: 10rem">
+                    <h6 class="card-title hcard-content"> Study Sessions</h6>
+                    <div class="row">
+                        <div class="col-8">
+                            <p class="card-text home-card-text pb-2"
+                               style="font-family: 'Open Sans'; font-weight: lighter;">Create a event to study new
+                                concepts or have your code reviewed. </p>
+                        </div>
                         <div>
-                            <h1>Build Community</h1>
-                        <p class="build-comm">Social Code was founded on community, support, and career success! We feel it is important to offer a place where
-                        developers from around the world can connect and collaborate! We pride ourselves on creating a positive learning atmosphere
-                            regardless of skill level. <br> Welcome to Social Code!</p>
-                            <a th:href="@{/sign-up}" type="button" class="btn btn-success">Register</a>
+                            <i class="fas fa-laptop" style="color: #7ea552; font-size: 50px"></i>
+                        </div>
                     </div>
+
                 </div>
-
             </div>
-        </section>
-
-        <section class="container-fluid bottom-fold d-flex justify-content-center align-items-center" style="background-color: #576541;">
-            <div class="row" id="about-us">
-<!--                <div class="gif-container col-sm-12 col-md-7">-->
-<!--                     <img id="community-gif" src="/img/SocCodComm.gif" width="100%"/>-->
-<!--                 </div>-->
-                <div class="text-center d-flex justify-content-center align-items-center " id="about-message">
-                    <div class="meet-creators">
-                        <h1>Meet the Creators</h1>
-                        <a th:href="@{/about}" type="button" class="btn btn-success">About Us</a>
+            <div class="card home-card" style="max-width: 20rem; height: 11rem">
+                <div class="card-body col-7" style="max-width: 18rem;  height: 10rem">
+                    <h5 class="card-title hcard-content">Code Convos</h5>
+                    <div class="row">
+                        <div class="col-8">
+                            <p class="card-text home-card-text pb-4"
+                               style="font-family: 'Open Sans'; font-weight: lighter">Nervous about upcoming interviews?
+                                Practice interview questions with a peer.</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-user-tie ml-3" style="color: #7ea552; font-size: 50px"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+            <div class="card home-card" style="max-width: 20rem;  height: 11rem">
+                <div class="card-body  col-7" style="max-width: 18rem;  height: 10rem">
+                    <h5 class="card-title hcard-content">Online Community</h5>
+                    <div class="row">
+                        <div class="col-7">
+                            <p class="card-text home-card-text" style="font-family: 'Open Sans'; font-weight: lighter;">
+                                Find support for wherever you are on your learning journey.</p>
+                        </div>
+                        <div class="justify-content-center align-content-center">
+                            <i class="fas fa-users" style="color: #7ea552; font-size: 50px"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="center-green d-flex text-center justify-content-center align-items-center"
+             style="background-color: #576541;">
+        <div class="grid-container home-grid">
+            <div class="grid-item home-grid-cta plan-grid-box"
+                 style="width: 100%; height: 100%; background-color: white">
+                <div class="cta-grid mt-3 text-center justify-content-center align-items-center">
+                    <h2 class="block-msg" style="color:  #7ea552">Plan Study Sessions</h2>
+                    <div class="col-12 cta-message d-flex justify-content-center align-content-center">
+                        <p class="cta-message">Pre-plan study sessions at your convenience by creating event posts to be
+                            displayed on our community page for others to see!
+                        </p>
+                    </div>
+                    <!--                        <a th:href="@{/sign-up}" type="button" class="btn btn-success">Register</a>-->
+                </div>
+            </div>
+            <div class="grid-item home-grid-item" style="width: 100%; height: 100%"><img src="/img/13.png" width="100%"
+                                                                                         height="100%"/></div>
+            <div class="grid-item grid-item" style="width: 100%; height: 100%"><img src="/img/11.png" width="100%"
+                                                                                    height="100%"/></div>
+            <div class="grid-item home-grid-cta plan-grid-box"
+                 style="width: 100%; height: 100%; background-color: white">
+                <div class="cta-grid mt-3 text-center justify-content-center align-items-center">
+                    <h2 class="block-msg rsvp-block" style="color:  #7ea552">RSVP</h2>
+                    <div class="col-12 cta-message d-flex justify-content-center align-content-center">
+                        <p class="cta-message">See a study session, code review, or peer interview prep that you would
+                            like to
+                            attend? Just click the RSVP button to let the host know you're attending!
+                        </p>
+                    </div>
+                    <!--                        <a th:href="@{/sign-up}" type="button" class="btn btn-success">Register</a>-->
+                </div>
+            </div>
+
+            <div class="grid-item home-grid-cta plan-grid-box"
+                 style="width: 100%; height: 100%; background-color: white">
+                <div class="cta-grid mt-3 text-center justify-content-center align-items-center">
+                    <h2 class="block-msg connect-block" style="color:  #7ea552">Connect</h2>
+                    <div class="col-12 cta-message d-flex justify-content-center align-content-center">
+                        <p class="cta-message">Once your profile is created, follow other members of Social Code to
+                            keep up with their activity so you never miss an opportunity to
+                            network and study together!
+                        </p>
+                    </div>
+                    <!--                        <a th:href="@{/sign-up}" type="button" class="btn btn-success">Register</a>-->
+                </div>
+            </div>
+            <div class="grid-item" style="width: 100%; height: 100%"><img src="/img/10.png" width="100%" height="100%"/>
+            </div>
+        </div>
+    </section>
+
+    <section class="container bottom-center  d-flex justify-content-center align-items-center"
+             style="background-color: white; height: 500px">
+        <div class="row community">
+            <div class="bottom-community col-sm-5 col-md-7 d-flex justify-content-center align-items-center text-center">
+<!--                removed "build-comm-logo class from above-->
+                <div>
+                <img src="/img/SocialCode-01.png" width="60%"/>
+                </div>
+            </div>
+            <div class="bottom-community col-sm-7 col-md-5 text-center d-flex justify-content-center align-items-center ">
+                <div>
+                    <h1>Build Community</h1>
+                    <p class="build-comm">Social Code was founded on community, support, and career success! We feel it
+                        is important to offer a place where
+                        developers from around the world can connect and collaborate! We pride ourselves on creating a
+                        positive learning atmosphere
+                        regardless of skill level. <br> Welcome to Social Code!</p>
+                    <a th:href="@{/sign-up}" type="button" class="btn btn-success">Register</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container-fluid bottom-fold d-flex justify-content-center align-items-center"
+             style="background-color: #576541;">
+        <div class="row" id="about-us">
+            <!--                <div class="gif-container col-sm-12 col-md-7">-->
+            <!--                     <img id="community-gif" src="/img/SocCodComm.gif" width="100%"/>-->
+            <!--                 </div>-->
+            <div class="text-center d-flex justify-content-center align-items-center " id="about-message">
+                <div class="meet-creators">
+                    <h1>Meet the Developers</h1>
+                    <a th:href="@{/about}" type="button" class="btn btn-success">About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 <!-- added to able the dropdown menu -->
 <th:block th:replace="fragments/footer :: footer-script"></th:block>

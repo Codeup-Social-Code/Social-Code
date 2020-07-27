@@ -24,7 +24,7 @@
 
         <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
             <div class="card-body">
-                <label for="title">Title</label>
+                <label for="title">Title:</label>
                 <div>
                     <input type="text" name="title" cols="40" id="title" style="max-width: 100%" th:field="*{title}">
                 </div>
@@ -48,7 +48,7 @@
                         <option value="16">Other</option>
                     </select>
                 </div>
-                <label class="pt-2" for="body">Body</label>
+                <label class="pt-2" for="body">Body:</label>
                 <div>
                     <textarea type="text" name="body" id="body" rows="5" cols="40" style="max-width: 100%" th:field="*{body}">Body</textarea>
                 </div>
@@ -73,12 +73,12 @@
                     <div class="d-flex justify-content-center">
                         <div class="row">
                             <div class="col-sm-12 m-1">
-                                <label for="start_time" class="d-block">Start Time</label>
+                                <label for="start_time" class="d-block">Start Time:</label>
                                 <input id="start_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{start_time}">
                             </div>
 
                             <div class="col-sm-12 m-1">
-                                <label for="end_time"   class="d-block">End Time</label>
+                                <label for="end_time"   class="d-block">End Time:</label>
                                 <input id="end_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{end_time}">
                             </div>
                         </div>

@@ -1,5 +1,5 @@
 .aboutUs-email{
-    width: 16%;
+    width: 12%;
 }
 
 .aboutUs-row{
@@ -10,7 +10,7 @@
 
 @media screen and (min-width:768px) {
     .aboutUs-email{
-        width: 11%;
+        width: 12%;
     }
     .aboutUs-container{
         columns: 2;
@@ -33,7 +33,7 @@
 
 @media screen and (min-width:2000px) {
     .aboutUs-email{
-        width: 7%;
+        width: 12%;
     }
 
 

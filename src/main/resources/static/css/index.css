@@ -53,11 +53,6 @@ div#map {
     align-items: center;
 }
 
-/*label.map {*/
-/*    margin-bottom: 10px;*/
-/*    font-size: 2em;*/
-/*}*/
-
 .marker {
     background-image: url('img/Cody.png');
     background-size: cover;

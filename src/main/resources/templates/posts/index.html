@@ -73,8 +73,7 @@
 
                 <div class="allPosts-grid  card-columns col-12 col-lg-6 justify-content-end mt-5">
                     <div th:each="post : ${posts}">
-    <!--                    <div class="">-->
-                            <div class="card comm-post-card m-5">
+                            <div class="card comm-post-card m-5 h-100">
                                 <div class="card-header">
                                     <img id="all-image" class="image--cover all-profile-image" th:src="*{post.user.picture}" width="100%"/>
                                 </div>
@@ -97,7 +96,6 @@
                                         <a th:href="@{'/sign-up'}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Post</em></a> <br>
                                     </div>
                                 </th:block>
-    <!--                        </div>-->
                         </div>
                     </div>
                 </div>

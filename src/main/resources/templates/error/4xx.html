@@ -1,26 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      style="background-image: url('/img/Cody.png'); background-repeat: no-repeat; margin: 0 auto "
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head th:include="fragments/head :: head('Error 404')">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Error 404 URL Not Found</title>
 </head>
 <body>
-<header><nav th:replace="fragments/navbar :: navbar"></nav></header>
-<h1 style="color: #7ea552; text-align: center" id="e404-sry">Sorry, we couldn't find the page you were looking for</h1>
-<h2 style="color: #7ea552; text-align: center">Our SocialCoders are working HARD on it</h2>
-<a style="color: dodgerblue; text-align: center" href="/">Go back to Home page</a>
-<!--<h3>Watch a video instead</h3>-->
-<!--<iframe-->
-<!--        width="520"-->
-<!--        height="415"-->
-<!--        src=https://www.youtube.com/embed/9As4hvWHiko-->
-<!--        frameborder="0"-->
-<!--        allowfullscreen="allowfullscreen"-->
-<!--&gt;-->
-<!--</iframe>-->
-<th:block th:replace="fragments/footer :: footer-script"></th:block>
+    <header><nav th:replace="fragments/navbar :: navbar"></nav></header>
+        <h1 class="error-404">Sorry, we couldn't find the page you were looking for</h1>
+        <h2 class="error-404">Our SocialCoders are working HARD on it</h2>
+        <h3 class="error-404">
+            <a class="error-404" id="e404-anchor" href="/">Go back to Home page</a>
+        </h3>
+        <img class="error-duck" src="/img/Cody.png"/>
+    <th:block th:replace="fragments/footer :: footer-script"></th:block>
 </body>
 </html>

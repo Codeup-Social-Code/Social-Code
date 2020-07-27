@@ -1,25 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      style="background-image: url('/img/Cody.png'); background-repeat: no-repeat; margin: 0 auto "
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="fragments/head :: head('Error 500')">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Error 500 Internal Server</title>
-    <style>
-        html {
-            background-color: white;
-        }
-        /*div.fc-content span.fc-time {*/
-        /*    color: white;*/
-        /*}*/
-    </style>
 </head>
 <body>
 <header><nav th:replace="fragments/navbar :: navbar"></nav></header>
-    <h1 style="color: #7ea552; text-align: center">Something went wrong!</h1>
-    <h2 style="color: #7ea552; text-align: center">Our SocialCoders are working HARD on it</h2>
-    <a style="color: dodgerblue; text-align: center" href="/">Go back to Home page</a>
+    <h1 class="error-500">Something went wrong!</h1>
+    <h2 class="error-500">Our SocialCoders are working HARD on it</h2>
+    <h3 class="error-500">
+        <a class="error-500" id="e500-anchor" href="/">Go back to Home page</a>
+    </h3>
+    <img class="error-duck" src="/img/Cody.png"/>
 <th:block th:replace="fragments/footer :: footer-script"></th:block>
 </body>
 </html>

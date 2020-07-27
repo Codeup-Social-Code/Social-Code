@@ -32,7 +32,6 @@
     background-color: #7ea552;
 }
 
-
 .view-all-grid{
     display: flex;
 }
@@ -72,4 +71,16 @@
         object-position: center right;
     }
 
+}
+
+/*  To make it one line
+    And make them to right side */
+.nowrap{
+    display: inline-block;
+    white-space: nowrap;
+    /*float: right;*/
+}
+.text-inline-search-users{
+    /*position: center;*/
+   /*justify-content: right;*/
 }

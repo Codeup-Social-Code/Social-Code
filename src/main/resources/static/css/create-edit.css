@@ -46,12 +46,18 @@ body.create, body.edit, body.edit-profile {
     margin-left: 10px;
 }
 
- .edit-prof-github, .edit-prof-linkedin {
-     font-size: 16px;
+ .edit-prof-github{
+     font-size: 12px;
+     margin-left: -31px;
  }
 
-#edit-prof-gitHub, #edit-prof-linkedIn{
-    margin-left: 20px;
+    .edit-prof-linkedin{
+        font-size: 12px;
+        margin-left: -39px;
+    }
+
+  #edit-prof-gitHub, #edit-prof-linkedIn{
+
     margin-bottom: 5px;
     font-size: 13px;
 }
@@ -208,12 +214,9 @@ body.create, body.edit, body.edit-profile {
     }
 
     .edit-prof-city {
-        margin-left: 52px;
+        margin-left: 57px;
     }
 
-    #edit-prof-gitHub{
-        margin-left: 5px;
-    }
 
     #edit-prof-linkedIn{
         margin-left: -2px;
@@ -223,6 +226,13 @@ body.create, body.edit, body.edit-profile {
 
     .edit-prof-github, .edit-prof-linkedin {
         font-size: 14px;
+    }
+    .edit-prof-github{
+        margin-left: 10px;
+    }
+
+    .edit-prof-linkedin{
+        margin-left: 4px;
     }
 
     #bio{

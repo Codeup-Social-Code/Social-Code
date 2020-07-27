@@ -157,12 +157,17 @@
     <div>
         <div class="row text-center">
             <div class="col-md-6 mb-4 text-white" th:each="rsvp: ${rsvps}">
-
-                <h2 class="my-5 h2" th:text="${rsvp.user.firstName}">Basic example</h2>
-                <img class="image--cover" th:src="*{rsvp.user.picture}" width="100%"/>
+                <div>
+                    <h2 class="my-5 h2" th:text="${rsvp.user.firstName}">
+                        Basic example
+                    </h2>
+                    <img class="" th:src="*{rsvp.user.picture}" width="25%"/>
+                </div>
             </div>
         </div>
     </div>
+    <th:block th:if="${post}">
+    <th:block th:if="${currentUser.id != post.user.id}">
     <div>
         <form th:if="${post}" th:action="${'/posts/rsvp'}" th:method="POST">
             <input type="hidden" name="postId" th:value="${post.id}">
@@ -171,6 +176,8 @@
             </div>
         </form>
     </div>
+    </th:block>
+    </th:block>
 </div>
 
 <!--<div th:if="${post}">-->

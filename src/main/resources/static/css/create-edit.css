@@ -16,7 +16,7 @@ body.create, body.edit, body.edit-profile {
     font-size: 13px;
 }
 #edit-prof-firstName, #edit-prof-lastName {
-    margin-right: 30px;
+    margin-right: 32px;
 
 }
 
@@ -35,10 +35,9 @@ body.create, body.edit, body.edit-profile {
 
 .edit-prof-city{
     font-size: 13px;
+    margin-left: 10px;
 }
-#edit-prof-city {
-    margin-left: 9px;
-}
+
  .edit-prof-github, .edit-prof-linkedin {
      font-size: 16px;
  }
@@ -187,16 +186,16 @@ body.create, body.edit, body.edit-profile {
         }
 
     #edit-prof-firstName, #edit-prof-lastName {
-        margin-right: -9px;
+        margin-right: -6px;
 
     }
 
     .edit-prof-email{
-        margin-left: 40px;
+        margin-left: 43px;
     }
 
     .edit-prof-city {
-        margin-left: 43px;
+        margin-left: 52px;
     }
 
     #edit-prof-gitHub{
@@ -214,7 +213,7 @@ body.create, body.edit, body.edit-profile {
     }
 
     #bio{
-        font-size: 20px;
+        font-size: 14px;
     }
 
     #edit-prof-firstName, #edit-prof-lastName, #edit-prof-email,
@@ -228,7 +227,13 @@ body.create, body.edit, body.edit-profile {
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
 
+    body.create, body.edit, body.edit-profile {
+        height: 50vh;
 
+    }
+    #bio{
+        font-size: 15px;
+    }
 
 }
 
@@ -243,6 +248,8 @@ body.create, body.edit, body.edit-profile {
     .right-nav{
         margin-left: -62px;
     }
+
+
 
 }
 

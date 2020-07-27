@@ -110,6 +110,10 @@ public class UserController{
 
         User user = usersDao.getOne(id);
 
+//        if(logUser.getId() == user.getId()){
+            viewModel.addAttribute("isUser", logUser.getId() == user.getId() );
+//        }
+
         List<Post> userPosts = postsDao.findPostsByUser_Id(id);
         viewModel.addAttribute("userPosts", userPosts);
         viewModel.addAttribute("user", user);
@@ -127,6 +131,13 @@ public class UserController{
     public String saveFollower(@PathVariable long id) {
         User loggedInUser = usersService.loggedInUser();
         User userToFollow = usersDao.getOne(id);
+
+        for(User user: userToFollow.getFollowers()){
+            if(user.getId() == loggedInUser.getId()){
+                return "redirect:/users/" + userToFollow.getId();
+            }
+        }
+
         List <User> currentFollowers =  userToFollow.getFollowers();
         currentFollowers.add(loggedInUser);
         userToFollow.setFollowers(currentFollowers);

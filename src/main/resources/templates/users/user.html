@@ -54,7 +54,7 @@
                         <span class="d-flex followerCount align-items-end" style="font-size: 15px">Followers</span>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" th:if="${!isUser}">
                 <div class="col-12 d-flex justify-content-center align-items-center text-center">
                         <form th:action="@{'/user/' + ${user.id} + '/follow'}" th:method="POST">
                             <input  type="submit" id="follow-me" class="btn btn-success" style="color: white" value="Follow"></input>
@@ -67,22 +67,18 @@
 <!--<hr style="width: 50%">-->
 
 <!--example for displaying followers-->
-        <section class="container project-section">
-            <div class="row project-wrapper text-center">
-                <div class="text-center">
-                    <div class="profile-button-container text-center">
-                        <img src="/img/9.png" class="project-cover"/>
-                        <a class="text-center" href="#">+</a>
-                    </div>
-                    <img src="/img/8.png" class="project-cover"/>
-                </div>
-                <div class="text-center">
-                    <img src="/img/13.png" class="project-cover" />
-                    <img src="/img/7.png" class="project-cover"/>
-                </div>
-            </div>
-        </section>
+<!--        <section class="container project-section">-->
 
+            <section class="row project-wrapper text-center justify-content-center mt-5">
+                        <div class="ml-3" th:each="follower : ${user.getFollowers()}">
+                            <div class="text-center">
+                                <img id="listOfFollowers" th:src="${follower.picture}" alt="followerPic">
+                            </div>
+                            <div class="text-center">
+                                <a th:href="@{'/users/' + ${follower.id}}" th:text="${follower.firstName}"></a>
+                            </div>
+                        </div>
+            </section>
 
 
     <hr style="width: 50%">
@@ -90,23 +86,25 @@
     <div class="row text-center p-3 pb-5">
         <div class="col-12">
             <h3>Your posts</h3>
+            <a class="btn btn-success"  th:href="@{/posts/create}">Create Event</a>
         </div>
     </div>
     <section class="container posts-container text-center d-flex justify-content-center">
         <div class="row prof-post-row d-flex justify-content-center">
-                <div class="card col-12 col-md-4 prof-post-card text-center" th:each="post: ${userPosts}">
+                <div class="card prof-post-card text-center mb-3" th:each="post: ${userPosts}">
                     <img src="/img/11.png" width="100%"/>
-                    <div class="card-body">
+                    <div class="card-body text-center align-items-center">
                         <h5 class="card-title" th:text="${post.title}">Card title</h5>
                         <p class="card-text" th:text="${post.body}">This card has supporting text below as a natural lead-in to
                             additional content.</p>
-                        <!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
-                       <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success"><em>View Post</em></a> <br> 
-                      <div th:if="${#authentication.principal.id == post.user.id}">
-                        <form th:action="${'/posts/' + post.id + '/edit'}">
-                            <button class="btn btn-warning">EDIT</button>
-                        </form>
-                      </div>
+                    </div>
+                    <div>
+                        <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-success mb-3"><em>View Post</em></a> <br>
+                        <div th:if="${#authentication.principal.id == post.user.id}">
+                            <form th:action="${'/posts/' + post.id + '/edit'}">
+                                <button class="btn btn-warning mb-3">EDIT</button>
+                            </form>
+                        </div>
                     </div>
                </div>
             </div>

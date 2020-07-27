@@ -24,6 +24,8 @@
 
 .view-all-card{
     box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;
+    height: 630px;
+    text-align: center;
 }
 
 .view-all-card-header{

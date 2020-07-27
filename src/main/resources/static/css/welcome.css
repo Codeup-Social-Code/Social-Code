@@ -43,9 +43,29 @@ div.card-body.wel-card-body {
     #1, #2, #3 {
         font-size: 70px
     }
-    .get-going {
-        font-size: 40px;
-    }
+    /*.get-going {*/
+    /*    font-size: 40px;*/
+    /*}*/
+
+}
+
+
+
+
+@media screen and (min-width:768px) {
+
+
+
+}
+
+
+
+@media screen and (min-width:996px) {
+.get-going {
+    margin-left: 208px;
+    margin-right: 196px;
+}
+
 
 }
 
@@ -70,9 +90,9 @@ div.card-body.wel-card-body {
     #1, #2, #3 {
         font-size: 100px
     }
-    .get-going {
-        font-size: 80px;
-    }
+    /*.get-going {*/
+    /*    font-size: 80px;*/
+    /*}*/
 
 
 }

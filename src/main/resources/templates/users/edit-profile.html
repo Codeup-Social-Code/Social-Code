@@ -14,11 +14,11 @@
 
         <!-- Icon -->
         <div class="fadeIn first p-3">
-            <img src="/img/codeup-logo.png" width="30%"/>
+            <img src="/img/SocialCode-01.png" width="30%"/>
         </div>
 
         <!-- Login Form -->
-        <h5>Edit your profile:</h5>
+        <h3>Edit your profile</h3>
         <form th:action="@{/users/{id}/edit(id=${id})}" th:method="POST" th:object="${user}">
             <div class="card-body">
                 <input id="picture" name="picture" value="replaceme" th:field="*{picture}" type="hidden">
@@ -42,14 +42,14 @@
 
                     <!--         anchor-->
                     <label class="edit-prof-github" for="edit-prof-gitHub">GitHub URL</label>
-                    <input id="edit-prof-gitHub"  maxlength="1"  th:field="*{gitHub}"/>
+                    <input id="edit-prof-gitHub"  maxlength="50"  th:field="*{gitHub}"/>
                     <br>
                     <!--        anchor-->
                     <label class="edit-prof-linkedin" for="edit-prof-linkedIn">LinkedIn URL</label>
-                    <input id="edit-prof-linkedIn"  maxlength="10" th:field="*{linkedIn}"/>
+                    <input id="edit-prof-linkedIn"  maxlength="50" th:field="*{linkedIn}"/>
                     <br>
-                    <label class="mt-2" for="bio">Bio</label><br>
-                    <textarea  id="bio" type="text" rows="5" cols="28" th:field="*{bio}" name="edit-prof-bio" ></textarea>
+                    <label class="mt-2" for="bio">Tell us about yourself</label><br>
+                    <textarea  id="bio" type="text" rows="5" cols="35" th:field="*{bio}" name="edit-prof-bio" ></textarea>
                 </div>
 
                 <form th:action="${'/users/' + user.id + '/delete'}" th:method="POST">

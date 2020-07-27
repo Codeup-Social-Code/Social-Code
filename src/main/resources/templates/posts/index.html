@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Welcome</title>
 
+
+
 </head>
 <body class="community">
 <header><nav th:replace="fragments/navbar :: navbar"></nav></header>
@@ -104,7 +106,12 @@
 
 
 
-<th:block th:replace="fragments/footer :: footer-script"></th:block>
+
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="js/mapbox_map.js"></script>
+<th:block th:insert="fragments/footer :: footer-script"></th:block>
+
 </body>
 </html>
 

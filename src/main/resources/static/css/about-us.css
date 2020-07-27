@@ -2,12 +2,21 @@
     width: 16%;
 }
 
+.aboutUs-row{
+    margin-left: 14px;
+}
+
 
 
 @media screen and (min-width:768px) {
     .aboutUs-email{
-        width: 16%;
+        width: 11%;
     }
+    .aboutUs-container{
+        columns: 2;
+        background-color: white;
+    }
+
 
 
 
@@ -24,7 +33,7 @@
 
 @media screen and (min-width:2000px) {
     .aboutUs-email{
-        width: 12%;
+        width: 7%;
     }
 
 

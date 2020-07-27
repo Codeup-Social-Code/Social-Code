@@ -44,13 +44,13 @@
         <!-- Login Form -->
         <form th:action="@{/login}" method="post">
             <div class="card-header text-center" style="color: #576541">
-                <h3>Please Log In</h3>
+                <h3 style="font-family: 'Open Sans'; font-weight: normal">Please Log In</h3>
             </div>
             <div class="card-body login-card-body text-center">
-                <label for="username">Email</label>
+                <label style="font-family: 'Open Sans'; font-weight: normal" for="username">Email</label>
                 <input id="username" name="username" type="email" />
                 <br>
-                <label for="password">Password</label>
+                <label style="font-family: 'Open Sans'; font-weight: normal" for="password">Password</label>
                 <input class="login-password" id="password" name="password" type="password" />
                 <br>
                 <input class="btn btn-success mt-2" type="submit" value="Log In"/>

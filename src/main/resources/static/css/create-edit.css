@@ -175,7 +175,7 @@ body.create, body.edit, body.edit-profile {
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
-    body.create, body.edit, body.edit-profile {
+    body.create, body.edit-profile, body.edit-profile {
         height: 100vh;
 
     }
@@ -227,10 +227,15 @@ body.create, body.edit, body.edit-profile {
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
 
-    body.create, body.edit, body.edit-profile {
+    body.create{
         height: 50vh;
 
     }
+
+    body.edit-profile, body.edit{
+        height: 152vh;
+    }
+
     #bio{
         font-size: 15px;
     }
@@ -238,10 +243,15 @@ body.create, body.edit, body.edit-profile {
 }
 
 @media screen and (min-width:2200px) {
-    body.create, body.edit, body.edit-profile {
+    body.create{
         height: 50vh;
 
     }
+
+    body.edit, body.edit-profile {
+        height: 160vh;
+    }
+
     #createPost-header{
         font-size: 54px;
     }

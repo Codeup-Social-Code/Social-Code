@@ -18,7 +18,7 @@
         </div>
 
         <!-- Login Form -->
-        <h3>Edit your profile</h3>
+        <h3 style="font-family: 'Open Sans'" >Edit your profile</h3>
         <form th:action="@{/users/{id}/edit(id=${id})}" th:method="POST" th:object="${user}">
             <div class="card-body">
                 <input id="picture" name="picture" value="replaceme" th:field="*{picture}" type="hidden">
@@ -26,30 +26,30 @@
 
                 <div>
                     <label class="edit-prof-firstName" for="edit-prof-firstName">First Name</label>
-                    <input id="edit-prof-firstName" maxlength="10" th:field="*{firstName}"/>
+                    <input style="font-family: 'Open Sans'"  id="edit-prof-firstName" maxlength="10" th:field="*{firstName}"/>
                     <br>
                     <label class="edit-prof-lastName" for="edit-prof-lastName">Last Name</label>
-                    <input id="edit-prof-lastName"  maxlength="10" th:field="*{lastName}"/>
+                    <input style="font-family: 'Open Sans'"  id="edit-prof-lastName"  maxlength="10" th:field="*{lastName}"/>
                     <br>
                     <label class="edit-prof-email" for="edit-prof-email">Email</label>
-                    <input id="edit-prof-email" maxlength="10" th:field="*{username}"/>
+                    <input style="font-family: 'Open Sans'"  id="edit-prof-email" maxlength="10" th:field="*{username}"/>
                     <br>
 
                     <label class="edit-prof-city" for="edit-prof-city">City</label>
-                    <input id="edit-prof-city" maxlength="10" th:field="*{city}"/>
+                    <input style="font-family: 'Open Sans'"  id="edit-prof-city" maxlength="10" th:field="*{city}"/>
                 </div>
                 <div>
 
                     <!--         anchor-->
                     <label class="edit-prof-github" for="edit-prof-gitHub">GitHub URL</label>
-                    <input id="edit-prof-gitHub"  maxlength="50"  th:field="*{gitHub}"/>
+                    <input style="font-family: 'Open Sans'"  id="edit-prof-gitHub"  maxlength="50"  th:field="*{gitHub}"/>
                     <br>
                     <!--        anchor-->
                     <label class="edit-prof-linkedin" for="edit-prof-linkedIn">LinkedIn URL</label>
-                    <input id="edit-prof-linkedIn"  maxlength="50" th:field="*{linkedIn}"/>
+                    <input style="font-family: 'Open Sans'"  id="edit-prof-linkedIn"  maxlength="50" th:field="*{linkedIn}"/>
                     <br>
-                    <label class="mt-2" for="bio">Tell us about yourself</label><br>
-                    <textarea  id="bio" type="text" rows="5" cols="35" th:field="*{bio}" name="edit-prof-bio" ></textarea>
+                    <label class="mt-2" for="bio" style="font-family: 'Open Sans'; font-size: 18px" >Tell us about yourself</label><br>
+                    <textarea style="font-family: 'Open Sans'"   id="bio" type="text" rows="5" cols="35" th:field="*{bio}" name="edit-prof-bio" ></textarea>
                 </div>
 
                 <form th:action="${'/users/' + user.id + '/delete'}" th:method="POST">

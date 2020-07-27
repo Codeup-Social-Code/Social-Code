@@ -2,12 +2,8 @@
 .index-container{
     display: flex;
 }
-
-.comm-post-card{
-    margin: 10px;
-    width: 21rem;
-
-    box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;
+.row.content{
+    height: 5000px;
 }
 
 .index-btn{
@@ -38,8 +34,45 @@
     box-shadow: black -1px 10px 29px -3px;
 }
 
-.comm-post-card{
-    height: 455px;
+
+div#map {
+    margin: 0 auto;
+    margin-top: 3em;
+}
+
+
+#select-container #zoom-level {
+    width: 90px;
+    margin-left: 30px;
+
+}
+
+#select-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*label.map {*/
+/*    margin-bottom: 10px;*/
+/*    font-size: 2em;*/
+/*}*/
+
+.marker {
+    background-image: url('img/Cody.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+div.fc-content span.fc-time {
+    color: white;
+    background-color: #7ea552;
+}
+#calendar{
+    color: #4d5e34;
 }
 
 
@@ -61,29 +94,34 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
-    .header-fill{
+    .allPosts-grid{
+        columns: 2;
+    }
+    .header-fill {
         width: 663px;
         height: 235px;
         text-align: center;
     }
+
     .social-img {
         width: 85%;
     }
 
-    .plan-grid-box {
-        padding-top: 89px;
-    }
-
-    .home-logo{
-        padding-top: 80px;
-    }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
+    #map   {
+        width: 270px;
+        height: 270px;
+    }
 
+    #calendar{
+        width: 100%;
+        margin-left: 0px;
+    }
 
-.header-fill{
+    .header-fill{
     width: 922px;
     height: 250px;
   }
@@ -95,6 +133,16 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width:1200px) {
+
+    #map   {
+        width: 500px;
+        height: 500px;
+    }
+
+    #calendar{
+        width: 70%;
+        margin-left: 89px;
+    }
 
     .header-border {
         height: 490px
@@ -117,6 +165,17 @@
 
 
 @media screen and (min-width:2200px) {
+
+    #calendar{
+        width: 70%;
+        margin-left: 130px;
+        color: #4d5e34;
+    }
+
+    div.fc-content, span.fc-time {
+        color: white;
+        background-color: #7ea552;
+    }
 
     .header-border {
         height: 500px

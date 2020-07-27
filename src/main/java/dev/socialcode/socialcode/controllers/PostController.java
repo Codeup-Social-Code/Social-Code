@@ -55,14 +55,14 @@ public class PostController {
             for(Category category: categories) {
                 newTerm = category.getId();
             }
-            List<Post> results = postsDao.searchByCategoryId(newTerm);
-            model.addAttribute("results", results);
-            return "posts/index-search";
+            List<Post> posts = postsDao.searchByCategoryId(newTerm);
+            model.addAttribute("posts", posts);
+            return "posts/index";
         }
 
-        List<Post> results = postsDao.searchByTerm(term);
-        model.addAttribute("results", results);
-        return "posts/index-search";
+        List<Post> posts = postsDao.searchByTerm(term);
+        model.addAttribute("posts", posts);
+        return "posts/index";
     }
 
 //    Single Post View

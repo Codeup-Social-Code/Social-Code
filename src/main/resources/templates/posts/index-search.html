@@ -10,7 +10,7 @@
 <body>
 
 <div class="container">
-    <th:block th:if="${results.size() == 0}">
+    <th:block th:if="${posts.size() == 0}">
         <p>No Posts Found</p>
     </th:block>
     <div th:each="post, iterStat : ${results}" class="box" th:id=" 'masonry' + ${iterStat.count}">

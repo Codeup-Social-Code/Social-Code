@@ -17,6 +17,11 @@
     </div>
 </section>
 
+<th:block th:if="${posts.size() == 0}">
+    <h1 class="text-center p-5">No Posts Found</h1>
+    <a class="d-block text-center text-success" href="/posts">Go Back</a>
+</th:block>
+
 <!--        <div th:each="post, iterStat : ${posts}" class="box" th:id=" 'masonryIndex' + ${iterStat.count}">-->
 <!--            <div class="row" th:style="${iterStat.odd}? 'width: 35rem' :'width: 18rem; height: 35rem;'">-->
 <!--                <div class="cards col-6" >-->
@@ -66,7 +71,11 @@
 <!--                                <a th:href="@{'/posts/' + ${post.id} + '/edit'}" style="font-size: 10px;  background-color: #df855f; color: white;  border: dimgrey 1px solid; border-radius: 5px; padding: 3px; margin: 15px 0px 0px 0px;">Delete</a>-->
                          <!--   </div>-->
                        <!-- </div>-->
- 
+<!--<th:block th:if="${posts.size() != 0}">-->
+<!--   -->
+<!--        <a  th:href="@{'/posts'}" class="btn index-btn btn-sm mt-2" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px">Clear</a>-->
+
+<!--</th:block>-->
 
 
 <div class="container-fluid text-center index-container">

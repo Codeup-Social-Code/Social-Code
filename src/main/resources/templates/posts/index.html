@@ -59,14 +59,17 @@
         <div class="row content">
             <div class="d-flex col-5 sidenav d-none d-md-none d-lg-block justify-content-start mt-5">
                 <p>
+                <h3 class="text-center mt-5 mb-3 d-none d-md-none d-lg-block ">Calendar of Events</h3>
+                <div id='calendar' class="shadow p-3 mb-5 bg-white rounded text-center"></div>
                 <h3 class="text-center mt-5 mb-3 d-none d-md-none d-lg-block ">Social Code Community</h3>
                 <div id='map' class="border border-success shadow p-3 mb-5 bg-white rounded d-none d-md-none d-lg-block "></div>
+
                 </p>
 
 
         </div>
 
-                <div class="allPosts-grid  card-columns col-12 col-lg-6 justify-content-end">
+                <div class="allPosts-grid  card-columns col-12 col-lg-6 justify-content-end mt-5">
                     <div th:each="post : ${posts}">
     <!--                    <div class="">-->
                             <div class="card comm-post-card m-5">

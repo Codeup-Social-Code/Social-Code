@@ -3,7 +3,7 @@
     display: flex;
 }
 .row.content{
-    height: auto;
+    height: 5000px;
 }
 /*.comm-post-card{*/
 /*    margin: 10px;*/
@@ -47,13 +47,13 @@ div#map {
 }
 
 
-h2 {
-    text-align: center;
-    font-family: sans-serif;
-    border: 1px solid #000;
-    background: #000;
-    color: #fff;
-}
+/*h2 {*/
+/*    text-align: center;*/
+/*    font-family: sans-serif;*/
+/*    border: 1px solid #000;*/
+/*    background: #000;*/
+/*    color: #fff;*/
+/*}*/
 
 #select-container #zoom-level {
     width: 90px;
@@ -82,7 +82,17 @@ label {
 }
 
 
+div.fc-content span.fc-time {
+    color: white;
+    background-color: #7ea552;
+}
+#calendar{
+    color: #4d5e34;
+}
 
+.shadow {
+    color: #4d5e34;
+}
 
 /* Small devices (phones and pocket devices, 576 and up) */
 @media screen and (min-width:425px) {
@@ -124,6 +134,10 @@ label {
         height: 270px;
     }
 
+    #calendar{
+        width: 100%;
+        margin-left: 0px;
+    }
 
     .header-fill{
     width: 922px;
@@ -143,6 +157,10 @@ label {
         height: 500px;
     }
 
+    #calendar{
+        width: 70%;
+        margin-left: 89px;
+    }
 
     .header-border {
         height: 490px

@@ -23,9 +23,14 @@
 
         <div class="container">
 
-            <div th:if="${userNameResult.size() == 0}">
-                <p>User was not found</p>
-            </div>
+            <th:block th:if="${userNameResult.size() == 0}">
+                <h1 class="text-center p-5">No User Found</h1>
+                <div  class="text-center">
+                    <a th:href="@{'/users/view-all'}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px">
+                        <em>Go back</em>
+                    </a>
+                </div>
+            </th:block>
 
             <div class="container-fluid text-center">
                 <div class="row content justify-content-center">

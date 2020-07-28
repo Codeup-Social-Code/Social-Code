@@ -8,45 +8,40 @@
 <nav th:replace="fragments/navbar :: navbar"/>
 
 
-<div class="wrapper edit-profile-wrapper fadeInDown">
-    <div id="edit-profile-formContent">
-        <!-- Tabs Titles -->
 
-        <!-- Icon -->
+<div class="wrapper edit-profile-wrapper fadeInDown">
+    <h1 class="text-center mb-3" style="font-family: 'Open Sans'; color: white" >Fill out the form to edit your profile:</h1>
+    <div id="edit-profile-formContent">
         <div class="fadeIn first p-3">
             <img src="/img/SocialCode-01.png" width="30%"/>
         </div>
 
-        <!-- Login Form -->
-        <h3 style="font-family: 'Open Sans'" >Edit your profile</h3>
         <form th:action="@{/users/{id}/edit(id=${id})}" th:method="POST" th:object="${user}">
             <div class="card-body">
                 <input id="picture" name="picture" value="replaceme" th:field="*{picture}" type="hidden">
-                <button class="mb-5" type="button" id="upload" name="upload">Upload an image</button>
+                <button class="mb-4" type="button" id="upload" name="upload">Upload an image</button>
 
                 <div>
-                    <label class="edit-prof-firstName" for="edit-prof-firstName">First Name</label>
-                    <input style="font-family: 'Open Sans'"  id="edit-prof-firstName" maxlength="10" th:field="*{firstName}"/>
+                    <label class="edit-prof-label" for="edit-prof-firstName">First Name</label>
+                    <input class="edit-prof-field"  style="font-family: 'Open Sans'"  id="edit-prof-firstName" maxlength="10" th:field="*{firstName}"/>
                     <br>
-                    <label class="edit-prof-lastName" for="edit-prof-lastName">Last Name</label>
-                    <input style="font-family: 'Open Sans'"  id="edit-prof-lastName"  maxlength="10" th:field="*{lastName}"/>
+                    <label class="edit-prof-label" for="edit-prof-lastName">Last Name</label>
+                    <input class="edit-prof-field"  style="font-family: 'Open Sans'"  id="edit-prof-lastName"  maxlength="10" th:field="*{lastName}"/>
                     <br>
-                    <label class="edit-prof-email" for="edit-prof-email">Email</label>
-                    <input style="font-family: 'Open Sans'"  id="edit-prof-email" maxlength="10" th:field="*{username}"/>
+                    <label class="edit-prof-label"  for="edit-prof-email">Email</label>
+                    <input class="edit-prof-field"  style="font-family: 'Open Sans'"  id="edit-prof-email" maxlength="10" th:field="*{username}"/>
                     <br>
 
-                    <label class="edit-prof-city" for="edit-prof-city">City</label>
-                    <input style="font-family: 'Open Sans'"  id="edit-prof-city" maxlength="10" th:field="*{city}"/>
-                </div>
-                <div>
-
+                    <label class="edit-prof-label" for="edit-prof-city">City</label>
+                    <input class="edit-prof-field"  style="font-family: 'Open Sans'"  id="edit-prof-city" maxlength="10" th:field="*{city}"/>
+                    <br>
                     <!--         anchor-->
-                    <label class="edit-prof-github" for="edit-prof-gitHub">GitHub URL</label>
-                    <input style="font-family: 'Open Sans'"  id="edit-prof-gitHub"  maxlength="50"  th:field="*{gitHub}"/>
+                    <label class="edit-prof-label"  for="edit-prof-gitHub">GitHub</label>
+                    <input class="edit-prof-field"  style="font-family: 'Open Sans'"  id="edit-prof-gitHub" placeholder="url link"    maxlength="50"  th:field="*{gitHub}"/>
                     <br>
                     <!--        anchor-->
-                    <label class="edit-prof-linkedin" for="edit-prof-linkedIn">LinkedIn URL</label>
-                    <input style="font-family: 'Open Sans'"  id="edit-prof-linkedIn"  maxlength="50" th:field="*{linkedIn}"/>
+                    <label class="edit-prof-label"  for="edit-prof-linkedIn">LinkedIn</label>
+                    <input class="edit-prof-field"  style="font-family: 'Open Sans'"  id="edit-prof-linkedIn" placeholder="url link"  maxlength="50" th:field="*{linkedIn}"/>
                     <br>
                     <label class="mt-2" for="bio" style="font-family: 'Open Sans'; font-size: 18px" >Tell us about yourself</label><br>
                     <textarea style="font-family: 'Open Sans'"   id="bio" type="text" rows="5" cols="35" th:field="*{bio}" name="edit-prof-bio" ></textarea>

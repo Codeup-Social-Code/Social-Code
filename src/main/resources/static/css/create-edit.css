@@ -80,10 +80,15 @@ body.create, body.edit, body.edit-profile {
 }
 
 #end_date_time{
-    margin-right: 1.1px;
+    margin-right: 1px;
 }
 #start_date_time{
-    margin-left: 7.1px;
+    margin-left: 7px;
+
+}
+
+.dateTime{
+    margin-top: 9px;
 }
 
 /* ANIMATIONS */

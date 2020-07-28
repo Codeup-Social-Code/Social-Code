@@ -57,13 +57,13 @@
                         <div class="row">
                             <div class="col-sm-12 text-center">
                                 <div class="text-center">
-                                    <label for="start_date_time" class="d-block"  style="font-family: 'Open Sans'" >Start Date:</label>
+                                    <label for="start_date_time" class="d-block dateTime"  style="font-family: 'Open Sans'" >Start Date:</label>
                                     <input id="start_date_time" style="font-family: 'Open Sans'"  type="date" name="start_date_time" th:field="*{start_date_time}">
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div>
-                                    <label style="font-family: 'Open Sans'"  for="end_date_time" class="d-block" >End Date:</label>
+                                    <label style="font-family: 'Open Sans'"  for="end_date_time" class="d-block dateTime" >End Date:</label>
                                     <input style="font-family: 'Open Sans'"  id="end_date_time" type="date" name="end_date_time" th:field="*{end_date_time}">
                                 </div>
                             </div>
@@ -72,13 +72,13 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="row">
-                            <div class="col-sm-12 m-1">
-                                <label style="font-family: 'Open Sans'"  for="start_time" class="d-block">Start Time:</label>
+                            <div class="col-sm-12">
+                                <label style="font-family: 'Open Sans'"  for="start_time" class="d-block dateTime">Start Time:</label>
                                 <input style="font-family: 'Open Sans'"  id="start_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{start_time}">
                             </div>
 
-                            <div class="col-sm-12 m-1">
-                                <label style="font-family: 'Open Sans'"  for="end_time"   class="d-block">End Time:</label>
+                            <div class="col-sm-12">
+                                <label style="font-family: 'Open Sans'"  for="end_time"   class="d-block dateTime">End Time:</label>
                                 <input style="font-family: 'Open Sans'"  id="end_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{end_time}">
                             </div>
                         </div>

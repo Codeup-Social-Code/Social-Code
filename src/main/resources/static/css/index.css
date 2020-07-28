@@ -194,6 +194,10 @@ div.fc-content span.fc-time {
         margin-left: 130px;
         color: #4d5e34;
     }
+    .eventCalbtn{
+        margin-left: 413px;
+        box-shadow: 10px 10px 10px rgba(31, 31, 31, 0.24);
+    }
 
     div.fc-content, span.fc-time {
         color: white;

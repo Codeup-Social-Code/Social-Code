@@ -11,100 +11,65 @@
 <body class="community">
 <header><nav th:replace="fragments/navbar :: navbar"></nav></header>
 
-    <section class="header-border d-flex justify-content-center align-items-center" style="background-color: #576541; ">
-        <div class="header-fill d-flex justify-content-center align-items-center" style="background-color: #876A3B;">
-            <div class="social">
-                <img class="social-img" src="/img/Social-lg.png"/>
-            </div>
-        </div>
-    </section>
-
-    <th:block th:if="${posts.size() == 0}">
-        <h1 class="text-center p-5">No Posts Found</h1>
-        <a class="d-block text-center text-success" href="/posts">Go Back</a>
-    </th:block>
-
-<!--<div class="container-fluid text-center index-container">-->
-<!--    <div class="row justify-content-center pt-5">-->
-<!--        <div th:each="post : ${posts}">-->
-<!--            <div class="card comm-post-card ">-->
-<!--                    <div class="card-header">-->
-<!--                        <img id="all-image" class="image&#45;&#45;cover all-profile-image" th:src="*{post.user.picture}" width="100%"/>-->
-<!--                    </div>-->
-<!--                    <div class="card-body">-->
-<!--                        <h3 th:text="${post.title}" style="color: #7ea552;">Title</h3>-->
-<!--                        <div th:text="${post.body}">Description</div>-->
-<!--                        <th:block th:each="cat : ${post.categories}">-->
-<!--                            <div>Category: <span th:text="${cat.name}"></span></div>-->
-<!--                        </th:block>-->
-<!--                    </div>-->
-<!--&lt;!&ndash;                Log in users &ndash;&gt;-->
-<!--                <th:block sec:authorize="isAuthenticated()">-->
-<!--                    <div class="card-footer text-center" style="background-color: #7ea552; box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;">-->
-<!--                        <a sec:authorize="isAuthenticated()" th:href="@{'/posts/' + ${post.id}}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Post</em></a> <br>-->
-<!--                    </div>-->
-<!--                </th:block>-->
-<!--&lt;!&ndash;             for visitor &ndash;&gt;-->
-<!--                <th:block sec:authorize="!isAuthenticated()">-->
-<!--                    <div class="card-footer text-center" style="background-color: #7ea552; box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;">-->
-<!--                        <a th:href="@{'/sign-up'}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Post</em></a> <br>-->
-<!--                    </div>-->
-<!--                </th:block>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
-
-    <div class="container-fluid text-center justify-content-center ">
-        <div class="row content">
-            <div class="d-flex col-5 sidenav d-none d-md-none d-lg-block justify-content-start mt-5">
-                <p>
-<!--                <a th:href="@{/calendar}" type="button">-->
-<!--                    <h3 class="text-center mt-5 mb-3 d-none d-md-none d-lg-block ">Calendar of Events</h3>-->
-<!--                </a>-->
-                <a th:href="@{'/calendar'}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>Calendar of Events</em></a> <br>
-                <div id='calendar' class="shadow p-3 mb-5 bg-white rounded text-center"></div>
-                <h3 class="text-center mt-5 mb-3 d-none d-md-none d-lg-block ">Social Code Community</h3>
-                <div id='map' class="border border-success shadow p-3 mb-5 bg-white rounded d-none d-md-none d-lg-block "></div>
-
-                </p>
-
-
-        </div>
-
-                <div class="allPosts-grid  card-columns col-12 col-lg-6 justify-content-end mt-5">
-                    <div th:each="post : ${posts}">
-                            <div class="card comm-post-card m-5" >
-                                <div class="card-header" style="background-color: #7ea552">
-                                    <img id="all-image" class="image--cover all-profile-image" th:src="*{post.user.picture}" width="100%"/>
-                                </div>
-                                <div class="card-body">
-                                    <h3 th:text="${post.title}" style="color: #7ea552;">Title</h3>
-                                    <th:block sec:authorize="isAuthenticated()">
-                                        <div>
-                                            <a sec:authorize="isAuthenticated()" th:href="@{'/posts/' + ${post.id}}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Event</em></a> <br>
-                                        </div>
-                                    </th:block>
-
-                                    <th:block sec:authorize="!isAuthenticated()">
-                                        <div>
-                                            <a th:href="@{'/sign-up'}" class="btn index-btn btn-sm m-3" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Event</em></a> <br>
-                                        </div>
-                                    </th:block>
-
-                                    <div style="font-family: 'Open Sans'; font-weight: lighter"  th:text="${post.body}">Description</div>
-                                    <th:block th:each="cat : ${post.categories}">
-                                        <div>Category: <span th:text="${cat.name}"></span></div>
-                                    </th:block>
-                                </div>
-                                <!--                Log in users -->
-                        </div>
-                    </div>
-                </div>
+<section class="header-border d-flex justify-content-center align-items-center" style="background-color: #576541; ">
+    <div class="header-fill d-flex justify-content-center align-items-center" style="background-color: #876A3B;">
+        <div class="social">
+            <img class="social-img" src="/img/Social-lg.png"/>
         </div>
     </div>
+</section>
+
+<th:block th:if="${posts.size() == 0}">
+    <h1 class="text-center p-5">No Posts Found</h1>
+    <a class="d-block text-center text-success" href="/posts">Go Back</a>
+</th:block>
+
+<div class="container-fluid comm-post-container text-center justify-content-center ">
+    <div class="row content">
+        <div class="d-flex col-5 sidenav d-none d-md-none d-lg-block justify-content-start mt-5">
+            <div class=" d-none d-md-none d-lg-block text-center justify-content-center">
+                <a href="/calendar" class="eventCalbtn btn btn-sm  text-center mt-5 mb-3 d-none d-md-none d-lg-block" style="background-color: #ffde59; color: black; width: 150px; border-radius: 5px">Calendar of Events</a>
+    <!--            <div id='calendar' class="d-none d-md-none d-lg-block shadow p-3 mb-5 bg-white rounded text-center"></div>-->
+                <h3 class="text-center mt-5 mb-3 d-none d-md-none d-lg-block ">Social Code Community</h3>
+                <div id='map' class="border border-success shadow p-3 mb-5 bg-white rounded d-none d-md-none d-lg-block "></div>
+            </div>
+
+
+        </div>
+
+        <div class="allPosts-grid  card-columns col-12 col-lg-6 justify-content-end">
+            <div th:each="post : ${posts}">
+                <div class="card comm-post-card" >
+                    <div class="card-header" style="background-color: #7ea552">
+                        <img id="all-image" class="image--cover all-profile-image" th:src="*{post.user.picture}" width="100%"/>
+                    </div>
+                    <div class="card-body">
+                        <h3 th:text="${post.title}" style="color: #7ea552;">Title</h3>
+                        <th:block sec:authorize="isAuthenticated()">
+                            <div>
+                                <a sec:authorize="isAuthenticated()" th:href="@{'/posts/' + ${post.id}}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Event</em></a> <br>
+                            </div>
+                        </th:block>
+
+                        <th:block sec:authorize="!isAuthenticated()">
+                            <div>
+                                <a th:href="@{'/sign-up'}" class="btn index-btn btn-sm m-3" style="background-color: #ffde59; color: black;  border-radius: 5px; margin-bottom: 3px"><em>View Event</em></a> <br>
+                            </div>
+                        </th:block>
+
+                        <div style="font-family: 'Open Sans'; font-weight: lighter"  th:text="${post.body}">Description</div>
+                        <th:block th:each="cat : ${post.categories}">
+                            <div>Category: <span th:text="${cat.name}"></span></div>
+                        </th:block>
+                    </div>
+                    <!--                Log in users -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 

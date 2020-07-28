@@ -2,17 +2,26 @@
 .index-container{
     display: flex;
 }
-.row.content{
-    height: 5000px;
+.allPosts-grid{
+    margin-left: 32px;
+}
+.comm-post-container{
+    float: top;
 }
 
 .comm-post-card{
-    width: 25rem;
+    margin-top: 50px;
+    width: 13rem;
     height: 20rem;
     overflow: hidden;
     padding-bottom: 10px;
+    box-shadow: 10px 10px 10px rgba(31, 31, 31, 0.39);
 }
 
+.eventCalbtn{
+    margin-left: 213px;
+    box-shadow: 10px 10px 10px rgba(31, 31, 31, 0.24);
+}
 
 .index-btn{
     box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;
@@ -99,6 +108,9 @@ div.fc-content span.fc-time {
 @media screen and (min-width:768px) {
     .allPosts-grid{
         columns: 2;
+        margin-left: 0px;
+        margin-top: 10px;
+
     }
     .header-fill {
         width: 663px;
@@ -168,6 +180,14 @@ div.fc-content span.fc-time {
 
 
 @media screen and (min-width:2200px) {
+
+    .comm-post-card{
+        width: 25rem;
+        height: 20rem;
+        overflow: hidden;
+        padding-bottom: 10px;
+    }
+
 
     #calendar{
         width: 70%;

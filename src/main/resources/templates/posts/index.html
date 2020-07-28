@@ -61,7 +61,10 @@
         <div class="row content">
             <div class="d-flex col-5 sidenav d-none d-md-none d-lg-block justify-content-start mt-5">
                 <p>
-                <h3 class="text-center mt-5 mb-3 d-none d-md-none d-lg-block ">Calendar of Events</h3>
+<!--                <a th:href="@{/calendar}" type="button">-->
+<!--                    <h3 class="text-center mt-5 mb-3 d-none d-md-none d-lg-block ">Calendar of Events</h3>-->
+<!--                </a>-->
+                <a th:href="@{'/calendar'}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>Calendar of Events</em></a> <br>
                 <div id='calendar' class="shadow p-3 mb-5 bg-white rounded text-center"></div>
                 <h3 class="text-center mt-5 mb-3 d-none d-md-none d-lg-block ">Social Code Community</h3>
                 <div id='map' class="border border-success shadow p-3 mb-5 bg-white rounded d-none d-md-none d-lg-block "></div>

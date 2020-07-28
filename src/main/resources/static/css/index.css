@@ -2,17 +2,25 @@
 .index-container{
     display: flex;
 }
-.row.content{
-    height: 5000px;
+
+.comm-post-container{
+    float: top;
 }
 
 .comm-post-card{
-    width: 25rem;
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 13rem;
     height: 20rem;
     overflow: hidden;
     padding-bottom: 10px;
+    box-shadow: 10px 10px 10px rgba(31, 31, 31, 0.39);
 }
 
+.eventCalbtn{
+    margin-left: 213px;
+    box-shadow: 10px 10px 10px rgba(31, 31, 31, 0.24);
+}
 
 .index-btn{
     box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;
@@ -97,8 +105,15 @@ div.fc-content span.fc-time {
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
+    .comm-post-card{
+        margin-left: 0px;
+
+    }
     .allPosts-grid{
         columns: 2;
+        margin-left: 0px;
+        margin-top: 10px;
+
     }
     .header-fill {
         width: 663px;
@@ -169,10 +184,22 @@ div.fc-content span.fc-time {
 
 @media screen and (min-width:2200px) {
 
+    .comm-post-card{
+        width: 25rem;
+        height: 20rem;
+        overflow: hidden;
+        padding-bottom: 10px;
+    }
+
+
     #calendar{
         width: 70%;
         margin-left: 130px;
         color: #4d5e34;
+    }
+    .eventCalbtn{
+        margin-left: 413px;
+        box-shadow: 10px 10px 10px rgba(31, 31, 31, 0.24);
     }
 
     div.fc-content, span.fc-time {

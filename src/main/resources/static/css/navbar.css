@@ -32,6 +32,12 @@
      font-size: 9px;
  }
 
+ #search-box1{
+     float: left;
+     width: 70%;
+     font-size: 9px;
+ }
+
 
  #nav-login {
      font-size: 10px;
@@ -100,6 +106,9 @@
     #search-box{
         width: 100px;
     }
+    #search-box1{
+        width: 100px;
+    }
     #search-icon{
         display: flex;
         font-size: 16px;
@@ -160,6 +169,10 @@
 
         font-size: 14px;
     }
+    #search-box1{
+
+        font-size: 14px;
+    }
 
 }
 
@@ -180,6 +193,11 @@
     }
 
     #search-box{
+        float: left;
+        width: 70%;
+        font-size: 15px;
+    }
+    #search-box1{
         float: left;
         width: 70%;
         font-size: 15px;
@@ -235,6 +253,12 @@
     }
 
     #search-box{
+        float: left;
+        width: 70%;
+        font-size: 20px;
+    }
+
+    #search-box1{
         float: left;
         width: 70%;
         font-size: 20px;

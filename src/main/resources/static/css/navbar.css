@@ -188,7 +188,7 @@
     #search-icon.fa-search {
         display: flex;
         border-width: .5px;
-        font-size: 20px;
+        font-size: 24px;
 
     }
 
@@ -243,7 +243,7 @@
     #search-icon{
         display: flex;
        border-width: .5px;
-        font-size: 31.3px;
+        font-size: 32.3px;
         /*color: #444242;*/
     }
 

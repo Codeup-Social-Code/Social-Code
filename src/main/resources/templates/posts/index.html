@@ -76,31 +76,30 @@
 
                 <div class="allPosts-grid  card-columns col-12 col-lg-6 justify-content-end mt-5">
                     <div th:each="post : ${posts}">
-    <!--                    <div class="">-->
-                            <div class="card comm-post-card m-5">
-                                <div class="card-header">
+                            <div class="card comm-post-card m-5" >
+                                <div class="card-header" style="background-color: #7ea552">
                                     <img id="all-image" class="image--cover all-profile-image" th:src="*{post.user.picture}" width="100%"/>
                                 </div>
                                 <div class="card-body">
                                     <h3 th:text="${post.title}" style="color: #7ea552;">Title</h3>
+                                    <th:block sec:authorize="isAuthenticated()">
+                                        <div>
+                                            <a sec:authorize="isAuthenticated()" th:href="@{'/posts/' + ${post.id}}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Event</em></a> <br>
+                                        </div>
+                                    </th:block>
+
+                                    <th:block sec:authorize="!isAuthenticated()">
+                                        <div>
+                                            <a th:href="@{'/sign-up'}" class="btn index-btn btn-sm m-3" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Event</em></a> <br>
+                                        </div>
+                                    </th:block>
+
                                     <div style="font-family: 'Open Sans'; font-weight: lighter"  th:text="${post.body}">Description</div>
                                     <th:block th:each="cat : ${post.categories}">
                                         <div>Category: <span th:text="${cat.name}"></span></div>
                                     </th:block>
                                 </div>
                                 <!--                Log in users -->
-                                <th:block sec:authorize="isAuthenticated()">
-                                    <div class="card-footer text-center" style="background-color: #7ea552; box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;">
-                                        <a sec:authorize="isAuthenticated()" th:href="@{'/posts/' + ${post.id}}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Event</em></a> <br>
-                                    </div>
-                                </th:block>
-
-                                <th:block sec:authorize="!isAuthenticated()">
-                                    <div class="card-footer text-center" style="background-color: #7ea552; box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;">
-                                        <a th:href="@{'/sign-up'}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Post</em></a> <br>
-                                    </div>
-                                </th:block>
-    <!--                        </div>-->
                         </div>
                     </div>
                 </div>

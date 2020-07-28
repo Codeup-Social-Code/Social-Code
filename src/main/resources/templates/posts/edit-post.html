@@ -7,21 +7,27 @@
 <body class="create bg-white">
 <nav th:replace="fragments/navbar :: navbar" />
 
-<div class="container create-container text-center bg-white">
-    <div class="card create-card" th:if="${currentUser.id == post.user.id}">
+<div class="card create-card" th:if="${currentUser.id == post.user.id}">
+<div class="wrapper create-wrapper fadeInDown">
+    <div id="create-formContent">
+        <!-- Tabs Titles -->
 
-        <h4 style="font-family: 'Open Sans'"  class="p-5">Fill out the form to create your post.</h4>
+        <!-- Icon -->
+        <div class="fadeIn first p-3">
+            <img src="/img/SocialCode-01.png" width="40%"/>
+        </div>
+
+        <!-- Login Form -->
 
         <form th:action="@{'/posts/' + ${post.id} + '/edit'}" th:method="POST" th:object="${post}">
             <div class="card-body">
-                <label style="font-family: 'Open Sans'"  for="title">Title</label>
-                <div>
-                    <input style="font-family: 'Open Sans'; width: 300px"  type="text" name="title" id="title" th:field="*{title}">
+                <div class="ml-3">
+                    <label class="d-flex flex-start" style="font-family: 'Open Sans'"  for="title">Title:</label>
+                    <input type="text" class="d-block d-flex flex-start" name="title" cols="40" id="title" style="width: 90%; font-family: 'Open Sans'" th:field="*{title}">
                 </div>
-
-                <div>
-                    <label class="category mt-3" for="category" style="font-family: 'Open Sans'" >Category</label>
-                    <select name="category" id="category" style="font-family: 'Open Sans'" >
+                <div class="mt-2 mr-2 ml-3" style="font-family: 'Open Sans'" >
+                    <label class="category d-flex flex-start" for="category" style="font-family: 'Open Sans'" >Category</label>
+                    <select name="category" id="category" style="font-family: 'Open Sans'; width: 92%" class="d-block d-flex flex-start">
                         <option value="1">Javascript</option>
                         <option value="2">Java</option>
                         <option value="3">Bootstrap</option>
@@ -39,48 +45,66 @@
                         <option value="16">Other</option>
                     </select>
                 </div>
-
-                <label style="font-family: 'Open Sans'"  for="body">Body</label>
                 <div>
-                    <textarea style="font-family: 'Open Sans'"  type="text" name="body" id="body" rows="15" cols="50" th:field="*{body}">Body</textarea>
-                </div>
-                <div class="d-flex flex-column justify-content-center">
-                    <div class="d-flex justify-content-center">
-                        <div>
-                            <label style="font-family: 'Open Sans'; margin-right: 55px  "  for="start_date_time" class="d-block">Start Date:</label>
-                            <input class="mr-2"  style="font-family: 'Open Sans'"  id="start_date_time" type="date" name="start_date_time" th:field="*{start_date_time}">
-                        </div>
 
-                        <div>
-                            <label style="font-family: 'Open Sans'; margin-right: 55px"  for="end_date_time" class="d-block">End Date:</label>
-                            <input   style="font-family: 'Open Sans'"  id="end_date_time" type="date" name="end_date_time" th:field="*{end_date_time}">
-                        </div>
-
+                    <div class="ml-3">
+                        <label class="pt-2 d-flex flex-start" for="body" style="font-family: 'Open Sans'" >Body:</label>
+                        <textarea type="text" class="d-block d-flex flex-start" name="body" id="body" rows="5" cols="42" style="max-width: 100%; font-family: 'Open Sans'" th:field="*{body}">Body</textarea>
                     </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div>
-                            <label style="font-family: 'Open Sans'; margin-right: 55px "  for="start_time" class="d-block" >Start Time</label>
-                            <input class="mr-2"  style="font-family: 'Open Sans'"  id="start_time" type="time" step='1' min="00:00" max="24:00" name="eventTime" th:field="*{start_time}">
+                    <div class="d-flex flex-column flex-start pt-2">
+                        <div class="d-flex flex-start">
+                            <div class="row">
+                                <div class="col-sm-6 ">
+                                    <div class="">
+                                        <label for="start_date_time" class="d-block d-flex flex-start ml-1"  style="font-family: 'Open Sans'" >Start Date:</label>
+                                        <input id="start_date_time" style="font-family: 'Open Sans'" class="d-block d-flex flex-start ml-1" type="date" name="start_date_time" th:field="*{start_date_time}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 ml-1">
+                                    <div>
+                                        <label style="font-family: 'Open Sans'"  for="end_date_time" class="d-block d-flex flex-start" >End Date:</label>
+                                        <input style="font-family: 'Open Sans'"  id="end_date_time" class="d-block d-flex flex-start" type="date" name="end_date_time" th:field="*{end_date_time}">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div>
-                            <label style="font-family: 'Open Sans'; margin-right: 55px "  for="end_time"   class="d-block">End Time</label>
-                            <input  style="font-family: 'Open Sans'"  id="end_time" type="time" step='1' min="00:00" max="24:00" name="eventTime" th:field="*{end_time}">
+                        <div class="d-flex flex-start pt-2">
+                            <div class="row">
+                                <div class="col-sm-6 ml-1">
+                                    <label style="font-family: 'Open Sans'"  for="start_time" class="d-block d-flex flex-start">Start Time:</label>
+                                    <input style="font-family: 'Open Sans'" class="d-block d-flex flex-start pl-3 pr-3" id="start_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{start_time}">
+                                </div>
+
+                                <div class="col-sm-5 ">
+                                    <label style="font-family: 'Open Sans'"  for="end_time"   class="d-block d-flex flex-start">End Time:</label>
+                                    <input style="font-family: 'Open Sans'" class="d-block d-flex flex-start pl-3 pr-2" id="end_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{end_time}">
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
 
             </div>
-            <input class="btn btn-success mb-2" value="Save" type="submit"/>
+            <div class="mb-4">
+                <input class="btn btn-success mb-2" value="Save" type="submit"/>
+                <form th:action="${'/posts/' + post.id + '/delete'}" th:method="POST">
+                    <button class="btn btn-alert mt-2" id="delete-alert-post" th:class="alert" th:onclick="this.parentElement.style.display=='none'">Delete</button>
+                </form>
+            </div>
+
         </form>
-        <form th:action="${'/posts/' + post.id + '/delete'}" th:method="POST">
-            <button class="btn btn-success mt-2" id="delete-alert-post" th:class="alert" th:onclick="this.parentElement.style.display=='none'">Delete</button>
-        </form>
+
+
     </div>
 </div>
+</div>
+
+
 <th:block th:replace="fragments/footer :: footer-script"></th:block>
+  
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

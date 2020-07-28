@@ -12,54 +12,46 @@ body.create, body.edit, body.edit-profile {
     font-size: 25px;
 }
 
-.edit-prof-firstName{
-    font-size: 13px;
+.category-title{
+   font-size: 14px;
 }
-#edit-prof-firstName, #edit-prof-lastName {
-    margin-right: 32px;
-
-}
-
-.edit-prof-lastName{
-    font-size: 13px;
+#category-field{
+    font-size: 14px;
+    margin-left: -2px;
 }
 
-.edit-prof-email{
-    font-size: 13px;
-    margin-right: 11px
-}
-
-#edit-prof-email{
-    margin-left: -11px;
-}
-
-.edit-prof-city{
-    font-size: 13px;
-    margin-left: 10px;
-}
-
- .edit-prof-github, .edit-prof-linkedin {
-     font-size: 16px;
- }
-
-#edit-prof-gitHub, #edit-prof-linkedIn{
-    margin-left: 20px;
-    margin-bottom: 5px;
-    font-size: 13px;
-}
 #createPost-header{
     font-size: 30px;
 }
 
 #bio{
     font-size: 13px;
+    width: 236px;
 }
 
-#edit-prof-firstName, #edit-prof-lastName, #edit-prof-email,
-#edit-prof-city {
-    font-size: 13px;
+.edit-prof-field {
+    font-size: 12px;
+    width: 161px;
+
 }
 
+.edit-prof-label{
+    width: 70px;
+    text-align: left;
+    font-size: 12px;
+}
+
+#editProfEmail {
+    margin-left: 26px;
+}
+#editProfCity{
+    margin-left: 35px;
+}
+
+
+#linkedInEditProf{
+    margin-left: -8px;
+}
 
 /* STRUCTURE */
 
@@ -87,7 +79,17 @@ body.create, body.edit, body.edit-profile {
     text-align: center;
 }
 
+#end_date_time{
+    margin-right: 1px;
+}
+#start_date_time{
+    margin-left: 7px;
 
+}
+
+.dateTime{
+    margin-top: 9px;
+}
 
 /* ANIMATIONS */
 
@@ -181,36 +183,6 @@ body.create, body.edit, body.edit-profile {
     }
 
 
-    .edit-prof-firstName, .edit-prof-lastName, .edit-prof-email, .edit-prof-city, edit-prof-github, .edit-prof-linkedin {
-        font-size: 16px;
-        }
-
-    #edit-prof-firstName, #edit-prof-lastName {
-        margin-right: -6px;
-
-    }
-
-    .edit-prof-email{
-        margin-left: 43px;
-    }
-
-    .edit-prof-city {
-        margin-left: 52px;
-    }
-
-    #edit-prof-gitHub{
-        margin-left: 5px;
-    }
-
-    #edit-prof-linkedIn{
-        margin-left: -2px;
-        /*margin-bottom: 5px;*/
-        font-size: 13px;
-    }
-
-    .edit-prof-github, .edit-prof-linkedin {
-        font-size: 14px;
-    }
 
     #bio{
         font-size: 14px;
@@ -255,6 +227,14 @@ body.create, body.edit, body.edit-profile {
     #createPost-header{
         font-size: 54px;
     }
+
+    .category-title{
+        margin-left: 6px;
+    }
+    #category-field{
+        margin-left: 11px;
+    }
+
     .right-nav{
         margin-left: -62px;
     }

@@ -6,6 +6,14 @@
     height: 5000px;
 }
 
+.comm-post-card{
+    width: 25rem;
+    height: 20rem;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+
 .index-btn{
     box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;
 }
@@ -53,11 +61,6 @@ div#map {
     align-items: center;
 }
 
-/*label.map {*/
-/*    margin-bottom: 10px;*/
-/*    font-size: 2em;*/
-/*}*/
-
 .marker {
     background-image: url('img/Cody.png');
     background-size: cover;
@@ -68,8 +71,8 @@ div#map {
 }
 
 div.fc-content span.fc-time {
-    color: white;
-    background-color: #7ea552;
+    color: #4d5e34;
+    background-color: #e8efdf;
 }
 #calendar{
     color: #4d5e34;

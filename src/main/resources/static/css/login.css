@@ -1,22 +1,10 @@
 
 #username{
-    margin-right: -18px;
+    margin-right: -31px;
 }
 
-#password{
-    margin-right: 12px;
-}
 
-/* Small devices (phones and pocket devices, 576 and up) */
-@media screen and (min-width:576px) {
-    #username{
-        margin-right: 16px;
-    }
 
-    #password{
-        margin-right: 46px;
-    }
-}
 
 @media screen and (min-width:2200px) {
 

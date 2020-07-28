@@ -88,7 +88,7 @@
 
                             <div class="col-sm-5 ">
                                 <label style="font-family: 'Open Sans'"  for="end_time"   class="d-block d-flex flex-start">End Time:</label>
-
+                                <input style="font-family: 'Open Sans'" class="d-block d-flex flex-start pl-3 pr-2" id="end_time" type="time" step='1' min="00:00" max="24:00:00" name="eventTime" th:field="*{end_time}">
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
     </div>
 </div>
 
-<th:block th:replace="fragments/footer :: footer-script"></th:block>
+
 
 
 
@@ -118,5 +118,6 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--<th:block th:replace="fragments/footer :: footer-script"></th:block>-->
 </body>
 </html>

@@ -48,10 +48,10 @@
             </div>
             <div class="card-body login-card-body text-center">
                 <label style="font-family: 'Open Sans'; font-weight: normal" for="username">Email</label>
-                <input id="username" name="username" type="email" />
+                <input id="username" name="username" type="email" th:required="required" />
                 <br>
                 <label style="font-family: 'Open Sans'; font-weight: normal" for="password">Password</label>
-                <input class="login-password" id="password" name="password" type="password" />
+                <input class="login-password" id="password" name="password" type="password" minlength="5" th:required="required" />
                 <br>
                 <input class="btn btn-success mt-2" type="submit" value="Log In"/>
             </div>

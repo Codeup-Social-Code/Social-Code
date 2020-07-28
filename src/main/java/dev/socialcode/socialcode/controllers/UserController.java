@@ -74,7 +74,7 @@ public class UserController{
             return "users/sign-up";
         }
 
-        String defaultPicture = "https://cdn.filestackcontent.com/BcZSk17pQpqr53GFURA6";
+        String defaultPicture = "https://cdn.filestackcontent.com/Ymz4UCXgTmy3fUhGcWmV";
         String hash = passwordEncoder.encode(user.getPassword());
         String hashForConfirm = passwordEncoder.encode(user.getPasswordToConfirm());
         user.setPassword(hash);

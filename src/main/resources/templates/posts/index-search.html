@@ -1,36 +1,86 @@
-<!DOCTYPE html >
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/head :: head('Social Code')">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Welcome</title>
 
-</head>
-<header><nav th:replace="fragments/navbar :: navbar"></nav></header>
-<body>
 
-<div class="container">
-    <th:block th:if="${posts.size() == 0}">
-        <p>No Posts Found</p>
-    </th:block>
-    <div th:each="post, iterStat : ${results}" class="box" th:id=" 'masonry' + ${iterStat.count}">
-        <div class="card p-5 mt-5 text-center" style="width: 18rem">
-            <img th:src="@{/img/9.png}" class="card-img-top"  th:id="'image' + ${iterStat.count} "/>
-            <div class="card-body p-5">
-                <h3 th:text="${post.title}">Title</h3>
-                <div th:text="${post.body}">Description</div>
-                <div th:text="${post.user.username}">Email</div>
-                <th:block th:each="cat : ${post.categories}">
-                    <div >Category: <span th:text="${cat.name}"></span></div>
-                </th:block>
-                <div class="read mt-3" style="font-size: 18px"><a th:href="@{'/posts/' + ${post.id}}" class="btn btn-success"><em>Read more..</em></a></div>
+
+</head>
+<body class="community">
+<header><nav th:replace="fragments/navbar :: navbar"></nav></header>
+
+<section class="header-border d-flex justify-content-center align-items-center" style="background-color: #576541; ">
+    <div class="header-fill d-flex justify-content-center align-items-center" style="background-color: #876A3B;">
+        <div class="social">
+            <img class="social-img" src="/img/Social-lg.png"/>
+        </div>
+    </div>
+</section>
+
+<th:block th:if="${posts.size() == 0}">
+    <h1 class="text-center p-5">No Posts Found</h1>
+    <div  class="text-center">
+        <a th:href="@{'/posts'}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px">
+            <em>Go back</em>
+        </a>
+    </div>
+</th:block>
+
+<th:block th:if="${posts.size() != 0}">
+    <h1 class="text-center p-5">Search Results</h1>
+    <div class="text-center">
+         <a th:href="@{'/posts'}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px">
+             <em>Clear</em>
+         </a>
+    </div>
+</th:block>
+
+<div class="container-fluid text-center justify-content-center ">
+
+
+        <div class="allPosts-grid  card-columns col-12 col-lg-6 justify-content-end mt-5">
+            <div th:each="post : ${posts}">
+                <!--                    <div class="">-->
+                <div class="card comm-post-card m-5">
+                    <div class="card-header">
+                        <img id="all-image" class="image--cover all-profile-image" th:src="*{post.user.picture}" width="100%"/>
+                    </div>
+                    <div class="card-body">
+                        <h3 th:text="${post.title}" style="color: #7ea552;">Title</h3>
+                        <div style="font-family: 'Open Sans'; font-weight: lighter"  th:text="${post.body}">Description</div>
+                        <th:block th:each="cat : ${post.categories}">
+                            <div>Category: <span th:text="${cat.name}"></span></div>
+                        </th:block>
+                    </div>
+                    <!--                Log in users -->
+                    <th:block sec:authorize="isAuthenticated()">
+                        <div class="card-footer text-center" style="background-color: #7ea552; box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;">
+                            <a sec:authorize="isAuthenticated()" th:href="@{'/posts/' + ${post.id}}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Event</em></a> <br>
+                        </div>
+                    </th:block>
+
+                    <th:block sec:authorize="!isAuthenticated()">
+                        <div class="card-footer text-center" style="background-color: #7ea552; box-shadow: rgba(9, 0, 0, 0.28) 10px 10px 10px;">
+                            <a th:href="@{'/sign-up'}" class="btn index-btn btn-sm" style="background-color: #ffde59; color: black; border: gray 1px solid; border-radius: 5px; margin-bottom: 3px"><em>View Post</em></a> <br>
+                        </div>
+                    </th:block>
+                    <!--                        </div>-->
+                </div>
             </div>
         </div>
     </div>
-
 </div>
 
-<th:block th:replace="fragments/footer :: footer-script"></th:block>
-</body>
 
+
+
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="js/mapbox_map.js"></script>
+<th:block th:insert="fragments/footer :: footer-script"></th:block>
+
+</body>
 </html>
+

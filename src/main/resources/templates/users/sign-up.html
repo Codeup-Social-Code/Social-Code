@@ -25,24 +25,24 @@
                     </div>
                     <div class="card-body signup-card-body text-center">
                         <label for="sign-up-firstName">First Name</label>
-                        <input id="sign-up-firstName" name="firstName" th:field="*{firstName}" />
+                        <input id="sign-up-firstName" name="firstName" th:field="*{firstName}" minlength="1" th:required="required" />
                         <br>
                         <label for="sign-up-lastName">Last Name</label>
-                        <input id="sign-up-lastName" name="lastName" th:field="*{lastName}" />
+                        <input id="sign-up-lastName" name="lastName" th:field="*{lastName}" minlength="1" th:required="required" />
                         <br>
                         <label class="signupEmail" for="sign-up-Email">Email</label>
-                        <input id="sign-up-Email" name="username" th:class="validate" th:field="*{username}" />
+                        <input id="sign-up-Email" name="username" th:class="validate" th:field="*{username}" minlength="1" th:required="required" />
                         <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
                         <br>
                         <label class="signupPassword" for="sign-up-Password">Password</label>
-                        <input id="sign-up-Password" name="password" type="password" th:class="validate" th:field="*{password}" />
+                        <input id="sign-up-Password" name="password" type="password" th:class="validate" th:field="*{password}" minlength="5" th:required="required" />
                         <br>
                         <label for="passwordToConfirm">Confirm</label>
-                        <input id="passwordToConfirm" name="passwordToConfirm" type="password" />
+                        <input id="passwordToConfirm" name="passwordToConfirm" type="password" minlength="5" th:required="required" />
                         <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                         <br>
                         <label class="signup-city" for="sign-up-city">City</label>
-                        <input id="sign-up-city" name="city" th:field="*{city}" />
+                        <input id="sign-up-city" name="city" th:field="*{city}" minlength="1" th:required="required" />
                         <br>
                         <form th:class="alert" th:action="${'/users/' + user.id + '/delete'}" th:method="POST">
                             <input id="register-alert" th:onclick="this.parentElement.style.display=='none'" class="btn register-btn signup-register-btn btn-success alert" type="submit" value="Register"/>

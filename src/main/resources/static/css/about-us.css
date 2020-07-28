@@ -2,6 +2,10 @@
     width: 12%;
 }
 
+.aboutUs-codeup{
+    width: 11%;
+}
+
 .aboutUs-row{
     margin-left: 14px;
 }
@@ -12,6 +16,11 @@
     .aboutUs-email{
         width: 12%;
     }
+
+    .aboutUs-codeup{
+        width: 11%;
+    }
+
     .aboutUs-container{
         columns: 2;
         background-color: white;
@@ -27,7 +36,9 @@
     .aboutUs-email{
         width: 12%;
     }
-
+    .aboutUs-codeup{
+        width: 11%;
+    }
 
 }
 
@@ -36,6 +47,8 @@
         width: 12%;
     }
 
-
+    .aboutUs-codeup{
+        width: 11%;
+    }
 
 }
